@@ -61,7 +61,20 @@ html {
     color: black;
     font-size: 12px;
   }
-  
+  .remember-password{
+   color: white;
+   float: right;
+   font-size: 0.8em;
+   cursor: pointer;
+   font-family: system-ui;
+  }
+ .register{
+   color: white;
+   float: left;
+   font-size: 0.8em;
+   cursor: pointer;
+   font-family: system-ui;
+  }
   .login-box form a {
     position: relative;
     display: inline-block;
@@ -73,7 +86,9 @@ html {
     overflow: hidden;
     transition: .5s;
     margin-top: 40px;
-    letter-spacing: 4px
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
   }
   
   .login-box a:hover {
