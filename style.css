@@ -169,3 +169,26 @@ html {
   .black1{
     color: #000;
   }
+    /*estilo dos submits do cadastro, login e formulário */
+  .login-box form #enviar{
+  position: relative;
+  display: inline-block;
+  padding: 3px 3px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  letter-spacing: 4px;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+}
+.botao{
+  cursor: pointer;
+}
