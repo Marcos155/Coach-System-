@@ -39,6 +39,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms</title>
     <link rel="stylesheet" href="style_coach.css">
+     <style>
+      p{
+        position: relative;
+        top:0;
+        left: 0;
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: .5s;
+      }
+    </style>
 </head>
 
 <body>
@@ -60,6 +71,7 @@
       </div>
     
       <div class="user-box">
+        <p>Data de Conclusão</p>
         <input type="date" name="data" required>
       </div>
     
