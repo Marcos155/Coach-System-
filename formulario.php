@@ -1,6 +1,8 @@
 <?php
   session_start();
-      // print_r($_SESSION);
+  include_once('config.php');
+     
+  // print_r($_SESSION);
   if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
       {
           unset($_SESSION['email']);
@@ -8,6 +10,12 @@
           header('Location:login.php');
       }
       $logado = $_SESSION['email'];
+
+      $sql = "SELECT * FROM formulario ORDER BY cod DESC";
+      $result = $conexao_forms->query($sql);
+
+      //print_r($result);
+
   if(isset($_POST['submit']))
   {
     // print_r('nome:' . $_POST['username']);
@@ -39,7 +47,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forms</title>
     <link rel="stylesheet" href="style_coach.css">
-     <style>
+    <style>
       p{
         position: relative;
         top:0;
