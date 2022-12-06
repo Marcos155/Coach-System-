@@ -1,8 +1,7 @@
 <?php
   session_start();
   include_once('config.php');
-     
-  // print_r($_SESSION);
+
   if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
       {
           unset($_SESSION['email']);
@@ -14,27 +13,17 @@
       $sql = "SELECT * FROM formulario ORDER BY cod DESC";
       $result = $conexao_forms->query($sql);
 
-      //print_r($result);
 
   if(isset($_POST['submit']))
   {
-    // print_r('nome:' . $_POST['username']);
-    // print_r('<br>');
-    // print_r('meta:' . $_POST['meta']);
-    // print_r('<br>');
-    // print_r('data:' . $_POST['data']);
-    // print_r('<br>');
-    // print_r('status:' . $_POST['status']);
     
     include_once('config.php');
-
-    $nome= $_POST['username'];
     $meta= $_POST['meta'];
     $data= $_POST['data'];
     $status= $_POST['status'];
 
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(nome,meta,data_conclusao,status_meta) 
-    VALUES ('$nome','$meta','$data','$status')");
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,data_conclusao,status_meta) 
+    VALUES ('$meta','$data','$status')"); 
 
   }
  ?> 
@@ -67,13 +56,9 @@
     <div class="d-flex">
         <a href="sair.php">sair</a>
     </div>
-
+    <br>
     <form action="formulario.php" method="post">
-      <div class="user-box">
-        <input type="text" name="username" required>
-        <label>Nome </label>
-      </div>
-      <div class="user-box">
+    <div class="user-box">
         <input type="text" name="meta" required>
         <label>Meta </label>
       </div>

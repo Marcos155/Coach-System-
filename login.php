@@ -23,14 +23,14 @@
         top: 0;
         right: 20px;
         transform: translate(-50%);
-        background: url('./img/fecha.png');
+        background: url('./assets/images/fecha.png');
         background-size: cover;
         width: 25px;
         height: 25px;
         cursor: pointer;
     }
     #img_senha.hide{
-        background: url('./img/abre.png');
+        background: url('./assets/images/abre.png');
         background-size: cover;
 }
   </style>

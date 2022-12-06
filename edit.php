@@ -13,7 +13,6 @@
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-            $nome= $user_data ['nome'];
             $meta= $user_data ['meta'];
             $data= $user_data ['data_conclusao'];
             $status= $user_data ['status_meta'];
@@ -85,8 +84,7 @@
     
     <form action="save_edit.php" method="post">
       <div class="user-box">
-        <input type="text" name="username" value="<?php echo $nome ?>" required>
-        <label>Nome </label>
+
       </div>
       <div class="user-box">
         <input type="text" name="meta" value="<?php echo $meta ?>" required>

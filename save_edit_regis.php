@@ -11,7 +11,7 @@
         $telefone= $_POST['phone'];
         $sexo= $_POST['sexo']; 
 
-        $sqlupdate = "UPDATE cadastro SET nome='$nome',email='$email',senha='$senha',telefone='$telefone',senha='$senha'
+        $sqlupdate = "UPDATE cadastro SET nome='$nome',email='$email',senha='$senha',telefone='$telefone',sexo='$sexo'
         WHERE cod='$cod' ";
         $result2 = $conexao_regis->query($sqlupdate);
     }

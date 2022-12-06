@@ -45,14 +45,14 @@
         top: 0;
         right: 20px;
         transform: translate(-50%);
-        background: url('./img/fecha.png');
+        background: url('./assets/images/fecha.png');
         background-size: cover;
         width: 25px;
         height: 25px;
         cursor: pointer;
     }
     #img_senha.hide{
-        background: url('./img/abre.png');
+        background: url('./assets/images/abre.png');
         background-size: cover;
     }
     .login-box form #update{
@@ -103,13 +103,13 @@
     </div>
     <br>
     <br>
-    <input type="radio" id="feminino" name="sexo" value="feminino" <?php echo ($sexo == 'feminino')?'checked': '' ?>required>
+    <input type="radio" id="feminino" name="sexo" value="feminino"<?php echo ($sexo == 'feminino') ? 'checked' : '' ?>required>
     <label class="escolha">Feminino</label>
     
-    <input type="radio" id="masculino" name="sexo" value="masculino" <?php echo ($sexo == 'masculino')?'checked': '' ?>required>
+    <input type="radio" id="masculino" name="sexo" value="masculino" <?php echo ($sexo == 'masculino') ? 'checked' : '' ?>required>
     <label class="escolha">Masculino</label>
   
-    <input type="radio" id="outro" name="sexo" value="outro" <?php echo ($sexo == 'outro')?'checked': '' ?>required>
+    <input type="radio" id="outro" name="sexo" value="outro" <?php echo ($sexo == 'outro') ? 'checked' : '' ?>required>
     <label class="escolha">Outro</label>
     <br>
     <br>
