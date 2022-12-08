@@ -17392,7 +17392,6 @@ p.white {
   box-shadow: 0 0 0 2px;
   top: 8px;
   left: 2px;
-  background: url(../images/banner1.png);
 }
 
 .gg-sun,
@@ -17979,7 +17978,7 @@ div#small-dialog iframe {
   border: none;
   outline: none;
   cursor: pointer;
-  color: #060606;
+  color: var(--bg-color);
   width: 40px;
   height: 40px;
   background: var(--secondary-color);
