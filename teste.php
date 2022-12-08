@@ -8,14 +8,8 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
     $email = $_POST['email'];
     $senha = $_POST['password'];
 
-    // print_r('Email: '. $email);
-    // print_r('<br>');
-    // print_r('Senha: '. $senha);
-
     $sql = "SELECT * FROM cadastro WHERE email = '$email' and senha = '$senha'";
     $result = $conexao_regis->query($sql);
-    // print_r($sql);
-    // print_r($result);
     
     if(mysqli_num_rows($result)<1)
     {
@@ -27,7 +21,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
     {
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
-        header('Location:formulario.php');
+        header('Location:index.html');
     } 
 }
 else
