@@ -85,16 +85,16 @@
   <h2>Cadastro</h2>
   <form action="save_edit_regis.php" method="post">
     <div class="user-box">
-      <input type="text" name="username"  value="<?php echo $nome ?>"required>
+      <input type="text" name="username"  value="<?php echo $nome ?>" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required>
       <label>Nome</label>
     </div>
     <div class="user-box">
-      <input type="text" name="email"  value="<?php echo $email ?>"required>
+      <input type="email" name="email"  value="<?php echo $email ?>"  placeholder="99-99999-9999" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required>
       <label>Email</label>
     </div>
     
     <div class="user-box">
-      <input type="text" name="phone"  value="<?php echo $telefone ?>"required>
+      <input type="tel" name="phone"  value="<?php echo $telefone ?>"required>
       <label>Telefone</label>
     </div>
     

@@ -62,17 +62,17 @@
   <h2>Cadastro</h2>
   <form action="register.php" method="post">
     <div class="user-box">
-      <input type="text" name="username" required>
+      <input type="text" name="username" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required>
       <label>Nome</label>
     </div>
     <div class="user-box">
-      <input type="text" name="email" required>
+      <input type="email" name="email" required>
       <label>Email</label>
     </div>
     
     <div class="user-box">
-      <input type="text" name="phone" required>
-      <label>Telefone</label>
+      <input type="tel" name="phone" placeholder="99-99999-9999" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" required>
+      <label >Telefone</label>
     </div>
     
     <div class="user-box">
@@ -118,7 +118,7 @@
             tipo.type = "password";
             img_senha.classList.remove('hide')
         }
-    }
+    }     
   </script>
 </body>
 </html>
