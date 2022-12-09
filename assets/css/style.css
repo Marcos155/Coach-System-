@@ -9,10 +9,16 @@ body {
   border: 0;
   font-family: sans-serif;
 }
+.login{
+  width: 30%;
+  height: 48.1vw;
+  position: relative;
+  float: right;
+  margin-right: 0%;
+}
 .login-box {
     position: absolute;
     top: 50%;
-    left: 50%;
     width: 400px;
     padding: 40px;
     transform: translate(-50%, -50%);
