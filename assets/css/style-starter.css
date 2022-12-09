@@ -18376,7 +18376,7 @@ button.search-btn:hover {
   .navbar-toggler-icon.fa {
     font-size: 20px;
     line-height: 1.2em;
-    background: var(--secondary-color);
+    background: white;
     line-height: 34px;
   }
 
