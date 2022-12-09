@@ -1,8 +1,16 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
-<!doctype html>
+<?php 
+session_start();
+include_once('config.php');
+
+if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+{
+    unset($_SESSION['email']);
+    unset($_SESSION['senha']);
+    header('Location:login.php');
+}
+
+?>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -103,12 +111,20 @@ Author URL: http://w3layouts.com
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    
                         <ul class="navbar-nav ml-lg-auto">
                             <li class="nav-item active">
                                 <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
                             </li>
+
+                               
                             <li class="nav-item">
-                                <a class="nav-link" href="login.php">entrar</a>
+                                <a class="nav-link" href='sistema.php'>Conta</a>
+                            </li>
+
+                           
+                            <li class="nav-item">
+                                <a class="nav-link" href="sair.php">Sair</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.html">Entre em contato</a>
@@ -124,6 +140,7 @@ Author URL: http://w3layouts.com
                             </div>
                             <!-- //search button -->
                         </ul>
+                     
                     </div>
                     <!-- //search button -->
                     <!-- toggle switch for light and dark theme -->
@@ -164,7 +181,7 @@ Author URL: http://w3layouts.com
                                 te acomponhará nessa jornada de concluir suas metas, sejam elas financeiras, físicas,
                                 emocionais etc...
                                 assista ao video ao lado e veja como começar este processo </p>
-                            <a href="planos.html" class="btn btn-style mt-4">Começar agora</a>
+                            <a href="formulario.php" class="btn btn-style mt-4">Preencha o formulário</a>
                         </div>
                         <div class="col-lg-6 history-info mt-5 pt-lg-0 pt-5">
                             <div class="position-relative img-border">
@@ -241,7 +258,7 @@ Author URL: http://w3layouts.com
             </div>
         </section>
         <div class="w-100 p-3 h-25 d-inline-block">
-            <p class="text-center"><a href="planos.html" class="btn btn-style mt-4 ">Começar agora</a></p>
+            <p class="text-center"><a href="formulario.php" class="btn btn-style mt-4 ">Preencha o formulário</a></p>
         </div><br><br><br>
         <!-- footer -->
         <footer class="w3l-footer-29-main">

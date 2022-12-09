@@ -21,7 +21,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
     {
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
-        header('Location:index.html');
+        header('Location:home_pos_login.php');
     } 
 }
 else

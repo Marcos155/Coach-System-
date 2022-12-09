@@ -22,7 +22,10 @@
 <head>
   <meta charset="UTF-8">
   <title>register</title>
-  <link rel="stylesheet" href="style_coach.css">
+  <!--
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+   <link rel="stylesheet" href="assets/css/style.css">
+-->
   <style>
     .escolha{
       color: #fff;

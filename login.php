@@ -16,7 +16,9 @@
 <head>
   <meta charset="UTF-8">
   <title>login</title>
-  <link rel="stylesheet" href="style_coach.css">
+  <!--
+  <link rel="stylesheet" href="assets/css/style.css">
+-->
   <style>
     #img_senha{
         position: absolute;
