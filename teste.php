@@ -18,10 +18,10 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
         header('Location:login.php');
     }
     else
-    {
+    {   
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
-        header('Location:home_pos_login.php');
+        header('Location:home_pos_login.php?cod=$user_data[cod]');
     } 
 }
 else

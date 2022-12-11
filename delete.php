@@ -20,10 +20,16 @@
     $sqlselect = "SELECT * FROM cadastro WHERE cod=$cod";
     $result2 = $conexao_regis->query($sqlselect);
 
+    $sqlselect2 = "SELECT * FROM formulario WHERE cod=$cod";
+    $result = $conexao_forms->query($sqlselect);
+
     if($result2->num_rows > 0)
     {
        $sqldelete="DELETE FROM cadastro WHERE cod=$cod";
        $resultdelete = $conexao_regis->query($sqldelete);
+
+       $sqldelete2="DELETE FROM formulario WHERE cod=$cod";
+       $resultdelete = $conexao_forms->query($sqldelete);
     }
   }
   
