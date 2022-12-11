@@ -6,9 +6,6 @@
 
     $email= $_POST['email'];
     $senha= $_POST['password'];
-
-    $result= mysqli_query($conexao_login, "INSERT INTO tb_login(email,senha) 
-    VALUES ('$email','$senha')");
   }
  ?> 
 <!DOCTYPE html>

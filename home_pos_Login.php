@@ -8,7 +8,6 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
     unset($_SESSION['senha']);
     header('Location:login.php');
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -100,9 +99,9 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
 
                     </h1>
                     <!-- if logo is image enable this   
-    <a class="navbar-brand" href="#index.html">
-        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-    </a> -->
+                        <a class="navbar-brand" href="#index.html">
+                        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+                    </a> -->
                     <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                         data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -114,15 +113,13 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
                     
                         <ul class="navbar-nav ml-lg-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="home_pos_Login.php">Inicio <span class="sr-only">(current)</span></a>
+                            </li>
+                            
+                            <li class='nav-item'>
+                                <a class='nav-link' href='show_sistema_persona.php'>Conta</a>
                             </li>
 
-                               
-                            <li class="nav-item">
-                                <a class="nav-link" href='sistema.php'>Conta</a>
-                            </li>
-
-                           
                             <li class="nav-item">
                                 <a class="nav-link" href="sair.php">Sair</a>
                             </li>
@@ -487,5 +484,4 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
         <!-- //Js scripts -->
     </div>
 </body>
-
 </html>
