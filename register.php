@@ -21,6 +21,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
   <title>register</title>
   <!--
   <link rel="stylesheet" href="assets/css/style-starter.css">

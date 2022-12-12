@@ -1,17 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">  
-    <title>Andre Fernandes</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+<html lang="en">
 
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
+  <title>Andre Fernandes</title>
+  <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+  <link rel="stylesheet" href="assets/css/style-login.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<div class="image">
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form action="#">
+        <h1>Criar conta</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>Ou use seu email registrado</span>
+        <input type="text" placeholder="Nome" />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Senha" />
+        <button>Inscrever-se</button>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form action="#">
+        <h1>Entrar</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span>Ou use sua conta</span>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Senha" />
+        <a href="#">Esqueceu sua senha?</a>
+        <button>Entrar</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Fala pessoa de sucesso!</h1>
+          <p>Introduza os seus dados pessoais e comece a viajar connosco</p>
+          <button class="ghost" id="signIn">Entrar</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Bem vindo!</h1>
+          <p>Para se manter conectado conosco, faça o login com suas informações pessoais</p>
+          <button class="ghost" id="signUp">Inscrever-se</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- partial:index.partial.html -->
+  <!-- <div class="image">
 <div>
 <div class="login">
 <div class="login-box">
@@ -39,19 +88,34 @@
     </a>
   </form>
 </div>
-<div>
+<div> -->
 
-<!-- partial -->
-<script> 
-document.getElementById('remember').addEventListener('click', function () {
-  var href = this.dataset.link;
-  window.location = href;
-});
-document.getElementById('register').addEventListener('click', function () {
-  var href = this.dataset.link;
-  window.location = href;
-});
-</script>
-<script src="senha.js"></script>
+  <!-- partial -->
+  <script>
+    document.getElementById('remember').addEventListener('click', function () {
+      var href = this.dataset.link;
+      window.location = href;
+    });
+    document.getElementById('register').addEventListener('click', function () {
+      var href = this.dataset.link;
+      window.location = href;
+    });
+
+  </script>
+  <script src="senha.js"></script>
+  <script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+      container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+      container.classList.remove("right-panel-active");
+    });
+  </script>
 </body>
+
 </html>

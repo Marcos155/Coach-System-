@@ -1,40 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>register</title>
- <link rel="stylesheet" href="assets/css/style-starter.css">
-   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style-starter.css">
+  <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<div class="login">
-<div class="login-box">
-  <h2>Cadastro</h2>
-  <form action="login.html" method="post">
-    <div class="user-box">
-      <input type="text" name="username" required>
-      <label>Nome</label>
+  <!-- partial:index.partial.html -->
+  <div class="login">
+    <div class="login-box">
+      <h2>Cadastro</h2>
+      <form action="login.html" method="post">
+        <div class="user-box">
+          <input type="text" name="username" required>
+          <label>Nome</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="email" required>
+          <label>Email</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" required>
+          <label>Senha</label>
+        </div>
+        <a class="botao">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <input type="submit" value="continuar" name="submit" id="enviar">
+        </a>
+      </form>
     </div>
-    <div class="user-box">
-      <input type="text" name="email" required>
-      <label>Email</label>
-    </div>
-    <div class="user-box">
-      <input type="password" name="password" required>
-      <label>Senha</label>
-    </div>	
-    <a class="botao">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <input type="submit" value="continuar" name="submit" id="enviar">
-    </a>
-  </form>
-</div>
-</div>
-<!-- partial -->
-  
+  </div>
+  <!-- partial -->
+
 </body>
+
 </html>

@@ -35,6 +35,7 @@
 <head>
   <meta charset="UTF-8">
   <title>register</title>
+  <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
   <link rel="stylesheet" href="style_coach.css">
   <style>
     .escolha{

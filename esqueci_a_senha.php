@@ -40,6 +40,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
 </head>
 <body>
 <form action="" method="post">
