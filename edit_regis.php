@@ -128,7 +128,7 @@
         </div>
         <div class="overlay-panel overlay-right">
           <h1>Bem vindo!</h1>
-          <p>Para se manter conectado conosco, faça o login com suas informações</p>
+          <p>Para se manter conectado, faça o login com suas informações</p>
           <button class="ghost" id="signUp">Inscrever-se</button>
         </div>
       </div>

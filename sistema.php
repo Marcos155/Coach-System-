@@ -65,7 +65,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
         <div class="mdl-layout__header-row">
           <div class="current-user">
             <i class="material-icons">account_circle</i>
-            <span>olá, André!</span>
+            <?php echo "olá,$logado!" ?>
           </div>
           <div class="mdl-layout-spacer"></div>
           
@@ -114,7 +114,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
 
           <h2>Alunos</h2>
           <?php
-                echo "<h4>Bem Vindo <u>$logado</u> :) </h4>";
+                //echo "<h4>Bem Vindo <u>$logado</u> :) </h4>";
             ?>
           <p>Olá André você pode procurar um cliente usando vários parâmetros diferentes, incluindo nome, codigo, número
           de telefone, etc.</p>
@@ -282,15 +282,15 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
                 <tr>
                   <th class="mdl-data-table__cell__non-numeric">Código</th>
                   <th class="mdl-data-table__cell__non-numeric">Nome</th>
-                  <th class="mdl-data-table__cell__non-numeric">Endereço</th>
-                  <th class="mdl-data-table__cell__non-numeric">Cidade</th>
-                  <th class="mdl-data-table__cell__non-numeric">Código Estado</th>
-                  <th class="mdl-data-table__cell__non-numeric">Estado</th>
-                  <th>CEP</th>
                   <th class="mdl-data-table__cell__non-numeric">Email</th>
                   <th class="mdl-data-table__cell__non-numeric">Telefone</th>
                   <th class="mdl-data-table__cell__non-numeric">Sexo</th>
-                  <th class="mdl-data-table__cell__non-numeric">...</th>
+                  <th class="mdl-data-table__cell__non-numeric">Senha</th>
+                  <th>Editar</th>
+                  <th class="mdl-data-table__cell__non-numeric">Código endereço</th>
+                  <th class="mdl-data-table__cell__non-numeric">Cidade</th>
+                  <th class="mdl-data-table__cell__non-numeric">Endereço</th>
+                  <th class="mdl-data-table__cell__non-numeric">CEP</th>
                 </tr>
               </thead>
               <tbody>

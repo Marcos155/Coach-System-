@@ -16,7 +16,7 @@
     $email= $_POST['email'];
     $senha= $_POST['password'];
     $tele= $_POST['phone'];
-    $sexo= $_POST['sexo'];
+    $sexo=$_POST['sexo'];
 
     $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
     VALUES ('$nome','$email','$senha','$tele','$sexo')");
@@ -88,13 +88,17 @@
         
         <input type="radio" id="outro" name="sexo" value="outro" required><label class="escolha">Outro</label>
   -->
-        
         <input type="password" placeholder="Senha" name="password"  id="senha" required/>
+       
+       
         <input type="checkbox" id="termos" name="termos" required value="termos">
-        <label for="termos"><a href="assets/pdf/termo-de-privacidade.pdf" download="termo-de-privacidade.pdf" 
-          type="application/pdf" target="_blank" style="font-size: 10px;" class="termos">
-          li e concordo com os termos e privacidade</a></label>
-          <br>
+        <label for="termos">
+          <a href="assets/pdf/termo-de-privacidade.pdf" download="termo-de-privacidade.pdf" 
+            type="application/pdf" target="_blank" style="font-size: 0.7rem;" class="termos">
+            li e concordo com os termos e privacidade</a> 
+        </label>
+        <br>
+        
         <button clas="botao_especial"><input type="submit" value="inscrever-se" name="submit" id="enviar"></button>
       </form>
     </div>
@@ -111,6 +115,7 @@
         </div>
 -->
         <span>Ou use sua conta</span>
+        <br>
         <input type="email" placeholder="Email" name="email" required/>
         <input type="password" placeholder="Senha" name="password" id="senha" required/>
         <a href="#">Esqueceu sua senha?</a>
@@ -127,7 +132,7 @@
         </div>
         <div class="overlay-panel overlay-right">
           <h1>Bem vindo!</h1>
-          <p>Para se manter conectado conosco, faça o login com suas informações</p>
+          <p>Para se manter conectado, faça o login com suas informações</p>
           <button class="ghost" id="signUp">Inscrever-se</button>
         </div>
       </div>
