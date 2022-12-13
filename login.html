@@ -18,24 +18,24 @@
       <form action="#">
         <h1>Criar conta</h1>
         <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <span>Ou use seu email registrado</span>
-        <input type="text" placeholder="Nome" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Senha" />
-        <button>Inscrever-se</button>
+        <input type="text" placeholder="Nome" required />
+        <input type="email" placeholder="Email" required/>
+        <input type="password" placeholder="Senha" required/>
+        <input type="checkbox" id="termos" name="termos" required value="termos">
+        <label for="termos"><a href="assets/pdf/termo-de-privacidade.pdf" download="termo-de-privacidade.pdf" 
+          type="application/pdf" target="_blank" style="font-size: 10px;">
+          li e concordo com os termos e privacidade</a></label> 
+        <button href="login.html">Inscrever-se</button>
       </form>
     </div>
     <div class="form-container sign-in-container">
       <form action="#">
         <h1>Entrar</h1>
         <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
           <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <span>Ou use sua conta</span>
         <input type="email" placeholder="Email" />
