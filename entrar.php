@@ -42,7 +42,6 @@
       background-color:rgba(0,0,0,0);
       text-transform: uppercase;
       color: #fff;
-      text-decoration: bold;
       font-size:1em;
       padding-bottom: 0;
       padding-top:0;
@@ -57,6 +56,9 @@
     }
     button{
       cursor:pointer;
+    }
+    .termos{
+      font-weight: bold
     }
   </style>
 </head>
@@ -88,6 +90,11 @@
   -->
         
         <input type="password" placeholder="Senha" name="password"  id="senha" required/>
+        <input type="checkbox" id="termos" name="termos" required value="termos">
+        <label for="termos"><a href="assets/pdf/termo-de-privacidade.pdf" download="termo-de-privacidade.pdf" 
+          type="application/pdf" target="_blank" style="font-size: 10px;" class="termos">
+          li e concordo com os termos e privacidade</a></label>
+          <br>
         <button clas="botao_especial"><input type="submit" value="inscrever-se" name="submit" id="enviar"></button>
       </form>
     </div>

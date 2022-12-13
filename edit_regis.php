@@ -46,7 +46,6 @@
       background-color:rgba(0,0,0,0);
       text-transform: uppercase;
       color: #fff;
-      text-decoration: bold;
       font-size:1em;
       padding-bottom: 0;
       padding-top:0;
@@ -57,6 +56,9 @@
     .botao_especial{
       cursor:pointer;
       border-radius: 10rem;
+    }
+    .termos{
+      font-weight: bold
     }
   </style>
 </head>
@@ -89,6 +91,10 @@
         <input type="password" placeholder="Senha" name="password"  id="senha" value="<?php echo $senha ?>"required/>
         <button clas="botao_especial">
           <input type="hidden" name="cod" value="<?php echo $cod ?>">
+          <label for="termos"><a href="assets/pdf/termo-de-privacidade.pdf" download="termo-de-privacidade.pdf" 
+          type="application/pdf" target="_blank" style="font-size: 10px;" class="termos">
+          li e concordo com os termos e privacidade</a></label>
+          <br>
           <input type="submit" value="inscrever-se" name="update" id="enviar">
       </button>
       </form>
