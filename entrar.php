@@ -1,37 +1,33 @@
 <?php
-  //cadastro
-  if(!empty($_GET['cod']))
+  if(isset($_POST['submit']))
   {
-  
+    
     include_once('config.php');
 
-    $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM cadastro WHERE cod=$cod";
-    $result2 = $conexao_regis->query($sqlselect);
-
-    if($result2->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($result2))
-        {
-          $nome= $user_data['nome'];
-          $email= $user_data['email'];
-          $senha= $user_data['senha'];
-          $telefone= $user_data['telefone'];
-          $sexo= $user_data['sexo'];
-        }
-
-    }
-    else{
-        header('Location: sistema.php');
-    }
+    $email= $_POST['email'];
+    $senha= $_POST['password'];
   }
-  else
+  if(isset($_POST['submit']))
   {
-    header('Location: sistema.php');
+    
+    include_once('config.php');
+
+    $nome= $_POST['username'];
+    $email= $_POST['email'];
+    $senha= $_POST['password'];
+    $tele= $_POST['phone'];
+    $sexo= $_POST['sexo'];
+
+    $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
+    VALUES ('$nome','$email','$senha','$tele','$sexo')");
+
+    header('Location:entrar.php');
+
   }
-?>
+ ?> 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -52,19 +48,25 @@
       padding-top:0;
       padding-left:0;
       padding-right:0;
+      cursor:pointer;
       
     }
     .botao_especial{
-      cursor:pointer;
       border-radius: 10rem;
+      cursor:pointer;
+    }
+    button{
+      cursor:pointer;
     }
   </style>
 </head>
+
 <body>
+  
 <div class="container" id="container">
   <!--register-->  
   <div class="form-container sign-up-container">
-      <form  action="save_edit_regis.php" method="post">
+      <form  action="entrar.php" method="post">
         <h1>Criar conta</h1>
         <!--
         <div class="social-container">
@@ -73,24 +75,20 @@
           <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
         </div>
 -->
-        <input type="text" placeholder="Nome" name="username" value="<?php echo $nome ?>" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
-        <input type="email" placeholder="Email" name="email" value="<?php echo $email ?>"  required/>
-        <input type="tel" name="phone"  placeholder="Telefone (99)99999-9999" value="<?php echo $telefone ?>"  pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" required>
+        <input type="text" placeholder="Nome" name="username" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
+        <input type="email" placeholder="Email" name="email" required/>
+        <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" required>
         <!--
         <label>Sexo</label>
-        <input type="radio" id="feminino" name="sexo" value="feminino" <?php //echo ($sexo == 'feminino') ? 'checked' : '' ?> required><label class="escolha">Feminino</label>
+        <input type="radio" id="feminino" name="sexo" value="feminino" required><label class="escolha">Feminino</label>
         
-        <input type="radio" id="masculino" name="sexo" value="masculino" <?php //echo ($sexo == 'masculino') ? 'checked' : '' ?> required><label class="escolha">Masculino</label>
+        <input type="radio" id="masculino" name="sexo" value="masculino" required><label class="escolha">Masculino</label>
         
-        <input type="radio" id="outro" name="sexo" value="outro" <?php //echo ($sexo == 'outro') ? 'checked' : '' ?> required><label class="escolha">Outro</label>
+        <input type="radio" id="outro" name="sexo" value="outro" required><label class="escolha">Outro</label>
   -->
         
-        
-        <input type="password" placeholder="Senha" name="password"  id="senha" value="<?php echo $senha ?>"required/>
-        <button clas="botao_especial">
-          <input type="hidden" name="cod" value="<?php echo $cod ?>">
-          <input type="submit" value="inscrever-se" name="update" id="enviar">
-      </button>
+        <input type="password" placeholder="Senha" name="password"  id="senha" required/>
+        <button clas="botao_especial"><input type="submit" value="inscrever-se" name="submit" id="enviar"></button>
       </form>
     </div>
     

@@ -15,7 +15,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
     {
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
-        header('Location:login.php');
+        header('Location:entrar.php');
     }
     else
     {   
@@ -27,7 +27,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
 else
 {
     // não acessa
-    header('Location: login.php');
+    header('Location: entrar.php');
 }
 
 ?>
