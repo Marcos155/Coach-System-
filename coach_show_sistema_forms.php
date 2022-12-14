@@ -1,6 +1,13 @@
 <?php
   session_start();
   include_once('config.php');
+  if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+  {
+      unset($_SESSION['email']);
+      unset($_SESSION['senha']);
+      header('Location:entrar.php');
+  }
+  $logado = $_SESSION['email'];
   if(!empty($_GET['cod']))
   {
     include_once('config.php');
@@ -49,37 +56,54 @@
 <!DOCTYPE html>
 <html lang="en" >
 <head>
-<meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width= , initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
-    <title>sistema</title>
+  <meta charset="UTF-8">
+  <title>Conta</title>
+  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-deep_purple.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
-      .box-search{
-        display: flex;
-        justify-content: center;
-        gap: .1%;
+      .mdl-layout__header{
+        background-color: rgb(245,0,0);
       }
     </style>
 </head>
-<body>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <div class="current-user">
+            <i class="material-icons">account_circle</i>
+            <?php echo "André, esse é seu aluno de email $logado" ?>
+          </div>
+          <div class="mdl-layout-spacer"></div>
+          
 
-    <div class="d-flex">
-        <a href="sair.php">sair</a>
-    </div>
-    <br>
-
-<div class="m-5">
+      </header>
+      <div class="mdl-layout__drawer">
+        <span class="mdl-layout-title">Mais opções</span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link active" href="sair.php">sair</a>
+          <br>
+          <a class="mdl-navigation__link active" href="home_pos_login.php">Inicio</a>
+        </nav>
+      </div>
+      <main class="mdl-layout__content">
+      <div class="m-5" >
     <h1>Fórmulario</h1>
-<table class="table">
-  <thead class="thead-dark">
+<table class="table" >
+  <thead class="" >
     <tr>
     <th scope="col">código</th>
       <th scope="col">meta</th>
       <th scope="col">conclusão</th>
       <th scope="col">status</th>
-      <th scope="col">...</th>
+      <th scope="col">Editar</th>
     </tr>
   </thead>
   <tbody>
@@ -117,5 +141,35 @@
   </tbody>
 </table>
 </div>
+<script>
+      $(document).ready(function(){
+
+        $(".search-block").hide();
+        $(".expander-title").click(function(){
+          $(this).next(".search-block").slideToggle("fast");
+        });
+
+      });
+      var search= document.getElementById('pesquisar');
+  search.addEventListener("keydown", function(event){
+    if(event.key === "Enter")
+    {
+      searchData();
+    }
+  });
+  function searchData()
+  {
+    window.location='show_sistema_persona.php?search='+search.value;
+  }
+  $(document).ready(function () {
+
+    $(".search-block").hide();
+    $(".expander-title").click(function () {
+      $(this).next(".search-block").slideToggle("fast");
+    });
+
+  });
+    </script>
+
 </body>
 </html>
