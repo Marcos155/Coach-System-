@@ -43,19 +43,22 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
   <style>
     #enviar{
-      background-color:rgba(0,0,0,0);
+      background-color:rgba(255,0,0,1);
       text-transform: uppercase;
       color: #fff;
-      font-size:1em;
-      padding-bottom: 0;
-      padding-top:0;
-      padding-left:0;
-      padding-right:0;
-      
-    }
-    .botao_especial{
+      font-size:0.9em;
+      padding-bottom: 0.5em;
+      padding-top:0.5em;
+      padding-left:0.5em;
+      padding-right:0.5em;
       cursor:pointer;
       border-radius: 10rem;
+      
+      border-color:#000;
+    }
+    input[type=submit]{
+      border:1px solid #000;
+      width:10rem;
     }
     .termos{
       font-weight: bold
@@ -96,7 +99,7 @@
           li e concordo com os termos e privacidade</a></label>
           <br>
           <input type="submit" value="inscrever-se" name="update" id="enviar">
-      </button>
+    
       </form>
     </div>
     
@@ -115,7 +118,7 @@
         <input type="email" placeholder="Email" name="email" required/>
         <input type="password" placeholder="Senha" name="password" id="senha" required/>
         <a href="#">Esqueceu sua senha?</a>
-        <button class="botao_especial"><input type="submit" value="conectar" name="submit" id="enviar"></button>
+        <input type="submit" value="conectar" name="submit" id="enviar">
       </form>
     
     </div>
