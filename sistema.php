@@ -36,6 +36,15 @@ if (isset($_POST['submit'])) {
 VALUES ('$nome','$email','$senha','$telefone','$sexo')");
 }
 //testes
+if(!empty($_GET['search']))
+    {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' ORDER BY cod DESC";
+    }
+    else
+    {
+        $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
+    }
 
 ?>
 <!DOCTYPE html>
@@ -92,7 +101,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Administração</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link active" href="show_sistema_persona.php">conta</a>
+          <a class="mdl-navigation__link active" href="coach_show_sistema_persona.php">conta</a>
           <br>
           <a class="mdl-navigation__link active" href="sair.php">sair</a>
           <br>
@@ -118,7 +127,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
                 <div class="search-block" id="searchBlockName">
                   <div class="flex-row">
                     <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" id="lastName">
+                      <input class="mdl-textfield__input" type="search" id="lastName" id="pesquisar">
                       <label class="mdl-textfield__label" for="lastName">Nome</label>
                     </div>
                   </div>
@@ -213,7 +222,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
                   </div>
                 </div>
                 <div class="btn-wrap" >
-                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit"style="background-color:rgb(245,0,0)">Buscar</button>
+                  <button onclick="searchData()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit"style="background-color:rgb(245,0,0)">Buscar</button>
                 </div>
               </form>
             </div>
@@ -234,7 +243,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
                   <th>Editar</th>
                 </tr>
               </thead>
-              <tbody id="tabela-registros">
+              <tbody>
                 <?php
                     while ($user_data = mysqli_fetch_assoc($result2)) {
                       echo "<tr>";
@@ -301,26 +310,6 @@ $(".expander-title").click(function(){
 });
 
 /*teste de pesquisa */
-
-function buscando(){
-const INPUT_BUSCA=document.getElementById('input-busca');
-const TABELA_REGISTROS=document.getElementById('tabela-registros');
-INPUT_BUSCA.addEventListener('keyup',()=>{
-    let expressao = INPUT_BUSCA.value.toLowerCase();
-    let linhas = TABELA_REGISTROS.getElementByTagName('tr');
-    for (let posicao in linhas){
-        if (true === isNaN(posicao)){
-            continue;
-        }
-        let conteudoDaLinha = linhas[posicao].innerHTML.toLowerCase();
-        
-        if (true === conteudoDaLinha.includes(expressao)){
-            linhas[posicao].style.display='';
-        } else {
-            linhas[posicao].style.display='none';
-        }
-    }
-});}
 
     </script>
 
