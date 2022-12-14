@@ -113,7 +113,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
 
                 <div class="expander-title">
                   <i class="material-icons">person</i>
-                  <p class="search-toggle" id="toggleNameSearch">Procurar por nome</p>
+                  <p class="search-toggle" id="toggleNameSearch" id="input-busca">Procurar por nome</p>
                 </div>
                 <div class="search-block" id="searchBlockName">
                   <div class="flex-row">
@@ -234,7 +234,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
                   <th>Editar</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tabela-registros">
                 <?php
                     while ($user_data = mysqli_fetch_assoc($result2)) {
                       echo "<tr>";
@@ -299,6 +299,29 @@ $(".expander-title").click(function(){
 });
 
 });
+
+/*teste de pesquisa */
+
+function buscando(){
+const INPUT_BUSCA=document.getElementById('input-busca');
+const TABELA_REGISTROS=document.getElementById('tabela-registros');
+INPUT_BUSCA.addEventListener('keyup',()=>{
+    let expressao = INPUT_BUSCA.value.toLowerCase();
+    let linhas = TABELA_REGISTROS.getElementByTagName('tr');
+    for (let posicao in linhas){
+        if (true === isNaN(posicao)){
+            continue;
+        }
+        let conteudoDaLinha = linhas[posicao].innerHTML.toLowerCase();
+        
+        if (true === conteudoDaLinha.includes(expressao)){
+            linhas[posicao].style.display='';
+        } else {
+            linhas[posicao].style.display='none';
+        }
+    }
+});}
+
     </script>
 
   </body>
