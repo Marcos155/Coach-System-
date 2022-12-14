@@ -40,72 +40,58 @@
   $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
   VALUES ('$nome','$email','$senha','$telefone','$sexo')");
   }
-  
-  
-
 ?>
 <!DOCTYPE html>
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Sistema</title>
+  <title>Conta</title>
   <link rel="stylesheet" href="./style.css">
-
-</head>
-<body>
-
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>sistema</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-deep_purple.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  </head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <div class="current-user">
             <i class="material-icons">account_circle</i>
-            <?php echo "olá,$logado!" ?>
+            <?php echo "olá, $logado!" ?>
           </div>
           <div class="mdl-layout-spacer"></div>
           
 
       </header>
       <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Administração</span>
+        <span class="mdl-layout-title">Mais opções</span>
         <nav class="mdl-navigation">
-          <br>
           <a class="mdl-navigation__link active" href="sair.php">sair</a>
           <br>
           <a class="mdl-navigation__link active" href="home_pos_login.php">Inicio</a>
         </nav>
       </div>
       <main class="mdl-layout__content">
-        <div class="page-content">
+        <div class="m-5">
 
-          <h2>Cadastro</h2>
-
-          <div class="mdl-card mdl-shadow--2dp customer-list">
-            <table class="mdl-data-table mdl-js-data-table">
+          <h1>Cadastro</h1>
+            <table  class="table" >
               <thead>
                 <tr>
-                  <th class="mdl-data-table__cell__non-numeric">Código</th>
-                  <th class="mdl-data-table__cell__non-numeric">Nome</th>
-                  <th class="mdl-data-table__cell__non-numeric">Email</th>
-                  <th class="mdl-data-table__cell__non-numeric">Telefone</th>
-                  <th class="mdl-data-table__cell__non-numeric">Sexo</th>
-                  <th class="mdl-data-table__cell__non-numeric">Senha</th>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Telefone</th>
+                  <th scope="col">Senha</th>
+                  <th scope="col">Sexo</th>
+                  <th scope="col">Cidade</th> 
                   <th>Editar</th>
-                  <th class="mdl-data-table__cell__non-numeric">Código endereço</th>
-                  <th class="mdl-data-table__cell__non-numeric">Cidade</th>
-                  <th class="mdl-data-table__cell__non-numeric">Endereço</th>
-                  <th class="mdl-data-table__cell__non-numeric">CEP</th>
                 </tr>
               </thead>
               <tbody>
@@ -116,8 +102,9 @@
           echo "<td>" . $user_data['nome'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
           echo "<td>" . $user_data['telefone'] . "</td>";
-          echo "<td>" . $user_data['sexo'] . "</td>";
           echo "<td>" . $user_data['senha'] . "</td>";
+          echo "<td>" . $user_data['sexo'] . "</td>";
+          echo "<td></td>";
           echo "<td>
           <a class='btn btn-sm btn-primary' href='edit_regis.php?cod=$user_data[cod]'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pen' viewBox='0 0 16 16'>
@@ -143,11 +130,9 @@
         ?>
               </tbody>
             </table>
-          </div>
+          
         </div>
       </main>
-    </div>
-
     <script>
       $(document).ready(function(){
 

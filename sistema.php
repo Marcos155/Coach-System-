@@ -65,7 +65,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
         <div class="mdl-layout__header-row">
           <div class="current-user">
             <i class="material-icons">account_circle</i>
-            <?php echo "olá,$logado!" ?>
+            <span>Olá, André!</span>
           </div>
           <div class="mdl-layout-spacer"></div>
           
