@@ -68,7 +68,7 @@
 <body>
 <div class="container" id="container">
   <!--register-->  
-  <div class="form-container sign-up-container">
+  <div class="form-container sign-in-container">
       <form  action="save_edit_regis.php" method="post">
         <h1>Criar conta</h1>
         <!--
@@ -92,7 +92,7 @@
         
         
         <input type="password" placeholder="Senha" name="password"  id="senha" value="<?php echo $senha ?>"required/>
-        <button clas="botao_especial">
+        <input type="checkbox" id="termos" name="termos" required value="termos">
           <input type="hidden" name="cod" value="<?php echo $cod ?>">
           <label for="termos"><a href="assets/pdf/termo-de-privacidade.pdf" download="termo-de-privacidade.pdf" 
           type="application/pdf" target="_blank" style="font-size: 10px;" class="termos">
@@ -104,35 +104,15 @@
     </div>
     
     <!--login-->
-    <div class="form-container sign-in-container">
-      <form action="teste.php" method="post">
-        <h1>Entrar</h1>
-        <!--
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
--->
-        <span>Ou use sua conta</span>
-        <input type="email" placeholder="Email" name="email" required/>
-        <input type="password" placeholder="Senha" name="password" id="senha" required/>
-        <a href="#">Esqueceu sua senha?</a>
-        <input type="submit" value="conectar" name="submit" id="enviar">
-      </form>
+    <div >
+      
     
     </div>
     <div class="overlay-container">
       <div class="overlay">
-        <div class="overlay-panel overlay-left">
+        <div class="overlay-panel overlay-right">
           <h1>Fala pessoa de sucesso!</h1>
           <p>Coloque seus dados pessoais e vamos rumo ao topo</p>
-          <button class="ghost" id="signIn">Entrar</button>
-        </div>
-        <div class="overlay-panel overlay-right">
-          <h1>Bem vindo!</h1>
-          <p>Para se manter conectado, faça o login com suas informações</p>
-          <button class="ghost" id="signUp">Inscrever-se</button>
         </div>
       </div>
     </div>

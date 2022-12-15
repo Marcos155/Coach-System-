@@ -2,12 +2,12 @@
   session_start();
   include_once('config.php');
   if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
-  {
-      unset($_SESSION['email']);
-      unset($_SESSION['senha']);
-      header('Location:entrar.php');
-  }
-  $logado = $_SESSION['email'];
+    {
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('Location:entrar.php');
+    }
+    $logado = $_SESSION['email'];
   if(!empty($_GET['cod']))
   {
     include_once('config.php');
@@ -49,7 +49,7 @@
 
     }
     else{
-        header('Location: sistema.php');
+        header('Location: show_sistema_persona.php');
     }
   }
 ?>
@@ -79,7 +79,7 @@
         <div class="mdl-layout__header-row">
           <div class="current-user">
             <i class="material-icons">account_circle</i>
-            <?php echo "André, esse é seu aluno de email $logado" ?>
+            <?php echo "olá, $logado!" ?>
           </div>
           <div class="mdl-layout-spacer"></div>
           
@@ -141,7 +141,8 @@
   </tbody>
 </table>
 </div>
-<script>
+      </main>
+    <script>
       $(document).ready(function(){
 
         $(".search-block").hide();
@@ -171,5 +172,9 @@
   });
     </script>
 
+  </body>
+</html>
+<!-- partial -->
+  
 </body>
 </html>

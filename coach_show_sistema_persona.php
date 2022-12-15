@@ -19,7 +19,7 @@
     }
     else
     {
-      $sql = "SELECT*FROM cadastro ORDER BY cod ASC";
+      $sql = "SELECT*FROM cadastro ORDER BY cod DESC";
     }
   
     
