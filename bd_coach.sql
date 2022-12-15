@@ -27,6 +27,9 @@ ALTER TABLE `db_coach`.`cadastro`
 CHANGE COLUMN `telefone` `telefone` VARCHAR(20) NULL DEFAULT NULL ;
 
 
+select*from db_coach.cadastro;
+show tables
+
 
 
 
