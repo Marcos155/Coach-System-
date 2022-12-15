@@ -60,9 +60,6 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
       justify-content: center;
       gap: .1%;
     }
-    .mdl-layout__header{
-        background-color: rgb(245,0,0);
-      }
   </style>
 </head>
 
