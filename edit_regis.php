@@ -43,22 +43,19 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
   <style>
     #enviar{
-      background-color:rgba(255,0,0,1);
+      background-color:rgba(0,0,0,0);
       text-transform: uppercase;
       color: #fff;
-      font-size:0.9em;
-      padding-bottom: 0.5em;
-      padding-top:0.5em;
-      padding-left:0.5em;
-      padding-right:0.5em;
+      font-size:1em;
+      padding-bottom: 0;
+      padding-top:0;
+      padding-left:0;
+      padding-right:0;
+      
+    }
+    .botao_especial{
       cursor:pointer;
       border-radius: 10rem;
-      
-      border-color:#000;
-    }
-    input[type=submit]{
-      border:1px solid #000;
-      width:10rem;
     }
     .termos{
       font-weight: bold
@@ -99,13 +96,32 @@
           li e concordo com os termos e privacidade</a></label>
           <br>
           <input type="submit" value="inscrever-se" name="update" id="enviar">
-    
+      </button>
       </form>
     </div>
     
     <!--login-->
+<<<<<<< HEAD
     <div >
       
+=======
+    <div class="form-container sign-in-container">
+      <form action="teste.php" method="post">
+        <h1>Entrar</h1>
+        <!--
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+-->
+        <span>Ou use sua conta</span>
+        <input type="email" placeholder="Email" name="email" required/>
+        <input type="password" placeholder="Senha" name="password" id="senha" required/>
+        <a href="#">Esqueceu sua senha?</a>
+        <button class="botao_especial"><input type="submit" value="conectar" name="submit" id="enviar"></button>
+      </form>
+>>>>>>> f92f60bb7d66c4a0fb88c84947d69a1c6c07c26a
     
     </div>
     <div class="overlay-container">

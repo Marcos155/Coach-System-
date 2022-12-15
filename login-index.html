@@ -48,15 +48,9 @@
     </div>
     <div class="overlay-container">
       <div class="overlay">
-        <div class="overlay-panel overlay-left">
-          <h1>Fala pessoa de sucesso!</h1>
-          <p>Introduza os seus dados pessoais e comece a viajar connosco</p>
-          <button class="ghost" id="signIn">Entrar</button>
-        </div>
         <div class="overlay-panel overlay-right">
           <h1>Bem vindo!</h1>
           <p>Para se manter conectado conosco, faça o login com suas informações pessoais</p>
-          <button class="ghost" id="signUp">Inscreva-se</button>
         </div>
       </div>
     </div>
@@ -106,19 +100,6 @@
 
   </script>
   <script src="senha.js"></script>
-  <script>
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
-    const container = document.getElementById('container');
-
-    signUpButton.addEventListener('click', () => {
-      container.classList.add("right-panel-active");
-    });
-
-    signInButton.addEventListener('click', () => {
-      container.classList.remove("right-panel-active");
-    });
-  </script>
   <script>
 // When the user clicks on <div>, open the popup
 function cadastrar() {
