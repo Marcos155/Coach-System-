@@ -59,6 +59,11 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+      .mdl-layout__header{
+        background-color: rgb(255,0,0);
+      }
+    </style>
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
@@ -66,7 +71,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
         <div class="mdl-layout__header-row">
           <div class="current-user">
             <i class="material-icons">account_circle</i>
-            <?php echo "olá,$logado!" ?>
+            <?php echo "olá,André!" ?>
           </div>
           <div class="mdl-layout-spacer"></div>
           
