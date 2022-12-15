@@ -35,8 +35,31 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
 VALUES ('$nome','$email','$senha','$telefone','$sexo')");
 }
-//testes
+//formulario
+if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+{
+    unset($_SESSION['email']);
+    unset($_SESSION['senha']);
+    header('Location:entrar.php');
+}
+$logado = $_SESSION['email'];
 
+$sql = "SELECT * FROM formulario ORDER BY cod DESC";
+$result = $conexao_forms->query($sql);
+
+
+if(isset($_POST['submit']))
+{
+
+include_once('config.php');
+$meta= $_POST['meta'];
+$data= $_POST['data'];
+$status= $_POST['status'];
+
+$result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,data_conclusao,status_meta) 
+VALUES ('$meta','$data','$status')"); 
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -61,6 +84,20 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/calender.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+      button{
+       position: absolute;
+       left:50%;
+       top:60%;
+       transform: translate(-50%,-50%);
+      }
+      label{
+        color:#000;
+      }
+      .mdl-layout__header{
+        background-color: rgb(255,0,0);
+      }
+    </style>
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
@@ -71,65 +108,32 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
             <?php echo "olá,$logado!" ?>
           </div>
           <div class="mdl-layout-spacer"></div>
-          
-          <div class="box-search" >
-      <input type="search" class="form-control w-25" placeholder="pesquisar" id="pesquisar">
-      <button class="btn btn-success" onclick="searchData()">
-        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-search'
-          viewBox='0 0 16 16'>
-          <path
-            d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z' />
-        </svg>
-      </button>
-    </div>
-          <!--
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-            <span>Procurar</span>
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-              <i class="material-icons" onclick="searchData()">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" id="pesquisar">
-            </div>
--->
-    </header>
+      </header>
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Aluno</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link active" href="show_sistema_persona.php">Inicio</a>
-          <br>
           <a class="mdl-navigation__link active" href="sair.php">Sair</a>
           <br>
-          <a class="mdl-navigation__link active" href="home_pos_login.php">Conta</a>
+          <a class="mdl-navigation__link active" href="show_sistema_persona.php">Inicio</a>
+          <br>
+          <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
         </nav>
       </div>
     </header>
       <main class="mdl-layout__content">
         <div class="page-content">
-          <!-- content start -->
-          <!--
-          <div class="breadcrumbs">
-            <a href="home_pos_login.php">Inicio</a>
-            <i class="material-icons">arrow_forward</i>
-            <a href="">Alunos</a>
-            <i class="material-icons">arrow_forward</i>
-            <a href="">Resultado Alunos</a>
-          </div> -->
 
-          <h2>Alunos</h2>
-          <?php
-                //echo "<h4>Bem Vindo <u>$logado</u> :) </h4>";
-            ?>
-          <p>Olá $logado preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.</p>
+          <p>Olá <?php echo "$logado"?>, preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.</p>
           <form>
             <div class="form-group">
-              <label for="exampleInputEmail1">Nome da meta</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome da meta">
-              <small id="emailHelp" class="form-text text-muted">Preenhca de acordo com seu objetivo. Ex: perder peso, disciplina...</small>
+              <label for="exampleInputEmail1">Meta</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Qual sua meta?">
+              <small id="emailHelp" class="form-text text-muted">Coloque aqui seu objetivo. Exemplo: perder peso</small>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Tempo de conclusão</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              <label for="exampleInputPassword1">Data de conclusão</label>
+              <input type="date" class="form-control" id="exampleInputPassword1">
+              <!--
               <div class="container">
                 <div class="row justify-content-center">
                   <div class="col-md-6 text-center mb-5">
@@ -149,13 +153,20 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
                     </div>
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Status</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Atualmente o que já fez para concluir seu objetivo?">
+              <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar sua meta</small>
+            </div>
+            <!--
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+              <label class="form-check-label" for="exampleCheck1">Li e concordo com os termos</label>
+            </div>-->
+            
+            <button type="submit" class="btn btn-primary" class="enviar_forms" style="background-color:rgb(255,0,0); border:none">Enviar</button>
           </form>
       </main>
 

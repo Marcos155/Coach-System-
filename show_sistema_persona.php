@@ -59,6 +59,12 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      .mdl-layout__header{
+        background-color: rgb(255,0,0);
+      }
+    </style>
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
@@ -70,16 +76,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
           </div>
           <div class="mdl-layout-spacer"></div>
           
-          <div class="box-search" >
-      <input type="search" class="form-control w-25" placeholder="pesquisar" id="pesquisar">
-      <button class="btn btn-success" onclick="searchData()">
-        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-search'
-          viewBox='0 0 16 16'>
-          <path
-            d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z' />
-        </svg>
-      </button>
-    </div>
+          
           <!--
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
             <span>Procurar</span>
@@ -92,33 +89,33 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
 -->
       </header>
       <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Mais opções</span>
+        <span class="mdl-layout-title">Aluno</span>
         <nav class="mdl-navigation">
           <br>
           <a class="mdl-navigation__link active" href="sair.php">sair</a>
           <br>
           <a class="mdl-navigation__link active" href="home_pos_login.php">Inicio</a>
+          <br>
+          <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
         </nav>
       </div>
       <main class="mdl-layout__content">
         <div class="page-content">
        
 
-          <div class="mdl-card mdl-shadow--2dp customer-list">
-            <table class="mdl-data-table mdl-js-data-table">
+          <div class="m-5">
+            <h1>Cadastro</h1>
+            <table class="table">
               <thead>
                 <tr>
-                  <th class="mdl-data-table__cell__non-numeric">Código</th>
-                  <th class="mdl-data-table__cell__non-numeric">Nome</th>
-                  <th class="mdl-data-table__cell__non-numeric">Email</th>
-                  <th class="mdl-data-table__cell__non-numeric">Telefone</th>
-                  <th class="mdl-data-table__cell__non-numeric">Sexo</th>
-                  <th class="mdl-data-table__cell__non-numeric">Senha</th>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Telefone</th>
+                  <th scope="col">Sexo</th>
+                  <th scope="col">Senha</th>
+                  <th scope="col">Cidade</th>
                   <th>Editar</th>
-                  <th class="mdl-data-table__cell__non-numeric">Código endereço</th>
-                  <th class="mdl-data-table__cell__non-numeric">Cidade</th>
-                  <th class="mdl-data-table__cell__non-numeric">Endereço</th>
-                  <th class="mdl-data-table__cell__non-numeric">CEP</th>
                 </tr>
               </thead>
               <tbody>
@@ -131,6 +128,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
           echo "<td>" . $user_data['telefone'] . "</td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
           echo "<td>" . $user_data['senha'] . "</td>";
+          echo "<td></td>";
           echo "<td>
           <a class='btn btn-sm btn-primary' href='edit_regis.php?cod=$user_data[cod]'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pen' viewBox='0 0 16 16'>
@@ -144,7 +142,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
             <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
           </svg>
           </a>
-          <a  class='btn btn-sm btn-warning' href='coach_show_sistema_forms.php?cod=$user_data[cod]'>
+          <a  class='btn btn-sm btn-warning' href='show_sistema_forms.php?cod=$user_data[cod]'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-card-text' viewBox='0 0 16 16'>
           <path d='M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z'/>
           <path d='M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z'/>
