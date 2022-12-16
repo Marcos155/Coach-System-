@@ -81,11 +81,13 @@
         <span class="mdl-layout-title">Aluno</span>
         <nav class="mdl-navigation">
           <br>
-          <a class="mdl-navigation__link active" href="sair.php">sair</a>
+          <a class="mdl-navigation__link" href="sair.php">Inicio</a>
           <br>
-          <a class="mdl-navigation__link active" href="home_pos_login.php">Inicio</a>
+          <a class="mdl-navigation__link" href="home_pos_login.php">Conta</a>
           <br>
-          <a class="mdl-navigation__link active" href="show_sistema_persona.php">Cadastro</a>
+          <a class="mdl-navigation__link active" href="show_sistema_forms.php">Meta</a>
+          <br>
+          <a class="mdl-navigation__link" href="show_sistema_persona.php">Sair</a>
         </nav>
       </div>
       <main class="mdl-layout__content">

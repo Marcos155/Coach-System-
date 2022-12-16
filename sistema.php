@@ -91,11 +91,13 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Administração</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link active" href="coach_show_sistema_persona.php">conta</a>
+          <a class="mdl-navigation__link active" href="coach_show_sistema_persona.php">Inicio</a>
           <br>
-          <a class="mdl-navigation__link active" href="sair.php">sair</a>
+          <a class="mdl-navigation__link" href="sair.php">Conta</a>
           <br>
-          <a class="mdl-navigation__link active" href="home_pos_login.php">Inicio</a>
+          <a class="mdl-navigation__link" href="show_sistema_forms.php">Meta</a>
+          <br>
+          <a class="mdl-navigation__link" href="home_pos_login.php">Sair</a>
         </nav>
       </div>
       <main class="mdl-layout__content">

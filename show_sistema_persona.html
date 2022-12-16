@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 session_start();
 include_once('config.php');
 
@@ -37,7 +37,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
 }
 //testes
 
-?> 
+?> -->
 <!DOCTYPE html>
 <!-- partial:index.partial.html -->
 <html lang="en">
@@ -73,7 +73,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
         <div class="mdl-layout-spacer"></div>
 
 
-        
+        <!--
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
             <span>Procurar</span>
             <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
@@ -82,7 +82,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
             <div class="mdl-textfield__expandable-holder">
               <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" id="pesquisar">
             </div>
-
+-->
     </header>
 
     <div class="mdl-layout__drawer">
@@ -94,6 +94,8 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
           <br>
           <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
           <br>
+          <a class="mdl-navigation__link" href="show_sistema_forms.php">Meta</a>
+          <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
     </div>
@@ -104,6 +106,68 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
         <div class="m-5">
           <h1>Cadastro</h1>
         </div>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Larry</td>
+              <td>the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+        
         <table class="table">
           <thead>
             <tr>
