@@ -65,6 +65,10 @@
       .mdl-layout__header{
         background-color: rgb(255,0,0);
       }
+      .table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+}
     </style>
   </head>
   <body>
@@ -96,6 +100,7 @@
 
           <div class="m-5">
             <h1>Formulário</h1>
+           <div class="table-wrapper">
             <table class="table">
               <thead class="thead-light">
                 <tr>
@@ -140,6 +145,7 @@
     ?>
               </tbody>
             </table>
+           </div>
           </div>
         </div>
       </main>
