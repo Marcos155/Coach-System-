@@ -57,6 +57,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
     <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900" rel="stylesheet">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
@@ -272,7 +273,40 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
               </form>
             </div>
           </div>
-
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Cidade</th>
+                <th>Editar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
           <div class="mdl-card mdl-shadow--2dp customer-list">
             <table class="mdl-data-table mdl-js-data-table">
               <thead>
