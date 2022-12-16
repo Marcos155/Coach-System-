@@ -89,8 +89,13 @@
             li e concordo com os termos e privacidade</a> 
         </label>
         <br>
-        
-        <input type="submit" value="inscrever-se" name="submit" id="enviar">
+        <div class="popup" onclick="cadastrar()">
+          <button> Inscreva-se</button>
+          <!--
+          <input type="submit" value="inscrever-se" name="submit" id="enviar" class="popup" onclick="cadastrar()">
+  -->
+          <span class="popuptext" id="myPopup">Cadastro realizado com sucesso</span>
+        </div>
       </form>
     </div>
     
@@ -131,6 +136,10 @@
     signInButton.addEventListener('click', () => {
       container.classList.remove("right-panel-active");
     });
+    function cadastrar() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
   </script>
 </body>
 
