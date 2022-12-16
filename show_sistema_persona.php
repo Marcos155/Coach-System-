@@ -43,7 +43,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistema</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
@@ -94,6 +94,8 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
           <br>
           <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
           <br>
+          <a class="mdl-navigation__link" href="formulario.php">meta</a>
+          <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
     </div>
@@ -105,9 +107,9 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
           <h1>Cadastro</h1>
         </div>
         <table class="table">
-          <thead>
+          <thead class="thead-light">
             <tr>
-              <th scope="col">Código</th>
+              <th scope="row">Código</th>
               <th scope="col">Nome</th>
               <th scope="col">Email</th>
               <th scope="col">Telefone</th>

@@ -97,9 +97,9 @@
           <div class="m-5">
             <h1>Formulário</h1>
             <table class="table">
-              <thead>
+              <thead class="thead-light">
                 <tr>
-                  <th scope="col">Código</th>
+                  <th scope="row">Código</th>
                   <th scope="col">meta</th>
                   <th scope="col">conclusão</th>
                   <th scope="col">status</th>
