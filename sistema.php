@@ -66,6 +66,10 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
     .mdl-layout__header {
       background-color: rgb(255, 0, 0);
     }
+    .table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+}
   </style>
     
   </head>
@@ -278,19 +282,19 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
               </form>
             </div>
           </div>
-          <div>
+          <div class="table-wrapper">
             <table class="table">
-            <thead class='thead-light'>
+            <thead class="thead-light">
                <tr>
-                <th scope='row'>Código</th>
-                <th class='col'>Nome</th>
-                <th class='col'>Email</th>
-                <th class='col'>Telefone</th>
-                <th class='col'>Sexo</th>
-                <th class='col'>Senha</th>
-                <th class='col'>Cidade</th>
-                <th class='col'>Estado</th>
-                <th class='col'>Editar</th>
+                <th scope="row">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Editar</th>
                 </tr>
               </thead>
               <tbody>
