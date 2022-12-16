@@ -179,7 +179,7 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
                                 te acomponhará nessa jornada de concluir suas metas, sejam elas financeiras, físicas,
                                 emocionais etc...
                                 assista ao video ao lado e veja como começar este processo </p>
-                            <a href="formulario.php" class="btn btn-style mt-4">Preencha o formulário</a>
+                            <a href="formulario.php" class="btn btn-style mt-4">Começar Agora</a>
                         </div>
                         <div class="col-lg-6 history-info mt-5 pt-lg-0 pt-5">
                             <div class="position-relative img-border">
@@ -256,7 +256,7 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
             </div>
         </section>
         <div class="w-100 p-3 h-25 d-inline-block">
-            <p class="text-center"><a href="formulario.php" class="btn btn-style mt-4 ">Preencha o formulário</a></p>
+            <p class="text-center"><a href="formulario.php" class="btn btn-style mt-4 ">Começar Agora</a></p>
         </div><br><br><br>
         <!-- footer -->
         <footer class="w3l-footer-29-main">
