@@ -335,6 +335,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
               </tbody>
             </table>
           </div>
+        </div>
           <!-- content end -->
         </div>
       </main>
