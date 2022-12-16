@@ -101,10 +101,10 @@
     </div>
     
     <!--login-->
-<<<<<<< HEAD
+
     <div >
       
-=======
+
     <div class="form-container sign-in-container">
       <form action="teste.php" method="post">
         <h1>Entrar</h1>
@@ -121,7 +121,7 @@
         <a href="#">Esqueceu sua senha?</a>
         <button class="botao_especial"><input type="submit" value="conectar" name="submit" id="enviar"></button>
       </form>
->>>>>>> f92f60bb7d66c4a0fb88c84947d69a1c6c07c26a
+
     
     </div>
     <div class="overlay-container">

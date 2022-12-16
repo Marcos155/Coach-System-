@@ -90,7 +90,7 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="sistema-cliente.php">Inicio</a>
+          <a class="mdl-navigation__link" href="home_pos_login.php">Inicio</a>
           <br>
           <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
           <br>
