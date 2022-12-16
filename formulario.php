@@ -116,7 +116,7 @@
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>
           </div>
-          <button type="submit" class="btn btn-danger" class="enviar_forms">Danger</button>
+          <button type="submit" class="btn btn-danger" class="enviar_forms">Enviar</button>
         </form>
     </main>
 
