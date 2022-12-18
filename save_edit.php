@@ -13,5 +13,5 @@
         WHERE cod='$cod' ";
         $result = $conexao_forms->query($sqlupdate);
     }
-    header('Location: sistema.php');
+    header('Location: formulario.php');
 ?>

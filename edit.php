@@ -6,35 +6,33 @@ if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)
     header('Location:entrar.php');
 }
 $logado = $_SESSION['email'];
-  if(!empty($_GET['cod']))
+if(!empty($_GET['cod']))
+{
+  include_once('config.php');
+
+  $cod = $_GET['cod'];
+  $sqlselect = "SELECT * FROM formulario WHERE cod=$cod";
+  $result = $conexao_forms->query($sqlselect);
+
+  if($result->num_rows > 0)
   {
- 
-    
-    include_once('config.php');
-
-    $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM formulario WHERE cod=$cod";
-    $result = $conexao_forms->query($sqlselect);
-
-    if($result->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($result))
-        {
-            $meta= $user_data ['meta'];
-            $data= $user_data ['data_conclusao'];
-            $status= $user_data ['status_meta'];
-        }
+      while($user_data = mysqli_fetch_assoc($result))
+      {
+          $meta= $user_data ['meta'];
+          $data= $user_data ['data_conclusao'];
+          $status= $user_data ['status_meta'];
+      }
 
 
-    }
-    else{
-        header('Location: sistema.php');
-    }
   }
-  else
-  {
-    header('Location: sistema.php');
+  else{
+      header('Location: sistema.php');
   }
+}
+else
+{
+  header('Location: sistema.php');
+}
  ?> 
 
 <!DOCTYPE html>

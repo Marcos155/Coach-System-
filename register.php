@@ -95,7 +95,7 @@
            -->
           <input type="submit" value="inscrever-se" name="submit" id="enviar" class="popup" >
         <?php
-          if(isset($_POST['submit'])==true){
+          if(isset($_POST['email'])==true){
           echo "<span class='popuptext' id='myPopup'>Cadastro realizado com sucesso</span>";
           }
           ?>

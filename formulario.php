@@ -93,26 +93,28 @@
         <form action="formulario.php" method="post">
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Qual sua meta?">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Qual sua meta?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+              name="meta" required>
             <small id="emailHelp" class="form-text text-muted">Coloque aqui seu objetivo. Exemplo: perder peso</small>
           </div>
           <div class="form-group espace">
             <label for="exampleFormControlTextarea1">Defina sua meta</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-              placeholder="Explique com detalhes seu objetivo"></textarea>
+              placeholder="Explique com detalhes seu objetivo" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"></textarea>
           </div>
           <div class="form-group espace">
             <label for="exampleInputPassword1">Data de inicio</label>
             <input type="date" class="form-control" id="exampleInputPassword1">
             <label for="exampleInputPassword1">Data de conclusão</label>
-            <input type="date" class="form-control" id="exampleInputPassword1">
+            <input type="date" class="form-control" id="exampleInputPassword1" name="data" required>
             <small id="emailHelp" class="form-text text-muted">Quando quer concluir esse objetivo?</small>
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Status</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Atualmente o que já fez para concluir seu objetivo?">
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Atualmente o que já fez para concluir seu objetivo?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+              name="status" required>
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>
           </div>

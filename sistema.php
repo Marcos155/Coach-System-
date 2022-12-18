@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
 VALUES ('$nome','$email','$senha','$telefone','$sexo')");
 }
-//testes
+
 
 ?>
 <!DOCTYPE html>
@@ -82,47 +82,25 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
             <?php echo "olá, André!" ?>
           </div>
           <div class="mdl-layout-spacer"></div>
-          
-          
-          <!--
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-            <span>Procurar</span>
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
-              <i class="material-icons" onclick="searchData()">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp" id="pesquisar">
-            </div>
--->
+
       </header>
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Administração</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link active" href="coach_show_sistema_persona.php">Inicio</a>
+          <a class="mdl-navigation__link active" href="entrar.php">Inicio</a>
           <br>
-          <a class="mdl-navigation__link" href="sair.php">Conta</a>
+          <a class="mdl-navigation__link" href="show_sistema_persona.php">Conta</a>
           <br>
           <a class="mdl-navigation__link" href="show_sistema_forms.php">Meta</a>
           <br>
-          <a class="mdl-navigation__link" href="home_pos_login.php">Sair</a>
+          <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
       </div>
       <main class="mdl-layout__content">
         <div class="page-content">
-          <!-- content start -->
-          <!--
-          <div class="breadcrumbs">
-            <a href="home_pos_login.php">Inicio</a>
-            <i class="material-icons">arrow_forward</i>
-            <a href="">Alunos</a>
-            <i class="material-icons">arrow_forward</i>
-            <a href="">Resultado Alunos</a>
-          </div> -->
 
           <h2>Alunos</h2>
-          <?php
-                //echo "<h4>Bem Vindo <u>$logado</u> :) </h4>";
-            ?>
+
           <p>Olá André você pode procurar um cliente usando vários parâmetros diferentes, incluindo nome, codigo, número
           de telefone, etc.</p>
           <div class="mdl-card mdl-shadow--2dp customer-search">

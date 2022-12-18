@@ -31,3 +31,4 @@ CHANGE COLUMN `telefone` `telefone` VARCHAR(20) NULL DEFAULT NULL ;
 
 
 
+
