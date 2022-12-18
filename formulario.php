@@ -76,11 +76,17 @@
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link active" href="home_pos_login.php">Inicio</a>
+          <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
         <br>
-        <a class="mdl-navigation__link " href="show_sistema_persona.php">Conta</a>
+          <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
         <br>
-        <a class="mdl-navigation__link" href="sair.php">Sair</a>
+          <a class="mdl-navigation__link " href="complete_regis.php">Completar cadastro</a>
+        <br>
+          <a class="mdl-navigation__link " href="show_sistema_persona.php">Conta</a>
+        <br>
+          <a class="mdl-navigation__link " href="meta.php">Meta</a>
+        <br>
+          <a class="mdl-navigation__link" href="sair.php">Sair</a>
       </nav>
     </div>
     </header>
@@ -101,7 +107,7 @@
           <div class="form-group espace">
             <label for="exampleFormControlTextarea1">Defina sua meta</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-              placeholder="Explique com detalhes seu objetivo" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"></textarea>
+              placeholder="Explique com detalhes seu objetivo"></textarea>
           </div>
           <div class="form-group espace">
             <label for="exampleInputPassword1">Data de inicio</label>
@@ -118,7 +124,7 @@
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>
           </div>
-          <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;">Enviar</button>
+          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar">
         </form>
     </main>
 
@@ -131,6 +137,7 @@
         });
 
       });
+
       var search = document.getElementById('pesquisar');
       search.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {

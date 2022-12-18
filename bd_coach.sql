@@ -34,4 +34,3 @@ add column estado varchar(40) null after cidade;
 
 
 
-
