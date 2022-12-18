@@ -112,6 +112,7 @@ $user_data = mysqli_fetch_assoc($result2)
               <th scope="col">Sexo</th>
               <th scope="col">Senha</th>
               <th scope="col">Cidade</th>
+              <th scope="col">Estado</th>
               <th>Editar</th>
             </tr>
           </thead>
@@ -125,6 +126,7 @@ $user_data = mysqli_fetch_assoc($result2)
           echo "<td>" . $user_data['telefone'] . "</td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
           echo "<td>" . $user_data['senha'] . "</td>";
+          echo"<td></td>";
           echo "<td></td>";
           echo "<td>
           <a class='btn btn-sm btn-primary' href='edit_regis.php?cod=$user_data[cod]'>

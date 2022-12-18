@@ -12,7 +12,7 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' ";
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
@@ -28,12 +28,11 @@ if (isset($_POST['submit'])) {
 
   $nome = $_POST['username'];
   $email = $_POST['email'];
-  $senha = $_POST['password'];
   $telefone = $_POST['phone'];
   $sexo = $_POST['sexo'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
-VALUES ('$nome','$email','$senha','$telefone','$sexo')");
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,telefone,sexo) 
+VALUES ('$nome','$email','$telefone','$sexo')");
 }
 
 
@@ -87,11 +86,13 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Administração</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link active" href="entrar.php">Inicio</a>
+          <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
           <br>
-          <a class="mdl-navigation__link" href="show_sistema_persona.php">Conta</a>
+          <a class="mdl-navigation__link" href="coach_show_sistema_persona.php">Conta</a>
           <br>
-          <a class="mdl-navigation__link" href="show_sistema_forms.php">Meta</a>
+          <a class="mdl-navigation__link active" href="sistema.php">Conta-Alunos</a>
+          <br>
+          <a class="mdl-navigation__link" href="coach_show_sistema_forms.php">Meta-Alunos</a>
           <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
@@ -269,7 +270,6 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
                 <th scope="col">Email</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Sexo</th>
-                <th scope="col">Senha</th>
                 <th scope="col">Cidade</th>
                 <th scope="col">Estado</th>
                 <th scope="col">Editar</th>
@@ -284,7 +284,6 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
           echo "<td>" . $user_data['email'] . "</td>";
           echo "<td>" . $user_data['telefone'] . "</td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
-          echo "<td>" . $user_data['senha'] . "</td>";
           echo "<td></td>";
           echo "<td></td>";
           echo "<td>
@@ -294,17 +293,11 @@ VALUES ('$nome','$email','$senha','$telefone','$sexo')");
           </svg>
           </a>
 
-          <a class='btn btn-sm btn-danger' href='delete.php?cod=$user_data[cod]'>
+          <a class='btn btn-sm btn-danger' href='delete.php?cod=$user_data[cod]' placeholer='editar'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
             <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
             <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
           </svg>
-          </a>
-          <a  class='btn btn-sm btn-warning' href='coach_show_sistema_forms.php?cod=$user_data[cod]'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-card-text' viewBox='0 0 16 16'>
-          <path d='M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z'/>
-          <path d='M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z'/>
-        </svg>
           </a>
         </td>";
           echo "<tr>";
