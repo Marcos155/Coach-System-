@@ -80,7 +80,9 @@
         <br>
           <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
         <br>
-          <a class="mdl-navigation__link " href="complete_regis.php">Completar cadastro</a>
+        <?php
+            echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
+          ?>
         <br>
           <a class="mdl-navigation__link " href="show_sistema_persona.php">Conta</a>
         <br>
@@ -94,7 +96,7 @@
       <div class="page-content">
 
         <p>Olá
-          <?php echo "$logado"?>, preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
+          <?php echo "$logado"?> &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
         </p>
         <form action="formulario.php" method="post">
           <div class="form-group espace">

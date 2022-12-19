@@ -44,7 +44,7 @@ $user_data = mysqli_fetch_assoc($result2)
 
 <head>
 <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sistema</title>
+  <title>Cadastro</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-deep_purple.min.css">
@@ -81,17 +81,21 @@ $user_data = mysqli_fetch_assoc($result2)
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
-          <br>
-          <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
+            <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
           <br>
           <?php
-          echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
+            echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
           ?>
           <br>
-          <a class="mdl-navigation__link" href="formulario.php">meta</a>
+          <?php
+              echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
+            ?>
           <br>
-          <a class="mdl-navigation__link" href="sair.php">Sair</a>
+            <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
+          <br>
+            <a class="mdl-navigation__link" href="meta.php">meta</a>
+          <br>
+            <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
     </div>
     <main class="mdl-layout__content">
@@ -113,7 +117,6 @@ $user_data = mysqli_fetch_assoc($result2)
               <th scope="col">Senha</th>
               <th scope="col">Cidade</th>
               <th scope="col">Estado</th>
-              <th>Editar</th>
             </tr>
           </thead>
           <tbody>
@@ -128,15 +131,7 @@ $user_data = mysqli_fetch_assoc($result2)
           echo "<td>" . $user_data['senha'] . "</td>";
           echo"<td></td>";
           echo "<td></td>";
-          echo "<td>
-          <a class='btn btn-sm btn-primary' href='edit_regis.php?cod=$user_data[cod]'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pen' viewBox='0 0 16 16'>
-            <path d='m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z'/>
-          </svg>
-          </a>
-        </td>";
-          echo "<tr>";
-        
+          echo "</tr>";
         ?>
           </tbody>
         </table>

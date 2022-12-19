@@ -1,6 +1,4 @@
 <?php
-  //cadastro
-  
   session_start();
   include_once('config.php');
 
@@ -11,38 +9,24 @@
           header('Location:entrar.php');
       }
       $logado = $_SESSION['email'];
-  
-  
-  if(!empty($_GET['cod']))
+
+      $sql = "SELECT * FROM formulario ORDER BY cod DESC";
+      $result = $conexao_forms->query($sql);
+
+
+  if(isset($_POST['submit']))
   {
-  
+    
     include_once('config.php');
+    $meta= $_POST['meta'];
+    $data= $_POST['data'];
+    $status= $_POST['status'];
 
-    $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM cadastro WHERE cod=$cod";
-    $result2 = $conexao_regis->query($sqlselect);
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,data_conclusao,status_meta) 
+    VALUES ('$meta','$data','$status')"); 
 
-    if($result2->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($result2))
-        {
-          $nome= $user_data['nome'];
-          $email= $user_data['email'];
-          $senha= $user_data['senha'];
-          $telefone= $user_data['telefone'];
-          $sexo= $user_data['sexo'];
-        }
-
-    }
-    else{
-        header('Location: sistema.php');
-    }
   }
-  else
-  {
-    header('Location: sistema.php');
-  }
-?>
+ ?> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,14 +67,12 @@
       <div class="mdl-layout__header-row">
         <div class="current-user">
           <i class="material-icons">account_circle</i>
-          <?php echo "olá,$nome!" ?>
+          <?php echo "olá,$logado!" ?>
         </div>
         <div class="mdl-layout-spacer"></div>
     </header>
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">
-        <?php echo $nome?>
-      </span>
+      <span class="mdl-layout-title">Aluno</span>
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
@@ -111,8 +93,8 @@
     <main class="mdl-layout__content">
       <div class="page-content">
 
-        <p>
-          <?php echo "$nome"?>, vamos completar seu cadastro &#128578;!
+        <p>Olá
+          <?php echo "$logado"?>, vamos completar seu cadastro &#128578;!
         </p>
         <form action="save_complete_regis.php" method="post">
           <div class="form-group espace">
