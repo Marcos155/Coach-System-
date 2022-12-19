@@ -31,6 +31,8 @@
           $senha= $user_data['senha'];
           $telefone= $user_data['telefone'];
           $sexo= $user_data['sexo'];
+          $cidade=$user_data['cidade'];
+          $estado=$user_data['estado'];
         }
 
     }
@@ -129,8 +131,8 @@
           <div class="form-group espace">
             <label for="exampleInputEmail1">Telefone</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="telefone para contato" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="meta" required>
+              placeholder="telefone" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+              name="phone" required>
           </div>
           <div class="form-group espace">
             <label>Sexo</label>

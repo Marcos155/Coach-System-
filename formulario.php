@@ -80,9 +80,7 @@
         <br>
           <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
         <br>
-        <?php
-            echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
-          ?>
+          <a class="mdl-navigation__link" href="edit_regis.php">Completar cadastro</a>
         <br>
           <a class="mdl-navigation__link " href="show_sistema_persona.php">Conta</a>
         <br>
