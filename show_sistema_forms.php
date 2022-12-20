@@ -10,7 +10,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data=$_GET['search'];
-        $sql= "SELECT * FROM formulario WHERE cod LIKE '%$data%'or meta LIKE '%$data%' or 
+        $sql= "SELECT * FROM formulario WHERE cod LIKE '%$data%'or meta LIKE '%$data%' or desc_meta LIKE '%$data%'  or data_inicio LIKE '%$data%' or 
         data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' ";
 
 } else {
@@ -21,11 +21,13 @@ if (isset($_POST['submit'])) {
 
   include_once('config.php');
   $meta= $_POST['meta'];
+  $desc_meta= $_POST['desc_meta'];
+  $data_inicio= $_POST['data_inicio'];
   $data= $_POST['data'];
   $status= $_POST['status'];
 
-  $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,data_conclusao,status_meta) 
-  VALUES ('$meta','$data','$status')");
+  $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
+  VALUES ('$meta','$desc_meta','$data_inicio','$data','$status')");
 }
 $user_data = mysqli_fetch_assoc($result)
 ?> 
@@ -77,7 +79,8 @@ $user_data = mysqli_fetch_assoc($result)
           <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
           <br>
           <?php
-          echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
+            
+            //echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
           ?>
           <br>
           <a class="mdl-navigation__link" href="formulario.php">meta</a>
@@ -98,6 +101,8 @@ $user_data = mysqli_fetch_assoc($result)
             <tr>
               <th scope="row">Código</th>
               <th scope="col">meta</th>
+              <th scope="col">descrição da meta</th>
+              <th scope="col">início</th>
               <th scope="col">conclusão</th>
               <th scope="col">status</th>
               <th>Editar</th>
@@ -105,10 +110,12 @@ $user_data = mysqli_fetch_assoc($result)
           </thead>
           <tbody>
             <?php
-          
+            if($user_data = mysqli_fetch_assoc($result)){
               echo "<tr>";
               echo "<td>".$user_data['cod']."</td>";
               echo "<td>".$user_data['meta']."</td>";
+              echo "<td>".$user_data['desc_meta']."</td>";
+              echo "<td>".$user_data['data_inicio']."</td>";
               echo "<td>".$user_data['data_conclusao']."</td>";
               echo "<td>".$user_data['status_meta']."</td>";
               echo "<td>
@@ -119,6 +126,7 @@ $user_data = mysqli_fetch_assoc($result)
               </a>
               </td>";
               echo "</tr>";
+            }
             ?>
           </tbody>
         </table>
