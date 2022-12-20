@@ -30,8 +30,9 @@ ALTER TABLE db_coach.cadastro
 add column cidade varchar(50) null after senha;
 ALTER TABLE db_coach.cadastro
 add column estado varchar(40) null after cidade;
-
-select*from db_coach.cadastro;
-show tables
+ALTER TABLE db_coach.formulario
+add column desc_meta date not null after meta;
+ALTER TABLE db_coach.formulario
+add column data_inicio  varchar(40) null after desc_meta;
 
 

@@ -72,7 +72,11 @@
         <div class="mdl-layout-spacer"></div>
     </header>
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Aluno</span>
+      <span class="mdl-layout-title">
+        <?php
+          echo "Aluno";
+        ?>
+      </span>
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
@@ -96,7 +100,7 @@
         <p>Olá
           <?php echo "$logado"?> &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
         </p>
-        <form action="formulario.php" method="post">
+        <form action="show_sistema_forms.php" method="post">
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"

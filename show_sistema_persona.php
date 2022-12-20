@@ -17,11 +17,7 @@ if (!empty($_GET['search'])) {
 } else {
   $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
 }
-
-
 $result2 = $conexao_regis->query($sql);
-
-
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
@@ -37,8 +33,8 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,cidade,estado,telefone,sexo) 
 VALUES ('$nome','$email','$senha','$cidade','$estado','$telefone','$sexo')");
 }
-//testes
-$user_data = mysqli_fetch_assoc($result2)
+$user_data = mysqli_fetch_assoc($result2);
+$nome= $user_data['nome'];
 ?> 
 <!DOCTYPE html>
 <!-- partial:index.partial.html -->
@@ -73,13 +69,17 @@ $user_data = mysqli_fetch_assoc($result2)
       <div class="mdl-layout__header-row">
         <div class="current-user">
           <i class="material-icons">account_circle</i>
-          <?php echo "olá,$logado!" ?>
+          <?php echo "olá, $nome!" ?>
         </div>
         <div class="mdl-layout-spacer"></div>
     </header>
 
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Aluno</span>
+      <span class="mdl-layout-title">
+        <?php
+          echo $nome; 
+        ?>
+      </span>
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
