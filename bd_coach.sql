@@ -31,6 +31,7 @@ add column cidade varchar(50) null after senha;
 ALTER TABLE db_coach.cadastro
 add column estado varchar(40) null after cidade;
 
-
+select*from db_coach.cadastro;
+show tables
 
 

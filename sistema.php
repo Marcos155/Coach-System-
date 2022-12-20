@@ -12,7 +12,7 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' ";
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
 
 } else {
   $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
@@ -28,11 +28,13 @@ if (isset($_POST['submit'])) {
 
   $nome = $_POST['username'];
   $email = $_POST['email'];
+  $cidade = $_POST['cidade'];
+  $estado = $_POST['estado'];
   $telefone = $_POST['phone'];
   $sexo = $_POST['sexo'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,telefone,sexo) 
-VALUES ('$nome','$email','$telefone','$sexo')");
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,cidade,estado,telefone,sexo) 
+VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
 }
 
 
@@ -284,8 +286,8 @@ VALUES ('$nome','$email','$telefone','$sexo')");
           echo "<td>" . $user_data['email'] . "</td>";
           echo "<td>" . $user_data['telefone'] . "</td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
-          echo "<td></td>";
-          echo "<td></td>";
+          echo "<td>" . $user_data['cidade'] . "</td>";
+          echo "<td>" .$user_data['estado'] . "</td>";
           echo "<td>
           <a class='btn btn-sm btn-primary' href='edit_regis.php?cod=$user_data[cod]'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pen' viewBox='0 0 16 16'>

@@ -12,7 +12,7 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' ";
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
 
 } else {
   $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
@@ -29,11 +29,13 @@ if (isset($_POST['submit'])) {
   $nome = $_POST['username'];
   $email = $_POST['email'];
   $senha = $_POST['password'];
+  $cidade = $_POST['cidade'];
+  $estado = $_POST['estado'];
   $telefone = $_POST['phone'];
   $sexo = $_POST['sexo'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
-VALUES ('$nome','$email','$senha','$telefone','$sexo')");
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,cidade,estado,telefone,sexo) 
+VALUES ('$nome','$email','$senha','$cidade','$estado','$telefone','$sexo')");
 }
 //testes
 $user_data = mysqli_fetch_assoc($result2)
@@ -129,8 +131,8 @@ $user_data = mysqli_fetch_assoc($result2)
           echo "<td>" . $user_data['telefone'] . "</td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
           echo "<td>" . $user_data['senha'] . "</td>";
-          echo"<td></td>";
-          echo "<td></td>";
+          echo"<td>"  . $user_data['cidade'] . "</td>";
+          echo "<td>" . $user_data['estado'] . "</td>";
           echo "</tr>";
         ?>
           </tbody>

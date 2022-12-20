@@ -14,7 +14,7 @@
     {
       $data=$_GET['search'];
       $sql= "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-      telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' ";
+      telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%estado%' ";
   
     }
     else
@@ -36,9 +36,11 @@
   $senha= $_POST['password'];
   $telefone= $_POST['phone'];
   $sexo= $_POST['sexo'];
+  $cidade= $_POST['cidade'];
+  $estado= $_POST['estado'];
   
-  $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
-  VALUES ('$nome','$email','$senha','$telefone','$sexo')");
+  $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,cidade,estado,telefone,sexo) 
+  VALUES ('$nome','$email','$senha', '$cidade','$estado','$telefone','$sexo')");
   }
 ?>
 <!DOCTYPE html>
@@ -96,7 +98,8 @@
                   <th scope="col">Telefone</th>
                   <th scope="col">Senha</th>
                   <th scope="col">Sexo</th>
-                  <th scope="col">Cidade</th> 
+                  <th scope="col">Cidade</th>
+                  <th scope="col">Estado</th>  
                   <th>Editar</th>
                 </tr>
               </thead>
@@ -110,7 +113,8 @@
           echo "<td>" . $user_data['telefone'] . "</td>";
           echo "<td>" . $user_data['senha'] . "</td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
-          echo "<td></td>";
+          echo "<td>" . $user_data['cidade'] ."</td>";
+          echo "<td>" . $user_data['estado'] ."</td>";
           echo "<td>
           <a class='btn btn-sm btn-primary' href='edit_regis.php?cod=$user_data[cod]'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pen' viewBox='0 0 16 16'>
