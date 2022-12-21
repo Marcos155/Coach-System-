@@ -33,18 +33,15 @@
 
     }
     else{
-      $fallback = 'index.php';
-      $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
-      header("location: {$anterior}");
-      exit;
+        header('Location: show_sistema_persona.php');
     }
   }
   else
   {
-    $fallback = 'index.php';
+    $fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");
-exit;
+    exit;
   }
   if(isset($_POST['submit']))
   {

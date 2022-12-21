@@ -28,13 +28,6 @@
     VALUES ('$meta','$desc_meta','$data_inicio','$data','$status')"); 
 
   }
-  else
-  {
-    $fallback = 'index.php';
-    $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
-    header("location: {$anterior}");
-    exit;
-  }
   $user_data = mysqli_fetch_assoc($result);
  ?> 
 <!DOCTYPE html>
