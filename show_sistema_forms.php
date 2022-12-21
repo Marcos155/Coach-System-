@@ -10,8 +10,8 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data=$_GET['search'];
-        $sql= "SELECT * FROM formulario WHERE cod LIKE '%$data%'or meta LIKE '%$data%' or desc_meta LIKE '%$data%'  or data_inicio LIKE '%$data%' or 
-        data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' ";
+  $sql= "SELECT * FROM formulario WHERE cod LIKE '%$data%'or meta LIKE '%$data%' or desc_meta LIKE '%$data%'  or data_inicio LIKE '%$data%' or 
+  data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM formulario ORDER BY cod DESC";
@@ -76,14 +76,13 @@ $user_data = mysqli_fetch_assoc($result)
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
           <br>
-          <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
+          <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
           <br>
-          <?php
-            
-            //echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
-          ?>
+          <a class="mdl-navigation__link" href="edit_regis.php">Completar cadastro</a>
           <br>
-          <a class="mdl-navigation__link" href="formulario.php">meta</a>
+          <a class="mdl-navigation__link" href="show_sistema_persona.php">Conta</a>
+          <br>
+          <a class="mdl-navigation__link" href="meta.php">meta</a>
           <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>

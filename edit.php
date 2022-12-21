@@ -108,11 +108,11 @@ else
           <div class="form-group espace">
             <label for="exampleFormControlTextarea1">Defina sua meta</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-              placeholder="Explique com detalhes seu objetivo"></textarea>
+              placeholder="Explique com detalhes seu objetivo" value="<?php echo $desc_meta ?>"></textarea>
           </div>
           <div class="form-group espace">
             <label for="exampleInputPassword1">Data de inicio</label>
-            <input type="date" class="form-control" id="exampleInputPassword1" name="data" value="<?php echo $data ?>" required>
+            <input type="date" class="form-control" id="exampleInputPassword1" name="data" value="<?php echo $data_inicio ?>" required>
             <label for="exampleInputPassword1">Data de conclusão</label>
             <input type="date" class="form-control" id="exampleInputPassword1" name="data" value="<?php echo $data ?>" required>
             <small id="emailHelp" class="form-text text-muted">Quando quer concluir esse objetivo?</small>
@@ -124,7 +124,7 @@ else
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>
           </div>
-          <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;">Enviar</button>
+          <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" name="update" id="update">Enviar</button>
         </form>
     </main>
 
