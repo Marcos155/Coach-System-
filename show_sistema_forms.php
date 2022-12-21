@@ -113,7 +113,7 @@ $user_data = mysqli_fetch_assoc($result2)
               echo "<tr>";
               echo "<td>".$user_data['cod']."</td>";
               echo "<td>".$user_data['meta']."</td>";
-              echo "<td>".$user_data['desc_meta']"</td>";
+              echo "<td>".$user_data['desc_meta']."</td>";
               echo "<td>".$user_data['data_inicio']."</td>";
               echo "<td>".$user_data['data_conclusao']."</td>";
               echo "<td>".$user_data['status_meta']."</td>";

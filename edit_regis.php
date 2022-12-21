@@ -33,12 +33,18 @@
 
     }
     else{
-        header('Location: formulario.php');
+      $fallback = 'index.php';
+      $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
+      header("location: {$anterior}");
+      exit;
     }
   }
   else
   {
-    header('Location: formulario.php');
+    $fallback = 'index.php';
+    $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
+    header("location: {$anterior}");
+exit;
   }
   if(isset($_POST['submit']))
   {

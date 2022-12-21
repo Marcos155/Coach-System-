@@ -28,6 +28,13 @@
     VALUES ('$meta','$desc_meta','$data_inicio','$data','$status')"); 
 
   }
+  else
+  {
+    $fallback = 'index.php';
+    $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
+    header("location: {$anterior}");
+    exit;
+  }
   $user_data = mysqli_fetch_assoc($result);
  ?> 
 <!DOCTYPE html>
@@ -116,8 +123,8 @@
           
           <div class="form-group espace">
             <label for="exampleFormControlTextarea1">Defina sua meta</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-              placeholder="Explique com detalhes seu objetivo" name="desc_meta"></textarea>
+            <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"
+              placeholder="Explique com detalhes seu objetivo" name="desc_meta">
           </div>
           
           <div class="form-group espace">
