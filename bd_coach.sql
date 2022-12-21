@@ -35,6 +35,6 @@ add column desc_meta date not null after meta;
 ALTER TABLE db_coach.formulario
 add column data_inicio  varchar(40) null after desc_meta;
 
+ALTER TABLE db_coach.formulario DROP COLUMN desc_meta;
 select*from db_coach.formulario;
 show tables
-

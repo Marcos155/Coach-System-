@@ -19,13 +19,12 @@
     
     include_once('config.php');
     $meta= $_POST['meta'];
-    $desc_meta= $_POST['desc_meta'];
     $data_inicio= $_POST['data_inicio'];
     $data= $_POST['data'];
     $status= $_POST['status'];
 
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
-    VALUES ('$meta','$desc_meta','$data_inicio','$data','$status')"); 
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,data_inicio,data_conclusao,status_meta) 
+    VALUES ('$meta','$data_inicio','$data','$status')"); 
 
   }
  ?> 
@@ -111,9 +110,11 @@
             <small id="emailHelp" class="form-text text-muted">Coloque aqui seu objetivo. Exemplo: perder peso</small>
           </div>
           <div class="form-group espace">
+            <!--
             <label for="exampleFormControlTextarea1">Defina sua meta</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
               placeholder="Explique com detalhes seu objetivo" name="desc_meta"></textarea>
+  -->
           </div>
           <div class="form-group espace">
             <label for="exampleInputPassword1">Data de inicio</label>
@@ -130,7 +131,7 @@
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>
           </div>
-          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar">
+          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar" name="submit">
         </form>
     </main>
 
