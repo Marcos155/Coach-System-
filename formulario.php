@@ -19,14 +19,16 @@
     
     include_once('config.php');
     $meta= $_POST['meta'];
+    $desc_meta= $_POST['desc_meta'];
     $data_inicio= $_POST['data_inicio'];
     $data= $_POST['data'];
     $status= $_POST['status'];
 
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,data_inicio,data_conclusao,status_meta) 
-    VALUES ('$meta','$data_inicio','$data','$status')"); 
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
+    VALUES ('$meta','$desc_meta','$data_inicio','$data','$status')"); 
 
   }
+  $user_data = mysqli_fetch_assoc($result);
  ?> 
 <!DOCTYPE html>
 <html>
@@ -101,7 +103,9 @@
         <p>Olá
           <?php echo "$logado"?> &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
         </p>
-        <form action="show_sistema_forms.php" method="post">
+        <?php
+            echo "<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>"
+          ?>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -109,13 +113,13 @@
               name="meta" required>
             <small id="emailHelp" class="form-text text-muted">Coloque aqui seu objetivo. Exemplo: perder peso</small>
           </div>
+          
           <div class="form-group espace">
-            <!--
             <label for="exampleFormControlTextarea1">Defina sua meta</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
               placeholder="Explique com detalhes seu objetivo" name="desc_meta"></textarea>
-  -->
           </div>
+          
           <div class="form-group espace">
             <label for="exampleInputPassword1">Data de inicio</label>
             <input type="date" class="form-control" id="exampleInputPassword1" name="data_inicio">

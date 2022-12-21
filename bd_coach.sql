@@ -12,7 +12,6 @@ create table formulario(
     data_conclusao date not null,
     status_meta varchar (500) not null,
     cod int not null auto_increment,
-    foreign key(cod) references cadastro(cod),
     primary key(cod)
 );
 create table tb_login(
@@ -31,10 +30,10 @@ add column cidade varchar(50) null after senha;
 ALTER TABLE db_coach.cadastro
 add column estado varchar(40) null after cidade;
 ALTER TABLE db_coach.formulario
-add column desc_meta date not null after meta;
+add column desc_meta varchar(500) not null after meta;
 ALTER TABLE db_coach.formulario
-add column data_inicio  varchar(40) null after desc_meta;
+add column data_inicio date not null after desc_meta;
 
-ALTER TABLE db_coach.formulario DROP COLUMN desc_meta;
-select*from db_coach.formulario;
-show tables
+
+
+
