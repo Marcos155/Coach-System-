@@ -111,8 +111,6 @@
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
-        <br>
           <a class="mdl-navigation__link" href="show_sistema_forms.php">Formulário</a>
         <br>
           <a class="mdl-navigation__link active" href="complete_regis.php">Completar cadastro</a>

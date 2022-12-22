@@ -35,5 +35,3 @@ ALTER TABLE db_coach.formulario
 add column data_inicio date not null after desc_meta;
 
 
-
-

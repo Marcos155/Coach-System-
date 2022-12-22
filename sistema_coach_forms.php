@@ -11,7 +11,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
+  $sql = "SELECT * FROM form WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
     telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
 
 } else {
@@ -88,6 +88,8 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Administração</span>
         <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
+          <br>
           <a class="mdl-navigation__link active" href="sistema.php">Conta-Alunos</a>
           <br>
           <a class="mdl-navigation__link" href="sistema_coach_forms.php">Formulário-Alunos</a>
@@ -265,27 +267,23 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
             <table class="table">
             <thead class="thead-light">
                <tr>
-                <th scope="row">Código</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Estado</th>
+                <th scope="row">Meta</th>
+                <th scope="col">Descrição da meta</th>
+                <th scope="col">Data de início</th>
+                <th scope="col">Data de conclusão</th>
+                <th scope="col">Status</th>
                 <th scope="col">Excluir</th>
                 </tr>
               </thead>
               <tbody>
               <?php
-        while ($user_data = mysqli_fetch_assoc($result2)) {
+        while ($user_data = mysqli_fetch_assoc($result)) {
           echo "<tr>";
-          echo "<td>" . $user_data['cod'] . "</td>";
-          echo "<td>" . $user_data['nome'] . "</td>";
-          echo "<td>" . $user_data['email'] . "</td>";
-          echo "<td>" . $user_data['telefone'] . "</td>";
-          echo "<td>" . $user_data['sexo'] . "</td>";
-          echo "<td>" . $user_data['cidade'] . "</td>";
-          echo "<td>" .$user_data['estado'] . "</td>";
+          echo "<td>" . $user_data['meta'] . "</td>";
+          echo "<td>" . $user_data['desc_meta'] . "</td>";
+          echo "<td>" . $user_data['data_inicio'] . "</td>";
+          echo "<td>" . $user_data['data'] . "</td>";
+          echo "<td>" . $user_data['status'] . "</td>";
           echo "<td>
 
           <a class='btn btn-sm btn-danger' href='delete.php?cod=$user_data[cod]' placeholer='editar' target='_blank' rel='noopener noreferrer' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>

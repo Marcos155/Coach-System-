@@ -83,8 +83,6 @@ $nome= $user_data['nome'];
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
-          <br>
           <?php
             echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
           ?>
@@ -102,7 +100,6 @@ $nome= $user_data['nome'];
     </div>
     <main class="mdl-layout__content">
       <div class="page-content">
-
 
         <div class="m-5">
           <h1>Cadastro</h1>
@@ -171,13 +168,12 @@ $nome= $user_data['nome'];
       });
 
     });
+
+
+    /*testes*/
   </script>
-
 </body>
-
 </html>
 <!-- partial -->
-
 </body>
-
 </html>

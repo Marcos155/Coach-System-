@@ -83,8 +83,6 @@
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
-        <br>
           <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
         <br>
           <a class="mdl-navigation__link" href="edit_regis.php">Completar cadastro</a>
@@ -104,7 +102,7 @@
           <?php echo "$logado"?> &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
         </p>
         <?php
-            echo "<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>"
+            echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
           ?>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>
