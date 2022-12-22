@@ -1,0 +1,45 @@
+input[type="file"]{
+  display: none;
+}
+label:hover{
+  background-color: #2a2727;
+}
+label {
+  color: white;
+  height: 25px;
+  width: 180px;
+  border: 1px solid #2a2727;
+  font-size: 14px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+.file{
+  display: none;
+}
+.material-icons{
+  cursor: pointer;
+}
+.material-icons :hover{
+  content: "Boschini was here!";
+}
+.foto {
+display: none;
+padding: 0.25em 0.4em;
+font-size: 75%;
+font-weight: 700;
+line-height: 1;
+text-align: center;
+white-space: nowrap;
+vertical-align: baseline;
+border-radius: 0.25rem;
+background: #343a40;
+}
