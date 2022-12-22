@@ -35,6 +35,7 @@ VALUES ('$nome','$email','$senha','$cidade','$estado','$telefone','$sexo')");
 }
 $user_data = mysqli_fetch_assoc($result2);
 $nome= $user_data['nome'];
+
 ?> 
 <!DOCTYPE html>
 <!-- partial:index.partial.html -->
