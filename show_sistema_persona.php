@@ -12,16 +12,12 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' ";
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
 
 } else {
   $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
 }
-
-
 $result2 = $conexao_regis->query($sql);
-
-
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
@@ -29,14 +25,16 @@ if (isset($_POST['submit'])) {
   $nome = $_POST['username'];
   $email = $_POST['email'];
   $senha = $_POST['password'];
+  $cidade = $_POST['cidade'];
+  $estado = $_POST['estado'];
   $telefone = $_POST['phone'];
   $sexo = $_POST['sexo'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
-VALUES ('$nome','$email','$senha','$telefone','$sexo')");
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,cidade,estado,telefone,sexo) 
+VALUES ('$nome','$email','$senha','$cidade','$estado','$telefone','$sexo')");
 }
-//testes
-$user_data = mysqli_fetch_assoc($result2)
+$user_data = mysqli_fetch_assoc($result2);
+$nome= $user_data['nome'];
 ?> 
 <!DOCTYPE html>
 <!-- partial:index.partial.html -->
@@ -71,13 +69,17 @@ $user_data = mysqli_fetch_assoc($result2)
       <div class="mdl-layout__header-row">
         <div class="current-user">
           <i class="material-icons">account_circle</i>
-          <?php echo "olá,$logado!" ?>
+          <?php echo "olá, $nome!" ?>
         </div>
         <div class="mdl-layout-spacer"></div>
     </header>
 
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Aluno</span>
+      <span class="mdl-layout-title">
+        <?php
+          echo $nome; 
+        ?>
+      </span>
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
@@ -129,8 +131,8 @@ $user_data = mysqli_fetch_assoc($result2)
           echo "<td>" . $user_data['telefone'] . "</td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
           echo "<td>" . $user_data['senha'] . "</td>";
-          echo"<td></td>";
-          echo "<td></td>";
+          echo"<td>"  . $user_data['cidade'] . "</td>";
+          echo "<td>" . $user_data['estado'] . "</td>";
           echo "</tr>";
         ?>
           </tbody>

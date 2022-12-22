@@ -1,5 +1,4 @@
 <?php
-    //cadastro
     include_once('config.php');
 
     if(isset($_POST['update']))
@@ -10,10 +9,12 @@
         $senha=$_POST['password'];
         $telefone= $_POST['phone'];
         $sexo= $_POST['sexo']; 
+        $cidade=$_POST['cidade'];
+        $estado=$_POST['estado']; 
 
-        $sqlupdate = "UPDATE cadastro SET nome='$nome',email='$email',senha='$senha',telefone='$telefone',sexo='$sexo'
+        $sqlupdate = "UPDATE cadastro SET nome='$nome',email='$email',senha='$senha',telefone='$telefone',sexo='$sexo',cidade='$cidade',estado='$estado'
         WHERE cod='$cod' ";
         $result2 = $conexao_regis->query($sqlupdate);
     }
-    header('Location: sistema.php');
+    header('Location: show_sistema_persona.php');
 ?>

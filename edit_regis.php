@@ -1,9 +1,6 @@
 <?php
-  //cadastro
-  
   session_start();
   include_once('config.php');
-
   if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
       {
           unset($_SESSION['email']);
@@ -11,7 +8,6 @@
           header('Location:entrar.php');
       }
       $logado = $_SESSION['email'];
-  
   
   if(!empty($_GET['cod']))
   {
@@ -31,18 +27,37 @@
           $senha= $user_data['senha'];
           $telefone= $user_data['telefone'];
           $sexo= $user_data['sexo'];
-          $cidade=$user_data['cidade'];
-          $estado=$user_data['estado'];
+          $cidade= $user_data['cidade'];
+          $estado= $user_data['estado'];
         }
 
     }
     else{
-        header('Location: sistema.php');
+        header('Location: show_sistema_persona.php');
     }
   }
   else
   {
-    header('Location: sistema.php');
+    $fallback = 'index.html';
+    $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
+    header("location: {$anterior}");
+    exit;
+  }
+  if(isset($_POST['submit']))
+  {
+    
+    include_once('config.php');
+    $email= $_POST['email'];
+    $nome= $_POST['nome'];
+    $telefone= $_POST['telefone'];
+    $sexo= $_POST['sexo'];
+    $senha= $_POST['senha'];
+    $cidade= $_POST['cidade'];
+    $estado= $_POST['estado'];
+    $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(cidade,estado) 
+    VALUES ('$cidade','$estado')");
+    
+    header('Location:edit_regis.php');
   }
 ?>
 <!DOCTYPE html>
@@ -116,7 +131,7 @@
         <p>
           <?php echo "$nome"?>, vamos completar seu cadastro &#128578;!
         </p>
-        <form action="save_complete_regis.php" method="post">
+        <form action="save_edit_regis.php" method="post">
           <div class="form-group espace">
             <label for="exampleInputEmail1">Nome</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -130,38 +145,39 @@
           <input type="hidden" name="cod" value="<?php echo $cod ?>">
           <div class="form-group espace">
             <label for="exampleInputEmail1">Telefone</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="telefone" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="phone" required>
+            <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="telefone"  placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
+              name="phone" value="<?php echo $telefone ?>" required>
           </div>
           <div class="form-group espace">
             <label>Sexo</label>
             <br>
-            <input type="radio" value="feminino" name="sexo" required>
+            <input type="radio" value="feminino" name="sexo" <?php echo ($sexo == 'feminino') ? 'checked' : ''?> required>
             <label for="faminino">Feminino</label>
-            <input type="radio"  value="masculino" name ="sexo" required>
+            <input type="radio"  value="masculino" name ="sexo" <?php echo ($sexo == 'masculino') ? 'checked' : ''?> required>
             <label for="masculino">Masculino</label>
-            <input type="radio" value="outro" name ="sexo" required>
+            <input type="radio" value="outro" name ="sexo" <?php echo ($sexo == 'outro') ? 'checked' : ''?> required>
             <label for="outro">Outro</label>
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Cidade</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
               placeholder="Qual sua cidade?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="meta" required>
+              name="cidade" value="<?php echo $cidade ?>" required>
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Estado</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
               placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="meta" required>
+              name="estado" value="<?php echo $estado ?>" required>
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Senha</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
             type="password" placeholder="Senha" name="password"  value="<?php echo $senha ?>" id="senha" required>
           </div>
-          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar">
+          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar" name="update"
+          id="update">
         </form>
     </main>
 

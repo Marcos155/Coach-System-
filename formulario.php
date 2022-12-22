@@ -19,13 +19,16 @@
     
     include_once('config.php');
     $meta= $_POST['meta'];
+    $desc_meta= $_POST['desc_meta'];
+    $data_inicio= $_POST['data_inicio'];
     $data= $_POST['data'];
     $status= $_POST['status'];
 
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,data_conclusao,status_meta) 
-    VALUES ('$meta','$data','$status')"); 
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
+    VALUES ('$meta','$desc_meta','$data_inicio','$data','$status')"); 
 
   }
+  $user_data = mysqli_fetch_assoc($result);
  ?> 
 <!DOCTYPE html>
 <html>
@@ -72,7 +75,11 @@
         <div class="mdl-layout-spacer"></div>
     </header>
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Aluno</span>
+      <span class="mdl-layout-title">
+        <?php
+          echo "Aluno";
+        ?>
+      </span>
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
@@ -96,7 +103,9 @@
         <p>Olá
           <?php echo "$logado"?> &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
         </p>
-        <form action="formulario.php" method="post">
+        <?php
+            echo "<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>"
+          ?>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -104,14 +113,16 @@
               name="meta" required>
             <small id="emailHelp" class="form-text text-muted">Coloque aqui seu objetivo. Exemplo: perder peso</small>
           </div>
+          
           <div class="form-group espace">
             <label for="exampleFormControlTextarea1">Defina sua meta</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-              placeholder="Explique com detalhes seu objetivo"></textarea>
+            <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"
+              placeholder="Explique com detalhes seu objetivo" name="desc_meta">
           </div>
+          
           <div class="form-group espace">
             <label for="exampleInputPassword1">Data de inicio</label>
-            <input type="date" class="form-control" id="exampleInputPassword1">
+            <input type="date" class="form-control" id="exampleInputPassword1" name="data_inicio">
             <label for="exampleInputPassword1">Data de conclusão</label>
             <input type="date" class="form-control" id="exampleInputPassword1" name="data" required>
             <small id="emailHelp" class="form-text text-muted">Quando quer concluir esse objetivo?</small>
@@ -124,7 +135,7 @@
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>
           </div>
-          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar">
+          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar" name="submit">
         </form>
     </main>
 
