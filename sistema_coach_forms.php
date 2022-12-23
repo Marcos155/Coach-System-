@@ -64,7 +64,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <style>
     .mdl-layout__header {
-      background-color: rgb(255, 0, 0);
+      background-color: rgb(0, 0, 0);
     }
     .table-wrapper {
     max-height: 500px;
@@ -119,7 +119,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
                       <label class="mdl-textfield__label" for="lastName">Nome</label>
                     </div>
                     <div class="btn-wrap">
-                  <input  style="background-color:rgb(255,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
+                  <input  style="background-color:rgb(0,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
                 </div>
                   </div>
                 </div>
@@ -172,7 +172,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
                       </div>
                     </div>
                     <div class="btn-wrap">
-                  <input style="background-color:rgb(255,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
+                  <input style="background-color:rgb(0,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
                 </div>
                   </div>
 
@@ -196,7 +196,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
                     </div>
                   </div>
                   <div class="btn-wrap">
-                  <input style="background-color:rgb(255,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
+                  <input style="background-color:rgb(0,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
                 </div>
                 </div>
 
@@ -255,7 +255,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
                   </div>
                 </div>
                 <div class="btn-wrap">
-                  <input style="background-color:rgb(255,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
+                  <input style="background-color:rgb(0,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
                 </div>
               </form>
             </div>
