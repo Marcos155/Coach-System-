@@ -11,30 +11,29 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM form WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
+  $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or 
+    desc_meta LIKE '%$data%' or data_inicio LIKE '%$data%' or data_conclusão LIKE '%$data%' or status_meta LIKE '%$data%' ";
 
 } else {
-  $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
+  $sql = "SELECT * FROM formulario ORDER BY cod DESC";
 }
 
 
-$result2 = $conexao_regis->query($sql);
+$result = $conexao_forms->query($sql);
 
 
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
 
-  $nome = $_POST['username'];
-  $email = $_POST['email'];
-  $cidade = $_POST['cidade'];
-  $estado = $_POST['estado'];
-  $telefone = $_POST['phone'];
-  $sexo = $_POST['sexo'];
+  $meta = $_POST['meta'];
+  $desc_meta = $_POST['desc_meta'];
+  $data_inicio = $_POST['data_inicio'];
+  $data_conclusao = $_POST['data'];
+  $status = $_POST['status_meta'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,cidade,estado,telefone,sexo) 
-VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
+  $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
+VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
 }
 
 
@@ -88,13 +87,11 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Administração</span>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="entrar.php">Inicio</a>
+          <a class="mdl-navigation__link" href="sistema.php">Conta-Alunos</a>
           <br>
-          <a class="mdl-navigation__link active" href="sistema.php">Conta-Alunos</a>
+          <a class="mdl-navigation__link active" href="sistema_coach_forms.php">Formulário-Alunos</a>
           <br>
-          <a class="mdl-navigation__link" href="sistema_coach_forms.php">Formulário-Alunos</a>
-          <br>
-          <a class="mdl-navigation__link" href="coach_show_sistema_forms.php">Meta-Alunos</a>
+          <a class="mdl-navigation__link" href="#">Meta-Alunos</a>
           <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
@@ -267,6 +264,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
             <table class="table">
             <thead class="thead-light">
                <tr>
+                <th scope="row">Código</th>
                 <th scope="row">Meta</th>
                 <th scope="col">Descrição da meta</th>
                 <th scope="col">Data de início</th>
@@ -279,11 +277,12 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
               <?php
         while ($user_data = mysqli_fetch_assoc($result)) {
           echo "<tr>";
+          echo "<td>" . $user_data['cod'] . "</td>";
           echo "<td>" . $user_data['meta'] . "</td>";
           echo "<td>" . $user_data['desc_meta'] . "</td>";
           echo "<td>" . $user_data['data_inicio'] . "</td>";
-          echo "<td>" . $user_data['data'] . "</td>";
-          echo "<td>" . $user_data['status'] . "</td>";
+          echo "<td>" . $user_data['data_conclusao'] . "</td>";
+          echo "<td>" . $user_data['status_meta'] . "</td>";
           echo "<td>
 
           <a class='btn btn-sm btn-danger' href='delete.php?cod=$user_data[cod]' placeholer='editar' target='_blank' rel='noopener noreferrer' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
