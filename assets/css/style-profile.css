@@ -1,10 +1,10 @@
 input[type="file"]{
   display: none;
 }
-label:hover{
+.hover:hover{
   background-color: #2a2727;
 }
-label {
+.hover {
   color: white;
   height: 25px;
   width: 180px;
