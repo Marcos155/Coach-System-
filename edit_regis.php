@@ -38,7 +38,7 @@
   }
   else
   {
-    /*header('Location: show_sistema_persona.php');*/
+    /*header('Location: edit_regis.php');*/
     $fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");

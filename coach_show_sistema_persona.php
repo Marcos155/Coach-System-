@@ -21,10 +21,8 @@
     {
       $sql = "SELECT*FROM cadastro ORDER BY cod DESC";
     }
-  
     
     $result2 = $conexao_regis->query($sql);
-  
   
   if(isset($_POST['submit']))
   {

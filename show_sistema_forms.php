@@ -31,6 +31,41 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
 VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status_meta')");
 }
+
+if(!empty($_GET['cod']))
+  {
+  
+    include_once('config.php');
+
+    $cod = $_GET['cod'];
+    $sqlselect = "SELECT * FROM formulario WHERE cod=$cod";
+    $result = $conexao_forms->query($sqlselect);
+
+    if($result->num_rows > 0)
+    {
+        while($user_data = mysqli_fetch_assoc($result))
+        {
+          $nome= $user_data['meta'];
+          $email= $user_data['desc_meta'];
+          $senha= $user_data['data_inicio'];
+          $telefone= $user_data['data_conclusao'];
+          $sexo= $user_data['status_meta'];
+        }
+
+    }
+    else{
+        header('Location: show_sistema_persona.php');
+    }
+  }
+  else
+  {
+    /*header('Location: show_sistema_persona.php');*/
+    $fallback = 'index.html';
+    $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
+    header("location: {$anterior}");
+    exit;
+  }
+
 $user_data = mysqli_fetch_assoc($result2)
 ?> 
 <!DOCTYPE html>
