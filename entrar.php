@@ -117,7 +117,7 @@
         <br>
         <input type="email" placeholder="Email" name="email" required/>
         <input type="password" placeholder="Senha" name="password" id="senha" required/>
-        <a href="#">Esqueceu sua senha?</a>
+        <a href="remember-password.php" target="_blank">Esqueceu sua senha?</a>
         
         <input type="submit" value="conectar" name="submit" id="enviar">
       </form>
