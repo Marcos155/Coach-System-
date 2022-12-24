@@ -6,90 +6,146 @@ Author URL: http://w3layouts.com
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Contato - André Fernandes</title>
+    <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
+    <title>Andre Fernandes</title>
     <!-- google-fonts -->
-    <link
-        href="//fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    <link rel="preconnect" href=https://fonts.googleapis.com>
+
+    <link rel="preconnect" href=https://fonts.gstatic.com crossorigin>
+
+    <link href=https://fonts.googleapis.com/css2?
+        family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap
         rel="stylesheet">
     <!-- //google-fonts -->
     <!-- Font-Awesome-Icons-CSS -->
-    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <script defer src=https://kit.fontawesome.com/79b5047e4f.js crossorigin="anonymous"></script>
     <!-- Template CSS Style link -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <style>
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        @keyframes load {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .pre {
+            width: 120px;
+            height: 120px;
+            background: url(assets/images/loading.png);
+            background-position: center;
+            background-size: contain;
+            animation: load 2s infinite linear;
+            z-index: 1;
+        }
+
+        .box-load {
+            position: absolute;
+            width: 100%;
+            height: 50vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            display: none;
+        }
+    </style>
+    <script>
+        function loading() {
+            document.getElementsByClassName('box-load')[0].style.display = "none";
+            document.getElementsByClassName('content')[0].style.display = "block";
+        }
+    </script>
 </head>
 
-<body>
-    <!--header-->
-    <header id="site-header" class="fixed-top">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg stroke px-0">
-                <h1>
-                    <a class="navbar-brand" href="index.html">
-                        <i class="fab fa-atlassian fa-xs"></i>ndré<span> Fernandes</span>
-                    </a>
-                </h1>
-                <!-- if logo is image enable this   
+<body onload="loading()">
+    <div id="box-load" class="box-load">
+        <div class="pre"></div>
+    </div>
+
+    <div id="content" class="content"> <!--header-->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke px-0">
+                    <h1>
+                        <a class="navbar-brand" href="index.html">
+                            <i class="fab fa-atlassian fa-xs"></i>ndré<span> Fernandes</span>
+                        </a>
+                    </h1>
+                    <!-- if logo is image enable this   
     <a class="navbar-brand" href="#index.html">
         <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
     </a> -->
-                <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
-                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
-                </button>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+                        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                    <ul class="navbar-nav ml-lg-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Início <span class="sr-only">(current)</span></a>
-                        </li>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Início <span class="sr-only">(current)</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- //search button -->
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="cont-ser-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!--//header-->
+
+        <!-- inner banner -->
+        <section class="inner-banner py-5">
+            <div class="w3l-breadcrumb py-lg-5">
+                <div class="container pt-4 pb-sm-4">
+                    <h4 class="inner-text-title font-weight-bold pt-5">Entre em contato</h4>
+                    <ul class="breadcrumbs-custom-path">
+                        <li><a href="index.html">Início</a></li>
+                        <li class="active"><i class="fas fa-angle-right mx-2"></i>Entrar em contato</li>
                     </ul>
                 </div>
-                <!-- //search button -->
-                <!-- toggle switch for light and dark theme -->
-                <div class="cont-ser-position">
-                    <nav class="navigation">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox">
-                                <div class="mode-container">
-                                    <i class="gg-sun"></i>
-                                    <i class="gg-moon"></i>
-                                </div>
-                            </label>
-                        </div>
-                    </nav>
-                </div>
-                <!-- //toggle switch for light and dark theme -->
-            </nav>
-        </div>
-    </header>
-    <!--//header-->
-
-    <!-- inner banner -->
-    <section class="inner-banner py-5">
-        <div class="w3l-breadcrumb py-lg-5">
-            <div class="container pt-4 pb-sm-4">
-                <h4 class="inner-text-title font-weight-bold pt-5">Entre em contato</h4>
-                <ul class="breadcrumbs-custom-path">
-                    <li><a href="index.html">Início</a></li>
-                    <li class="active"><i class="fas fa-angle-right mx-2"></i>Entrar em contato</li>
-                </ul>
             </div>
-        </div>
-    </section>
-    <!-- //inner banner -->
+        </section>
+        <!-- //inner banner -->
 
-    <!-- contact -->
-    <div class="w3l-contact-info py-5" id="contact">
-        <div class="container py-md-5 py-4">
-            <div class="align-self">
-                <div class="contact-infos">
-                    <!--
+        <!-- contact -->
+        <div class="w3l-contact-info py-5" id="contact">
+            <div class="container py-md-5 py-4">
+                <div class="align-self">
+                    <div class="contact-infos">
+                        <!--
                     <div class="single-contact-infos">
                         <div class="icon-box"><i class="fas fa-map-marker-alt primary-clr-bg"></i></div>
                         <div class="text-box">
@@ -97,81 +153,86 @@ Author URL: http://w3layouts.com
                             <p>Coffee bean, 343 cafe coffee lane, #2214 cravel street, NY.</p>
                         </div>
                     </div>-->
-                    <div class="single-contact-infos">
-                        <div class="icon-box"><i class="fas fa-clock green-clr-bg"></i></div>
-                        <div class="text-box">
-                            <h3 class="mb-3">Opening hours</h3>
-                            <p class=""> Monday – Friday : 9am - 6pm</p>
-                            <p class=""> Saturday : 10am - 4pm</p>
+                        <div class="single-contact-infos">
+                            <div class="icon-box"> <i class="fa-brands fa-whatsapp green-clr-bg"></i></div>
+                            <div class="text-box">
+                                <h3 class="mb-3">Entre em contato</h3>
+                                <p class=""> Segunda a sexta : 9:00 as 21:00</p>
+                                <p class=""> Sabado, domingo e feriados :<br> 9:00 as 15:00</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="single-contact-infos">
-                        <div class="icon-box"><i class="fas fa-envelope-open-text blue-clr-bg"></i></div>
-                        <div class="text-box">
-                            <h3 class="mb-3">Informações para contato</h3>
-                            <p class=""><a href="tel:+55(61) 992656388">+55(61) 99265-6388</a></p>
-                            <p class=""> <a href="mailto:info@support.com" target="_blank" rel="noopener noreferrer">info@support.com</a></p>
+                        <div class="single-contact-infos">
+                            <div class="icon-box"><i class="fas fa-envelope-open-text blue-clr-bg"></i></div>
+                            <div class="text-box">
+                                <h3 class="mb-3">Informações para contato</h3>
+                                <p class=""><a href="tel:+55(61) 992656388">+55(61) 99265-6388</a></p>
+                                <p class=""> <a href="mailto:info@support.com" target="_blank"
+                                        rel="noopener noreferrer">info@support.com</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row mt-5 pt-md-5">
-                <div class="col-lg-6 map order-lg-1 order-2">
-                    <!--
+                <div class="row mt-5 pt-md-5">
+                    <div class="col-lg-6 map order-lg-1 order-2">
+                        <!--
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001161.424489281!2d-78.01909140705047!3d42.72866436845163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sin!4v1570786994395!5m2!1sen!2sin"
                         frameborder="0" allowfullscreen=""></iframe>-->
-                </div>
-                <div class="col-lg-6 form-inner-cont order-lg-2 order-1 mb-lg-0 mb-5">
-                    <form action="mailto:info@support.com" method="post" class="signin-form">
-                        <div class="form-input">
-                            <input type="text" name="w3lName" id="w3lName" placeholder="Your name">
-                        </div>
-                        <div class="form-input">
-                            <input type="email" name="w3lSender" id="w3lSender" placeholder="Your email address"
-                                required="">
-                        </div>
-                        <div class="form-input">
-                            <textarea name="w3lMessage" id="w3lMessage" placeholder="Your message"
-                                required=""></textarea>
-                        </div>
-                        <div class="text-right">
-                            <button type="submit" class="btn btn-style btn-primary">Enviar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- footer -->
-    <footer class="w3l-footer-29-main">
-        <div class="footer-29 py-5">
-            <div class="container py-lg-4">
-                <div class="row footer-top-29">
-                    
-                    <div class="col-lg-3 footer-contact-list mt-lg-0 mt-md-5 mt-4">
-                        <h6 class="footer-title-29">Redes Sociais</h6>
-                        <div class="main-social-footer-29">
-                            <a href="https://api.whatsapp.com/send?phone=556192656388&text=Quero%20alcan%C3%A7ar%20minha%20meta!%20" class="whatsapp" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                            <a href="mailto:info@support.com"><i class="fab fa-google-plus-g" target="_blank" rel="noopener noreferrer"></i></a>
-                            <a href="https://instagram.com/doandreoficial?igshid=YmMyMTA2M2Y=" class="instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <!-- copyright -->
-                        <p class="copy-footer-29 mt-4">© 2021 Marketplace. All rights reserved. Design by <a
-                                href="https://w3layouts.com/" target="_blank">
-                                W3Layouts</a></p>
+                    </div>
+                    <div class="col-lg-6 form-inner-cont order-lg-2 order-1 mb-lg-0 mb-5">
+                        <form action="mailto:info@support.com" method="post" class="signin-form">
+                            <div class="form-input">
+                                <input type="text" name="w3lName" id="w3lName" placeholder="Seu nome">
+                            </div>
+                            <div class="form-input">
+                                <input type="email" name="w3lSender" id="w3lSender" placeholder="Seu email" required="">
+                            </div>
+                            <div class="form-input">
+                                <textarea name="w3lMessage" id="w3lMessage" placeholder="Sua mensagem"
+                                    required=""></textarea>
+                            </div>
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-style btn-primary">Enviar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
-    <!-- //footer -->
+        <!-- footer -->
+        <footer class="w3l-footer-29-main">
+            <div class="footer-29 py-5">
+                <div class="container py-lg-4">
+                    <div class="row footer-top-29">
 
-    <!-- Js scripts -->
-    <!-- move top -->
-    <button onclick="topFunction()" id="movetop" title="Go to top">
-        <span class="fas fa-level-up-alt" aria-hidden="true"></span>
-    </button>
+                        <div class="col-lg-3 footer-contact-list mt-lg-0 mt-md-5 mt-4">
+                            <h6 class="footer-title-29">Redes Sociais</h6>
+                            <div class="main-social-footer-29">
+                                <a href="https://api.whatsapp.com/send?phone=556192656388&text=Quero%20alcan%C3%A7ar%20minha%20meta!%20"
+                                    class="whatsapp" target="_blank" rel="noopener noreferrer">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                    <a href="mailto:info@support.com"><i class="fa-solid fa-envelope" target="_blank"
+                                            rel="noopener noreferrer"></i></a>
+                                    <a href="https://instagram.com/doandreoficial?igshid=YmMyMTA2M2Y=" class="instagram"
+                                        target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                            </div>
+                            <!-- copyright -->
+                            <p class="copy-footer-29 mt-4">© 2021 Marketplace. All rights reserved. Design by <a
+                                    href="https://w3layouts.com/" target="_blank">
+                                    W3Layouts</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- //footer -->
+
+        <!-- Js scripts -->
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            <span class="fas fa-level-up-alt" aria-hidden="true"></span>
+        </button>
+    </div>
     <script>
         // When the user scrolls down 20px from the top of the document, show the button
         window.onscroll = function () {
@@ -242,7 +303,6 @@ Author URL: http://w3layouts.com
     <!-- //disable body scroll which navbar is in active -->
 
     <!-- bootstrap -->
-    <script src="assets/js/bootstrap.min.js"></script>
     <!-- //bootstrap -->
     <!-- //Js scripts -->
 </body>
