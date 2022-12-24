@@ -21,31 +21,34 @@ if (isset($_POST['submit'])) {
 
     header('Location:entrar.php');
 }
-if (isset($_POST[ok])) {
+if (isset($_POST['ok'])) {
 
     $email = $mysqli ->escape_string($_POST['email']);
 
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        $erro[] = "E-mail inválido."
+        $erro[] = "E-mail inválido.";
     }
 
     if($total == 0)
-        $erro = "O e-mail informado não existe.";
+        $erro[] = "O e-mail informado não existe.";
     if(count($erro)== 0 && $total > 0){
 
     $novasenha = substr(md5(time()), 0, 6);
     $nscriptografada = md5(md5($novasenha));
 
-    if mail($email, "Sua nova senha", "Sua nova senha é: ".$novasenha);{
+    if (mail($email, "Sua nova senha", "Sua nova senha é: ".$novasenha));{
 
 
-    $sql_code = "UPDATE cadastro SET password '$nscriptografada' WHERE email='$email' "
+    $sql_code = "UPDATE cadastro SET senha = '$nscriptografada' WHERE email='$email' ";
     $sql_query = $mysqli->query($sql_code) or die($mysqli->error);
   
         if ($sql_query)
         $erro[] = "Senha alterada com sucesso!";
 
 }
+    }
+    if(count($erro)==0 || !isset($erro)){
+        echo "<script>alert('Login efetuado com sucesso'); location.href='entrar.php';</script> ";
     }
 }
 
@@ -91,10 +94,10 @@ if (isset($_POST[ok])) {
 
 <body>
     <?php
-    if (count(erro) > 0)
-    foreach ($erro as $msg) {
+    if (count($erro)> 0)
+        foreach ($erro as $msg) {
         echo "<p>$msg</p>";
-    }
+        }
 ?>
     <div class="container" id="container">
         <div class="form-container sign-in-container">
@@ -102,8 +105,7 @@ if (isset($_POST[ok])) {
                 <h1>Restaurar senha</h1><br><br><br><br>
 
                 <input value="<?php echo $_POST['email'];?>" type="email" name="email" placeholder="Email" /> <br><br>
-                <button type="submit" value="ok" name="ok">Restaurar</button>
-            </form>
+                <input type="submit" value="ok" name="ok">
         </div>
         <div class="overlay-container">
             <div class="overlay">
