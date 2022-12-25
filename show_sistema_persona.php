@@ -71,7 +71,7 @@ $nome= $user_data['nome'];
         <div class="current-user">
           <i class="material-icons">account_circle</i>
           <?php 
-            echo "olá, $nome!";
+            echo "olá, $nome";
           ?>
         </div>
         <div class="mdl-layout-spacer"></div>

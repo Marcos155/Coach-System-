@@ -29,5 +29,4 @@ else
     // não acessa
     header('Location: entrar.php');
 }
-
 ?>

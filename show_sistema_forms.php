@@ -11,7 +11,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM formulario WHERE meta LIKE '%$data%' or desc_meta LIKE '%$desc_meta%' or data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or 
+  $sql = "SELECT * FROM formulario WHERE meta LIKE '%$data%' or nome LIKE '%$data%' or desc_meta LIKE '%$desc_meta%' or data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or 
     status_meta LIKE '%$data%' or cod LIKE '%$data%'";
 
 } else {
@@ -23,13 +23,14 @@ if (isset($_POST['submit'])) {
   include_once('config.php');
 
   $meta = $_POST['meta'];
+  $nome = $_POST['nome'];
   $desc_meta= $_POST['desc_meta'];
   $data_inicio = $_POST['data_inicio'];
   $data_conclusao = $_POST['data'];
   $status_meta = $_POST['status'];
 
-  $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
-VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status_meta')");
+  $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,desc_meta,data_inicio,data_conclusao,status_meta) 
+VALUES ('$meta','$nome','$desc_meta','$data_inicio','$data_conclusao','$status_meta')");
 }
 
 if(!empty($_GET['cod']))
@@ -45,11 +46,12 @@ if(!empty($_GET['cod']))
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-          $nome= $user_data['meta'];
-          $email= $user_data['desc_meta'];
-          $senha= $user_data['data_inicio'];
-          $telefone= $user_data['data_conclusao'];
-          $sexo= $user_data['status_meta'];
+          $meta= $user_data['meta'];
+          $nome= $user_data['nome'];
+          $desc_meta= $user_data['desc_meta'];
+          $data_inicio= $user_data['data_inicio'];
+          $data_conclusao= $user_data['data_conclusao'];
+          $status_meta= $user_data['status_meta'];
         }
 
     }
@@ -57,16 +59,16 @@ if(!empty($_GET['cod']))
         header('Location: show_sistema_persona.php');
     }
   }
-  else
+  //else
   {
     /*header('Location: show_sistema_persona.php');*/
-    $fallback = 'index.html';
+    /*$fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");
-    exit;
+    exit;*/
   }
-
-$user_data = mysqli_fetch_assoc($result2)
+$user_data = mysqli_fetch_assoc($result2);
+$nome= $user_data['nome'];
 ?> 
 <!DOCTYPE html>
 <!-- partial:index.partial.html -->
@@ -101,13 +103,17 @@ $user_data = mysqli_fetch_assoc($result2)
       <div class="mdl-layout__header-row">
         <div class="current-user">
           <i class="material-icons">account_circle</i>
-          <?php echo "olá,$logado!" ?>
+          <?php echo "olá, $nome" ?>
         </div>
         <div class="mdl-layout-spacer"></div>
     </header>
 
     <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">Aluno</span>
+      <span class="mdl-layout-title">
+        <?php 
+          echo $nome;
+        ?>
+      </span>
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
@@ -134,6 +140,7 @@ $user_data = mysqli_fetch_assoc($result2)
           <thead class="thead-light">
             <tr>
               <th scope="row">Código</th>
+              <th scope="col">Nome</th>
               <th scope="col">meta</th>
               <th scope="col">descrição da meta</th>
               <th scope="col">início</th>
@@ -145,6 +152,7 @@ $user_data = mysqli_fetch_assoc($result2)
             <?php
               echo "<tr>";
               echo "<td>".$user_data['cod']."</td>";
+              echo "<td>".$user_data['nome']."</td>";
               echo "<td>".$user_data['meta']."</td>";
               echo "<td>".$user_data['desc_meta']."</td>";
               echo "<td>".$user_data['data_inicio']."</td>";

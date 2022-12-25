@@ -10,22 +10,29 @@
       }
       $logado = $_SESSION['email'];
 
-      $sql = "SELECT * FROM formulario ORDER BY cod DESC";
+      if (!empty($_GET['search'])) {
+        $data = $_GET['search'];
+        $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or nome LIKE '%$data%' or desc_meta LIKE '%$data%' or 
+          data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%'";
+      
+      } else{
+        $sql = "SELECT * FROM formulario ORDER BY cod DESC";
+      }
       $result = $conexao_forms->query($sql);
-
 
   if(isset($_POST['submit']))
   {
     
     include_once('config.php');
     $meta= $_POST['meta'];
+    $nome= $_POST['nome'];
     $desc_meta= $_POST['desc_meta'];
     $data_inicio= $_POST['data_inicio'];
     $data= $_POST['data'];
     $status= $_POST['status'];
 
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
-    VALUES ('$meta','$desc_meta','$data_inicio','$data','$status')"); 
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,desc_meta,data_inicio,data_conclusao,status_meta) 
+    VALUES ('$meta','$nome','$desc_meta','$data_inicio','$data','$status')"); 
 
   }
   $user_data = mysqli_fetch_assoc($result);
@@ -104,6 +111,13 @@
         <?php
             echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
           ?>
+           <div class="form-group espace">
+            <label for="exampleInputEmail1">Nome</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              placeholder="Qual seu nome?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+              name="nome" required>
+          </div>
+
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"

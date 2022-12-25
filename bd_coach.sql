@@ -9,6 +9,7 @@ create table cadastro(
 );
 create table formulario(
     meta varchar (300) not null,
+    nome varchar (45) not null,
     data_conclusao date not null,
     status_meta varchar (500) not null,
     cod int not null auto_increment,
