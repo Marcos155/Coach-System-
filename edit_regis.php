@@ -130,7 +130,7 @@
         <p>
           <?php echo "$nome"?>, vamos completar seu cadastro &#128578;!
         </p>
-        <form action="save_edit_regis.php" method="post">
+        <form name="forms" action="save_edit_regis.php" method="post">
           <div class="form-group espace">
             <label for="exampleInputEmail1">Nome</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -172,10 +172,15 @@
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Senha</label>
-            <input type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <input type="password" class="form-control" aria-describedby="emailHelp"
             type="password" placeholder="Senha" name="password"  value="<?php echo $senha ?>" id="senha" required>
+            
+            <label for="exampleInputEmail1">Confirmar senha</label>
+            <input class="form-control"  aria-describedby="emailHelp"
+            type="password" placeholder="Confirmar senha" name="confirm_password"  id="confirmar_senha" value="<?php echo $senha ?>" required/>
           </div>
           <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar" name="update"
+           onclick="return validar()"
           id="update">
         </form>
     </main>
@@ -208,6 +213,37 @@
         });
 
       });
+    
+    /*repetir senha */
+  function validar(){
+  var senha=forms.password.value;
+  var confirmar_senha=forms.confirm_password.value;
+
+  if(senha.length <= 5){
+					alert('Preencha o campo senha com minimo 6 caracteres');
+					forms.senha.focus();
+          document.getElementById('senha').value='';
+          document.getElementById('confirmar_senha').value='';
+					return false;
+				}
+				
+	if(confirmar_senha.length <= 5){
+					alert('Preencha o campo confirmar senha com minimo 6 caracteres');
+					forms.confirmar_senha.focus();
+          document.getElementById('senha').value='';
+          document.getElementById('confirmar_senha').value='';
+					return false;
+				}
+				
+	if (senha != confirmar_senha) {
+					alert('As senhas devem ser iguais');
+					forms.senha.focus();
+          document.getElementById('senha').value='';
+          document.getElementById('confirmar_senha').value='';
+          /*forms.reset();*/
+					return false;
+				}
+  }
     </script>
 
 </body>
