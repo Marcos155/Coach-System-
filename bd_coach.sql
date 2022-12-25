@@ -13,6 +13,7 @@ create table formulario(
     data_conclusao date not null,
     status_meta varchar (500) not null,
     cod int not null auto_increment,
+    foreign key (cod) references cadastro(cod),
     primary key(cod)
 );
 create table tb_login(
