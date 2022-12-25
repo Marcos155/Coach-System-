@@ -25,7 +25,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
-  <title>Andre Fernandes</title>
+  <title>Criar conta</title>
   <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
   <link rel="stylesheet" href="assets/css/style-login.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
@@ -59,7 +59,7 @@
 <div class="container" id="container">
   <!--register-->  
   <div class="form-container sign-in-container">
-      <form  action="entrar.php" method="post">
+      <form  action="entrar.php" method="post" name="forms">
         <h1>Criar conta</h1>
         <!--
         <div class="social-container">
@@ -80,6 +80,8 @@
         <input type="radio" id="outro" name="sexo" value="outro" required><label class="escolha">Outro</label>
   -->
         <input type="password" placeholder="Senha" name="password"  id="senha" required/>
+        <!-- confirmar senha -->
+        <input type="password" placeholder="Confirmar senha" name="confirm_password"  id="confirmar_senha" required/>
        
        
         <input type="checkbox" id="termos" name="termos" required value="termos">
@@ -93,7 +95,8 @@
           <!--
         <button> Inscreva-se</button>
            -->
-          <input type="submit" value="inscrever-se" name="submit" id="enviar" class="popup" >
+          <input type="submit" value="inscrever-se" name="submit" id="enviar" class="popup" 
+          onclick="return validar()">
         <?php
           if(isset($_POST['email'])==true){
           echo "<span class='popuptext' id='myPopup'>Cadastro realizado com sucesso</span>";
@@ -144,6 +147,36 @@
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");
 }
+/*repetir senha */
+  function validar(){
+  var senha=forms.password.value;
+  var confirmar_senha=forms.confirm_password.value;
+
+  if(senha.length <= 5){
+					alert('Preencha o campo senha com minimo 6 caracteres');
+					forms.senha.focus();
+          document.getElementById('senha').value='';
+          document.getElementById('confirmar_senha').value='';
+					return false;
+				}
+				
+	if(confirmar_senha.length <= 5){
+					alert('Preencha o campo confirmar senha com minimo 6 caracteres');
+					forms.confirmar_senha.focus();
+          document.getElementById('senha').value='';
+          document.getElementById('confirmar_senha').value='';
+					return false;
+				}
+				
+	if (senha != confirmar_senha) {
+					alert('As senhas devem ser iguais');
+					forms.senha.focus();
+          document.getElementById('senha').value='';
+          document.getElementById('confirmar_senha').value='';
+          /*forms.reset();*/
+					return false;
+				}
+  }
   </script>
 </body>
 
