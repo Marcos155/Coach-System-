@@ -15,7 +15,7 @@ if (!empty($_GET['search'])) {
     telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
 
 } else {
-  $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
+  $sql = /*"SELECT * FROM cadastro ORDER BY cod DESC";*/ "SELECT * FROM cadastro WHERE '%$data%' LIKE $logado";
 }
 $result2 = $conexao_regis->query($sql);
 if (isset($_POST['submit'])) {

@@ -110,7 +110,7 @@
         </p>
         <?php
             //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-            echo"<form action='show_sistema_forms.php' method='post'>";
+            echo"<form action='show_sistema_forms?cod=$user_data[cod].php' method='post'>";
           ?>
            <div class="form-group espace">
             <label for="exampleInputEmail1">Nome</label>
