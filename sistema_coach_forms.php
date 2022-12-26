@@ -103,8 +103,8 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
 
         <h2><b>André</b></h2>
 
-          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo nome, codigo, número
-          de telefone, etc.</p>
+          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>código, meta, data de inicio,data de conclusao,
+            descrição da meta e status</b></p>
           <div class="mdl-card mdl-shadow--2dp customer-search">
             <!-- <div class="mdl-card__title">Customer Search</div> -->
             <div class="mdl-card__actions">
@@ -204,61 +204,20 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
 
                 <div class="expander-title">
                   <i class="material-icons">fingerprint</i>
-                  <p class="search-toggle" id="toggleIdSearch">Procurar por ID</p>
+                  <p class="search-toggle" id="toggleNameSearch">Procurar por código</p>
                 </div>
-
-                <div class="search-block" id="searchBlockId">
-
-                <div class="flex-row">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" id="idState">
-                      <label class="mdl-textfield__label" for="idType">ID do estado</label>
-                      <button id="idStateDropdown" class="mdl-button mdl-js-button mdl-button--icon">
-                        <i class="material-icons">keyboard_arrow_down</i>
-                      </button>
-                      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="idStateDropdown">
-                      <li class="mdl-menu__item">Acre</li>
-                      <li class="mdl-menu__item">Alagoas</li>
-                      <li class="mdl-menu__item">Amapá</li>
-                      <li class="mdl-menu__item">Amazonas</li>
-                      <li class="mdl-menu__item">Bahia</li>
-                      <li class="mdl-menu__item">Ceará</li>
-                      <li class="mdl-menu__item">Distrito Federal</li>
-                      <li class="mdl-menu__item">Goiás</li>
-                      <li class="mdl-menu__item">Maranhão</li>
-                      <li class="mdl-menu__item">Mato Grosso</li>
-                      <li class="mdl-menu__item">Mato Grosso do Sul</li>
-                      <li class="mdl-menu__item">Minas Gerais</li>
-                      <li class="mdl-menu__item">Mato Grosso</li>
-                      <li class="mdl-menu__item">Pará</li>
-                      <li class="mdl-menu__item">Paraíba</li>
-                      <li class="mdl-menu__item">Paraná</li>
-                      <li class="mdl-menu__item">Pernanbuco</li>
-                      <li class="mdl-menu__item">Piaui</li>
-                      <li class="mdl-menu__item">Rio Grande do Norte</li>
-                      <li class="mdl-menu__item">Rio Grande do Sul</li>
-                      <li class="mdl-menu__item">Rondônia</li>
-                      <li class="mdl-menu__item">Roraima</li>
-                      <li class="mdl-menu__item">Santa Catarina</li>
-                      <li class="mdl-menu__item">São Paulo</li>
-                      <li class="mdl-menu__item">Sergipe</li>
-                      <li class="mdl-menu__item">Tocantins</li>
-                      <li class="mdl-menu__item">Pernanbuco</li>
-                      </ul>
-                     
-                    </div>
+                <div class="search-block" id="searchBlockName">
                   <div class="flex-row">
-
                     <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="idNum">
-                      <label class="mdl-textfield__label" for="idNum">número do ID</label>
-                      <span class="mdl-textfield__error">O valor informado não é um número!</span>
+                      <input class="mdl-textfield__input" type="text" id="lastName">
+                      <label class="mdl-textfield__label" for="lastName">Código</label>
                     </div>
+                    <div class="btn-wrap">
+                  <input  style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar" class="buscar">
+                </div>
                   </div>
                 </div>
-                <div class="btn-wrap">
-                  <input style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
-                </div>
+              
               </form>
             </div>
           </div>
