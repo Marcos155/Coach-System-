@@ -8,19 +8,26 @@ generateBtn.addEventListener('click',()=>{
     if(!qrValue){
         alert('Insira uma URL')
         return;
-    }
-    generateBtn.innerText="Gerando um Qr code...";
-    qrimg.src='https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=%24';
+    };
+    /*generateBtn.innerText="Gerando Qr code...";*/
+    /*qrimg.src='https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=${qrValue}';*/
     
-    qrimg.addEventListener('load',()=>{
+    /*qrimg.addEventListener('load',()=>{
         
             generateBtn.innerText = "Gerar";
             container.classList.add('active');
         
-    })
-})
+    });*/
+});/*
 qrinput.addEventListener('keyup', ()=>{
     if(!qrinput.value){
         container.classList.remove('active');
-    }
-})
+
+    };
+});*/
+function GerarQRCode(){
+    var inputUsuario = document.querySelector('input').value;
+    var GoogleChartAPI = 'https://chart.googleapis.com/chart?cht=qr&chs=500x500&chld=H&chl=';
+    var conteudoQRCode = GoogleChartAPI + encodeURIComponent(inputUsuario);
+    document.querySelector('#QRCodeImage').src = conteudoQRCode;
+}

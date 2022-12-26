@@ -79,7 +79,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
         <div class="mdl-layout__header-row">
           <div class="current-user">
             <i class="material-icons">account_circle</i>
-            <?php echo "olá, André!" ?>
+            <?php echo "olá, André" ?>
           </div>
           <div class="mdl-layout-spacer"></div>
 
@@ -93,7 +93,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
           <br>
           <a class="mdl-navigation__link" href="#">Meta-Alunos</a>
           <br>
-          <a class="mdl-navigation__link" href="qrcode.html">Gerar QR Code</a>
+          <a class="mdl-navigation__link" href="qrcode.php">Gerar QR Code</a>
           <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
@@ -101,7 +101,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
       <main class="mdl-layout__content">
         <div class="page-content">
 
-          <h2>André</h2>
+        <h2><b>André</b></h2>
 
           <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo nome, codigo, número
           de telefone, etc.</p>
@@ -121,7 +121,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
                       <label class="mdl-textfield__label" for="lastName">Nome</label>
                     </div>
                     <div class="btn-wrap">
-                  <input  style="background-color:rgb(0,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
+                  <input  style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
                 </div>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
                       </div>
                     </div>
                     <div class="btn-wrap">
-                  <input style="background-color:rgb(0,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
+                  <input style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
                 </div>
                   </div>
 
@@ -198,7 +198,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
                     </div>
                   </div>
                   <div class="btn-wrap">
-                  <input style="background-color:rgb(0,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
+                  <input style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
                 </div>
                 </div>
 
@@ -257,7 +257,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
                   </div>
                 </div>
                 <div class="btn-wrap">
-                  <input style="background-color:rgb(0,0,0)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
+                  <input style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
                 </div>
               </form>
             </div>
