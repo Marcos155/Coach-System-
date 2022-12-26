@@ -11,12 +11,13 @@ generateBtn.addEventListener('click',()=>{
     }
     generateBtn.innerText="Gerando um Qr code...";
     qrimg.src='https://api.qrserver.com/v1/create-qr-code/?size=170x170&data=%24';
-    qrimg.addEventListener{
-        'load', ()=>{
+    
+    qrimg.addEventListener('load',()=>{
+        
             generateBtn.innerText = "Gerar";
             container.classList.add('active');
-        }
-    }
+        
+    })
 })
 qrinput.addEventListener('keyup', ()=>{
     if(!qrinput.value){
