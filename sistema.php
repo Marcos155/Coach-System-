@@ -94,6 +94,8 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
           <br>
           <a class="mdl-navigation__link" href="coach_show_sistema_forms.php">Meta-Alunos</a>
           <br>
+          <a class="mdl-navigation__link" href="qrcode.html">Gerar QR Code</a>
+          <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
       </div>

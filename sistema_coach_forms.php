@@ -93,6 +93,8 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
           <br>
           <a class="mdl-navigation__link" href="#">Meta-Alunos</a>
           <br>
+          <a class="mdl-navigation__link" href="qrcode.html">Gerar QR Code</a>
+          <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
       </div>
