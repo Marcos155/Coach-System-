@@ -22,10 +22,10 @@
     VALUES ('$nome','$email','$senha','$tele','$sexo')");
 
 
-    $email_log=$_POST['email'];
+    /*$email_log=$_POST['email'];
     $senha_log=$_POST['password'];
     $result2= mysqli_query($conexao_login, "INSERT INTO tb_login(email,senha) 
-    VALUES ('$email_log','$senha_log')");
+    VALUES ('$email_log','$senha_log')");*/
 
     header('Location:entrar.php');
 

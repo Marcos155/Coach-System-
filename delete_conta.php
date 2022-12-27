@@ -28,6 +28,7 @@
 
        $sqldelete2="DELETE FROM formulario WHERE cod=$cod";
        $resultdelete = $conexao_forms->query($sqldelete);
+
     }
   }
   
