@@ -20,6 +20,7 @@ create table tb_login(
 	email varchar (45) not null,
     senha varchar (20) not null,
     cod int not null auto_increment,
+    foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
 ALTER TABLE `db_coach`.`cadastro` 
@@ -36,5 +37,3 @@ add column desc_meta varchar(500) not null after meta;
 ALTER TABLE db_coach.formulario
 add column data_inicio date not null after desc_meta;
  
-
-

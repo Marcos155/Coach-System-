@@ -33,6 +33,7 @@
 
     $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,desc_meta,data_inicio,data_conclusao,status_meta) 
     VALUES ('$meta','$nome','$desc_meta','$data_inicio','$data','$status')"); 
+    header('show_sistema_persona.php');
 
   }
   $user_data = mysqli_fetch_assoc($result);
@@ -90,15 +91,15 @@
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
-          <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
+          <a class="mdl-navigation__link active" href="#">Formulário</a>
         <br>
-          <a class="mdl-navigation__link" href="edit_regis.php">Completar cadastro</a>
+          <a class="mdl-navigation__link" href="#">Completar cadastro</a>
         <br>
-          <a class="mdl-navigation__link " href="show_sistema_persona.php">Conta</a>
+          <a class="mdl-navigation__link " href="#">Conta</a>
         <br>
-          <a class="mdl-navigation__link " href="meta.php">Meta</a>
+          <a class="mdl-navigation__link " href="#">Meta</a>
         <br>
-          <a class="mdl-navigation__link" href="sair.php">Sair</a>
+          <a class="mdl-navigation__link" href="#">Sair</a>
       </nav>
     </div>
     </header>
@@ -110,7 +111,7 @@
         </p>
         <?php
             //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-            echo"<form action='show_sistema_forms?cod=$user_data[cod].php' method='post'>";
+            echo"<form action='show_sistema_forms.php' method='post'>";
           ?>
            <div class="form-group espace">
             <label for="exampleInputEmail1">Nome</label>

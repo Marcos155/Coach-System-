@@ -38,11 +38,11 @@
   }
   else
   {
-    /*header('Location: edit_regis.php');*/
-    $fallback = 'index.html';
+    header('Location: show_sistema_persona.php');
+    /*$fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");
-    exit;
+    exit;*/
   }
   if(isset($_POST['submit']))
   {

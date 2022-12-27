@@ -15,7 +15,7 @@ if (!empty($_GET['search'])) {
     telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
 
 } else {
-  $sql = /*"SELECT * FROM cadastro ORDER BY cod DESC";*/ "SELECT * FROM cadastro WHERE '%$data%' LIKE $logado";
+  $sql = "SELECT * FROM cadastro ORDER BY cod DESC"; /*"SELECT*from cadastro join tb_login on cadastro.cod = tb_login.cod ";*/
 }
 $result2 = $conexao_regis->query($sql);
 if (isset($_POST['submit'])) {
@@ -33,6 +33,8 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,cidade,estado,telefone,sexo) 
 VALUES ('$nome','$email','$senha','$cidade','$estado','$telefone','$sexo')");
 }
+
+
 $user_data = mysqli_fetch_assoc($result2);
 $nome= $user_data['nome'];
 
