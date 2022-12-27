@@ -65,6 +65,9 @@
     .termos{
       font-weight: bold
     }
+    img{ 
+      margin: 5px 5px 5px 5px;
+    }
   </style>
 </head>
 
@@ -93,7 +96,7 @@
         
         <input type="radio" id="outro" name="sexo" value="outro" required><label class="escolha">Outro</label>
   -->
-        <input type="password" placeholder="Senha" name="password"  id="senha" required/>
+     
        
        
         <input type="checkbox" id="termos" name="termos" required value="termos">
@@ -115,8 +118,20 @@
         
         <br>
         <input type="email" placeholder="Email" name="email" required/>
-        <input type="password" placeholder="Senha" name="password" id="senha" required/>
-        <a href="remember-password.php" target="_blank">Esqueceu sua senha?</a>
+
+
+        <table>
+          <tr>
+            <td>
+              <input type="password" placeholder="Senha" name="password" id="senha" required/>
+            </td>
+            <td>
+              <img src="eyes.png" alt="" id="eyesvg" onclick=" mostrarOcultarSenha()" width="24px">
+            </td>
+          </tr>
+        </table>
+        
+        <a href="esqueci_a_senha.php" target="_blank">Esqueceu sua senha?</a>
         
         <input type="submit" value="conectar" name="submit" id="enviar">
       </form>
@@ -157,6 +172,19 @@
     signInButton.addEventListener('click', () => {
       container.classList.remove("right-panel-active");
     });
+
+      /* mostrar e ocultar senha */
+  function mostrarOcultarSenha(){
+    var senha=document.getElementById("senha");
+    if(senha.type=="password"){
+      senha.type="text";
+      eyesvg.setAttribute("src","visibility.png");
+      
+    }else{
+      senha.type="password";
+      eyesvg.setAttribute("src","eyes.png");
+    }
+  }
   </script>
 </body>
 

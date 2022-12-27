@@ -75,35 +75,23 @@ $logado = $_SESSION['email'];
           <p>Aqui você pode gerar um <b>Qr code</b> que levará para a <b>página de registro</b>. Distribua esse código aos seus clientes.</p>
         </div>
         <br>
-        <!--
-        <div class="container">
-            <header>
-                <h1>Gerar QR Code</h1>
-                <p> código para página de registro</p>
-            </header>
-            <main class="form">
-                <input type="text" placeholder="Página de registro">
-                <button>Gerar</button>
-            </main>
-            <footer class="qr-code">
-                <img src="qr_code.png" alt="" class="img">
-            </footer>
-        </div>
-        </div>
-      </main>-->
-      <div class="container">
+        
+     <div class="container">
         <header>
             <h1>Gerar QR Code</h1>
             <p> código para página de registro</p>
         </header>
         <main class="form">
-          <input type="text" placeholder="Página de registro">
+          <input type="text">
           <button onclick="GerarQRCode()">Gerar</button>
         </main>
         <footer class="qr-code">
-          <img id="QRCodeImage" class="img">
+          <img id="QRCodeImage" class="img" >
         </footer>
-    </div>
+      </div>
+        </div>
+      </main>
+      
     
   </div>
     <script src="qrcode.js"></script>

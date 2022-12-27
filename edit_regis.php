@@ -172,12 +172,30 @@
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Senha</label>
-            <input type="password" class="form-control" aria-describedby="emailHelp"
-            type="password" placeholder="Senha" name="password"  value="<?php echo $senha ?>" id="senha" required>
-            
+            <table>
+              <tr>
+                <td>
+                  <input type="password" class="form-control" aria-describedby="emailHelp"
+                  type="password" placeholder="Senha" name="password"  value="<?php echo $senha ?>" id="senha" required>
+                </td>
+                <td>
+                  <img src="eyes.png" alt="" id="eyesvg" onclick=" mostrarOcultarSenha()" width="24px">
+                </td>
+              </tr>
+            </table>
+            <br>
             <label for="exampleInputEmail1">Confirmar senha</label>
-            <input class="form-control"  aria-describedby="emailHelp"
-            type="password" placeholder="Confirmar senha" name="confirm_password"  id="confirmar_senha" value="<?php echo $senha ?>" required/>
+            <table>
+            <tr>
+              <td>
+                <input class="form-control"  aria-describedby="emailHelp"
+                type="password" placeholder="Confirmar senha" name="confirm_password"  id="confirmar_senha" value="<?php echo $senha ?>" required/>
+              </td> 
+              <td>
+                <img src="eyes2.png" alt="" id="eyesvg2" onclick=" mostrarOcultarSenha2()" width="24px">
+              </td>
+            </tr> 
+          </table>
           </div>
           <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar" name="update"
            onclick="return validar()"
@@ -243,6 +261,31 @@
           /*forms.reset();*/
 					return false;
 				}
+  }
+
+    /* mostrar e ocultar senha */
+    function mostrarOcultarSenha(){
+    var senha=document.getElementById("senha");
+    if(senha.type=="password"){
+      senha.type="text";
+      eyesvg.setAttribute("src","visibility.png");
+      
+    }else{
+      senha.type="password";
+      eyesvg.setAttribute("src","eyes.png");
+    }
+  }
+
+  function mostrarOcultarSenha2(){
+    var senha2=document.getElementById("confirmar_senha");
+    if(senha2.type=="password"){
+      senha2.type="text";
+      eyesvg2.setAttribute("src","visibility2.png");
+      
+    }else{
+      senha2.type="password";
+      eyesvg2.setAttribute("src","eyes2.png");
+    }
   }
     </script>
 

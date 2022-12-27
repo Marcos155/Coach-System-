@@ -51,6 +51,11 @@
     .termos{
       font-weight: bold
     }
+    img{
+      
+      margin: 5px 5px 5px 5px;
+      
+    }
   </style>
 </head>
 
@@ -71,25 +76,37 @@
         <input type="text" placeholder="Nome" name="username" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="email" placeholder="Email" name="email" required/>
         <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" required>
-        <!--
-        <label>Sexo</label>
-        <input type="radio" id="feminino" name="sexo" value="feminino" required><label class="escolha">Feminino</label>
-        
-        <input type="radio" id="masculino" name="sexo" value="masculino" required><label class="escolha">Masculino</label>
-        
-        <input type="radio" id="outro" name="sexo" value="outro" required><label class="escolha">Outro</label>
-  -->
-        <input type="password" placeholder="Senha" name="password"  id="senha" required/>
+   
+   
+        <table> 
+        <tr><td><input type="password" placeholder="Senha" name="password"  id="senha" required/></td>
+          <td><img src="eyes.png" alt="" id="eyesvg" onclick=" mostrarOcultarSenha()" width="24px"></td></tr>
+        </table>
         <!-- confirmar senha -->
-        <input type="password" placeholder="Confirmar senha" name="confirm_password"  id="confirmar_senha" required/>
-       
-       
-        <input type="checkbox" id="termos" name="termos" required value="termos">
-        <label for="termos">
-          <a href="assets/pdf/termo-de-privacidade.pdf" download="termo-de-privacidade.pdf" 
-            type="application/pdf" target="_blank" style="font-size: 0.7rem;" class="termos">
-            li e concordo com os termos e privacidade</a> 
-        </label>
+        <table>
+        <tr>
+          <td>
+            <input type="password" placeholder="Confirmar senha" name="confirm_password"  id="confirmar_senha" required/>
+          </td>
+          <td>
+            <img src="eyes2.png" alt="" id="eyesvg2" onclick=" mostrarOcultarSenha2()" width="24px">
+          </td>
+        </tr>
+        </table>
+       <table>
+        <tr>
+          <td>
+            <input type="checkbox" id="termos" name="termos" required value="termos">
+          </td>
+          <td>
+            <label for="termos">
+                <a href="assets/pdf/termo-de-privacidade.pdf" download="termo-de-privacidade.pdf" 
+                type="application/pdf" target="_blank" style="font-size: 0.7rem;" class="termos">
+                li e concordo com os termos e privacidade</a> 
+            </label>
+          </td>
+        </tr>
+        </table>
         <br>
         <div class="popup" onclick="cadastrar()">
           <!--
@@ -177,6 +194,32 @@
 					return false;
 				}
   }
+
+  /* mostrar e ocultar senha */
+  function mostrarOcultarSenha(){
+    var senha=document.getElementById("senha");
+    if(senha.type=="password"){
+      senha.type="text";
+      eyesvg.setAttribute("src","visibility.png");
+      
+    }else{
+      senha.type="password";
+      eyesvg.setAttribute("src","eyes.png");
+    }
+  }
+
+  function mostrarOcultarSenha2(){
+    var senha2=document.getElementById("confirmar_senha");
+    if(senha2.type=="password"){
+      senha2.type="text";
+      eyesvg2.setAttribute("src","visibility2.png");
+      
+    }else{
+      senha2.type="password";
+      eyesvg2.setAttribute("src","eyes2.png");
+    }
+  }
+
   </script>
 </body>
 
