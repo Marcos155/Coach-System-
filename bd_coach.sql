@@ -36,4 +36,8 @@ ALTER TABLE db_coach.formulario
 add column desc_meta varchar(500) not null after meta;
 ALTER TABLE db_coach.formulario
 add column data_inicio date not null after desc_meta;
+ALTER TABLE db_coach.formulario
+add column email varchar (45) not null after nome;
+
+
  

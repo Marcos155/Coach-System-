@@ -15,7 +15,7 @@ if (!empty($_GET['search'])) {
     telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
 
 } else {
-  $sql = "SELECT * FROM cadastro ORDER BY cod DESC"; /*"SELECT*from cadastro join tb_login on cadastro.cod = tb_login.cod ";*/
+  $sql = /*"SELECT * FROM cadastro ORDER BY cod DESC";*/ "SELECT*from cadastro where cadastro.email = '$logado' ";
 }
 $result2 = $conexao_regis->query($sql);
 if (isset($_POST['submit'])) {
@@ -96,7 +96,9 @@ $nome= $user_data['nome'];
               echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
             ?>
           <br>
-            <a class="mdl-navigation__link active" href="show_sistema_persona.php">Conta</a>
+          <?php
+             echo "<a class='mdl-navigation__link active' href='show_sistema_persona.php?cod=$user_data[cod]'>Conta</a>"
+             ?>
           <br>
             <a class="mdl-navigation__link" href="meta.php">meta</a>
           <br>

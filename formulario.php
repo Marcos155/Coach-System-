@@ -12,7 +12,7 @@
 
       if (!empty($_GET['search'])) {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or nome LIKE '%$data%' or desc_meta LIKE '%$data%' or 
+        $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or 
           data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%'";
       
       } else{
@@ -26,13 +26,14 @@
     include_once('config.php');
     $meta= $_POST['meta'];
     $nome= $_POST['nome'];
+    $email= $_POST['email'];
     $desc_meta= $_POST['desc_meta'];
     $data_inicio= $_POST['data_inicio'];
     $data= $_POST['data'];
     $status= $_POST['status'];
 
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,desc_meta,data_inicio,data_conclusao,status_meta) 
-    VALUES ('$meta','$nome','$desc_meta','$data_inicio','$data','$status')"); 
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta) 
+    VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data','$status')"); 
     header('show_sistema_persona.php');
 
   }
@@ -99,7 +100,7 @@
         <br>
           <a class="mdl-navigation__link " href="#">Meta</a>
         <br>
-          <a class="mdl-navigation__link" href="#">Sair</a>
+          <a class="mdl-navigation__link" href="sair.php">Sair</a>
       </nav>
     </div>
     </header>
@@ -119,6 +120,12 @@
               placeholder="Qual seu nome?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
               name="nome" required>
           </div>
+
+        <div class="form-group espace">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email" required/>
+          <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo email usado no cadastro</small>
+        </div>
 
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>

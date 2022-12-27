@@ -11,28 +11,29 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM formulario WHERE meta LIKE '%$data%' or nome LIKE '%$data%' or desc_meta LIKE '%$desc_meta%' or data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or 
+  $sql = "SELECT * FROM formulario WHERE meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or 
     status_meta LIKE '%$data%' or cod LIKE '%$data%'";
 
 } else {
-  $sql = "SELECT * FROM formulario ORDER BY cod DESC";
+  $sql = /*"SELECT * FROM formulario ORDER BY cod DESC";*/"SELECT*from formulario where formulario.email = '$logado' ";
 }
 $result2 = $conexao_forms->query($sql);
+
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
 
   $meta = $_POST['meta'];
   $nome = $_POST['nome'];
+  $email = $_POST['email'];
   $desc_meta= $_POST['desc_meta'];
   $data_inicio = $_POST['data_inicio'];
   $data_conclusao = $_POST['data'];
   $status_meta = $_POST['status'];
 
-  $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,desc_meta,data_inicio,data_conclusao,status_meta) 
-VALUES ('$meta','$nome','$desc_meta','$data_inicio','$data_conclusao','$status_meta')");
+  $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta) 
+  VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data_conclusao','$status_meta')");
 }
-
 if(!empty($_GET['cod']))
   {
   
@@ -48,6 +49,7 @@ if(!empty($_GET['cod']))
         {
           $meta= $user_data['meta'];
           $nome= $user_data['nome'];
+          $email= $user_data['email'];
           $desc_meta= $user_data['desc_meta'];
           $data_inicio= $user_data['data_inicio'];
           $data_conclusao= $user_data['data_conclusao'];
