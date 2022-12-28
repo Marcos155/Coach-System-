@@ -114,8 +114,9 @@
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="testando.php">Formulário</a>
         <br>
-          <a class="mdl-navigation__link active" href="complete_regis.php">Completar cadastro</a>
-        <br>
+        <!--
+          <a class="mdl-navigation__link active" href="edit_regis.php">Completar cadastro</a>
+        <br>-->
           <a class="mdl-navigation__link " href="show_sistema_persona.php">Conta</a>
         <br>
           <a class="mdl-navigation__link " href="meta.php">Meta</a>
@@ -151,24 +152,24 @@
           <div class="form-group espace">
             <label>Sexo</label>
             <br>
-            <input type="radio" value="feminino" name="sexo" <?php echo ($sexo == 'feminino') ? 'checked' : ''?> required>
+            <input type="radio" value="feminino" name="sexo" <?php echo ($sexo == 'feminino') ? 'checked' : ''?> >
             <label for="faminino">Feminino</label>
-            <input type="radio"  value="masculino" name ="sexo" <?php echo ($sexo == 'masculino') ? 'checked' : ''?> required>
+            <input type="radio"  value="masculino" name ="sexo" <?php echo ($sexo == 'masculino') ? 'checked' : ''?> >
             <label for="masculino">Masculino</label>
-            <input type="radio" value="outro" name ="sexo" <?php echo ($sexo == 'outro') ? 'checked' : ''?> required>
+            <input type="radio" value="outro" name ="sexo" <?php echo ($sexo == 'outro') ? 'checked' : ''?> >
             <label for="outro">Outro</label>
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Cidade</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
               placeholder="Qual sua cidade?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="cidade" value="<?php echo $cidade ?>" required>
+              name="cidade" value="<?php echo $cidade ?>" >
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Estado</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
               placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="estado" value="<?php echo $estado ?>" required>
+              name="estado" value="<?php echo $estado ?>" >
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Senha</label>

@@ -70,6 +70,10 @@
       margin-right: 1rem;
       margin-left: 1rem;
     }
+    button:disabled{
+      cursor:not-allowed;
+      background: #555b69;
+    }
   </style>
 </head>
 
@@ -107,12 +111,11 @@
     <main class="mdl-layout__content">
       <div class="page-content">
 
-        <p>Olá
-          <?php echo "$logado"?> &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
+        <p> Bem vindo(a) &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
         </p>
         <?php
             //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-            echo"<form action='show_sistema_forms.php' method='post'>";
+            echo"<form action='testando.php' method='post' data-form>";
           ?>
            <div class="form-group espace">
             <label for="exampleInputEmail1">Nome</label>
@@ -157,7 +160,7 @@
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>
           </div>
-          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar" name="submit">
+          <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" name="submit" data-button>Enviar</button>
         </form>
     </main>
 
@@ -189,6 +192,75 @@
         });
 
       });
+
+
+      class FormSubmit {
+  constructor(settings) {
+    this.settings = settings;
+    this.form = document.querySelector(settings.form);
+    this.formButton = document.querySelector(settings.button);
+    if (this.form) {
+      this.url = this.form.getAttribute("action");
+    }
+    this.sendForm = this.sendForm.bind(this);
+  }
+
+  displaySuccess() {
+    this.form.innerHTML = this.settings.success;
+  }
+
+  displayError() {
+    this.form.innerHTML = this.settings.error;
+  }
+
+  getFormObject() {
+    const formObject = {};
+    const fields = this.form.querySelectorAll("[name]");
+    fields.forEach((field) => {
+      formObject[field.getAttribute("name")] = field.value;
+    });
+    return formObject;
+  }
+
+  onSubmission(event) {
+    event.preventDefault();
+    event.target.disabled = true;
+    event.target.innerText = "Enviando...";
+  }
+
+  async sendForm(event) {
+    try {
+      this.onSubmission(event);
+      await fetch(this.url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(this.getFormObject()),
+      });
+      this.displaySuccess();
+    } catch (error) {
+      this.displayError();
+      throw new Error(error);
+    }
+  }
+
+  init() {
+    if (this.form) this.formButton.addEventListener("click", this.sendForm);
+    return this;
+  }
+}
+
+const formSubmit = new FormSubmit({
+  form: "[data-form]",
+  button: "[data-button]",
+  success: "<h1 class='success'>Mensagem enviada!</h1>",
+  error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
+});
+formSubmit.init();
+      
+
     </script>
 
 

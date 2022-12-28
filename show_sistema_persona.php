@@ -94,9 +94,8 @@ $nome= $user_data['nome'];
           ?>
           <br>
           <?php
-              echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
+             // echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
             ?>
-          <br>
           <?php
              echo "<a class='mdl-navigation__link active' href='show_sistema_persona.php?cod=$user_data[cod]'>Conta</a>"
              ?>
@@ -110,7 +109,7 @@ $nome= $user_data['nome'];
       <div class="page-content">
 
         <div class="m-5">
-          <h1>Cadastro</h1>
+          <h1>Conta</h1>
         </div>
         <div class="table-wrapper">
         <table class="table">
@@ -124,6 +123,7 @@ $nome= $user_data['nome'];
               <th scope="col">Senha</th>
               <th scope="col">Cidade</th>
               <th scope="col">Estado</th>
+              <th scope="col">Cadastro</th>
             </tr>
           </thead>
           <tbody>
@@ -138,6 +138,9 @@ $nome= $user_data['nome'];
           echo "<td>" . $user_data['senha'] . "</td>";
           echo"<td>"  . $user_data['cidade'] . "</td>";
           echo "<td>" . $user_data['estado'] . "</td>";
+          echo "<td>
+          <a href='edit_regis.php?cod=$user_data[cod]'> Completar cadastro</a>
+          </td>";
           echo "</tr>";
         ?>
           </tbody>
