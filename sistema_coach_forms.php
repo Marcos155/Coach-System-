@@ -12,7 +12,7 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or 
-    desc_meta LIKE '%$data%' or data_inicio LIKE '%$data%' or data_conclusão LIKE '%$data%' or status_meta LIKE '%$data%' ";
+    desc_meta LIKE '%$data%' or data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM formulario ORDER BY cod DESC";
@@ -70,6 +70,16 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
     max-height: 500px;
     overflow-y: auto;
 }
+
+.box-search{
+            display: flex;
+            justify-content: center;
+            gap: .1%;
+        }
+    #pesquisar:focus{
+      border-color: rgba(0,0,0,0.4);
+      box-shadow:none;
+    }
   </style>
     
   </head>
@@ -105,122 +115,20 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
 
           <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>código, meta, data de inicio,data de conclusao,
             descrição da meta e status</b></p>
-          <div class="mdl-card mdl-shadow--2dp customer-search">
-            <!-- <div class="mdl-card__title">Customer Search</div> -->
-            <div class="mdl-card__actions">
-              <form action="#">
-
-                <div class="expander-title">
-                  <i class="material-icons">person</i>
-                  <p class="search-toggle" id="toggleNameSearch">Procurar por nome</p>
-                </div>
-                <div class="search-block" id="searchBlockName">
-                  <div class="flex-row">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" id="lastName">
-                      <label class="mdl-textfield__label" for="lastName">Nome</label>
-                    </div>
-                    <div class="btn-wrap">
-                  <input  style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
-                </div>
-                  </div>
-                </div>
-
-                  <div class="expander-title">
-                    <i class="material-icons">location_on</i>
-                    <p class="search-toggle" id="toggleLocationSearch">Procurar por endereço</p>
-                  </div>
-                  <div class="search-block" id="searchBlockLocation">
-                    <div class="flex-row">
-                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--small">
-                        <input class="mdl-textfield__input" type="text" id="city">
-                        <label class="mdl-textfield__label" for="city">Cidade</label>
-                      </div>
-                      <div class="mdl-textfield mdl-js-textfield mdl-textfield--small">
-                        <input class="mdl-textfield__input" type="text" id="customerState">
-                        <label class="mdl-textfield__label" for="customerState">Estado</label>
-                        <button id="customerStateDropdown" class="mdl-button mdl-js-button mdl-button--icon">
-                          <i class="material-icons">keyboard_arrow_down</i>
-                        </button>
-                        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="customerStateDropdown">
-                        <li class="mdl-menu__item">Acre</li>
-                      <li class="mdl-menu__item">Alagoas</li>
-                      <li class="mdl-menu__item">Amapá</li>
-                      <li class="mdl-menu__item">Amazonas</li>
-                      <li class="mdl-menu__item">Bahia</li>
-                      <li class="mdl-menu__item">Brasilia</li>
-                      <li class="mdl-menu__item">Ceará</li>
-                      <li class="mdl-menu__item">Goiás</li>
-                      <li class="mdl-menu__item">Maranhão</li>
-                      <li class="mdl-menu__item">Mato Grosso</li>
-                      <li class="mdl-menu__item">Mato Grosso do Sul</li>
-                      <li class="mdl-menu__item">Minas Gerais</li>
-                      <li class="mdl-menu__item">Mato Grosso</li>
-                      <li class="mdl-menu__item">Pará</li>
-                      <li class="mdl-menu__item">Paraíba</li>
-                      <li class="mdl-menu__item">Paraná</li>
-                      <li class="mdl-menu__item">Pernanbuco</li>
-                      <li class="mdl-menu__item">Piaui</li>
-                      <li class="mdl-menu__item">Rio Grande do Norte</li>
-                      <li class="mdl-menu__item">Rio Grande do Sul</li>
-                      <li class="mdl-menu__item">Rondônia</li>
-                      <li class="mdl-menu__item">Roraima</li>
-                      <li class="mdl-menu__item">Santa Catarina</li>
-                      <li class="mdl-menu__item">São Paulo</li>
-                      <li class="mdl-menu__item">Sergipe</li>
-                      <li class="mdl-menu__item">Tocantins</li>
-                      <li class="mdl-menu__item">Pernanbuco</li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="btn-wrap">
-                  <input style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
-                </div>
-                  </div>
-
-                <div class="expander-title">
-                  <i class="material-icons">phone</i>
-                  <p class="search-toggle" id="toggleContactSearch">Procurar por email/telefone</p>
-                </div>
-                <div class="search-block" id="searchBlockContact">
-                  <div class="flex-row">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" id="email">
-                      <label class="mdl-textfield__label" for="email">Email</label>
-                    </div>
-                    
-                  </div>
-                  <div class="flex-row">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="phonePrimary">
-                      <label class="mdl-textfield__label" for="phonePrimary">Telefone</label>
-                      <span class="mdl-textfield__error">O valor inserido não é um número!</span>
-                    </div>
-                  </div>
-                  <div class="btn-wrap">
-                  <input style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar">
-                </div>
-                </div>
-
-                <div class="expander-title">
-                  <i class="material-icons">fingerprint</i>
-                  <p class="search-toggle" id="toggleNameSearch">Procurar por código</p>
-                </div>
-                <div class="search-block" id="searchBlockName">
-                  <div class="flex-row">
-                    <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" id="lastName">
-                      <label class="mdl-textfield__label" for="lastName">Código</label>
-                    </div>
-                    <div class="btn-wrap">
-                  <input  style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar" class="buscar">
-                </div>
-                  </div>
-                </div>
-              
-              </form>
-            </div>
+         
+          <br>
+          <br>
+          <div class="box-search">
+              <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
+              <button onclick="searchData()" class="btn btn-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+               </svg>
+        </button>
           </div>
+          <br>
+          <br>
+           
           <div class="table-wrapper">
             <table class="table">
             <thead class="thead-light">
@@ -281,7 +189,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
     }
   });
   function searchData() {
-    window.location = 'sistema.php?search=' + search.value;
+    window.location = 'sistema_coach_forms.php?search=' + search.value;
   }
 
   $(document).ready(function () {

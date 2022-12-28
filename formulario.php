@@ -119,6 +119,7 @@
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
               placeholder="Qual seu nome?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
               name="nome" required>
+            <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo nome utilizado no cadastro</small>
           </div>
 
         <div class="form-group espace">

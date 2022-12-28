@@ -70,6 +70,8 @@ if(!empty($_GET['cod']))
     exit;*/
   }
 $user_data = mysqli_fetch_assoc($result2);
+
+
 $nome= $user_data['nome'];
 ?> 
 <!DOCTYPE html>
