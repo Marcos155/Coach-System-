@@ -131,7 +131,7 @@
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Qual sua meta?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+              placeholder="Qual sua meta?" 
               name="meta" required>
             <small id="emailHelp" class="form-text text-muted">Coloque aqui seu objetivo. Exemplo: perder peso</small>
           </div>
@@ -152,7 +152,7 @@
           <div class="form-group espace">
             <label for="exampleInputEmail1">Status</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Atualmente o que já fez para concluir seu objetivo?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+              placeholder="Atualmente o que já fez para concluir seu objetivo?" 
               name="status" required>
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>

@@ -113,7 +113,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
 
         <h2><b>André</b></h2>
 
-          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>código, meta, data de inicio,data de conclusao,
+          <p>você pode procurar por um formulário de um aluno usando vários parâmetros diferentes, incluindo <b>código, meta, data de inicio,data de conclusao,
             descrição da meta e status</b></p>
          
           <br>
