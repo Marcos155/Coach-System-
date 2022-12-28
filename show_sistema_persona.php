@@ -63,6 +63,7 @@ $nome= $user_data['nome'];
     .table-wrapper {
     max-height: 500px;
     overflow-y: auto; }
+   
   </style>
 </head>
 
@@ -178,6 +179,7 @@ $nome= $user_data['nome'];
 
 
     /*testes*/
+   
   </script>
 </body>
 </html>
