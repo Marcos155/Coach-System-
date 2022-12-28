@@ -118,7 +118,7 @@
 
     <!--login-->
     <div class="form-container sign-in-container" style="position: relative;">
-      <form action="teste.php" method="post">
+      <form action="teste2.php" method="post">
         <h1>Entrar</h1>
         <br>
         <input type="email" placeholder="Email" name="email" required />

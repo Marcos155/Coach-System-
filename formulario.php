@@ -115,7 +115,7 @@
         </p>
         <?php
             //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-            echo"<form action='testando.php' method='post' data-form>";
+            echo"<form action='testando.php' method='post'>";
           ?>
            <div class="form-group espace">
             <label for="exampleInputEmail1">Nome</label>
@@ -160,7 +160,7 @@
             <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
               sua meta</small>
           </div>
-          <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" name="submit" data-button>Enviar</button>
+          <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" name="submit">Enviar</button>
         </form>
     </main>
 
@@ -258,13 +258,9 @@ const formSubmit = new FormSubmit({
   success: "<h1 class='success'>Mensagem enviada!</h1>",
   error: "<h1 class='error'>Não foi possível enviar sua mensagem.</h1>",
 });
-formSubmit.init();
-      
+formSubmit.init();   
 
     </script>
-
-
-
 
 </body>
 </html>
