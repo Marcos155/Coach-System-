@@ -62,7 +62,7 @@ $logado = $_SESSION['email'];
           <br>
           <a class="mdl-navigation__link" href="sistema_coach_forms.php">Formulário-Alunos</a>
           <br>
-          <a class="mdl-navigation__link" href="coach_show_sistema_forms.php">Meta-Alunos</a>
+          <a class="mdl-navigation__link" href="#">Meta-Alunos</a>
           <br>
           <a class="mdl-navigation__link active" href="qrcode.php">Gerar QR Code</a>
           <br>
@@ -72,7 +72,7 @@ $logado = $_SESSION['email'];
       <main class="mdl-layout__content">
         <div class="page-content">
           <h2><b>André</b></h2>
-          <p>Aqui você pode gerar um <b>Qr code</b> que levará para a <b>página de registro</b>. Distribua esse código aos seus clientes.</p>
+          <p>Esse <b>Qr code</b> levará para a <b>página de registro</b>. Distribua esse código aos seus clientes.</p>
         </div>
         <br>
         
@@ -82,11 +82,13 @@ $logado = $_SESSION['email'];
             <p> código para página de registro</p>
         </header>
         <main class="form">
-          <input type="text">
-          <button onclick="GerarQRCode()">Gerar</button>
+          <input type="text" value="http://localhost/Coach-System-/register.php" id="link">
+          <a href="./assets/pdf/Qr_code_register.pdf" download>
+          <button onclick="GerarQRCode()">Gerar</button></a>
+          
         </main>
         <footer class="qr-code">
-          <img id="QRCodeImage" class="img" >
+          <img id="QRCodeImage" class="img">
         </footer>
       </div>
         </div>
@@ -94,6 +96,10 @@ $logado = $_SESSION['email'];
       
     
   </div>
+    <script>
+      const input = document.querySelector('#link')
+      input.disabled=true
+    </SCRipt>
     <script src="qrcode.js"></script>
   </body>
 </html>

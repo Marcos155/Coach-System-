@@ -9,10 +9,12 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
   header('Location:entrar.php');
 }
 $logado = $_SESSION['email'];
+
+
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
@@ -36,7 +38,6 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,cidade,estado,telefone,sexo) 
 VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -71,6 +72,16 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
     max-height: 500px;
     overflow-y: auto;
     }
+
+    .box-search{
+            display: flex;
+            justify-content: center;
+            gap: .1%;
+        }
+    #pesquisar:focus{
+      border-color: rgba(0,0,0,0.4);
+      box-shadow:none;
+    }
   </style>
     
   </head>
@@ -92,7 +103,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
           <br>
           <a class="mdl-navigation__link" href="sistema_coach_forms.php">Formulário-Alunos</a>
           <br>
-          <a class="mdl-navigation__link" href="coach_show_sistema_forms.php">Meta-Alunos</a>
+          <a class="mdl-navigation__link" href="#">Meta-Alunos</a>
           <br>
           <a class="mdl-navigation__link" href="qrcode.php">Gerar QR Code</a>
           <br>
@@ -106,11 +117,22 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
 
           <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, número
           de telefone, email, cidade e estado</b></p>
-          <div class="mdl-card mdl-shadow--2dp customer-search">
-            <!-- <div class="mdl-card__title">Customer Search</div> -->
-            <div class="mdl-card__actions">
-              <form action="#">
 
+          <br>
+          <br>
+          <div class="box-search">
+              <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
+              <button onclick="searchData()" class="btn btn-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+               </svg>
+        </button>
+          </div>
+          <br>
+          <br>
+        <!-- pesquisa antiga, é lixo
+          <div class="mdl-card mdl-shadow--2dp customer-search">
+            <div class="mdl-card__actions">
                 <div class="expander-title">
                   <i class="material-icons">person</i>
                   <p class="search-toggle" id="toggleNameSearch">Procurar por nome</p>
@@ -118,11 +140,11 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
                 <div class="search-block" id="searchBlockName">
                   <div class="flex-row">
                     <div class="mdl-textfield mdl-js-textfield">
-                      <input class="mdl-textfield__input" type="text" id="lastName">
+                      <input class="mdl-textfield__input" type="text" id="lastName" id="pesquisar">
                       <label class="mdl-textfield__label" for="lastName">Nome</label>
                     </div>
-                    <div class="btn-wrap">
-                  <input  style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar" class="buscar">
+                    <div class="btn-wrap">  
+                 <input  style="background-color:#191919f6;" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" value="Buscar" class="buscar">
                 </div>
                   </div>
                 </div>
@@ -219,9 +241,10 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
                   </div>
                 </div>
              
-              </form>
+             
             </div>
           </div>
+  -->
           <div class="table-wrapper">
             <table class="table">
             <thead class="thead-light">
@@ -277,6 +300,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
         });
 
       });
+
       var search = document.getElementById('pesquisar');
   search.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
@@ -285,7 +309,8 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
   });
   function searchData() {
     window.location = 'sistema.php?search=' + search.value;
-  }
+  };
+
 
   $(document).ready(function () {
 

@@ -10,7 +10,6 @@ body{
     justify-content: center;
     min-height: 100vh;
     background: #fff;
-    /*background: linear-gradient(180deg,#dcd1cd 35%,rgb(0, 0, 0) 100%);*/
 }
 .container{
     height: 260px;
@@ -20,8 +19,6 @@ body{
     padding: 16px 25px;
     transition: height 0.5s ease;
     box-shadow: 2px 2px 3px #000000;
-}
-.container.active{
     height: 530px;
 }
 header h1{
@@ -76,9 +73,4 @@ header p{
 .qr-code .img{
     width: 220px;
     height: auto;
-}
-.container.active.qr-code{
-    opacity: 1;
-    pointer-events: auto;
-    transition:all 0.5s ease;
 }
