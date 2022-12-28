@@ -90,7 +90,7 @@ $nome= $user_data['nome'];
         <br>
         <nav class="mdl-navigation">
           <?php
-            echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
+            echo "<a class='mdl-navigation__link' href='testando.php?cod=$user_data[cod]'>Formulário</a>";
           ?>
           <br>
           <?php

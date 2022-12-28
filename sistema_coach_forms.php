@@ -9,10 +9,10 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
   header('Location:entrar.php');
 }
 $logado = $_SESSION['email'];
+
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or 
-    desc_meta LIKE '%$data%' or data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' ";
+  $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or nome LIKE '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM formulario ORDER BY cod DESC";
@@ -35,7 +35,6 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
 VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
 }
-
 
 ?>
 <!DOCTYPE html>
@@ -113,8 +112,7 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
 
         <h2><b>André</b></h2>
 
-          <p>você pode procurar por um formulário de um aluno usando vários parâmetros diferentes, incluindo <b>código, meta, data de inicio,data de conclusao,
-            descrição da meta e status</b></p>
+          <p>você pode procurar por um formulário de um aluno procurando por <b>nome</b> e <b>código</b></p>
          
           <br>
           <br>
@@ -134,12 +132,16 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
             <thead class="thead-light">
                <tr>
                 <th scope="row">Código</th>
+                <th scope="col">Nome</th>
+                <!--
                 <th scope="row">Meta</th>
                 <th scope="col">Descrição da meta</th>
                 <th scope="col">Data de início</th>
                 <th scope="col">Data de conclusão</th>
                 <th scope="col">Status</th>
-                <th scope="col">Excluir</th>
+  -->
+                <th scope="col">Formulário</th>
+                <th scope=row">Excluir</th>
                 </tr>
               </thead>
               <tbody>
@@ -147,13 +149,19 @@ VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
         while ($user_data = mysqli_fetch_assoc($result)) {
           echo "<tr>";
           echo "<td>" . $user_data['cod'] . "</td>";
-          echo "<td>" . $user_data['meta'] . "</td>";
+          echo "<td>" . $user_data['nome'] . "</td>";
+          /*echo "<td>" . $user_data['meta'] . "</td>";
           echo "<td>" . $user_data['desc_meta'] . "</td>";
           echo "<td>" . $user_data['data_inicio'] . "</td>";
           echo "<td>" . $user_data['data_conclusao'] . "</td>";
-          echo "<td>" . $user_data['status_meta'] . "</td>";
+          echo "<td>" . $user_data['status_meta'] . "</td>";*/
           echo "<td>
 
+          <a class='btn btn-sm btn-dark' href='coach_testando.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+        Formulário
+          </a>
+          </td>
+          <td>
           <a class='btn btn-sm btn-dark' href='delete.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
             <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>

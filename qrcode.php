@@ -99,7 +99,7 @@ $logado = $_SESSION['email'];
     <script>
       const input = document.querySelector('#link')
       input.disabled=true
-    </SCRipt>
+    </script>
     <script src="qrcode.js"></script>
   </body>
 </html>
