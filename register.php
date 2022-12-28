@@ -13,7 +13,7 @@
     $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
     VALUES ('$nome','$email','$senha','$tele','$sexo')");
 
-    header('Location:entrar.php');
+    header('Location:formulario.php');
 
   }
  ?> 

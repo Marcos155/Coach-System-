@@ -61,13 +61,13 @@ if(!empty($_GET['cod']))
         header('Location: show_sistema_persona.php');
     }
   }
-  //else
+  else
   {
     /*header('Location: show_sistema_persona.php');*/
-    /*$fallback = 'index.html';
+    $fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");
-    exit;*/
+    exit;
   }
 $user_data = mysqli_fetch_assoc($result2);
 
@@ -133,9 +133,8 @@ $nome= $user_data['nome'];
         <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
           <br>
           <?php
-              echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
+              //echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
             ?>
-          <br>
           <a class="mdl-navigation__link" href="show_sistema_persona.php">Conta</a>
           <br>
           <a class="mdl-navigation__link" href="meta.php">meta</a>
@@ -189,7 +188,6 @@ $nome= $user_data['nome'];
             <?php
                echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[data_inicio]' id='data_inicio'>"
             ?>
-            
             <label for="exampleInputPassword1">Data de  previsão de conclusão</label>
             <?php
                 echo"<input type='text' class='form-control' name='data' value=' $user_data[data_conclusao]' id='data_conclusao'>"

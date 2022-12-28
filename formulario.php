@@ -107,12 +107,11 @@
     <main class="mdl-layout__content">
       <div class="page-content">
 
-        <p>Olá
-          <?php echo "$logado"?> &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
+        <p> Bem vindo(a) &#128578;, para começarmos preencha o formulario abaixo de acordo com o objetivo que almeja alcançar.
         </p>
         <?php
             //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-            echo"<form action='show_sistema_forms.php' method='post'>";
+            echo"<form action='testando.php' method='post'>";
           ?>
            <div class="form-group espace">
             <label for="exampleInputEmail1">Nome</label>
