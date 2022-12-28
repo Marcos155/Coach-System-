@@ -128,7 +128,8 @@
             <img src="eyes.png" alt="" id="eyesvg" onclick=" mostrarOcultarSenha()" width="24px">
           </div>
         </div><br><br><br><br><br>
-        <a href="esqueci_a_senha.php" target="_blank">Esqueceu sua senha?</a>
+        <!--
+        <a href="esqueci_a_senha.php" target="_blank">Esqueceu sua senha?</a>-->
         <input type="submit" value="conectar" name="submit" id="enviar">
       </form>
     </div>
