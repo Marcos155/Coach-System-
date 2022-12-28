@@ -7,7 +7,6 @@
     $email= $_POST['email'];
     $senha= $_POST['password'];
   }
-
   if(isset($_POST['submit']))
   {
     

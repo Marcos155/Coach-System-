@@ -94,7 +94,7 @@ if(!empty($_GET['cod']))
 $user_data = mysqli_fetch_assoc($result2);
 
 
-$nome= $user_data['nome'];
+//$nome= $user_data['nome'];
 ?> 
 <!DOCTYPE html>
 <html>
