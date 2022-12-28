@@ -16,13 +16,14 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
         unset($_SESSION['email']);
         unset($_SESSION['senha']);
         header('Location:entrar.php');
-    }
-    else
+    } else
     {   
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
         header('Location:formulario.php');
     } 
+    
+   
 }
 else
 {

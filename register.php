@@ -146,6 +146,8 @@
       window.location = href;
     });
 
+
+
   </script>
   <script src="senha.js"></script>
   <script>
@@ -219,6 +221,9 @@
       eyesvg2.setAttribute("src","eyes2.png");
     }
   }
+
+
+  /* mensagem */
 
   </script>
 </body>
