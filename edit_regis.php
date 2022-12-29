@@ -121,6 +121,8 @@
         <br>
           <a class="mdl-navigation__link " href="meta.php">Meta</a>
         <br>
+        <a class="mdl-navigation__link" href="notas.php">Notas</a>
+          <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
       </nav>
     </div>

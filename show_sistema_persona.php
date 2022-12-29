@@ -60,9 +60,27 @@ $nome= $user_data['nome'];
     .mdl-layout__header {
       background-color: rgb(255, 0, 0);
     }
-    .table-wrapper {
+    /*.table-wrapper {
     max-height: 500px;
-    overflow-y: auto; }
+    overflow-y: auto; }*/
+    button{
+      background-color: rgb(255, 0, 0);
+      border-radius: 17px;
+      border:none;
+      padding: 6px 8px 6px 8px;
+    }
+    button a{
+      color: #fff;
+      text-decoration:none;
+    }
+    button a:hover{
+      text-decoration:none;
+      color: #fff;
+    }
+    button:hover{
+      background-color: rgb(230, 0, 0);
+      cursor:pointer;
+    }
    
   </style>
 </head>
@@ -102,16 +120,72 @@ $nome= $user_data['nome'];
           <br>
             <a class="mdl-navigation__link" href="meta.php">meta</a>
           <br>
+          <a class="mdl-navigation__link" href="notas.php">Notas</a>
+          <br>
             <a class="mdl-navigation__link" href="sair.php">Sair</a>
         </nav>
     </div>
     <main class="mdl-layout__content">
       <div class="page-content">
-
+      <?php echo  "esses foram os dados preenchidos em seu cadastro."?>
+      <br>
+        <!--
         <div class="m-5">
           <h1>Conta</h1>
-        </div>
+        </div>-->
         <div class="table-wrapper">
+        <br>
+        <div class="form-group espace">
+            <label for="exampleInputEmail1">Código</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[cod]' id='cod'>";
+              ?>
+          </div>
+
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Email</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[email]' id='email'>";
+              ?>
+          </div>
+
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Telefone</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[telefone]' id='telefone'>";
+              ?>
+          </div>
+
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Sexo</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[sexo]' id='sexo'>";
+              ?>
+          </div>
+
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Cidade</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[cidade]' id='cidade'>";
+              ?>
+          </div>
+
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Estado</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[estado]' id='estado'>";
+              ?>
+          </div>
+          <div>
+          <?php
+            echo "
+            <button>
+            <a href='edit_regis.php?cod=$user_data[cod]'> Completar cadastro</a>
+            </button>
+            ";
+          ?>
+          </div>
+<!--
         <table class="table">
           <thead class="thead-light">
             <tr>
@@ -126,10 +200,10 @@ $nome= $user_data['nome'];
               <th scope="col">Cadastro</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody>-->
             <?php
         
-          echo "<tr>";
+         /* echo "<tr>";
           echo "<td>" . $user_data['cod'] . "</td>";
           echo "<td>" . $user_data['nome'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
@@ -141,10 +215,11 @@ $nome= $user_data['nome'];
           echo "<td>
           <a href='edit_regis.php?cod=$user_data[cod]'> Completar cadastro</a>
           </td>";
-          echo "</tr>";
+          echo "</tr>";*/
         ?>
+        <!--
           </tbody>
-        </table>
+        </table>-->
         </div>
       </div>
       </div>
@@ -153,7 +228,7 @@ $nome= $user_data['nome'];
   </div>
 
   <script>
-    $(document).ready(function () {
+    /*$(document).ready(function () {
 
       $(".search-block").hide();
       $(".expander-title").click(function () {
@@ -178,11 +253,28 @@ $nome= $user_data['nome'];
         $(this).next(".search-block").slideToggle("fast");
       });
 
-    });
+    });*/
 
 
     /*testes*/
-   
+    const input = document.querySelector('#cod');
+      input.disabled=true;
+
+    const input2 = document.querySelector('#email');
+      input2.disabled=true;
+
+    const input3 = document.querySelector('#telefone');
+      input3.disabled=true;
+
+    const input4 = document.querySelector('#sexo');
+      input4.disabled=true;
+
+    const input5 = document.querySelector('#cidade');
+      input5.disabled=true;
+
+    const input6 = document.querySelector('#estado');
+      input6.disabled=true;
+
   </script>
 </body>
 </html>

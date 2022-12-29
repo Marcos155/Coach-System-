@@ -103,13 +103,15 @@ $nome= $user_data['nome'];
                 <br>
                 <nav class="mdl-navigation">
                     <?php
-            echo "<a class='mdl-navigation__link' href='show_sistema_forms.php?cod=$user_data[cod]'>Formulário</a>";
+            echo "<a class='mdl-navigation__link' href='testando.php?cod=$user_data[cod]'>Formulário</a>";
           ?>
                     <br>
                     <a class="mdl-navigation__link" href="show_sistema_persona.php">Conta</a>
                     <br>
                     <a class="mdl-navigation__link active" href="meta.php">meta</a>
                     <br>
+                    <a class="mdl-navigation__link" href="notas.php">Notas</a>
+          <br>
                     <a class="mdl-navigation__link" href="sair.php">Sair</a>
                 </nav>
         </div><br><br><br><br>

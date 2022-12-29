@@ -105,9 +105,9 @@ $nome= $user_data['nome'];
       margin-right: 1rem;
       margin-left: 1rem;
     }
-    .table-wrapper {
+   /* .table-wrapper {
     max-height: 500px;
-    overflow-y: auto;}
+    overflow-y: auto;}*/
   </style>
 </head>
 
@@ -130,7 +130,7 @@ $nome= $user_data['nome'];
       <nav class="mdl-navigation">
         <br>
         <nav class="mdl-navigation">
-        <a class="mdl-navigation__link active" href="show_sistema_forms.php">Formulário</a>
+        <a class="mdl-navigation__link active" href="testando.php">Formulário</a>
           <br>
           <?php
               //echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
@@ -138,6 +138,8 @@ $nome= $user_data['nome'];
           <a class="mdl-navigation__link" href="show_sistema_persona.php">Conta</a>
           <br>
           <a class="mdl-navigation__link" href="meta.php">meta</a>
+          <br>
+          <a class="mdl-navigation__link" href="notas.php">Notas</a>
           <br>
           <a class="mdl-navigation__link" href="sair.php">Sair</a>
       </nav>
@@ -177,7 +179,7 @@ $nome= $user_data['nome'];
           </div>
           
           <div class="form-group espace">
-            <label for="exampleFormControlTextarea1">Defina sua meta</label>
+            <label for="exampleFormControlTextarea1">Definição da meta</label>
             <?php
                 echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[desc_meta]' id='desc_meta'>"
             ?>
