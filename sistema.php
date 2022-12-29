@@ -10,6 +10,15 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 }
 $logado = $_SESSION['email'];
 
+if($email=='adm@gmail.com' && $senha=='123456'){
+  $_SESSION['email'] = $email;
+  $_SESSION['senha'] = $senha;
+  header('Location:sistema.php');
+}else{
+  $_SESSION['email'] = $email;
+  $_SESSION['senha'] = $senha;
+  header('Location:show_sistema_forms.php');
+}
 
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];

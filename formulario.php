@@ -98,8 +98,6 @@
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link active" href="#">Formulário</a>
         <br>
-          <a class="mdl-navigation__link" href="#">Completar cadastro</a>
-        <br>
           <a class="mdl-navigation__link " href="#">Conta</a>
         <br>
           <a class="mdl-navigation__link " href="#">Meta</a>
