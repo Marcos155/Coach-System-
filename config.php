@@ -1,7 +1,7 @@
  <?php
     $dbHost ='Localhost';
     $dbUsername ='root';
-    $dbPassword ='admin1234';
+    $dbPassword ='';
     $dbName ='db_coach';
 
     $conexao_forms = new mysqli("$dbHost", "$dbUsername", "$dbPassword", "$dbName", );
@@ -16,7 +16,7 @@
 
    $dbHost ='Localhost';
    $dbUsername ='root';
-   $dbPassword ='admin1234';
+   $dbPassword ='';
    $dbName ='db_coach';
 
    $conexao_regis = new mysqli("$dbHost", "$dbUsername", "$dbPassword", "$dbName", );
