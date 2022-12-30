@@ -11,8 +11,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM formulario WHERE meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or 
-    status_meta LIKE '%$data%' or cod LIKE '%$data%'";
+  $sql = "SELECT * FROM formulario WHERE nome LIKE '%$data%' or email LIKE '%$data%' or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%' or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
 
 } else {
   $sql = /*"SELECT * FROM formulario ORDER BY cod DESC";*/"SELECT*from formulario where formulario.email = '$logado' ";
@@ -47,13 +46,13 @@ if(!empty($_GET['cod']))
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-          $meta= $user_data['meta'];
           $nome= $user_data['nome'];
           $email= $user_data['email'];
-          $desc_meta= $user_data['desc_meta'];
-          $data_inicio= $user_data['data_inicio'];
-          $data_conclusao= $user_data['data_conclusao'];
-          $status_meta= $user_data['status_meta'];
+          $saude= $user_data['saude'];
+          $relacionamento= $user_data['relacionamento'];
+          $financeiro= $user_data['financeiro'];
+          $espiritual= $user_data['espiritual'];
+          $outro= $user_data['outro'];
         }
 
     }
@@ -78,11 +77,11 @@ if(!empty($_GET['cod']))
   
     if($result->num_rows>0){
       while($user_data= mysqli_fetch_assoc($result)){
-        $meta = $user_data['meta'];
-        $desc_meta = $user_data['desc_meta'];
-        $data_inicio = $user_data['data_inicio'];
-        $data_conclusao = $user_data['data_conclusao'];
-        $status = $user_data['status_meta'];
+        $saude = $user_data['saude'];
+        $relacionamento = $user_data['relacionamento'];
+        $financeiro = $user_data['financeiro'];
+        $espiritual = $user_data['espiritual'];
+        $outro = $user_data['outro'];
       }
     }else{
       header('Location:sistema_coach_forms.php');
@@ -176,25 +175,25 @@ $user_data = mysqli_fetch_assoc($result2);
           <div class="table-wrapper">
 
           <div class="form-group espace">
-            <label for="exampleInputEmail1">Meta</label>
-            <input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value="<?php echo $meta ?>" id='meta'>
+            <label for="exampleInputEmail1">Saúde</label>
+            <input type='text' class='form-control' aria-describedby='emailHelp' name=saude  value="<?php echo $saude ?>" id='saude'>
           </div>
           
           <div class="form-group espace">
-            <label for="exampleFormControlTextarea1">Defina sua meta</label>
-            <input type='text' class='form-control' rows='3' name='desc_meta' value="<?php echo $desc_meta ?>" id='desc_meta'>
+            <label for="exampleFormControlTextarea1">Relacionamento</label>
+            <input type='text' class='form-control' rows='3' name='relacionamento' value="<?php echo $relacionamento ?>" id='relacionamento'>
           </div>
           
           <div class="form-group espace">
-            <label for="exampleInputPassword1">Data de inicio</label>
-             <input type='text' class='form-control' name='data_inicio' value="<?php echo $data_inicio ?>" id='data_inicio'>
+            <label for="exampleInputPassword1">Financeiro</label>
+             <input type='text' class='form-control' name='financeiro' value="<?php echo $financeiro ?>" id='financeiro'>
             
-            <label for="exampleInputPassword1">Data de  previsão de conclusão</label>
-            <input type='text' class='form-control' name='data' value="<?php echo $data_conclusao ?>"  id='data_conclusao'>
+            <label for="exampleInputPassword1">Espiritual</label>
+            <input type='text' class='form-control' name='espiritual' value="<?php echo $espiritual ?>"  id='espiritual'>
           </div>
           <div class="form-group espace">
-            <label for="exampleInputEmail1">Status</label>
-           <input type='text' class='form-control' aria-describedby='emailHelp' name='status' value="<?php echo $status_meta ?>" id='status_meta'>
+            <label for="exampleInputEmail1">Demais objetivos</label>
+           <input type='text' class='form-control' aria-describedby='emailHelp' name='outro' value="<?php echo $outro ?>" id='outro'>
               
           </div>
     </div>
@@ -203,26 +202,20 @@ $user_data = mysqli_fetch_assoc($result2);
     </main>
 
     <script>
-      const input = document.querySelector('#status_meta');
+      const input = document.querySelector('#saude');
       input.disabled=true;
 
-      const input2 = document.querySelector('#data_conclusao');
+      const input2 = document.querySelector('#relacionamento');
       input2.disabled=true;
 
-      const input3 = document.querySelector('#data_inicio');
+      const input3 = document.querySelector('#financeiro');
       input3.disabled=true;
 
-      const input4 = document.querySelector('#desc_meta');
+      const input4 = document.querySelector('#espiritual');
       input4.disabled=true;
 
-      const input5 = document.querySelector('#meta');
+      const input5 = document.querySelector('#outro');
       input5.disabled=true;
-
-      const input6 = document.querySelector('#email');
-      input6.disabled=true;
-
-      const input7 = document.querySelector('#nome');
-      input7.disabled=true;
     </script>
 </body>
 </html>

@@ -11,8 +11,8 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM formulario WHERE meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or 
-    status_meta LIKE '%$data%' or cod LIKE '%$data%'";
+  $sql = "SELECT * FROM formulario WHERE nome LIKE '%$data%' or email LIKE '%$data%' or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%' or 
+    espiritual LIKE '%$data%' or outro LIKE '%$data%' or cod LIKE '%$data%'";
 
 } else {
   $sql = /*"SELECT * FROM formulario ORDER BY cod DESC";*/"SELECT*from formulario where formulario.email = '$logado' ";
@@ -22,17 +22,16 @@ $result2 = $conexao_forms->query($sql);
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
-
-  $meta = $_POST['meta'];
   $nome = $_POST['nome'];
   $email = $_POST['email'];
-  $desc_meta= $_POST['desc_meta'];
-  $data_inicio = $_POST['data_inicio'];
-  $data_conclusao = $_POST['data'];
-  $status_meta = $_POST['status'];
+  $saude= $_POST['saude'];
+  $relacionamento = $_POST['relacionamento'];
+  $financeiro = $_POST['financeiro'];
+  $espiritual = $_POST['espiritual'];
+  $outro = $_POST['outro'];
 
-  $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta) 
-  VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data_conclusao','$status_meta')");
+  $result = mysqli_query($conexao_forms, "INSERT INTO formulario(nome,email,saude,relacionamento,financeiro,espiritual,outro) 
+  VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')");
 }
 if(!empty($_GET['cod']))
   {
@@ -47,13 +46,13 @@ if(!empty($_GET['cod']))
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-          $meta= $user_data['meta'];
           $nome= $user_data['nome'];
           $email= $user_data['email'];
-          $desc_meta= $user_data['desc_meta'];
-          $data_inicio= $user_data['data_inicio'];
-          $data_conclusao= $user_data['data_conclusao'];
-          $status_meta= $user_data['status_meta'];
+          $saude= $user_data['saude'];
+          $financeiro= $user_data['financeiro'];
+          $relacionamento= $user_data['relacionamento'];
+          $espiritual= $user_data['espiritual'];
+          $outro= $user_data['outro'];
         }
 
     }
@@ -172,33 +171,33 @@ $nome= $user_data['nome'];
         </div>
 
           <div class="form-group espace">
-            <label for="exampleInputEmail1">Meta</label>
+            <label for="exampleInputEmail1">Saúde</label>
             <?php
-            echo "<input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value=' $user_data[meta]' id='meta'>"
+            echo "<input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value=' $user_data[saude]' id='meta'>"
             ?>
           </div>
           
           <div class="form-group espace">
-            <label for="exampleFormControlTextarea1">Definição da meta</label>
+            <label for="exampleFormControlTextarea1">Relacionamento</label>
             <?php
-                echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[desc_meta]' id='desc_meta'>"
+                echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[relacionamento]' id='desc_meta'>"
             ?>
           </div>
           
           <div class="form-group espace">
-            <label for="exampleInputPassword1">Data de inicio</label>
+            <label for="exampleInputPassword1">Financeiro</label>
             <?php
-               echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[data_inicio]' id='data_inicio'>"
+               echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[financeiro]' id='data_inicio'>"
             ?>
-            <label for="exampleInputPassword1">Data de  previsão de conclusão</label>
+            <label for="exampleInputPassword1">Espiritual</label>
             <?php
-                echo"<input type='text' class='form-control' name='data' value=' $user_data[data_conclusao]' id='data_conclusao'>"
+                echo"<input type='text' class='form-control' name='data' value=' $user_data[espiritual]' id='data_conclusao'>"
             ?>
           </div>
           <div class="form-group espace">
-            <label for="exampleInputEmail1">Status</label>
+            <label for="exampleInputEmail1">Demais objetivos</label>
             <?php
-                echo"<input type='text' class='form-control' aria-describedby='emailHelp' name='status' value=' $user_data[status_meta]' id='status_meta'>"
+                echo"<input type='text' class='form-control' aria-describedby='emailHelp' name='status' value=' $user_data[outro]' id='status_meta'>"
               ?>
           </div>
     </div>

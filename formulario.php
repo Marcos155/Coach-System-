@@ -12,8 +12,8 @@
 
       if (!empty($_GET['search'])) {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or 
-          data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%'";
+        $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%' or 
+          espiritual LIKE '%$data%' or outro";
       
       } else{
         $sql = "SELECT * FROM formulario ORDER BY cod DESC";
@@ -24,16 +24,16 @@
   {
     
     include_once('config.php');
-    $meta= $_POST['meta'];
     $nome= $_POST['nome'];
-    $email= $_POST['email'];
-    $desc_meta= $_POST['desc_meta'];
-    $data_inicio= $_POST['data_inicio'];
-    $data= $_POST['data'];
-    $status= $_POST['status'];
+    $email=$_POST['email'];
+    $saude= $_POST['saude'];
+    $relacionamento= $_POST['relacionamento'];
+    $financeiro= $_POST['financeiro'];
+    $espiritual= $_POST['espiritual'];
+    $outro= $_POST['outro'];
 
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta) 
-    VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data','$status')"); 
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(nome,email,saude,relacionamento,financeiro,espiritual,outro) 
+    VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
     header('show_sistema_persona.php');
 
   }
@@ -86,28 +86,43 @@
         <p>Vamos começar primeiramente com a sua meta para daqui <u>15 anos</u></p>
       </b><br>
       <div class="mb-3">
+        <label for="exampleInputEmail1">Nome</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Qual seu nome?"
+          pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" name="nome"
+          required>
+        <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo nome utilizado no cadastro</small>
+      </div>
+      <div class="mb-3">
+      <label for="exampleInputEmail1">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Email" name="email" required />
+        <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo email usado no cadastro</smal>
+      </div>
+      <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar de saúde</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Ex: Estar na faixa do 65Kg">
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Ex: Estar na faixa do 65Kg" name="saude" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar nos seus relacionamentos ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Ex: Casado e com filhos...">
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Ex: Casado e com filhos..." name="relacionamento" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar financeiramente ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1" placeholder="Ex: vivendo de renda...">
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Ex: vivendo de renda..." name="financeiro" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar espiritualmente ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1" placeholder="Objetivos espirituais">
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Objetivos espirituais" name="espiritual" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Algum outro ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1" placeholder="Escreva outro objetivo">
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Escreva outro objetivo" name="outro" required>
       </div><br>
     </div>
+    <br><br>
     <div class="height-100 bg-light">
 
       <b>
@@ -155,8 +170,9 @@
         //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
         echo"<form action='testando.php' method='post'>";
       ?>
+      <!--
       <b>
-        <p>Agora seus objetivos para os proximos <u>12 meses</u></p>
+        <p>Antigo formulário <u>esse aqui virou o de 15 anos</u></p>
       </b>
       <div class="form-group espace">
         <label for="exampleInputEmail1">Nome</label>
@@ -203,11 +219,12 @@
         <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
           sua meta</small>
       </div>
-      <br>
+      <br>-->
       <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;"
         name="submit">Enviar</button>
       </form>
       <br><br>
+-->
     </div>
     <!--Container Main end-->
     <script type='text/javascript'
