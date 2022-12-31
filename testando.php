@@ -12,7 +12,8 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or 
-  data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%'";
+  data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
+  or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
 } else {
   $sql = /*"SELECT * FROM formulario ORDER BY cod DESC";*/"SELECT*from formulario where formulario.email = '$logado' ";
 }
@@ -28,9 +29,14 @@ if (isset($_POST['submit'])) {
     $data_inicio= $_POST['data_inicio'];
     $data= $_POST['data'];
     $status= $_POST['status'];
+    $saude= $_POST['saude'];
+    $relacionamento= $_POST['relacionamento'];
+    $financeiro= $_POST['financeiro'];
+    $espiritual= $_POST['espiritual'];
+    $outro= $_POST['outro'];
 
-  $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta) 
-  VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data','$status')"); 
+  $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta,saude,relacionamento,financeiro,espiritual,outro) 
+  VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data','$status','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
 }
 if(!empty($_GET['cod']))
   {
@@ -52,6 +58,11 @@ if(!empty($_GET['cod']))
           $data_inicio= $user_data ['data_inicio'];
           $data= $user_data ['data_conclusao'];
           $status= $user_data ['status_meta'];
+          $saude= $user_data['saude'];
+          $relacionamento= $user_data['relacionamento'];
+          $financeiro= $user_data['financeiro'];
+          $espiritual= $user_data['espiritual'];
+          $outro= $user_data['outro'];
         }
 
     }
@@ -68,42 +79,8 @@ if(!empty($_GET['cod']))
     exit;
   }
 
-  if(!empty($_GET['cod']))
-  {
-  
-    include_once('config.php');
-
-    $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM formulario_15_anos WHERE cod=$cod";
-    $result15 = $conexao_forms15->query($sqlselect);
-
-    if($result15->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($result15))
-        {
-          $saude= $user_data ['saude'];
-          $relacionamento=$user_data ['relacionamento'];
-          $financeiro= $user_data ['financeiro'];
-          $espiritual= $user_data ['espiritual'];
-          $outro= $user_data ['outro'];
-        }
-
-    }
-    else{
-        header('Location: show_sistema_persona.php');
-    }
-  }
-  else
-  {
-    /*header('Location: show_sistema_persona.php');*/
-    $fallback = 'index.html';
-    $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
-    header("location: {$anterior}");
-    exit;
-  }
+ 
 $user_data = mysqli_fetch_assoc($result2);
-$user_data2 = mysqli_fetch_assoc($result15);
-
 $nome= $user_data['nome'];
 ?> 
 <!DOCTYPE html>
@@ -181,50 +158,51 @@ $nome= $user_data['nome'];
     
       <div class="page-content">
       <!-- formulário de 15 anos -->
-      <?php echo  "esses foram os dados preenchidos em seu formulário para daqui a 15 anos."?>
+      <?php //echo  "esses foram os dados preenchidos em seu formulário para daqui a 15 anos."?>
         <?php
             //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-            echo"<form action='testando.php' method='post'>";
+            //echo"<form action='testando.php' method='post'>";
           ?>
           <br>
+          <!--
           <div class="table-wrapper">
            <div class="form-group espace">
             <label for="exampleInputEmail1">Saúde</label>
             <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[saude]'
-              name='saude' id='saude'>";
+              /*echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[saude]'
+              name='saude' id='saude'>";*/
               ?>
           </div>
 
         <div class="form-group espace">
           <label for="exampleInputEmail1">Relacionamentos</label>
           <?php
-          echo "<input type='text'  class='form-control' aria-describedby='emailHelp'  name='relacionamento' value=' $user_data[relacionamento]' id='relacionamento'/>"
+            //echo "<input type='text'  class='form-control' aria-describedby='emailHelp'  name='relacionamento' value=' $user_data[relacionamento]' id='relacionamento'/>"
           ?>
         </div>
 
           <div class="form-group espace">
             <label for="exampleInputEmail1">financeiro</label>
             <?php
-            echo "<input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value=' $user_data[financeiro]' id='financeiro' name='financeiro'>"
+            //echo "<input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value=' $user_data[financeiro]' id='financeiro' name='financeiro'>"
             ?>
           </div>
           
           <div class="form-group espace">
             <label for="exampleFormControlTextarea1">espiritualmente</label>
             <?php
-                echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[espiritual]' id='espiritual' name='espiritual'>"
+               // echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[espiritual]' id='espiritual' name='espiritual'>"
             ?>
           </div>
           
           <div class="form-group espace">
             <label for="exampleInputPassword1">Demais objetivos</label>
             <?php
-               echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[outro]' id='outro' name='outro'>"
+              // echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[outro]' id='outro' name='outro'>"
             ?>
           </div>
         </div>
-        </form>
+        </form>-->
 
       <!-- formulário antigo -->
 
@@ -242,6 +220,44 @@ $nome= $user_data['nome'];
               name='nome' id='nome'>";
               ?>
           </div>
+          
+          <!-- novo formulário -->
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Saude</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[saude]'
+              name='saude' id='saude'>";
+              ?>
+          </div>
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Relacionamento</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[relacionamento]'
+              name='relacionamento' id='relacionamento'>";
+              ?>
+          </div>
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Financeiro</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[financeiro]'
+              name='financeiro' id='financeiro'>";
+              ?>
+          </div>
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Espiritual</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[espiritual]'
+              name='espiritual' id='espiritual'>";
+              ?>
+          </div>
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Outro</label>
+            <?php
+             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[outro]'
+              name='outro' id='outro'>";
+              ?>
+          </div>
+          <!-- fim do novo formulário -->
 
         <div class="form-group espace">
           <label for="exampleInputEmail1">Email</label>
