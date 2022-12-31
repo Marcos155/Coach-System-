@@ -39,31 +39,19 @@ $user_data = mysqli_fetch_assoc($result2);
 $nome= $user_data['nome'];
 
 ?> 
-<!DOCTYPE html>
-<!-- partial:index.partial.html -->
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cadastro</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-deep_purple.min.css">
-  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900"
-    rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Conta</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="assets/css/nav.css">
   <style>
-    .mdl-layout__header {
-      background-color: rgb(255, 0, 0);
-    }
-    /*.table-wrapper {
-    max-height: 500px;
-    overflow-y: auto; }*/
-    button{
+        button{
       background-color: rgb(255, 0, 0);
       border-radius: 17px;
       border:none;
@@ -81,185 +69,142 @@ $nome= $user_data['nome'];
       background-color: rgb(230, 0, 0);
       cursor:pointer;
     }
-   
   </style>
 </head>
 
-<body>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <div class="current-user">
-          <i class="material-icons">account_circle</i>
-          <?php 
-            echo "olá, $nome";
-          ?>
-        </div>
-        <div class="mdl-layout-spacer"></div>
+<body className='snippet-body'>
+
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+      <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
-
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">
-        <?php
-          echo $nome; 
-        ?>
-      </span>
-      <nav class="mdl-navigation">
-        <br>
-        <nav class="mdl-navigation">
-          <?php
-            echo "<a class='mdl-navigation__link' href='testando.php?cod=$user_data[cod]'>Formulário</a>";
-          ?>
-          <br>
-          <?php
-             // echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"> <?php
+              echo $nome ?></span> </a>
+          <div class="nav_list"> 
+            <?php
+              echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
+                class='nav_name'>Início</span> </a>";
+              
+              echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
+              <span class='nav_name'>Conta</span> </a>"; 
+              
+              echo "<a href='testando.php?cod=$user_data[cod]' class='nav_link'> <i
+              class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
+              
+              echo "<a href='meta.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
+              
+              echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
             ?>
-          <?php
-             echo "<a class='mdl-navigation__link active' href='show_sistema_persona.php?cod=$user_data[cod]'>Conta</a>"
-             ?>
-          <br>
-            <a class="mdl-navigation__link" href="meta.php">meta</a>
-          <br>
-          <a class="mdl-navigation__link" href="notas.php">Notas</a>
-          <br>
-            <a class="mdl-navigation__link" href="sair.php">Sair</a>
-        </nav>
+          </div>
+        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </a>
+      </nav>
     </div>
-    <main class="mdl-layout__content">
-      <div class="page-content">
-      <?php echo  "esses foram os dados preenchidos em seu cadastro."?>
-      <br>
-        <!--
-        <div class="m-5">
-          <h1>Conta</h1>
-        </div>-->
-        <div class="table-wrapper">
-        <br>
-        <div class="form-group espace">
-            <label for="exampleInputEmail1">Código</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[cod]' id='cod'>";
-              ?>
-          </div>
-
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Email</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[email]' id='email'>";
-              ?>
-          </div>
-
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Telefone</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[telefone]' id='telefone'>";
-              ?>
-          </div>
-
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Sexo</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[sexo]' id='sexo'>";
-              ?>
-          </div>
-
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Cidade</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[cidade]' id='cidade'>";
-              ?>
-          </div>
-
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Estado</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[estado]' id='estado'>";
-              ?>
-          </div>
-          <div>
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+      <br><br>
+      <h2> Olá <?php echo $nome ?></h2><br>
+      <b>
+        <p>esses foram os dados preenchidos em seu cadastro.</p>
+      </b><br>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Código</label>
+        <?php
+        echo "<input type='text' class='form-control'  value=' $user_data[cod]' id='cod'>";
+        ?>
+        </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+        <?php
+        echo "<input type='text' class='form-control'  value='$user_data[email]' id='email'>";
+        ?>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Telefone</label>
+        <?php
+        echo "<input type='text' class='form-control'  value=' $user_data[telefone]' id='telefone'>";
+        ?>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Sexo</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[sexo]' id='sexo'>";
+        ?>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Cidade</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[cidade]' id='cidade'>";
+        ?>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Estado</label>
+        <?php
+        echo "<input type='text' class='form-control'  value=' $user_data[estado]' id='estado'>";
+        ?>
+      </div><br>
+      <div>
           <?php
             echo "
             <button>
             <a href='edit_regis.php?cod=$user_data[cod]'> Completar cadastro</a>
-            </button>
-            ";
+            </button>";
           ?>
-          </div>
-<!--
-        <table class="table">
-          <thead class="thead-light">
-            <tr>
-              <th scope="row">Código</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Email</th>
-              <th scope="col">Telefone</th>
-              <th scope="col">Sexo</th>
-              <th scope="col">Senha</th>
-              <th scope="col">Cidade</th>
-              <th scope="col">Estado</th>
-              <th scope="col">Cadastro</th>
-            </tr>
-          </thead>
-          <tbody>-->
-            <?php
-        
-         /* echo "<tr>";
-          echo "<td>" . $user_data['cod'] . "</td>";
-          echo "<td>" . $user_data['nome'] . "</td>";
-          echo "<td>" . $user_data['email'] . "</td>";
-          echo "<td>" . $user_data['telefone'] . "</td>";
-          echo "<td>" . $user_data['sexo'] . "</td>";
-          echo "<td>" . $user_data['senha'] . "</td>";
-          echo"<td>"  . $user_data['cidade'] . "</td>";
-          echo "<td>" . $user_data['estado'] . "</td>";
-          echo "<td>
-          <a href='edit_regis.php?cod=$user_data[cod]'> Completar cadastro</a>
-          </td>";
-          echo "</tr>";*/
-        ?>
-        <!--
-          </tbody>
-        </table>-->
         </div>
-      </div>
-      </div>
-  </div>
-  </main>
-  </div>
+          <br>
+    </div>
 
-  <script>
-    /*$(document).ready(function () {
+    <!--Container Main end-->
+    <script type='text/javascript'
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
 
-      $(".search-block").hide();
-      $(".expander-title").click(function () {
-        $(this).next(".search-block").slideToggle("fast");
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+          const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId),
+            bodypd = document.getElementById(bodyId),
+            headerpd = document.getElementById(headerId)
+
+          // Validate that all variables exist
+          if (toggle && nav && bodypd && headerpd) {
+            toggle.addEventListener('click', () => {
+              // show navbar
+              nav.classList.toggle('show')
+              // change icon
+              toggle.classList.toggle('bx-x')
+              // add padding to body
+              bodypd.classList.toggle('body-pd')
+              // add padding to header
+              headerpd.classList.toggle('body-pd')
+            })
+          }
+        }
+
+        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+        /*===== LINK ACTIVE =====*/
+        const linkColor = document.querySelectorAll('.nav_link')
+
+        function colorLink() {
+          if (linkColor) {
+            linkColor.forEach(l => l.classList.remove('active'))
+            this.classList.add('active')
+          }
+        }
+        linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        // Your code to run since DOM is loaded and ready
+      });</script>
+    <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
+      myLink.addEventListener('click', function (e) {
+        e.preventDefault();
       });
-
-    });
-    var search = document.getElementById('pesquisar');
-    search.addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        searchData();
-      }
-    });
-    function searchData() {
-      window.location = 'sistema.php?search=' + search.value;
-    }
-
-    $(document).ready(function () {
-
-      $(".search-block").hide();
-      $(".expander-title").click(function () {
-        $(this).next(".search-block").slideToggle("fast");
-      });
-
-    });*/
-
-
-    /*testes*/
-    const input = document.querySelector('#cod');
+      const input = document.querySelector('#cod');
       input.disabled=true;
-
+      
     const input2 = document.querySelector('#email');
       input2.disabled=true;
 
@@ -275,9 +220,8 @@ $nome= $user_data['nome'];
     const input6 = document.querySelector('#estado');
       input6.disabled=true;
 
-  </script>
-</body>
-</html>
-<!-- partial -->
-</body>
+      </script>
+
+  </body>
+
 </html>
