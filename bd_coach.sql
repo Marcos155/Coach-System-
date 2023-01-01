@@ -104,4 +104,14 @@ create table db_coach.outro_12_meses(
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
+ALTER TABLE db_coach.formulario
+add column saude varchar(200) null after nome;
+ALTER TABLE db_coach.formulario
+add column relacionamento varchar(200) null after saude;
+ALTER TABLE db_coach.formulario
+add column financeiro varchar(200) null after relacionamento;
+ALTER TABLE db_coach.formulario
+add column espiritual varchar(200) null after financeiro;
+ALTER TABLE db_coach.formulario
+add column outro varchar(200) null after espiritual;
 

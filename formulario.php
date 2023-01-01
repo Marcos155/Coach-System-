@@ -13,7 +13,8 @@
       if (!empty($_GET['search'])) {
         $data = $_GET['search'];
         $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or 
-          data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%'";
+          data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' or saude LIKE '%$data%' or 
+          relacionamento LIKE '%$data%' or financeiro LIKE '%$data%' or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
       
       } else{
         $sql = "SELECT * FROM formulario ORDER BY cod DESC";
@@ -29,21 +30,14 @@
     $data_inicio= $_POST['data_inicio'];
     $data= $_POST['data'];
     $status= $_POST['status'];
-
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta) 
-    VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data','$status')"); 
-    header('show_sistema_persona.php');
-
-      
-    include_once('config.php');
     $saude= $_POST['saude'];
     $relacionamento= $_POST['relacionamento'];
     $financeiro= $_POST['financeiro'];
     $espiritual= $_POST['espiritual'];
     $outro= $_POST['outro'];
 
-    $result15= mysqli_query($conexao_forms15, "INSERT INTO formulario_15_anos(saude,relacionamento,financeiro,espiritual,outro) 
-    VALUES ('$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
+    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,saude,relacionamento,financeiro,espiritual,outro,email,desc_meta,data_inicio,data_conclusao,status_meta) 
+    VALUES ('$meta','$nome','$saude','$relacionamento','$financeiro','$espiritual','$outro',$email','$desc_meta','$data_inicio','$data','$status')"); 
     header('show_sistema_persona.php');
 
   }
@@ -93,31 +87,36 @@
       <b>
         <p>Vamos começar primeiramente com a sua meta para daqui <u>15 anos</u></p>
       </b><br>
+      <?php
+        //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
+        echo"<form action='testando.php' method='post'>";
+      ?>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar de saúde</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Ex: Estar na faixa do 65Kg" name="saude" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar nos seus relacionamentos ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Ex: Casado e com filhos..." name="relacionamento"required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar financeiramente ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1" placeholder="Ex: vivendo de renda..." name="financeiro" required>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Ex: vivendo de renda..." name="financeiro" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar espiritualmente ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1" placeholder="Objetivos espirituais" name="espiritual" required>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Objetivos espirituais" name="espiritual" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Algum outro ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1" placeholder="Escreva outro objetivo" name="outro" required>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Escreva outro objetivo" name="outro">
+        <small id="emailHelp" class="form-text text-muted">Descreva aqui algum outro objetivo que tenha e que foi listado acima</small>
       </div><br>
     </div>
     <div class="height-100 bg-light">
-
+<!--
       <b>
         <p>Agora seus objetivos para os proximos <u>12 meses</u></p>
       </b>
@@ -154,8 +153,9 @@
         <input type="email" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Como fazer ?"><br>
       </div>
-      <br><br>
+      <br><br>-->
       <!-- //////////// -->
+      <!--
       <p>Agora sobre relacionamentos</p>
       <div class="mb-3">
         <li>Relacionamentos</li><br>
@@ -303,10 +303,10 @@
         </label>
       </div><br>
       <br>
-      <p>Ações em saúde</p>
+      <p>Ações em saúde</p>-->
       <?php
         //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-        echo"<form action='testando.php' method='post'>";
+        //echo"<form action='testando.php' method='post'>";
       ?>
       <div class="form-group espace">
         <label for="exampleInputEmail1">Nome</label>
@@ -323,7 +323,7 @@
           placeholder="Email" name="email" required />
         <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo email usado no cadastro</small>
       </div>
-
+<!--
       <div class="form-group espace">
         <label for="exampleInputEmail1">Meta</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -351,6 +351,7 @@
         <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
           sua meta</small>
       </div>
+-->
       <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;"
         name="submit">Enviar</button>
       </form>
