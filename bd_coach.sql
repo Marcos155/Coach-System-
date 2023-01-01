@@ -114,4 +114,7 @@ ALTER TABLE db_coach.formulario
 add column espiritual varchar(200) null after financeiro;
 ALTER TABLE db_coach.formulario
 add column outro varchar(200) null after espiritual;
-
+ALTER TABLE db_coach.formulario_15_anos
+add column nome varchar(45) null after outro;
+ALTER TABLE db_coach.formulario_15_anos
+add column email varchar(45) null after nome;

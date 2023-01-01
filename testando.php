@@ -11,32 +11,28 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or 
-  data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
+  $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%'  or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
   or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
 } else {
-  $sql = /*"SELECT * FROM formulario ORDER BY cod DESC";*/"SELECT*from formulario where formulario.email = '$logado' ";
+  $sql = /*"SELECT * FROM formulario ORDER BY cod DESC";*/"SELECT*from formulario_15_anos where formulario_15_anos.email = '$logado' ";
 }
 $result2 = $conexao_forms->query($sql);
 
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
-  $meta= $_POST['meta'];
     $nome= $_POST['nome'];
     $email= $_POST['email'];
-    $desc_meta= $_POST['desc_meta'];
-    $data_inicio= $_POST['data_inicio'];
-    $data= $_POST['data'];
-    $status= $_POST['status'];
     $saude= $_POST['saude'];
     $relacionamento= $_POST['relacionamento'];
     $financeiro= $_POST['financeiro'];
     $espiritual= $_POST['espiritual'];
     $outro= $_POST['outro'];
 
-  $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta,saude,relacionamento,financeiro,espiritual,outro) 
-  VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data','$status','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
+  /*$result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta,saude,relacionamento,financeiro,espiritual,outro) 
+  VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data','$status','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); */
+  $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,email,saude,relacionamento,financeiro,espiritual,outro) VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
+  header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))
   {
@@ -44,20 +40,15 @@ if(!empty($_GET['cod']))
     include_once('config.php');
 
     $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM formulario WHERE cod=$cod";
-    $result = $conexao_forms->query($sqlselect);
+    $sqlselect = "SELECT * FROM formulario_15_anos WHERE cod=$cod";
+    $result = $conexao_forms15->query($sqlselect);
 
     if($result->num_rows > 0)
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-          $meta= $user_data ['meta'];
           $nome=$user_data ['nome'];
           $email= $user_data ['email'];
-          $desc_meta= $user_data ['desc_meta'];
-          $data_inicio= $user_data ['data_inicio'];
-          $data= $user_data ['data_conclusao'];
-          $status= $user_data ['status_meta'];
           $saude= $user_data['saude'];
           $relacionamento= $user_data['relacionamento'];
           $financeiro= $user_data['financeiro'];
@@ -265,58 +256,45 @@ $nome= $user_data['nome'];
           echo "<input type='email'  class='form-control' aria-describedby='emailHelp'  name='email' value=' $user_data[email]' id='email'/>"
           ?>
         </div>
-
+<!--
           <div class="form-group espace">
             <label for="exampleInputEmail1">Meta</label>
             <?php
-            echo "<input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value=' $user_data[meta]' id='meta'>"
+              //echo "<input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value=' $user_data[meta]' id='meta'>"
             ?>
           </div>
           
           <div class="form-group espace">
             <label for="exampleFormControlTextarea1">Definição da meta</label>
             <?php
-                echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[desc_meta]' id='desc_meta'>"
+                //echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[desc_meta]' id='desc_meta'>"
             ?>
           </div>
           
           <div class="form-group espace">
             <label for="exampleInputPassword1">Data de inicio</label>
             <?php
-               echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[data_inicio]' id='data_inicio'>"
+               //echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[data_inicio]' id='data_inicio'>"
             ?>
             <label for="exampleInputPassword1">Data de conclusão</label>
             <?php
-                echo"<input type='text' class='form-control' name='data' value=' $user_data[data_conclusao]' id='data_conclusao'>"
+                //echo"<input type='text' class='form-control' name='data' value=' $user_data[data_conclusao]' id='data_conclusao'>"
             ?>
           </div>
           <div class="form-group espace">
             <label for="exampleInputEmail1">Status</label>
             <?php
-                echo"<input type='text' class='form-control' aria-describedby='emailHelp' name='status' value=' $user_data[status_meta]' id='status_meta'>"
+                //echo"<input type='text' class='form-control' aria-describedby='emailHelp' name='status' value=' $user_data[status_meta]' id='status_meta'>"
               ?>
           </div>
+   -->
         </div>
         </form>
       </div>
     </main>
 
     <script>
-      const input = document.querySelector('#status_meta');
-      input.disabled=true;
-
-      const input2 = document.querySelector('#data_conclusao');
-      input2.disabled=true;
-
-      const input3 = document.querySelector('#data_inicio');
-      input3.disabled=true;
-
-      const input4 = document.querySelector('#desc_meta');
-      input4.disabled=true;
-
-      const input5 = document.querySelector('#meta');
-      input5.disabled=true;
-
+    
       const input6 = document.querySelector('#email');
       input6.disabled=true;
 

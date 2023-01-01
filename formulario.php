@@ -12,9 +12,8 @@
 
       if (!empty($_GET['search'])) {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM formulario WHERE cod LIKE '%$data%' or meta LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or desc_meta LIKE '%$data%' or 
-          data_inicio LIKE '%$data%' or data_conclusao LIKE '%$data%' or status_meta LIKE '%$data%' or saude LIKE '%$data%' or 
-          relacionamento LIKE '%$data%' or financeiro LIKE '%$data%' or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
+        $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%'  or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
+        or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
       
       } else{
         $sql = "SELECT * FROM formulario ORDER BY cod DESC";
@@ -23,21 +22,15 @@
   if(isset($_POST['submit']))
   {
     include_once('config.php');
-    $meta= $_POST['meta'];
     $nome= $_POST['nome'];
     $email= $_POST['email'];
-    $desc_meta= $_POST['desc_meta'];
-    $data_inicio= $_POST['data_inicio'];
-    $data= $_POST['data'];
-    $status= $_POST['status'];
     $saude= $_POST['saude'];
     $relacionamento= $_POST['relacionamento'];
     $financeiro= $_POST['financeiro'];
     $espiritual= $_POST['espiritual'];
     $outro= $_POST['outro'];
 
-    $result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,saude,relacionamento,financeiro,espiritual,outro,email,desc_meta,data_inicio,data_conclusao,status_meta) 
-    VALUES ('$meta','$nome','$saude','$relacionamento','$financeiro','$espiritual','$outro',$email','$desc_meta','$data_inicio','$data','$status')"); 
+    $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,email,saude,relacionamento,financeiro,espiritual,outro) VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
     header('show_sistema_persona.php');
 
   }
