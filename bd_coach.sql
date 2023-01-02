@@ -118,3 +118,6 @@ ALTER TABLE db_coach.formulario_15_anos
 add column nome varchar(45) null after outro;
 ALTER TABLE db_coach.formulario_15_anos
 add column email varchar(45) null after nome;
+
+select*from db_coach.formulario_15_anos;
+show tables

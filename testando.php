@@ -28,9 +28,6 @@ if (isset($_POST['submit'])) {
     $financeiro= $_POST['financeiro'];
     $espiritual= $_POST['espiritual'];
     $outro= $_POST['outro'];
-
-  /*$result= mysqli_query($conexao_forms, "INSERT INTO formulario(meta,nome,email,desc_meta,data_inicio,data_conclusao,status_meta,saude,relacionamento,financeiro,espiritual,outro) 
-  VALUES ('$meta','$nome','$email','$desc_meta','$data_inicio','$data','$status','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); */
   $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,email,saude,relacionamento,financeiro,espiritual,outro) VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
   header('show_sistema_persona.php');
 }
@@ -58,16 +55,16 @@ if(!empty($_GET['cod']))
 
     }
     else{
-        header('Location: show_sistema_persona.php');
+        header('Location: testando.php');
     }
   }
   else
   {
-    /*header('Location: show_sistema_persona.php');*/
-    $fallback = 'index.html';
+    header('testando.php');
+    /*$fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");
-    exit;
+    exit;*/
   }
 
  
