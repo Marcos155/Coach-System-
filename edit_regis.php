@@ -61,181 +61,181 @@
     header('Location:edit_regis.php');
   }
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-  <title>Complete seu cadastro</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">    
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-deep_purple.min.css">
-  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900"
-    rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <style>
-    label,
-    p,
-    button {
-      color: #000;
-      margin-left: 0.3vw;
-    }
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Formulário</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="assets/css/nav.css">
 
-    .mdl-layout__header {
-      background-color: rgb(255, 0, 0);
-    }
-
-    .espace {
-      margin-right: 1rem;
-      margin-left: 1rem;
-    }
-  </style>
 </head>
 
-<body>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <div class="current-user">
-          <i class="material-icons">account_circle</i>
-          <?php echo "olá, $nome" ?>
-        </div>
-        <div class="mdl-layout-spacer"></div>
+<body className='snippet-body' style="background-color:#f8f9fa">
+
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+      <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">
-        <?php echo $nome?>
-      </span>
-      <nav class="mdl-navigation">
-        <br>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="testando.php">Formulário</a>
-        <br>
-        <!--
-          <a class="mdl-navigation__link active" href="edit_regis.php">Completar cadastro</a>
-        <br>-->
-          <a class="mdl-navigation__link " href="show_sistema_persona.php">Conta</a>
-        <br>
-          <a class="mdl-navigation__link " href="meta.php">Meta</a>
-        <br>
-        <a class="mdl-navigation__link" href="notas.php">Notas</a>
-          <br>
-          <a class="mdl-navigation__link" href="sair.php">Sair</a>
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+      <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"> <?php
+              echo $nome ?></span> </a>
+          <div class="nav_list"> 
+            <?php
+              echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
+                class='nav_name'>Início</span> </a>";
+              
+              echo "<a href='show_sistema_persona.php' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
+              <span class='nav_name'>Conta</span> </a>"; 
+              
+              echo "<a href='testando.php' class='nav_link'> <i
+              class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
+              
+              echo "<a href='meta.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
+              
+              echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
+            ?>
+          </div>
+        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </a>
       </nav>
     </div>
-    </header>
-    <main class="mdl-layout__content">
-      <div class="page-content">
 
-        <p>
-          <?php echo "$nome"?>, vamos completar seu cadastro &#128578;!
-        </p>
-        <form name="forms" action="save_edit_regis.php" method="post">
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Nome</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Nome" name="username" value="<?php echo $nome ?>" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"required>
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Email</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Email para contato" type="email" placeholder="Email" name="email" value="<?php echo $email ?>"  required>
-          </div>
-          <input type="hidden" name="cod" value="<?php echo $cod ?>">
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Telefone</label>
-            <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="telefone"  placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
+
+    <div class="height-100 bg-light">
+      <br><br>
+      <h2><?php echo $nome ?>, vamos completar seu cadastro &#128578;</h2><br>
+      <?php
+        //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
+        echo"<form action='save_edit_regis.php' method='post' name='forms'>";
+      ?>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Nome</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+        placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Nome" name="username" value="<?php echo $nome ?>" 
+        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+        placeholder="Email para contato" type="email" placeholder="Email" name="email" 
+        value="<?php echo $email ?>"  required>
+      </div>
+      <input type="hidden" name="cod" value="<?php echo $cod ?>">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Telefone</label>
+        <input type="tel" class="form-control" id="exampleFormControlTextarea1" 
+        placeholder="telefone"  placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
               name="phone" value="<?php echo $telefone ?>" required>
-          </div>
-          <div class="form-group espace">
-            <label>Sexo</label>
-            <br>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Sexo</label>
+        <br>
             <input type="radio" value="feminino" name="sexo" <?php echo ($sexo == 'feminino') ? 'checked' : ''?> >
             <label for="faminino">Feminino</label>
             <input type="radio"  value="masculino" name ="sexo" <?php echo ($sexo == 'masculino') ? 'checked' : ''?> >
             <label for="masculino">Masculino</label>
             <input type="radio" value="outro" name ="sexo" <?php echo ($sexo == 'outro') ? 'checked' : ''?> >
             <label for="outro">Outro</label>
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Cidade</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Qual sua cidade?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Cidade</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        placeholder="Qual sua cidade?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
               name="cidade" value="<?php echo $cidade ?>" >
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Estado</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Estado</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
               name="estado" value="<?php echo $estado ?>" >
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Senha</label>
+      </div>
+      <div  class="mb-3">
+
+            
             <table>
-              <tr>
+              <th>
+                <label for="exampleInputEmail1" class="form-label">Senha</label>
+              </th>
+              <th></th>
+              <th>
+                <label for="exampleInputEmail1" class="form-label">Confirmar senha</label>
+            </th>
+            <tr>
+
                 <td>
-                  <input type="password" class="form-control" aria-describedby="emailHelp"
-                  type="password" placeholder="Senha" name="password"  value="<?php echo $senha ?>" id="senha" required>
+                  <input type="password" class="form-control" type="password" placeholder="Senha" name="password"  value="<?php echo $senha ?>" id="senha" required>
                 </td>
                 <td>
                   <img src="eyes.png" alt="" id="eyesvg" onclick=" mostrarOcultarSenha()" width="24px">
                 </td>
-              </tr>
-            </table>
-            <br>
-            <label for="exampleInputEmail1">Confirmar senha</label>
-            <table>
-            <tr>
               <td>
-                <input class="form-control"  aria-describedby="emailHelp"
-                type="password" placeholder="Confirmar senha" name="confirm_password"  id="confirmar_senha" value="<?php echo $senha ?>" required/>
+                <input class="form-control" type="password" placeholder="Confirmar senha" name="confirm_password"  id="confirmar_senha" value="<?php echo $senha ?>" required/>
               </td> 
               <td>
                 <img src="eyes2.png" alt="" id="eyesvg2" onclick=" mostrarOcultarSenha2()" width="24px">
               </td>
             </tr> 
           </table>
-          </div>
-          <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Enviar" name="update"
+        
+        </div>
+        <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
            onclick="return validar()"
           id="update">
-        </form>
-    </main>
+    </div>
+ 
+      </form>
+    <script type='text/javascript'
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
 
-    <script>
-      $(document).ready(function () {
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+          const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId),
+            bodypd = document.getElementById(bodyId),
+            headerpd = document.getElementById(headerId)
 
-        $(".search-block").hide();
-        $(".expander-title").click(function () {
-          $(this).next(".search-block").slideToggle("fast");
-        });
-
-      });
-
-      var search = document.getElementById('pesquisar');
-      search.addEventListener("keydown", function (event) {
-        if (event.key === "Enter") {
-          searchData();
+          // Validate that all variables exist
+          if (toggle && nav && bodypd && headerpd) {
+            toggle.addEventListener('click', () => {
+              // show navbar
+              nav.classList.toggle('show')
+              // change icon
+              toggle.classList.toggle('bx-x')
+              // add padding to body
+              bodypd.classList.toggle('body-pd')
+              // add padding to header
+              headerpd.classList.toggle('body-pd')
+            })
+          }
         }
+
+        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+        /*===== LINK ACTIVE =====*/
+        const linkColor = document.querySelectorAll('.nav_link')
+
+        function colorLink() {
+          if (linkColor) {
+            linkColor.forEach(l => l.classList.remove('active'))
+            this.classList.add('active')
+          }
+        }
+        linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        // Your code to run since DOM is loaded and ready
+      });</script>
+    <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
+      myLink.addEventListener('click', function (e) {
+        e.preventDefault();
       });
-      function searchData() {
-        window.location = 'sistema.php?search=' + search.value;
-      }
-
-      $(document).ready(function () {
-
-        $(".search-block").hide();
-        $(".expander-title").click(function () {
-          $(this).next(".search-block").slideToggle("fast");
-        });
-
-      });
-    
-    /*repetir senha */
+          /*repetir senha */
   function validar(){
   var senha=forms.password.value;
   var confirmar_senha=forms.confirm_password.value;
@@ -290,7 +290,8 @@
       eyesvg2.setAttribute("src","eyes2.png");
     }
   }
-    </script>
+      </script>
 
-</body>
+  </body>
+
 </html>

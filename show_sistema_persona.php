@@ -50,29 +50,9 @@ $nome= $user_data['nome'];
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
-  <style>
-        button{
-      background-color: rgb(255, 0, 0);
-      border-radius: 17px;
-      border:none;
-      padding: 6px 8px 6px 8px;
-    }
-    button a{
-      color: #fff;
-      text-decoration:none;
-    }
-    button a:hover{
-      text-decoration:none;
-      color: #fff;
-    }
-    button:hover{
-      background-color: rgb(230, 0, 0);
-      cursor:pointer;
-    }
-  </style>
 </head>
 
-<body className='snippet-body'>
+<body className='snippet-body' style="background-color:#f8f9fa">
 
   <body id="body-pd">
     <header class="header" id="header">
@@ -109,7 +89,7 @@ $nome= $user_data['nome'];
       <h2> Olá <?php echo $nome ?></h2><br>
       <b>
         <p>esses foram os dados preenchidos em seu cadastro.</p>
-      </b><br>
+      </b>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Código</label>
         <?php
@@ -145,13 +125,15 @@ $nome= $user_data['nome'];
         <?php
         echo "<input type='text' class='form-control'  value=' $user_data[estado]' id='estado'>";
         ?>
-      </div><br>
+      </div>
       <div>
           <?php
             echo "
-            <button>
-            <a href='edit_regis.php?cod=$user_data[cod]'> Completar cadastro</a>
-            </button>";
+            <a href='edit_regis.php?cod=$user_data[cod]'>
+            <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Completar cadastro'>
+            </a>";
+
+            
           ?>
         </div>
           <br>

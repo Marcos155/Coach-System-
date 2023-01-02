@@ -74,248 +74,181 @@ if(!empty($_GET['cod']))
 $user_data = mysqli_fetch_assoc($result2);
 $nome= $user_data['nome'];
 ?> 
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
+
 <head>
-  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-  <title>Formulário</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">    
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-deep_purple.min.css">
-  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900"
-    rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Conta</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="assets/css/nav.css">
   <style>
-    label,
-    p,
-    button {
-      color: #000;
-      margin-left: 0.3vw;
-    }
-
-    .mdl-layout__header {
+        button{
       background-color: rgb(255, 0, 0);
+      border-radius: 17px;
+      border:none;
+      padding: 6px 8px 6px 8px;
     }
-
-    .espace {
-      margin-right: 1rem;
-      margin-left: 1rem;
+    button a{
+      color: #fff;
+      text-decoration:none;
     }
-   /* .table-wrapper {
-    max-height: 500px;
-    overflow-y: auto;}*/
+    button a:hover{
+      text-decoration:none;
+      color: #fff;
+    }
+    button:hover{
+      background-color: rgb(230, 0, 0);
+      cursor:pointer;
+    }
   </style>
 </head>
 
-<body>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <div class="current-user">
-          <i class="material-icons">account_circle</i>
-          <?php echo "olá,$nome!" ?>
-        </div>
-        <div class="mdl-layout-spacer"></div>
+<body className='snippet-body' style="background-color:#f8f9fa">
+
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+      <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">
-      <?php 
-          echo $nome;
-        ?>
-      </span>
-      <nav class="mdl-navigation">
-        <br>
-        <nav class="mdl-navigation">
-        <a class="mdl-navigation__link active" href="testando.php">Formulário</a>
-          <br>
-          <?php
-              //echo "<a class='mdl-navigation__link' href='edit_regis.php?cod=$user_data[cod]'>Completar cadastro</a>"
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"> <?php
+              echo $nome ?></span> </a>
+          <div class="nav_list"> 
+            <?php
+              echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
+                class='nav_name'>Início</span> </a>";
+              
+              echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+              <span class='nav_name'>Conta</span> </a>"; 
+              
+              echo "<a href='testando.php?cod=$user_data[cod]' class='nav_link active'> <i
+              class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
+              
+              echo "<a href='meta.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
+              
+              echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
             ?>
-          <a class="mdl-navigation__link" href="show_sistema_persona.php">Conta</a>
-          <br>
-          <a class="mdl-navigation__link" href="meta.php">meta</a>
-          <br>
-          <a class="mdl-navigation__link" href="notas.php">Notas</a>
-          <br>
-          <a class="mdl-navigation__link" href="sair.php">Sair</a>
+          </div>
+        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </a>
       </nav>
     </div>
-    </header>
-    <main class="mdl-layout__content">
-    
-      <div class="page-content">
-      <!-- formulário de 15 anos -->
-      <?php //echo  "esses foram os dados preenchidos em seu formulário para daqui a 15 anos."?>
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+      <br><br>
+      <h2> Olá <?php echo $nome ?></h2><br>
+      <b>
+        <p>essa é sua visão de futuro para daqui 15 anos.</p>
+      </b>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Saúde</label>
         <?php
-            //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-            //echo"<form action='testando.php' method='post'>";
-          ?>
-          <br>
-          <!--
-          <div class="table-wrapper">
-           <div class="form-group espace">
-            <label for="exampleInputEmail1">Saúde</label>
-            <?php
-              /*echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[saude]'
-              name='saude' id='saude'>";*/
-              ?>
-          </div>
-
-        <div class="form-group espace">
-          <label for="exampleInputEmail1">Relacionamentos</label>
-          <?php
-            //echo "<input type='text'  class='form-control' aria-describedby='emailHelp'  name='relacionamento' value=' $user_data[relacionamento]' id='relacionamento'/>"
-          ?>
+        echo "<input type='text' class='form-control'  value=' $user_data[saude]' id='saude'>";
+        ?>
         </div>
-
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">financeiro</label>
-            <?php
-            //echo "<input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value=' $user_data[financeiro]' id='financeiro' name='financeiro'>"
-            ?>
-          </div>
-          
-          <div class="form-group espace">
-            <label for="exampleFormControlTextarea1">espiritualmente</label>
-            <?php
-               // echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[espiritual]' id='espiritual' name='espiritual'>"
-            ?>
-          </div>
-          
-          <div class="form-group espace">
-            <label for="exampleInputPassword1">Demais objetivos</label>
-            <?php
-              // echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[outro]' id='outro' name='outro'>"
-            ?>
-          </div>
-        </div>
-        </form>-->
-
-      <!-- formulário antigo -->
-
-          <?php echo  "esses foram os dados preenchidos em seu formulário."?>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
         <?php
-            //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-            echo"<form action='testando.php' method='post'>";
-          ?>
-          <br>
-          <div class="table-wrapper">
-           <div class="form-group espace">
-            <label for="exampleInputEmail1">Nome</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[nome]'
-              name='nome' id='nome'>";
-              ?>
-          </div>
-          
-          <!-- novo formulário -->
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Saude</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[saude]'
-              name='saude' id='saude'>";
-              ?>
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Relacionamento</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[relacionamento]'
-              name='relacionamento' id='relacionamento'>";
-              ?>
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Financeiro</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[financeiro]'
-              name='financeiro' id='financeiro'>";
-              ?>
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Espiritual</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[espiritual]'
-              name='espiritual' id='espiritual'>";
-              ?>
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Outro</label>
-            <?php
-             echo "<input type='text' class='form-control' aria-describedby='emailHelp' value=' $user_data[outro]'
-              name='outro' id='outro'>";
-              ?>
-          </div>
-          <!-- fim do novo formulário -->
-
-        <div class="form-group espace">
-          <label for="exampleInputEmail1">Email</label>
-          <?php
-          echo "<input type='email'  class='form-control' aria-describedby='emailHelp'  name='email' value=' $user_data[email]' id='email'/>"
-          ?>
-        </div>
-<!--
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Meta</label>
-            <?php
-              //echo "<input type='text' class='form-control' aria-describedby='emailHelp' name=1meta1  value=' $user_data[meta]' id='meta'>"
-            ?>
-          </div>
-          
-          <div class="form-group espace">
-            <label for="exampleFormControlTextarea1">Definição da meta</label>
-            <?php
-                //echo"<input type='text' class='form-control' rows='3' name='desc_meta' value=' $user_data[desc_meta]' id='desc_meta'>"
-            ?>
-          </div>
-          
-          <div class="form-group espace">
-            <label for="exampleInputPassword1">Data de inicio</label>
-            <?php
-               //echo" <input type='text' class='form-control' name='data_inicio' value=' $user_data[data_inicio]' id='data_inicio'>"
-            ?>
-            <label for="exampleInputPassword1">Data de conclusão</label>
-            <?php
-                //echo"<input type='text' class='form-control' name='data' value=' $user_data[data_conclusao]' id='data_conclusao'>"
-            ?>
-          </div>
-          <div class="form-group espace">
-            <label for="exampleInputEmail1">Status</label>
-            <?php
-                //echo"<input type='text' class='form-control' aria-describedby='emailHelp' name='status' value=' $user_data[status_meta]' id='status_meta'>"
-              ?>
-          </div>
-   -->
-        </div>
-        </form>
+        echo "<input type='text' class='form-control'  value='$user_data[relacionamento]' id='relacionamento'>";
+        ?>
       </div>
-    </main>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Financeiro</label>
+        <?php
+        echo "<input type='text' class='form-control'  value=' $user_data[financeiro]' id='financeiro'>";
+        ?>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Espiritual</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[espiritual]' id='espiritual'>";
+        ?>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Demais objetivos</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[outro]' id='outro'>";
+        ?>
+      </div>
+      <div>
+          <?php
+            echo "
+            <a href='edit.php?cod=$user_data[cod]'>
+              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar formulário'>
+            </a>";   
+          ?>
+        </div>
+          <br>
+    </div>
 
-    <script>
-    
-      const input6 = document.querySelector('#email');
-      input6.disabled=true;
+    <!--Container Main end-->
+    <script type='text/javascript'
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
 
-      const input7 = document.querySelector('#nome');
-      input7.disabled=true;
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+          const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId),
+            bodypd = document.getElementById(bodyId),
+            headerpd = document.getElementById(headerId)
 
-    /*formulario 15 anos*/
-    const input = document.querySelector('#saude');
+          // Validate that all variables exist
+          if (toggle && nav && bodypd && headerpd) {
+            toggle.addEventListener('click', () => {
+              // show navbar
+              nav.classList.toggle('show')
+              // change icon
+              toggle.classList.toggle('bx-x')
+              // add padding to body
+              bodypd.classList.toggle('body-pd')
+              // add padding to header
+              headerpd.classList.toggle('body-pd')
+            })
+          }
+        }
+
+        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+        /*===== LINK ACTIVE =====*/
+        const linkColor = document.querySelectorAll('.nav_link')
+
+        function colorLink() {
+          if (linkColor) {
+            linkColor.forEach(l => l.classList.remove('active'))
+            this.classList.add('active')
+          }
+        }
+        linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        // Your code to run since DOM is loaded and ready
+      });</script>
+    <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
+      myLink.addEventListener('click', function (e) {
+        e.preventDefault();
+      });
+      const input = document.querySelector('#saude');
       input.disabled=true;
-
-      const input2 = document.querySelector('#relacionamento');
+      
+    const input2 = document.querySelector('#relacionamento');
       input2.disabled=true;
 
-      const input3 = document.querySelector('#financeiro');
+    const input3 = document.querySelector('#financeiro');
       input3.disabled=true;
 
-      const input4 = document.querySelector('#espiritual');
+    const input4 = document.querySelector('#espiritual');
       input4.disabled=true;
 
-      const input5 = document.querySelector('#outro');
+    const input5 = document.querySelector('#outro');
       input5.disabled=true;
-    </script>
-</body>
+
+      </script>
+
+  </body>
+
 </html>
