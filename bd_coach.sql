@@ -107,3 +107,4 @@ ALTER TABLE `db_coach`.`outro_12_meses`
 ADD COLUMN `nome` VARCHAR(45) NULL AFTER `como`;
 
 
+

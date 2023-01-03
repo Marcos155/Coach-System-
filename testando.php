@@ -85,6 +85,19 @@ if (isset($_POST['submit'])) {
   $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome) 
   VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
   header('show_sistema_persona.php');
+
+  /* outro */
+  include_once('config.php');
+  $oque= $_POST['oque'];
+  $porquem= $_POST['porquem'];
+  $onde= $_POST['onde'];
+  $quando= $_POST['quando'];
+  $porque= $_POST['porque'];
+  $como= $_POST['como'];
+  $nome= $_POST['nome'];
+  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO outro_12_meses(oque,porquem,onde,quando,porque,como,nome) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
+  header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))
   {
@@ -254,7 +267,7 @@ $nome= $user_data['nome'];
               <a href='testando_dinheiro.php?cod=$user_data[cod]'>
                 <input type='submit' class='btn' class='enviar_forms' style='background-color:	#32CD32; color: #fff;' value='Dinheiro'>
               </a>
-              <a href='#'>
+              <a  href='testando_outro.php?cod=$user_data[cod]'>
                 <input type='submit' class='btn' class='enviar_forms' style='background-color:#8A2BE2; color: #fff;' value='Outros Objetivos'>
               </a>
             ";   
