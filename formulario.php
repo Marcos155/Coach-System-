@@ -16,9 +16,9 @@
         or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
       
       } else{
-        $sql = "SELECT * FROM formulario ORDER BY cod DESC";
+        $sql = "SELECT * FROM formulario_15_anos ORDER BY cod DESC";
       }
-      $result = $conexao_forms->query($sql);
+      $result = $conexao_forms15->query($sql);
   if(isset($_POST['submit']))
   {
     include_once('config.php');
@@ -31,6 +31,19 @@
     $outro= $_POST['outro'];
 
     $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,email,saude,relacionamento,financeiro,espiritual,outro) VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
+    header('show_sistema_persona.php');
+
+    /* saúde */
+    include_once('config.php');
+    $oque= $_POST['oque'];
+    $porquem= $_POST['porquem'];
+    $onde= $_POST['onde'];
+    $quando= $_POST['quando'];
+    $porque= $_POST['porque'];
+    $como= $_POST['como'];
+
+    $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como')"); 
     header('show_sistema_persona.php');
 
   }
@@ -50,7 +63,7 @@
 
 </head>
 
-<body className='snippet-body'>
+<body className='snippet-body' style="background-color:#f8f9fa">
 
   <body id="body-pd">
     <header class="header" id="header">
@@ -109,44 +122,44 @@
       </div><br>
     </div>
     <div class="height-100 bg-light">
-<!--
+
       <b>
         <p>Agora seus objetivos para os proximos <u>12 meses</u></p>
       </b>
-      <p>Metodologia 5W2h</p><br>
+      <p>Metodologia <b>5W2h</b></p><br>
       <p>Primeira parte sobre saúde</p>
       <div class="mb-3">
         <li>Saude</li><br>
         <label for="exampleFormControlTextarea1" class="form-label">O que ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Ex: Estar na faixa do 65Kg"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Ex: Estar na faixa do 65Kg" name="oque" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Alguma pessoa em especial ?"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Alguma pessoa em especial ?" name="porquem" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Onde precisa estar para alcançar esse objetivo ?"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Onde precisa estar para alcançar esse objetivo ?" name="onde" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?"><br>
+          placeholder="Em qual época quer alcançar?" name="quando" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Motivo do objetivo"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Motivo do objetivo" name="porque" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Como fazer ?"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Como fazer ?" name="como" required><br>
       </div>
-      <br><br>-->
+      <br><br>
       <!-- //////////// -->
       <!--
       <p>Agora sobre relacionamentos</p>

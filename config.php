@@ -1,17 +1,17 @@
  <?php
-    $dbHost ='Localhost';
-    $dbUsername ='root';
-    $dbPassword ='admin1234';
-    $dbName ='db_coach';
-
-    $conexao_forms = new mysqli("$dbHost", "$dbUsername", "$dbPassword", "$dbName", );
-    
     //conexão com o formulário de 15 anos
     $dbHost ='Localhost';
     $dbUsername ='root';
     $dbPassword ='admin1234';
     $dbName ='db_coach';
     $conexao_forms15 = new mysqli("$dbHost", "$dbUsername", "$dbPassword", "$dbName", );
+
+    //conexão com o formulário de 12 meses-saude
+    $dbHost ='Localhost';
+    $dbUsername ='root';
+    $dbPassword ='admin1234';
+    $dbName ='db_coach';
+    $conexao_formsSaude = new mysqli("$dbHost", "$dbUsername", "$dbPassword", "$dbName", );
 
    //   if($conexao->connect_errno)
    //    {

@@ -9,29 +9,30 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
   header('Location:entrar.php');
 }
 $logado = $_SESSION['email'];
+$cod = $_GET['cod'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%'  or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
+  $sql = "SELECT * FROM saude_12_meses WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%'  or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
   or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
 } else {
-  $sql = /*"SELECT * FROM formulario ORDER BY cod DESC";*/"SELECT*from formulario_15_anos where formulario_15_anos.email = '$logado' ";
+  
+  $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from saude_12_meses where saude_12_meses.cod = $cod ";
 }
-$result2 = $conexao_forms15->query($sql);
+$result2 = $conexao_formsSaude->query($sql);
 
 
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
-    $nome= $_POST['nome'];
-    $email= $_POST['email'];
-    $saude= $_POST['saude'];
-    $relacionamento= $_POST['relacionamento'];
-    $financeiro= $_POST['financeiro'];
-    $espiritual= $_POST['espiritual'];
-    $outro= $_POST['outro'];
-  $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,email,saude,relacionamento,financeiro,espiritual,outro) 
-  VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
-  header('show_sistema_persona.php');
+    $oque= $_POST['oque'];
+    $porquem= $_POST['porquem'];
+    $onde= $_POST['onde'];
+    $quando= $_POST['quando'];
+    $porque= $_POST['porque'];
+    $como= $_POST['como'];
+    $result= mysqli_query($conexao_forms15,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como')"); 
+    header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))
   {
@@ -39,19 +40,19 @@ if(!empty($_GET['cod']))
     include_once('config.php');
 
     $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM formulario_15_anos WHERE cod=$cod";
-    $result = $conexao_forms15->query($sqlselect);
+    $sqlselect = "SELECT * FROM saude_12_meses WHERE cod=$cod";
+    $result = $conexao_formsSaude->query($sqlselect);
+
     if($result->num_rows > 0)
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-          $nome=$user_data ['nome'];
-          $email= $user_data ['email'];
-          $saude= $user_data['saude'];
-          $relacionamento= $user_data['relacionamento'];
-          $financeiro= $user_data['financeiro'];
-          $espiritual= $user_data['espiritual'];
-          $outro= $user_data['outro'];
+            $oque= $user_data['oque'];
+            $porquem= $user_data['porquem'];
+            $onde= $user_data['onde'];
+            $quando= $user_data['quando'];
+            $porque= $user_data['porque'];
+            $como= $user_data['como'];
         }
 
     }
@@ -68,9 +69,9 @@ if(!empty($_GET['cod']))
     exit;
   }
 
- 
+$sqlselect=mysqli_query($conexao_forms15,"SELECT nome FROM cadastro WHERE cadastro.cod=$cod");
 $user_data = mysqli_fetch_assoc($result2);
-$nome= $user_data['nome'];
+$nome= $sqlselect;
 ?> 
 
 <!doctype html>
@@ -142,36 +143,43 @@ $nome= $user_data['nome'];
       <br><br>
       <h2> Olá <?php echo $nome ?></h2><br>
       <b>
-        <p>essa é sua visão de futuro para daqui 15 anos.</p>
+        <p>essa é sua visão de futuro para daqui 12 meses.</p>
       </b>
+      <h3><li>Saúde</li></h3>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Saúde</label>
+        <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
         <?php
-        echo "<input type='text' class='form-control'  value=' $user_data[saude]' id='saude'>";
+        echo "<input type='text' class='form-control'  value=' $user_data[oque]' id='oque'>";
         ?>
         </div>
       <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
+      <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
         <?php
-        echo "<input type='text' class='form-control'  value='$user_data[relacionamento]' id='relacionamento'>";
+        echo "<input type='text' class='form-control'  value='$user_data[porquem]' id='porquem'>";
         ?>
       </div>
       <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Financeiro</label>
+      <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
         <?php
-        echo "<input type='text' class='form-control'  value=' $user_data[financeiro]' id='financeiro'>";
+        echo "<input type='text' class='form-control'  value=' $user_data[onde]' id='onde'>";
         ?>
       </div>
       <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Espiritual</label>
+      <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
         <?php
-        echo "<input type='text' class='form-control' value=' $user_data[espiritual]' id='espiritual'>";
+        echo "<input type='text' class='form-control' value=' $user_data[quando]' id='quando'>";
         ?>
       </div>
       <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Demais objetivos</label>
+      <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
         <?php
-        echo "<input type='text' class='form-control' value=' $user_data[outro]' id='outro'>";
+        echo "<input type='text' class='form-control' value=' $user_data[porque]' id='porque'>";
+        ?>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Como</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[como]' id='como'>";
         ?>
       </div>
       <div>
@@ -185,6 +193,7 @@ $nome= $user_data['nome'];
           
     </div>
     <!--Container Main end-->
+    
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
@@ -230,23 +239,6 @@ $nome= $user_data['nome'];
         e.preventDefault();
       });
 
-
-      /* bloqueio dos inputs  15 anos*/
-    const input = document.querySelector('#saude');
-    input.disabled=true;
-      
-    const input2 = document.querySelector('#relacionamento');
-      input2.disabled=true;
-
-    const input3 = document.querySelector('#financeiro');
-      input3.disabled=true;
-
-    const input4 = document.querySelector('#espiritual');
-      input4.disabled=true;
-
-    const input5 = document.querySelector('#outro');
-      input5.disabled=true;
-    
     /* bloqueio inputs saúde */
     const input_saude = document.querySelector('#oque');
     input_saude.disabled=true;
