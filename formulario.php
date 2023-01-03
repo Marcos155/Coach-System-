@@ -41,9 +41,10 @@
     $quando= $_POST['quando'];
     $porque= $_POST['porque'];
     $como= $_POST['como'];
+    $nome= $_POST['nome'];
 
-    $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como')"); 
+    $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
     header('show_sistema_persona.php');
 
   }
@@ -155,7 +156,7 @@
           placeholder="Motivo do objetivo" name="porque" required><br>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Como</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Como?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Como fazer ?" name="como" required><br>
       </div>

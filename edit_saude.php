@@ -1,40 +1,15 @@
 <?php
-session_start();
-include_once('config.php');
-
-//formulário
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  header('Location:entrar.php');
-}
-$logado = $_SESSION['email'];
-$cod = $_GET['cod'];
-if (!empty($_GET['search'])) {
-  $data = $_GET['search'];
-  $sql = "SELECT * FROM saude_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
-  or como LIKE '%$data%' or nome LIKE '%$data%'";
-} else {
-  
-  $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from saude_12_meses where saude_12_meses.cod = $cod ";
-}
-$result2 = $conexao_formsSaude->query($sql);
-
-if (isset($_POST['submit'])) {
-
+  session_start();
   include_once('config.php');
-    $oque= $_POST['oque'];
-    $porquem= $_POST['porquem'];
-    $onde= $_POST['onde'];
-    $quando= $_POST['quando'];
-    $porque= $_POST['porque'];
-    $como= $_POST['como'];
-    $nome= $_POST['nome'];
-    $result= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como')"); 
-    header('show_sistema_persona.php');
-}
-if(!empty($_GET['cod']))
+  if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+      {
+          unset($_SESSION['email']);
+          unset($_SESSION['senha']);
+          header('Location:entrar.php');
+      }
+      $logado = $_SESSION['email'];
+  
+  if(!empty($_GET['cod']))
   {
   
     include_once('config.php');
@@ -58,52 +33,43 @@ if(!empty($_GET['cod']))
 
     }
     else{
-        header('Location: testando.php');
+        header('Location: testando_saude.php');
     }
   }
   else
   {
-    /*header('testando.php');*/
-    $fallback = 'index.html';
+    header('Location: testando_saude.php');
+    /*$fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");
-    exit;
+    exit;*/
   }
-$user_data = mysqli_fetch_assoc($result2);
-$nome= $user_data['nome'];
-?> 
-
+  if(isset($_POST['submit']))
+  {
+    include_once('config.php');
+    $oque= $_POST['oque'];
+    $porquem= $_POST['porquem'];
+    $onde= $_POST['onde'];
+    $quando= $_POST['quando'];
+    $porque= $_POST['porque'];
+    $como= $_POST['como'];
+    $nome= $_POST['nome'];
+    
+    header('Location:edit_saude.php');
+  }
+?>
 <!doctype html>
 <html>
 
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Conta</title>
+  <title>Editar formulário</title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
-  <style>
-        button{
-      background-color: rgb(255, 0, 0);
-      border-radius: 17px;
-      border:none;
-      padding: 6px 8px 6px 8px;
-    }
-    button a{
-      color: #fff;
-      text-decoration:none;
-    }
-    button a:hover{
-      text-decoration:none;
-      color: #fff;
-    }
-    button:hover{
-      background-color: rgb(230, 0, 0);
-      cursor:pointer;
-    }
-  </style>
+
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
@@ -115,17 +81,17 @@ $nome= $user_data['nome'];
     </header>
     <div class="l-navbar" id="nav-bar">
       <nav class="nav">
-        <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"> <?php
+      <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"> <?php
               echo $nome ?></span> </a>
           <div class="nav_list"> 
             <?php
               echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
                 class='nav_name'>Início</span> </a>";
               
-              echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+              echo "<a href='show_sistema_persona.php' class='nav_link'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta</span> </a>"; 
               
-              echo "<a href='testando.php?cod=$user_data[cod]' class='nav_link active'> <i
+              echo "<a href='testando.php' class='nav_link active'> <i
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
               
               echo "<a href='meta.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
@@ -137,66 +103,57 @@ $nome= $user_data['nome'];
         </a>
       </nav>
     </div>
-    <!--Container Main start-->
+
+
     <div class="height-100 bg-light">
       <br><br>
-      <h2> Olá <?php echo $nome ?></h2><br>
-      <b>
-        <p>essa é sua visão de futuro para daqui 12 meses.</p>
-      </b>
-      <h3><li>Saúde</li></h3>
+      <h2><?php echo $nome ?>, edite aqui sua meta de saúde para daqui a 12 meses &#128578;</h2><br>
+      <?php
+        //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
+        echo"<form action='save_edit_saude.php' method='post' name='forms'>";
+      ?>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
-        <?php
-        echo "<input type='text' class='form-control'  value=' $user_data[oque]' id='oque'>";
-        ?>
-        </div>
-      <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
-        <?php
-        echo "<input type='text' class='form-control'  value='$user_data[porquem]' id='porquem'>";
-        ?>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+        placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Ex: Estar na faixa do 65Kg"  name="oque" value="<?php echo $oque ?>" 
+        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"required>
       </div>
       <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
-        <?php
-        echo "<input type='text' class='form-control'  value=' $user_data[onde]' id='onde'>";
-        ?>
+        <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+        placeholder="Email para contato" type="text" placeholder="Alguma pessoa em especial ?" name="porquem" 
+        value="<?php echo $porquem ?>"  required>
+      </div>
+      <input type="hidden" name="cod" value="<?php echo $cod ?>">
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        placeholder="Onde precisa estar para alcançar esse objetivo ?" name="onde" value="<?php echo $onde ?>" required>
+      </div>
+     
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
+        <input type="date" class="form-control" id="exampleFormControlTextarea1" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+        placeholder="Em qual época quer alcançar?" name="quando" value="<?php echo $quando ?>" >
       </div>
       <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
-        <?php
-        echo "<input type='text' class='form-control' value=' $user_data[quando]' id='quando'>";
-        ?>
+        <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        placeholder="Motivo do objetivo" name="porque" value="<?php echo $porque ?>" >
       </div>
+      
       <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
-        <?php
-        echo "<input type='text' class='form-control' value=' $user_data[porque]' id='porque'>";
-        ?>
+        <label for="exampleFormControlTextarea1" class="form-label">Como?</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        placeholder="Como fazer ?" name="como" value="<?php echo $como ?>" >
       </div>
-      <div class="mb-3">
-      <label for="exampleFormControlTextarea1" class="form-label">Como</label>
-        <?php
-        echo "<input type='text' class='form-control' value=' $user_data[como]' id='como'>";
-        ?>
-      </div>
-      <div>
-          <?php
-            echo "
-            <a href='edit_saude.php?cod=$user_data[cod]'>
-              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar formulário'>
-            </a>
-            <a href='testando.php?cod=$user_data[cod]'>
-              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Voltar'>
-            </a>
-            ";   
-          ?>
-        </div>
-          <br>
+
+        <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
+       
+          id="update">
     </div>
-    <!--Container Main end-->
-    
+ 
+      </form>
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
@@ -241,27 +198,7 @@ $nome= $user_data['nome'];
       myLink.addEventListener('click', function (e) {
         e.preventDefault();
       });
-
-    /* bloqueio inputs saúde */
-    const input_saude = document.querySelector('#oque');
-    input_saude.disabled=true;
-      
-    const input_saude2 = document.querySelector('#porquem');
-      input_saude2.disabled=true;
-
-    const input_saude3 = document.querySelector('#onde');
-      input_saude3.disabled=true;
-
-    const input_saude4 = document.querySelector('#quando');
-      input_saude4.disabled=true;
-
-    const input_saude5 = document.querySelector('#porque');
-      input_saude5.disabled=true;
-
-    const input_saude6 = document.querySelector('#como');
-      input_saude6.disabled=true;
-
-
+         
       </script>
 
   </body>

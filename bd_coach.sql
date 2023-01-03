@@ -41,8 +41,8 @@ create table db_coach.saude_12_meses(
     porquem varchar (300) not null,
     onde varchar (300) not null,
     quando date not null,
-    porque varchar (300),
-    como varchar (300),
+    porque varchar (300) not null,
+    como varchar (300) not null,
 	cod int not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
@@ -95,6 +95,13 @@ ALTER TABLE db_coach.formulario_15_anos
 add column nome varchar(45) null after outro;
 ALTER TABLE db_coach.formulario_15_anos
 add column email varchar(45) null after nome;
-
-
-
+ALTER TABLE `db_coach`.`saude_12_meses` 
+ADD COLUMN `nome` VARCHAR(45) NULL AFTER `como`;
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `nome` VARCHAR(45) NULL AFTER `como`;
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `nome` VARCHAR(45) NULL AFTER `como`;
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `nome` VARCHAR(45) NULL AFTER `como`;
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `nome` VARCHAR(45) NULL AFTER `como`;

@@ -32,6 +32,20 @@ if (isset($_POST['submit'])) {
   $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,email,saude,relacionamento,financeiro,espiritual,outro) 
   VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
   header('show_sistema_persona.php');
+
+      /* saúde */
+      include_once('config.php');
+      $oque= $_POST['oque'];
+      $porquem= $_POST['porquem'];
+      $onde= $_POST['onde'];
+      $quando= $_POST['quando'];
+      $porque= $_POST['porque'];
+      $como= $_POST['como'];
+      $nome= $_POST['nome'];
+  
+      $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome) 
+      VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
+      header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))
   {
@@ -181,8 +195,33 @@ $nome= $user_data['nome'];
               <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar formulário'>
             </a>";   
           ?>
-        </div>
-          
+      </div>
+      <br><br>
+      <b>
+        <p>Veja aqui sua visão de futuro para daqui 12 meses:</p>
+      </b>
+      <div>
+          <?php
+            echo "
+              <a href='testando_saude.php?cod=$user_data[cod]'>
+                <input type='submit' class='btn' class='enviar_forms' style='background-color:	#4169E1; color: #fff;' value='Saúde'>
+              </a>
+              <a href='#'>
+                <input type='submit' class='btn' class='enviar_forms' style='background-color:	#DC143C; color: #fff;' value='Relacionamento'>
+              </a>
+              <a href='#'>
+                <input type='submit' class='btn' class='enviar_forms' style='background-color:#FFA500; color: #fff;' value='Trabalho'>
+              </a>
+              <a href='#'>
+                <input type='submit' class='btn' class='enviar_forms' style='background-color:	#32CD32; color: #fff;' value='Dinheiro'>
+              </a>
+              <a href='#'>
+                <input type='submit' class='btn' class='enviar_forms' style='background-color:#8A2BE2; color: #fff;' value='Outros Objetivos'>
+              </a>
+            ";   
+          ?>
+      </div>
+      <br>
     </div>
     <!--Container Main end-->
     <script type='text/javascript'
