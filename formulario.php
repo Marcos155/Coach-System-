@@ -47,6 +47,19 @@
     VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
     header('show_sistema_persona.php');
 
+    /* relacionamentos */
+    include_once('config.php');
+    $oque= $_POST['oque'];
+    $porquem= $_POST['porquem'];
+    $onde= $_POST['onde'];
+    $quando= $_POST['quando'];
+    $porque= $_POST['porque'];
+    $como= $_POST['como'];
+    $nome= $_POST['nome'];
+    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
+    header('show_sistema_persona.php');
+
   }
   $user_data = mysqli_fetch_assoc($result);
  ?>
@@ -128,7 +141,7 @@
         <p>Agora seus objetivos para os proximos <u>12 meses</u></p>
       </b>
       <p>Metodologia <b>5W2h</b></p><br>
-      <p>Primeira parte sobre saúde</p>
+      <p>Primeiramente em relação à saúde</p>
       <div class="mb-3">
         <li>Saude</li><br>
         <label for="exampleFormControlTextarea1" class="form-label">O que ?</label>
@@ -162,40 +175,40 @@
       </div>
       <br><br>
       <!-- //////////// -->
-      <!--
       <p>Agora sobre relacionamentos</p>
       <div class="mb-3">
         <li>Relacionamentos</li><br>
         <label for="exampleFormControlTextarea1" class="form-label">O que ?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Como quer estar nos seus relacionamentos?"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Ex: Estar na faixa do 65Kg" name="oque" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Alguma pessoa em especial ?"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Alguma pessoa em especial ?" name="porquem" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Onde precisa estar para alcançar esse objetivo ?"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Onde precisa estar para alcançar esse objetivo ?" name="onde" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?"><br>
+          placeholder="Em qual época quer alcançar?" name="quando" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Motivo do objetivo"><br>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Motivo do objetivo" name="porque" required><br>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Como</label>
-        <input type="email" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Como fazer ?"><br>
+        <label for="exampleFormControlTextarea1" class="form-label">Como?</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Como fazer ?" name="como" required><br>
       </div>
       <br><br>
+      <!--
       <p>Agora sobre seu trabalho</p>
       <div class="mb-3">
         <li>Trabalho</li><br>
