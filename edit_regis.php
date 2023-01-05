@@ -16,13 +16,14 @@
 
     $cod = $_GET['cod'];
     $sqlselect = "SELECT * FROM cadastro WHERE cod=$cod";
-    $result2 = $conexao_regis->query($sqlselect);
+    $result2 = $conexao_forms15->query($sqlselect);
 
     if($result2->num_rows > 0)
     {
         while($user_data = mysqli_fetch_assoc($result2))
         {
           $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
           $senha= $user_data['senha'];
           $telefone= $user_data['telefone'];
@@ -50,12 +51,13 @@
     include_once('config.php');
     $email= $_POST['email'];
     $nome= $_POST['nome'];
+    $sobrenome= $_POST['sobrenome'];
     $telefone= $_POST['telefone'];
     $sexo= $_POST['sexo'];
     $senha= $_POST['senha'];
     $cidade= $_POST['cidade'];
     $estado= $_POST['estado'];
-    $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(cidade,estado) 
+    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(cidade,estado) 
     VALUES ('$cidade','$estado')");
     
     header('Location:edit_regis.php');
@@ -120,6 +122,12 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
         placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Nome" name="username" value="<?php echo $nome ?>" 
         pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"required>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Sobrenome</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        placeholder="Seu sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+              name="sobrenome" value="<?php echo $sobrenome ?>" >
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Email</label>

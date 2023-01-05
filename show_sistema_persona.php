@@ -11,8 +11,8 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
+  $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or email LIKE '%$data%'
+   or telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
 
 } else {
   $sql = /*"SELECT * FROM cadastro ORDER BY cod DESC";*/ "SELECT*from cadastro where cadastro.email = '$logado' ";
@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
   include_once('config.php');
 
   $nome = $_POST['username'];
+  $sobrenome = $_POST['sobrenome'];
   $email = $_POST['email'];
   $senha = $_POST['password'];
   $cidade = $_POST['cidade'];
@@ -30,8 +31,8 @@ if (isset($_POST['submit'])) {
   $telefone = $_POST['phone'];
   $sexo = $_POST['sexo'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,cidade,estado,telefone,sexo) 
-VALUES ('$nome','$email','$senha','$cidade','$estado','$telefone','$sexo')");
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,senha,cidade,estado,telefone,sexo) 
+VALUES ('$nome','$sobrenome','$email','$senha','$cidade','$estado','$telefone','$sexo')");
 }
 
 
@@ -189,6 +190,10 @@ $nome= $user_data['nome'];
       
     const input2 = document.querySelector('#email');
       input2.disabled=true;
+
+    const input6 = document.querySelector('#data_nasc');
+      input6.disabled=true;
+
 
     const input3 = document.querySelector('#telefone');
       input3.disabled=true;

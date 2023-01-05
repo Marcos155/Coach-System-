@@ -8,19 +8,20 @@
     $senha= $_POST['password'];
   }
 
-  if(isset($_POST['submit']))
+  /*if(isset($_POST['submit']))
   {
     
     include_once('config.php');
 
     $nome= $_POST['username'];
+    $nome= $_POST['sobrenome'];
     $email= $_POST['email'];
     $senha= $_POST['password'];
     $tele= $_POST['phone'];
     $sexo=$_POST['sexo'];
 
-    $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
-    VALUES ('$nome','$email','$senha','$tele','$sexo')");
+    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,sexo) 
+    VALUES ('$nome','$sobrenome','$email','$senha','$tele','$sexo')");*/
 
 
     /*$email_log=$_POST['email'];
@@ -28,9 +29,9 @@
     $result2= mysqli_query($conexao_login, "INSERT INTO tb_login(email,senha) 
     VALUES ('$email_log','$senha_log')");*/
 
-    header('Location:entrar.php');
+    /*header('Location:entrar.php');
 
-  }
+  }*/
  ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -102,8 +103,6 @@
         
         <input type="radio" id="outro" name="sexo" value="outro" required><label class="escolha">Outro</label>
   -->
-
-
 
         <input type="checkbox" id="termos" name="termos" required value="termos">
         <label for="termos">

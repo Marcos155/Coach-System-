@@ -5,13 +5,13 @@
     include_once('config.php');
 
     $nome= $_POST['username'];
+    $sobrenome= $_POST['sobrenome'];
     $email= $_POST['email'];
     $senha= $_POST['password'];
     $tele= $_POST['phone'];
-    $sexo= $_POST['sexo'];
 
-    $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,senha,telefone,sexo) 
-    VALUES ('$nome','$email','$senha','$tele','$sexo')");
+    $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone) 
+    VALUES ('$nome','$sobrenome','$email','$senha','$tele')");
 
     header('Location:formulario.php');
 
@@ -56,6 +56,9 @@
       margin: 5px 5px 5px 5px;
       
     }
+    .container{
+      min-height: 545px;
+    }
   </style>
 </head>
 
@@ -74,9 +77,9 @@
         </div>
 -->
         <input type="text" placeholder="Nome" name="username" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
+        <input type="text" placeholder="Sobrenome" name="sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="email" placeholder="Email" name="email" required/>
         <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" required>
-   
    
         <table> 
         <tr><td><input type="password" placeholder="Senha" name="password"  id="senha" required/></td>
@@ -107,18 +110,12 @@
           </td>
         </tr>
         </table>
-        <br>
-        <div class="popup" onclick="cadastrar()">
+        <div>
           <!--
         <button> Inscreva-se</button>
            -->
-          <input type="submit" value="inscrever-se" name="submit" id="enviar" class="popup" 
+          <input type="submit" value="inscrever-se" name="submit" id="enviar"
           onclick="return validar()">
-        <?php
-          if(isset($_POST['email'])==true){
-          echo "<span class='popuptext' id='myPopup'>Cadastro realizado com sucesso</span>";
-          }
-          ?>
         </div>
       </form>
     </div>
@@ -162,10 +159,7 @@
     signInButton.addEventListener('click', () => {
       container.classList.remove("right-panel-active");
     });
-    function cadastrar() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
+
 /*repetir senha */
   function validar(){
   var senha=forms.password.value;
