@@ -51,6 +51,22 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
+  <style>
+        .table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+    }
+
+    .box-search{
+            display: flex;
+            justify-content: center;
+            gap: .1%;
+        }
+    #pesquisar:focus{
+      border-color: rgba(0,0,0,0.4);
+      box-shadow:none;
+    }
+  </style>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
@@ -90,7 +106,69 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
     </div>
     <!--Container Main start-->
     <div class="height-100 bg-light">
-      
+    <main class="mdl-layout__content">
+        <div class="page-content">
+
+        <h2><b>André</b></h2>
+
+          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, número
+          de telefone, email, cidade e estado</b></p>
+
+          <br>
+          <br>
+          <div class="box-search">
+              <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
+              <button onclick="searchData()" class="btn btn-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+               </svg>
+        </button>
+          </div>
+          <br>
+          <br>
+
+          div class="table-wrapper">
+            <table class="table">
+            <thead class="thead-light">
+               <tr>
+                <th scope="row">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Excluir</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+        while ($user_data = mysqli_fetch_assoc($result2)) {
+          echo "<tr>";
+          echo "<td>" . $user_data['cod'] . "</td>";
+          echo "<td>" . $user_data['nome'] . "</td>";
+          echo "<td>" . $user_data['email'] . "</td>";
+          echo "<td>" . $user_data['telefone'] . "</td>";
+          echo "<td>" . $user_data['sexo'] . "</td>";
+          echo "<td>" . $user_data['cidade'] . "</td>";
+          echo "<td>" .$user_data['estado'] . "</td>";
+          echo "<td>
+
+          <a class='btn btn-sm btn-dark'  href='delete.php?cod=$user_data[cod]'
+          placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
+          <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+            <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
+            <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
+          </svg>
+          </a>
+        </td>";
+          echo "<tr>";
+        }
+        ?>
+              </tbody>
+            </table>
+          </div>
+</div>
         
     </div>
 
@@ -140,6 +218,35 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
         e.preventDefault();
       });
       
+      /* do antigo sistema */
+      $(document).ready(function(){
+
+$(".search-block").hide();
+$(".expander-title").click(function(){
+  $(this).next(".search-block").slideToggle("fast");
+});
+
+});
+
+var search = document.getElementById('pesquisar');
+search.addEventListener("keydown", function (event) {
+if (event.key === "Enter") {
+searchData();
+}
+});
+function searchData() {
+window.location = 'sistema.php?search=' + search.value;
+};
+
+
+$(document).ready(function () {
+
+$(".search-block").hide();
+$(".expander-title").click(function () {
+$(this).next(".search-block").slideToggle("fast");
+});
+
+});
       </script>
 
   </body>

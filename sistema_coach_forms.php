@@ -19,7 +19,7 @@ if (!empty($_GET['search'])) {
 }
 
 
-$result = $conexao_forms->query($sql);
+$result = $conexao_forms15->query($sql);
 
 
 if (isset($_POST['submit'])) {
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
   $data_conclusao = $_POST['data'];
   $status = $_POST['status_meta'];
 
-  $result = mysqli_query($conexao_forms, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
+  $result = mysqli_query($conexao_forms15, "INSERT INTO formulario(meta,desc_meta,data_inicio,data_conclusao,status_meta) 
 VALUES ('$meta','$desc_meta','$data_inicio','$data_conclusao','$status')");
 }
 
