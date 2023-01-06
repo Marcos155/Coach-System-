@@ -216,43 +216,43 @@
       <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"  name="option" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="option">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre saúde</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="objet" required><br>
       </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="responsa" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_incio" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_fim" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="obs" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_1"
-          placeholder="André ira preencher" name="como" required><br>
+          placeholder="André ira preencher" name="obs_andre"><br>
       </div>
  <br>
       <!-- //////////// -->
@@ -292,43 +292,43 @@
       <!-- nova parte -->
       <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="option" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="option">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre relacionamentos</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="objet" required><br>
       </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="responsa" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_inicio" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_fim" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="obs" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_2"
-          placeholder="André ira preencher" name="como" required><br>
+          placeholder="André ira preencher" name="obs_andre"><br>
       </div>
  <br><br>
       <!-- //////////// -->
@@ -368,43 +368,43 @@
 <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="option" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="option">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre trabalho</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="objet" required><br>
       </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="responsa" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_inicio" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_fim" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="obs" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_3"
-          placeholder="André ira preencher" name="como" required><br>
+          placeholder="André irá preencher" name="obs_andre"><br>
       </div>
  <br><br>
       <!-- //////////// -->
@@ -444,43 +444,43 @@
     <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="option" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="option">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre dinheiro</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="objet" required><br>
       </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="responsa" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_inicio" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_fim" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="obs" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_4"
-          placeholder="André ira preencher" name="como" required><br>
+          placeholder="André ira preencher" name="obs_andre"><br>
       </div>
  <br><br>
       <!-- //////////// -->
@@ -522,43 +522,43 @@
       <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="option" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="option">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre outros objetivos</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="objet" required><br>
       </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="responsa" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_inicio" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="quando" required><br>
+          placeholder="Em qual época quer alcançar?" name="data_fim" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
+          placeholder="" name="obs" required><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_5"
-          placeholder="André ira preencher" name="como" required><br>
+          placeholder="André ira preencher" name="obs_andre"><br>
       </div>
       <!-- //////////// -->
       <h5><b>Agora para finalizar...</b></h5>
