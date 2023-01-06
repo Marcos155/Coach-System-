@@ -212,16 +212,17 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Como fazer ?" name="como" required><br>
       </div>
+      <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
-<p>Metas</p><br>
+<p><b>Metas</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
@@ -249,7 +250,7 @@
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Complemetentos para o objetivo:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+        <input type="text" class="form-control" id="complementos_1"
           placeholder="André ira preencher" name="como" required><br>
       </div>
  <br><br>
@@ -668,7 +669,12 @@
     <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
       myLink.addEventListener('click', function (e) {
         e.preventDefault();
-      });</script>
+      });
+      
+      const input2 = document.querySelector('#complementos_1');
+      input2.disabled=true;
+
+      </script>
 
   </body>
 
