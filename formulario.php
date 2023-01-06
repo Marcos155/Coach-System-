@@ -151,7 +151,7 @@
         echo"<form action='testando.php' method='post'>";
       ?>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Como quer estar de saúde</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Como quer estar de saúde?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Ex: Estar na faixa do 65Kg" name="saude" required>
       </div>
@@ -172,7 +172,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">Algum outro ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Escreva outro objetivo" name="outro">
         <small id="emailHelp" class="form-text text-muted">Descreva aqui algum outro objetivo que tenha e que foi listado acima</small>
-      </div><br>
+      </div>
     </div>
     <div class="height-100 bg-light">
 
@@ -180,7 +180,7 @@
         <p>Agora seus objetivos para os proximos <u>12 meses</u></p>
       </b>
       <p>Metodologia <b>5W2h</b></p><br>
-      <p>Primeiramente em relação à saúde</p>
+      <p>Primeiramente em relação à <b>saúde</b></p>
       <div class="mb-3">
         <li>Saude</li><br>
         <label for="exampleFormControlTextarea1" class="form-label">O que ?</label>
@@ -223,7 +223,7 @@
   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
-<p><b>Metas</b></p><br>
+<p><b>Metas sobre saúde</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
@@ -250,14 +250,14 @@
           placeholder="" name="como" required><br>
       </div>
 <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Complemetentos para o objetivo:</label>
+        <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_1"
           placeholder="André ira preencher" name="como" required><br>
       </div>
- <br><br>
+ <br>
       <!-- //////////// -->
       
-      <p>Agora sobre relacionamentos</p>
+      <p>Agora sobre <b>relacionamentos</b></p>
       <div class="mb-3">
         <li>Relacionamentos</li><br>
         <label for="exampleFormControlTextarea1" class="form-label">O que ?</label>
@@ -299,7 +299,7 @@
   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
-<p><b>Metas</b></p><br>
+<p><b>Metas sobre relacionamentos</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
@@ -326,16 +326,16 @@
           placeholder="" name="como" required><br>
       </div>
 <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Complemetentos para o objetivo:</label>
+        <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_2"
           placeholder="André ira preencher" name="como" required><br>
       </div>
  <br><br>
       <!-- //////////// -->
      
-      <p>Agora sobre seu trabalho</p>
+      <p>Agora sobre seu <b>trabalho</b></p>
       <div class="mb-3">
-        <li>Relacionamentos</li><br>
+        <li>Trabalho</li><br>
         <label for="exampleFormControlTextarea1" class="form-label">O que ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Ex: Estar na faixa do 65Kg" name="oque" required><br>
@@ -365,16 +365,17 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Como fazer ?" name="como" required><br>
       </div>
+<!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
-<p>Metas</p><br>
+<p><b>Metas sobre trabalho</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
@@ -401,20 +402,16 @@
           placeholder="" name="como" required><br>
       </div>
 <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
-      </div>
-<div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Complemetentos para o objetivo:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+        <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
+        <input type="text" class="form-control" id="complementos_3"
           placeholder="André ira preencher" name="como" required><br>
       </div>
  <br><br>
+      <!-- //////////// -->
       
-      <p>Agora sobre seu dinheiro</p>
+      <p>Agora sobre seu <b>dinheiro</b></p>
       <div class="mb-3">
-        <li>Relacionamentos</li><br>
+        <li>Dinheiro</li><br>
         <label for="exampleFormControlTextarea1" class="form-label">O que ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Ex: Estar na faixa do 65Kg" name="oque" required><br>
@@ -444,16 +441,17 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Como fazer ?" name="como" required><br>
       </div>
-    <p>Acredita que é possivel realizar a meta ?</p>
+    <!-- nova parte -->
+<p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
-<p>Metas</p><br>
+<p><b>Metas sobre dinheiro</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
@@ -480,20 +478,17 @@
           placeholder="" name="como" required><br>
       </div>
 <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
-      </div>
-<div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Complemetentos para o objetivo:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+        <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
+        <input type="text" class="form-control" id="complementos_4"
           placeholder="André ira preencher" name="como" required><br>
       </div>
  <br><br>
+      <!-- //////////// -->
       
-      <p>Agora descreva outro objetivo que tenha que não foi citado</p>
+      
+      <p>Agora descreva <b>outro objetivo</b> que possua que <b>não</b> foi <b>citado</b></p>
       <div class="mb-3">
-        <li>Relacionamentos</li><br>
+        <li>Demais objetivos</li><br>
         <label for="exampleFormControlTextarea1" class="form-label">O que ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="Ex: Estar na faixa do 65Kg" name="oque" required><br>
@@ -524,17 +519,17 @@
           placeholder="Como fazer ?" name="como" required><br>
       </div>
       <br>
-      <!--
- <p>Acredita que é possivel realizar a meta ?</p>
+      <!-- nova parte -->
+<p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
-<p>Metas</p><br>
+<p><b>Metas sobre outros objetivos</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
@@ -561,65 +556,32 @@
           placeholder="" name="como" required><br>
       </div>
 <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="como" required><br>
-      </div>
-<div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Complemetentos para o objetivo:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+        <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
+        <input type="text" class="form-control" id="complementos_5"
           placeholder="André ira preencher" name="como" required><br>
       </div>
- <br><br>
-      <p>Ações em saúde</p>-->
-      <?php
-        //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-        //echo"<form action='testando.php' method='post'>";
-      ?>
+      <!-- //////////// -->
+      <h5><b>Agora para finalizar...</b></h5>
       <div class="form-group espace">
         <label for="exampleInputEmail1">Nome</label>
         <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
           placeholder="Qual seu nome?"
           pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" name="nome"
           required>
-        <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo nome utilizado no cadastro</small>
       </div>
-
+      <div class="form-group espace">
+        <label for="exampleInputEmail1">Sobrenome</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Qual seu sobrenome?"
+          pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" name="sobrenome"
+          required>
+      </div>
       <div class="form-group espace">
         <label for="exampleInputEmail1">Email</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
           placeholder="Email" name="email" required />
         <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo email usado no cadastro</small>
       </div>
-<!--
-      <div class="form-group espace">
-        <label for="exampleInputEmail1">Meta</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Qual sua meta?" name="meta" required>
-        <small id="emailHelp" class="form-text text-muted">Coloque aqui seu objetivo. Exemplo: perder peso</small>
-      </div>
-
-      <div class="form-group espace">
-        <label for="exampleFormControlTextarea1">Defina sua meta</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"
-          placeholder="Explique com detalhes seu objetivo" name="desc_meta">
-      </div>
-
-      <div class="form-group espace">
-        <label for="exampleInputPassword1">Data de inicio</label>
-        <input type="date" class="form-control" id="exampleInputPassword1" name="data_inicio">
-        <label for="exampleInputPassword1">Data de conclusão</label>
-        <input type="date" class="form-control" id="exampleInputPassword1" name="data" required>
-        <small id="emailHelp" class="form-text text-muted">Quando quer concluir esse objetivo?</small>
-      </div>
-      <div class="form-group espace">
-        <label for="exampleInputEmail1">Status</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-          placeholder="Atualmente o que já fez para concluir seu objetivo?" name="status" required>
-        <small id="emailHelp" class="form-text text-muted">Coloque aqui o que já fez ou está fazendo para alcançar
-          sua meta</small>
-      </div>
--->
       <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;"
         name="submit">Enviar</button>
       </form>
@@ -675,6 +637,15 @@
 
       const input2 = document.querySelector('#complementos_2');
       input2.disabled=true;
+
+      const input3 = document.querySelector('#complementos_3');
+      input3.disabled=true;
+
+      const input4 = document.querySelector('#complementos_4');
+      input4.disabled=true;
+
+      const input5 = document.querySelector('#complementos_5');
+      input5.disabled=true;
       </script>
 
   </body>
