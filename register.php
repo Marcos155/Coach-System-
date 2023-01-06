@@ -10,9 +10,8 @@
     $senha= $_POST['password'];
     $tele= $_POST['phone'];
 
-    $result= mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone) 
+    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone) 
     VALUES ('$nome','$sobrenome','$email','$senha','$tele')");
-
     header('Location:formulario.php');
 
   }
@@ -67,7 +66,7 @@
 <div class="container" id="container">
   <!--register-->  
   <div class="form-container sign-in-container">
-      <form  action="entrar.php" method="post" name="forms">
+      <form  action="register.php" method="post" name="forms">
         <h1>Criar conta</h1>
         <!--
         <div class="social-container">

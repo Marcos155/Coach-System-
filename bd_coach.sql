@@ -26,7 +26,7 @@ create table tb_login(
 );
 ALTER TABLE `db_coach`.`cadastro` 
 ADD COLUMN `telefone` VARCHAR(12) NULL AFTER `senha`,
-ADD COLUMN `sexo` VARCHAR(10) NOT NULL AFTER `telefone`;
+ADD COLUMN `sexo` VARCHAR(10)  NULL AFTER `telefone`;
 ALTER TABLE `db_coach`.`cadastro` 
 CHANGE COLUMN `telefone` `telefone` VARCHAR(20) NULL DEFAULT NULL ;
 ALTER TABLE db_coach.cadastro
@@ -105,5 +105,5 @@ ADD COLUMN `nome` VARCHAR(20) NULL AFTER `como`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
 ADD COLUMN `nome` VARCHAR(20) NULL AFTER `como`;
 ALTER TABLE `db_coach`.`cadastro` 
-ADD COLUMN `sobrenome` VARCHAR(45) not NULL AFTER `nome`;
-insert into db_coach.cadastro values("Gustavo","erades","eradesvilarinho@gmail.com","123456","brasil","df",61994490664,"masculino",1);
+ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
+/*insert into db_coach.cadastro values("Gustavo","erades","eradesvilarinho@gmail.com","123456","brasil","df",61994490664,"masculino",1);*/
