@@ -12,7 +12,7 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or email LIKE '%$data%'
-   or telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
+   or telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' or data_nasc LIKE '%$data_nasc%' ";
 
 } else {
   $sql = /*"SELECT * FROM cadastro ORDER BY cod DESC";*/ "SELECT*from cadastro where cadastro.email = '$logado' ";
@@ -28,11 +28,12 @@ if (isset($_POST['submit'])) {
   $senha = $_POST['password'];
   $cidade = $_POST['cidade'];
   $estado = $_POST['estado'];
+  $data_nasc = $_POST['data_nasc'];
   $telefone = $_POST['phone'];
   $sexo = $_POST['sexo'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,senha,cidade,estado,telefone,sexo) 
-VALUES ('$nome','$sobrenome','$email','$senha','$cidade','$estado','$telefone','$sexo')");
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,senha,cidade,estado,data_nasc,telefone,sexo) 
+VALUES ('$nome','$sobrenome','$email','$senha','$cidade','$estado','$data_nasc','$telefone','$sexo')");
 }
 
 
@@ -127,6 +128,12 @@ $nome= $user_data['nome'];
         echo "<input type='text' class='form-control'  value=' $user_data[estado]' id='estado'>";
         ?>
       </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Data de Nascimento</label>
+        <?php
+        echo "<input type='text' class='form-control'  value=' $user_data[data_nasc]' id='data_nasc'>";
+        ?>
+      </div>
       <div>
           <?php
             echo "
@@ -207,6 +214,8 @@ $nome= $user_data['nome'];
     const input6 = document.querySelector('#estado');
       input6.disabled=true;
 
+    const input6 = document.querySelector('#data_nasc');
+      input6.disabled=true;
       </script>
 
   </body>

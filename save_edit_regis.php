@@ -12,8 +12,9 @@
         $sexo= $_POST['sexo']; 
         $cidade=$_POST['cidade'];
         $estado=$_POST['estado']; 
+        $data_nasc=$_POST['data_nasc']; 
 
-        $sqlupdate = "UPDATE cadastro SET nome='$nome',sobrenome='$sobrenome',email='$email',senha='$senha',telefone='$telefone',sexo='$sexo',cidade='$cidade',estado='$estado'
+        $sqlupdate = "UPDATE cadastro SET nome='$nome',sobrenome='$sobrenome',email='$email',senha='$senha',telefone='$telefone',sexo='$sexo',cidade='$cidade',estado='$estado', data_nasc='$data_nasc'
         WHERE cod='$cod' ";
         $result2 = $conexao_forms15->query($sqlupdate);
     }

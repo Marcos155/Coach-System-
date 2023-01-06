@@ -106,4 +106,7 @@ ALTER TABLE `db_coach`.`outro_12_meses`
 ADD COLUMN `nome` VARCHAR(20) NULL AFTER `como`;
 ALTER TABLE `db_coach`.`cadastro` 
 ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
+alter table db_coach.cadastro
+add column data_nasc date null after estado;
+
 /*insert into db_coach.cadastro values("Gustavo","erades","eradesvilarinho@gmail.com","123456","brasil","df",61994490664,"masculino",1);*/

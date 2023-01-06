@@ -30,6 +30,7 @@
           $sexo= $user_data['sexo'];
           $cidade= $user_data['cidade'];
           $estado= $user_data['estado'];
+          $data_nasc= $user_data['data_nasc'];
         }
 
     }
@@ -57,8 +58,9 @@
     $senha= $_POST['senha'];
     $cidade= $_POST['cidade'];
     $estado= $_POST['estado'];
-    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(cidade,estado) 
-    VALUES ('$cidade','$estado')");
+    $data_nasc= $_POST['data_nasc'];
+    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(cidade,estado,data_nasc) 
+    VALUES ('$cidade','$estado','$data_nasc')");
     
     header('Location:edit_regis.php');
   }
@@ -163,6 +165,10 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
         placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
               name="estado" value="<?php echo $estado ?>" >
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Data de Nascimento</label>
+        <input type="date" class="form-control" id="exampleFormControlTextarea1" name="data_nasc" value="<?php echo $data_nasc ?>" >
       </div>
       <div  class="mb-3">
 
