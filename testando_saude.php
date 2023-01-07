@@ -14,7 +14,7 @@ if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM saude_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
   or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or 'option' LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
-  or data_fim LIKE '%$data%' or obs LIKE '%$data%'";
+  or data_fim LIKE '%$data%' or obs LIKE '%$data%' or obs_andre LIKE '%$data%' ";
 } else {
   
   $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from saude_12_meses where saude_12_meses.cod = $cod ";

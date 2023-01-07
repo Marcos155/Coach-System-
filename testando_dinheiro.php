@@ -13,7 +13,8 @@ $cod = $_GET['cod'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM dinheiro_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
-  or como LIKE '%$data%' or nome LIKE '%$data%'";
+  or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or 'option' LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
+  or data_fim LIKE '%$data%' or obs LIKE '%$data%' or obs_andre LIKE '%$data%'";
 } else {
   
   $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from dinheiro_12_meses where dinheiro_12_meses.cod = $cod ";
@@ -23,16 +24,24 @@ $result2 = $conexao_formsSaude->query($sql);
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
-    $oque= $_POST['oque'];
-    $porquem= $_POST['porquem'];
-    $onde= $_POST['onde'];
-    $quando= $_POST['quando'];
-    $porque= $_POST['porque'];
-    $como= $_POST['como'];
-    $nome= $_POST['nome'];
-    $result= mysqli_query($conexao_forms15,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como')"); 
-    header('show_sistema_persona.php');
+  $oque= $_POST['oque'];
+  $porquem= $_POST['porquem'];
+  $onde= $_POST['onde'];
+  $quando= $_POST['quando'];
+  $porque= $_POST['porque'];
+  $como= $_POST['como'];
+  $nome= $_POST['nome'];
+  $sobrenome= $_POST['sobrenome'];
+  $objet= $_POST['objet'];
+  $option= $_POST['option'];
+  $responsa=$_POST['responsa'];
+  $data_inicio= $_POST['data_inicio'];
+  $data_fim= $_POST['data_fim'];
+  $obs= $_POST['obs'];
+
+  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
+  header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))
   {
@@ -47,13 +56,21 @@ if(!empty($_GET['cod']))
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-            $oque= $user_data['oque'];
-            $porquem= $user_data['porquem'];
-            $onde= $user_data['onde'];
-            $quando= $user_data['quando'];
-            $porque= $user_data['porque'];
-            $como= $user_data['como'];
-            $nome= $user_data['nome'];
+          $oque= $user_data['oque'];
+          $porquem= $user_data['porquem'];
+          $onde= $user_data['onde'];
+          $quando= $user_data['quando'];
+          $porque= $user_data['porque'];
+          $como= $user_data['como'];
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $objet= $user_data['objet'];
+          $option= $user_data['option'];
+          $responsa=$user_data['responsa'];
+          $data_inicio= $user_data['data_inicio'];
+          $data_fim= $user_data['data_fim'];
+          $obs= $user_data['obs'];
+          $obs_andre= $user_data['obs_andre']
         }
 
     }
@@ -181,6 +198,43 @@ $nome= $user_data['nome'];
         echo "<input type='text' class='form-control' value=' $user_data[como]' id='como'>";
         ?>
       </div>
+      <p><b>Metas sobre dinheiro</b></p><br>
+   <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[objet]' id='objet'>";
+        ?><br>
+      </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[responsa]' id='responsa'>";
+        ?><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[data_inicio]' id='data_inicio'>";
+        ?><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[data_fim]' id='data_fim'>";
+        ?><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[obs]' id='obs'>";
+        ?><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[obs_andre]' id='obs_andre'>";
+        ?><br>
+      </div>
       <div>
           <?php
             echo "
@@ -261,6 +315,24 @@ $nome= $user_data['nome'];
     const input_saude6 = document.querySelector('#como');
       input_saude6.disabled=true;
 
+ /* forms metas/ações*/
+ const input_saude7 = document.querySelector('#objet');
+    input_saude7.disabled=true;
+      
+    const input_saude8 = document.querySelector('#responsa');
+      input_saude8.disabled=true;
+
+    const input_saude9 = document.querySelector('#data_inicio');
+      input_saude9.disabled=true;
+
+    const input_saude10 = document.querySelector('#data_fim');
+      input_saude10.disabled=true;
+
+    const input_saude11 = document.querySelector('#obs');
+      input_saude11.disabled=true;
+
+    const input_saude12 = document.querySelector('#obs-andre');
+      input_saude12.disabled=true;
 
       </script>
 
