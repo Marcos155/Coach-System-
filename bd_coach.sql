@@ -124,4 +124,76 @@ ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
 ALTER TABLE `db_coach`.`saude_12_meses` 
 ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
 
-/*insert into db_coach.cadastro values("Gustavo","erades","eradesvilarinho@gmail.com","123456","brasil","df",61994490664,"masculino",1);*/
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+ALTER TABLE `db_coach`.`formulario_15_anos` 
+ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
+
+ALTER TABLE `db_coach`.`saude_12_meses` 
+ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ALTER TABLE `db_coach`.`relacionamento_12_meses` 
+ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ALTER TABLE `db_coach`.`trabalho_12_meses` 
+ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ALTER TABLE `db_coach`.`dinheiro_12_meses` 
+ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ALTER TABLE `db_coach`.`outro_12_meses` 
+ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+

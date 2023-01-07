@@ -12,7 +12,7 @@
 
       if (!empty($_GET['search'])) {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%'  or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
+        $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or email LIKE '%$data%'  or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
         or espiritual LIKE '%$data%' or outro LIKE '%$data%'";
       
       } else{
@@ -23,6 +23,7 @@
   {
     include_once('config.php');
     $nome= $_POST['nome'];
+    $sobrenome= $_POST['sobrenome'];
     $email= $_POST['email'];
     $saude= $_POST['saude'];
     $relacionamento= $_POST['relacionamento'];
@@ -30,7 +31,7 @@
     $espiritual= $_POST['espiritual'];
     $outro= $_POST['outro'];
 
-    $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,email,saude,relacionamento,financeiro,espiritual,outro) VALUES ('$nome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
+    $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,sobrenome;email,saude,relacionamento,financeiro,espiritual,outro) VALUES ('$nome','$sobrenome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro')"); 
     header('show_sistema_persona.php');
 
     /* saúde */
@@ -42,9 +43,16 @@
     $porque= $_POST['porque'];
     $como= $_POST['como'];
     $nome= $_POST['nome'];
+    $sobrenome= $_POST['sobrenome'];
+    $objet= $_POST['objet'];
+    $option= $_POST['option'];
+    $responsa=$_POST['responsa'];
+    $data_inicio= $_POST['data_inicio'];
+    $data_fim= $_POST['data_fim'];
+    $obs= $_POST['obs'];
 
-    $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
+    $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
     header('show_sistema_persona.php');
 
     /* relacionamentos */
@@ -56,8 +64,15 @@
     $porque= $_POST['porque'];
     $como= $_POST['como'];
     $nome= $_POST['nome'];
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
+    $sobrenome= $_POST['sobrenome'];
+    $objet= $_POST['objet'];
+    $option= $_POST['option'];
+    $responsa=$_POST['responsa'];
+    $data_inicio= $_POST['data_inicio'];
+    $data_fim= $_POST['data_fim'];
+    $obs= $_POST['obs'];
+    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
     header('show_sistema_persona.php');
 
     /* trabalho */
@@ -69,8 +84,15 @@
     $porque= $_POST['porque'];
     $como= $_POST['como'];
     $nome= $_POST['nome'];
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO trabalho_12_meses(oque,porquem,onde,quando,porque,como,nome) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
+    $sobrenome= $_POST['sobrenome'];
+    $objet= $_POST['objet'];
+    $option= $_POST['option'];
+    $responsa=$_POST['responsa'];
+    $data_inicio= $_POST['data_inicio'];
+    $data_fim= $_POST['data_fim'];
+    $obs= $_POST['obs'];
+    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO trabalho_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
     header('show_sistema_persona.php');
 
     /* dinheiro */
@@ -82,8 +104,15 @@
     $porque= $_POST['porque'];
     $como= $_POST['como'];
     $nome= $_POST['nome'];
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
+    $sobrenome= $_POST['sobrenome'];
+    $objet= $_POST['objet'];
+    $option= $_POST['option'];
+    $responsa=$_POST['responsa'];
+    $data_inicio= $_POST['data_inicio'];
+    $data_fim= $_POST['data_fim'];
+    $obs= $_POST['obs'];
+    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
     header('show_sistema_persona.php');
 
     /* outro */
@@ -95,8 +124,15 @@
     $porque= $_POST['porque'];
     $como= $_POST['como'];
     $nome= $_POST['nome'];
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO outro_12_meses(oque,porquem,onde,quando,porque,como,nome) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome')"); 
+    $sobrenome= $_POST['sobrenome'];
+    $objet= $_POST['objet'];
+    $option= $_POST['option'];
+    $responsa=$_POST['responsa'];
+    $data_inicio= $_POST['data_inicio'];
+    $data_fim= $_POST['data_fim'];
+    $obs= $_POST['obs'];
+    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO outro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
     header('show_sistema_persona.php');
 
   }
