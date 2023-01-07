@@ -22,14 +22,21 @@
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-            $oque= $user_data['oque'];
-            $porquem= $user_data['porquem'];
-            $onde= $user_data['onde'];
-            $quando= $user_data['quando'];
-            $porque= $user_data['porque'];
-            $como= $user_data['como'];
-            $nome= $user_data['nome'];
-        }
+          $oque= $user_data['oque'];
+          $porquem= $user_data['porquem'];
+          $onde= $user_data['onde'];
+          $quando= $user_data['quando'];
+          $porque= $user_data['porque'];
+          $como= $user_data['como'];
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $objet= $user_data['objet'];
+          $option= $user_data['option'];
+          $responsa=$user_data['responsa'];
+          $data_inicio= $user_data['data_inicio'];
+          $data_fim= $user_data['data_fim'];
+          $obs= $user_data['obs'];
+          }
 
     }
     else{
@@ -54,6 +61,13 @@
     $porque= $_POST['porque'];
     $como= $_POST['como'];
     $nome= $_POST['nome'];
+    $sobrenome= $_POST['sobrenome'];
+    $objet= $_POST['objet'];
+    $option= $_POST['option'];
+    $responsa=$_POST['responsa'];
+    $data_inicio= $_POST['data_inicio'];
+    $data_fim= $_POST['data_fim'];
+    $obs= $_POST['obs'];
     
     header('Location:edit_dinheiro.php');
   }

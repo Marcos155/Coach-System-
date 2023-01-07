@@ -22,13 +22,21 @@
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-            $oque= $user_data['oque'];
-            $porquem= $user_data['porquem'];
-            $onde= $user_data['onde'];
-            $quando= $user_data['quando'];
-            $porque= $user_data['porque'];
-            $como= $user_data['como'];
-            $nome= $user_data['nome'];
+          $oque= $user_data['oque'];
+          $porquem= $user_data['porquem'];
+          $onde= $user_data['onde'];
+          $quando= $user_data['quando'];
+          $porque= $user_data['porque'];
+          $como= $user_data['como'];
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $objet= $user_data['objet'];
+          $option= $user_data['option'];
+          $responsa=$user_data['responsa'];
+          $data_inicio= $user_data['data_inicio'];
+          $data_fim= $user_data['data_fim'];
+          $obs= $user_data['obs'];
+
         }
 
     }
@@ -54,6 +62,13 @@
     $porque= $_POST['porque'];
     $como= $_POST['como'];
     $nome= $_POST['nome'];
+    $sobrenome= $_POST['sobrenome'];
+    $objet= $_POST['objet'];
+    $option= $_POST['option'];
+    $responsa=$_POST['responsa'];
+    $data_inicio= $_POST['data_inicio'];
+    $data_fim= $_POST['data_fim'];
+    $obs= $_POST['obs'];
     
     header('Location:edit_saude.php');
   }
@@ -146,6 +161,34 @@
         <label for="exampleFormControlTextarea1" class="form-label">Como?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
         placeholder="Como fazer ?" name="como" value="<?php echo $como ?>" >
+      </div>
+
+
+      <p><b>Metas sobre saúde</b></p><br>
+   <div class="mb-3">
+ <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="" name="objet" value="<?php echo $objet ?>" ><br>
+      </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="" name="responsa" value="<?php echo $responsa ?>" ><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
+        <input type="date" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Em qual época quer alcançar?" name="data_incio" value="<?php echo $data_inicio ?>" ><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
+        <input type="date" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Em qual época quer alcançar?" name="data_fim" value="<?php echo $data_fim ?>" ><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="" name="obs" value="<?php echo $obs ?>" ><br>
       </div>
 
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
