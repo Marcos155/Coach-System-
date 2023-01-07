@@ -46,14 +46,14 @@ if (isset($_POST['submit'])) {
   $nome= $_POST['nome'];
   $sobrenome= $_POST['sobrenome'];
   $objet= $_POST['objet'];
-  $option= $_POST['option'];
+  $opcao= $_POST['opcao'];
   $responsa=$_POST['responsa'];
   $data_inicio= $_POST['data_inicio'];
   $data_fim= $_POST['data_fim'];
   $obs= $_POST['obs'];
 
-  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
-  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
+  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
   header('show_sistema_persona.php');
 
     /* relacionamento */
@@ -67,13 +67,13 @@ if (isset($_POST['submit'])) {
     $nome= $_POST['nome'];
     $sobrenome= $_POST['sobrenome'];
     $objet= $_POST['objet'];
-    $option= $_POST['option'];
+    $opcao= $_POST['opcao'];
     $responsa=$_POST['responsa'];
     $data_inicio= $_POST['data_inicio'];
     $data_fim= $_POST['data_fim'];
     $obs= $_POST['obs'];
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
+    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
     header('show_sistema_persona.php');
 
     /* trabalho */
@@ -87,13 +87,13 @@ if (isset($_POST['submit'])) {
     $nome= $_POST['nome'];
     $sobrenome= $_POST['sobrenome'];
     $objet= $_POST['objet'];
-    $option= $_POST['option'];
+    $opcao= $_POST['opcao'];
     $responsa=$_POST['responsa'];
     $data_inicio= $_POST['data_inicio'];
     $data_fim= $_POST['data_fim'];
     $obs= $_POST['obs'];
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO trabalho_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
+    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO trabalho_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
     header('show_sistema_persona.php');
 
   /* dinheiro */
@@ -107,13 +107,13 @@ if (isset($_POST['submit'])) {
     $nome= $_POST['nome'];
     $sobrenome= $_POST['sobrenome'];
     $objet= $_POST['objet'];
-    $option= $_POST['option'];
+    $opcao= $_POST['opcao'];
     $responsa=$_POST['responsa'];
     $data_inicio= $_POST['data_inicio'];
     $data_fim= $_POST['data_fim'];
     $obs= $_POST['obs'];
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
-    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
+    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
     header('show_sistema_persona.php');
 
   /* outro */
@@ -127,13 +127,13 @@ if (isset($_POST['submit'])) {
   $nome= $_POST['nome'];
   $sobrenome= $_POST['sobrenome'];
   $objet= $_POST['objet'];
-  $option= $_POST['option'];
+  $opcao= $_POST['opcao'];
   $responsa=$_POST['responsa'];
   $data_inicio= $_POST['data_inicio'];
   $data_fim= $_POST['data_fim'];
   $obs= $_POST['obs'];
-  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO outro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
-  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
+  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO outro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
   header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))

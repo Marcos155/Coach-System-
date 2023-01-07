@@ -31,7 +31,7 @@
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $objet= $user_data['objet'];
-          $option= $user_data['option'];
+          $opcao= $user_data['opcao'];
           $responsa=$user_data['responsa'];
           $data_inicio= $user_data['data_inicio'];
           $data_fim= $user_data['data_fim'];
@@ -63,7 +63,7 @@
     $nome= $_POST['nome'];
     $sobrenome= $_POST['sobrenome'];
     $objet= $_POST['objet'];
-    $option= $_POST['option'];
+    $opcao= $_POST['opcao'];
     $responsa=$_POST['responsa'];
     $data_inicio= $_POST['data_inicio'];
     $data_fim= $_POST['data_fim'];

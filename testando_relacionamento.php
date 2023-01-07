@@ -13,7 +13,7 @@ $cod = $_GET['cod'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM relacionamento_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
-  or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or 'option' LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
+  or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or opcao LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
   or data_fim LIKE '%$data%' or obs LIKE '%$data%' or obs_andre LIKE '%$data%'";
 } else {
   
@@ -33,14 +33,14 @@ if (isset($_POST['submit'])) {
   $nome= $_POST['nome'];
   $sobrenome= $_POST['sobrenome'];
   $objet= $_POST['objet'];
-  $option= $_POST['option'];
+  $opcao= $_POST['opcao'];
   $responsa=$_POST['responsa'];
   $data_inicio= $_POST['data_inicio'];
   $data_fim= $_POST['data_fim'];
   $obs= $_POST['obs'];
 
-  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,'option',responsa,data_inicio,data_fim,obs) 
-  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$option','$responsa','$data_inicio','$data_fim','$obs')"); 
+  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
   header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))
@@ -65,7 +65,7 @@ if(!empty($_GET['cod']))
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $objet= $user_data['objet'];
-          $option= $user_data['option'];
+          $opcao= $user_data['opcao'];
           $responsa=$user_data['responsa'];
           $data_inicio= $user_data['data_inicio'];
           $data_fim= $user_data['data_fim'];

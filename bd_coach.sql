@@ -2,7 +2,7 @@ create database db_coach;
 use db_coach;
 create table cadastro(
 	nome varchar (20) not null,
-    email varchar (45) not null,
+    email varchar (60) not null,
     senha varchar (20) not null,
 	cod int not null auto_increment, 
     primary key(cod,email)
@@ -93,7 +93,7 @@ create table db_coach.outro_12_meses(
 ALTER TABLE db_coach.formulario_15_anos
 add column nome varchar(20) null after outro;
 ALTER TABLE db_coach.formulario_15_anos
-add column email varchar(20) null after nome;
+add column email varchar(60) null after nome;
 ALTER TABLE `db_coach`.`saude_12_meses` 
 ADD COLUMN `nome` VARCHAR(20) NULL AFTER `como`;
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
@@ -185,15 +185,14 @@ ALTER TABLE `db_coach`.`outro_12_meses`
 ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
 ALTER TABLE `db_coach`.`formulario_15_anos` 
 ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
-
 ALTER TABLE `db_coach`.`saude_12_meses` 
-ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
-ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`trabalho_12_meses` 
-ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`dinheiro_12_meses` 
-ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
-ADD COLUMN `option` VARCHAR(3) NULL AFTER `objet`;
+ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 
