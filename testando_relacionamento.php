@@ -70,7 +70,7 @@ if(!empty($_GET['cod']))
           $data_inicio= $user_data['data_inicio'];
           $data_fim= $user_data['data_fim'];
           $obs= $user_data['obs'];
-          $obs_andre= $user_data['obs_andre']
+          $obs_andre= $user_data['obs_andre'];
         }
 
     }
