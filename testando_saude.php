@@ -342,7 +342,7 @@ $nome= $user_data['nome'];
     const input_saude11 = document.querySelector('#obs');
       input_saude11.disabled=true;
 
-    const input_saude12 = document.querySelector('#obs-andre');
+    const input_saude12 = document.querySelector('#obs_andre');
       input_saude12.disabled=true;
 
       </script>

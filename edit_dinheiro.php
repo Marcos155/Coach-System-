@@ -130,7 +130,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
         placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Ex: Estar na faixa do 65Kg"  name="oque" value="<?php echo $oque ?>" 
-        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"required>
+        required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
@@ -147,7 +147,7 @@
      
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
-        <input type="date" class="form-control" id="exampleFormControlTextarea1" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+        <input type="date" class="form-control" id="exampleFormControlTextarea1"  
         placeholder="Em qual época quer alcançar?" name="quando" value="<?php echo $quando ?>" >
       </div>
       <div class="mb-3">
@@ -160,6 +160,33 @@
         <label for="exampleFormControlTextarea1" class="form-label">Como?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
         placeholder="Como fazer ?" name="como" value="<?php echo $como ?>" >
+      </div>
+
+      <p><b>Metas sobre outros objetivos</b></p><br>
+   <div class="mb-3">
+ <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="" name="objet" value="<?php echo $objet ?>" ><br>
+      </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="" name="responsa" value="<?php echo $responsa ?>" ><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
+        <input type="date" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Em qual época quer alcançar?" name="data_inicio" value="<?php echo $data_inicio ?>" ><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
+        <input type="date" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="Em qual época quer alcançar?" name="data_fim" value="<?php echo $data_fim ?>" ><br>
+      </div>
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1"
+          placeholder="" name="obs" value="<?php echo $obs ?>" ><br>
       </div>
 
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"

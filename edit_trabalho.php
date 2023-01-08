@@ -131,7 +131,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
         placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Ex: Estar na faixa do 65Kg"  name="oque" value="<?php echo $oque ?>" 
-        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"required>
+        required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
@@ -148,7 +148,7 @@
      
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
-        <input type="date" class="form-control" id="exampleFormControlTextarea1" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+        <input type="date" class="form-control" id="exampleFormControlTextarea1"
         placeholder="Em qual época quer alcançar?" name="quando" value="<?php echo $quando ?>" >
       </div>
       <div class="mb-3">
@@ -178,7 +178,7 @@
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="data_incio" value="<?php echo $data_inicio ?>" ><br>
+          placeholder="Em qual época quer alcançar?" name="data_inicio" value="<?php echo $data_inicio ?>" ><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>

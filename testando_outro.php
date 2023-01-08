@@ -161,7 +161,7 @@ $nome= $user_data['nome'];
       <b>
         <p>essa é sua visão de futuro para daqui 12 meses.</p>
       </b>
-      <h3><li>Relacionamentos</li></h3>
+      <h3><li>Demais objetivos</li></h3>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
         <?php
@@ -198,7 +198,7 @@ $nome= $user_data['nome'];
         echo "<input type='text' class='form-control' value=' $user_data[como]' id='como'>";
         ?>
       </div>
-      <p><b>Metas sobre demais objetivos</b></p><br>
+      <p><b>Metas sobre outros objetivos</b></p><br>
    <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <?php
@@ -331,7 +331,7 @@ $nome= $user_data['nome'];
     const input_saude11 = document.querySelector('#obs');
       input_saude11.disabled=true;
 
-    const input_saude12 = document.querySelector('#obs-andre');
+      const input_saude12 = document.querySelector('#obs_andre');
       input_saude12.disabled=true;
 
 

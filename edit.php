@@ -116,8 +116,8 @@
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Saúde</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-        placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Nome" name="username" value="<?php echo $saude ?>" 
-        pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"required>
+         type="text" placeholder="saúde" name="username" value="<?php echo $saude ?>" 
+        required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
@@ -128,21 +128,20 @@
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Financeiro</label>
-        <input type="tel" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="telefone"  placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
+        <input type="tel" class="form-control" id="exampleFormControlTextarea1"  placeholder="financeiro" 
               name="phone" value="<?php echo $financeiro ?>" required>
       </div>
      
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Espiritual</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Qual sua cidade?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+        placeholder="espiritual"
               name="cidade" value="<?php echo $espiritual ?>" >
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Outro</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+        placeholder="demais objetivos" 
               name="estado" value="<?php echo $outro ?>" >
       </div>
       

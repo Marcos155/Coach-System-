@@ -161,7 +161,7 @@ $nome= $user_data['nome'];
       <b>
         <p>essa é sua visão de futuro para daqui 12 meses.</p>
       </b>
-      <h3><li>Relacionamentos</li></h3>
+      <h3><li>Trabalho</li></h3>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
         <?php
@@ -331,7 +331,7 @@ $nome= $user_data['nome'];
     const input_saude11 = document.querySelector('#obs');
       input_saude11.disabled=true;
 
-    const input_saude12 = document.querySelector('#obs-andre');
+      const input_saude12 = document.querySelector('#obs_andre');
       input_saude12.disabled=true;
 
       </script>
