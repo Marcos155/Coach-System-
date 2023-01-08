@@ -100,7 +100,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
           </div>
-        </div> <a href='sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
         </a>
       </nav>
     </div>

@@ -99,7 +99,7 @@ header('show_sistema_persona.php');
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
           </div>
-        </div> <a href='sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
         </a>
       </nav>
     </div>
@@ -129,44 +129,66 @@ header('show_sistema_persona.php');
             <table class="table">
             <thead class="thead-light">
                <tr>
+               <th scope="row">Turma</th>
                 <th scope="row">Código</th>
                 <th scope="col">Nome</th>
-                <!--
-                <th scope="row">Meta</th>
-                <th scope="col">Descrição da meta</th>
-                <th scope="col">Data de início</th>
-                <th scope="col">Data de conclusão</th>
-                <th scope="col">Status</th>
-  -->
                 <th scope="col">formulário</th>
-                <th scope=row">Excluir</th>
+                <th scope="col">Saúde</th>
+                <th scope="col">Relacionamento</th>
+                <th scope="col">Dinheiro</th>
+                <th scope="col">Trabalho</th>
+                <th scope="col">Outro</th>
+                <!--
+                <th scope="row">Excluir</th>
+  -->
                 </tr>
               </thead>
               <tbody>
               <?php
         while ($user_data = mysqli_fetch_assoc($result)) {
           echo "<tr>";
+          echo "<td></td>";
           echo "<td>" . $user_data['cod'] . "</td>";
           echo "<td>" . $user_data['nome'] . "</td>";
-          /*echo "<td>" . $user_data['meta'] . "</td>";
-          echo "<td>" . $user_data['desc_meta'] . "</td>";
-          echo "<td>" . $user_data['data_inicio'] . "</td>";
-          echo "<td>" . $user_data['data_conclusao'] . "</td>";
-          echo "<td>" . $user_data['status_meta'] . "</td>";*/
           echo "<td>
-
-          <a class='btn btn-sm btn-dark' href='coach_testando.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
-        Formulário
-          </a>
-          </td>
-          <td>
-          <a class='btn btn-sm btn-dark' href='delete.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-            <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-            <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-          </svg>
-          </a>
-        </td>";
+                  <a class='btn btn-sm btn-dark' href='coach_testando.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+                    Formulário
+                  </a>
+                </td>
+                <td>
+                  <a class='btn btn-sm btn-dark' href='coach_testando_saude.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+                    Saúde
+                  </a>
+                </td>
+                <td>
+                  <a class='btn btn-sm btn-dark' href='testando_relacionamento.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+                    Relacionamento
+                  </a>
+                </td>
+                <td>
+                  <a class='btn btn-sm btn-dark' href='testando_dinheiro.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+                    Dinheiro
+                  </a>
+                </td>
+                <td>
+                  <a class='btn btn-sm btn-dark' href='testando_trabalho.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+                    trabalho
+                  </a>
+                </td>
+                <td>
+                  <a class='btn btn-sm btn-dark' href='testando_outro.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+                    Outro
+                  </a>
+                </td>"
+                
+                /*<td>
+                  <a class='btn btn-sm btn-dark' href='delete.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
+                  <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+                  <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
+                  <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
+                  </svg>
+                  </a>
+                </td>*/;
           echo "<tr>";
         }
         ?>

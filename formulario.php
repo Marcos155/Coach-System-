@@ -252,11 +252,11 @@
       <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"  name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1"  name="opcao" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="opcao">
+  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre saúde</b></p><br>
@@ -328,11 +328,11 @@
       <!-- nova parte -->
       <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="opcao">
+  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre relacionamentos</b></p><br>
@@ -404,11 +404,11 @@
 <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="opcao">
+  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre trabalho</b></p><br>
@@ -480,11 +480,11 @@
     <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="opcao">
+  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre dinheiro</b></p><br>
@@ -558,11 +558,11 @@
       <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="opcao">
+  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br>
 <p><b>Metas sobre outros objetivos</b></p><br>

@@ -168,7 +168,7 @@ $user_data = mysqli_fetch_assoc($result2);
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
           </div>
-        </div> <a href='sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
         </a>
       </nav>
     </div>
@@ -180,9 +180,6 @@ $user_data = mysqli_fetch_assoc($result2);
         echo " Formulário de 15 anos do aluno(a)
         <h2><b>$nome</b></h2>"
         ?>
-        <br>
-        <?php echo  "<a href='sistema_coach_forms.php' class='link_voltar'><p>voltar<p></a>"?>
-        <br>
         <div class="table-wrapper">
           <div class="form-group espace">
             <label for="exampleInputEmail1">Saúde</label>
@@ -204,6 +201,17 @@ $user_data = mysqli_fetch_assoc($result2);
               <label for="exampleInputEmail1">Demais objetivos</label>
               <input type='text' class='form-control' aria-describedby='emailHelp' name='outro' value="<?php echo $outro ?>" id='outro'>
           </div>
+          <br>
+          <div>
+          <?php
+            echo "
+            <a href='sistema_coach_forms.php'>
+              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(0,0,0); color: #fff;' value='Voltar'>
+            </a>
+            ";   
+          ?>
+        </div>
+          <br>
 </div>
 </div>
     <!--Container Main end-->

@@ -114,7 +114,7 @@
         <button> Inscreva-se</button>
            -->
           <input type="submit" value="inscrever-se" name="submit" id="enviar"
-          onclick="return validar()">
+          onclick="return validar()" onclick="alert('cadastro realizado com sucesso!')">
         </div>
       </form>
     </div>
