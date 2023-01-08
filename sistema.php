@@ -10,7 +10,6 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
 }
 $logado = $_SESSION['email'];
 
-
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
@@ -51,6 +50,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
+  
   <style>
         .table-wrapper {
     max-height: 500px;
@@ -111,8 +111,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
 
         <h2><b>André</b></h2>
 
-          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, número
-          de telefone, email, cidade e estado</b></p>
+          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, telefone, email, cidade e estado</b></p>
 
           <br>
           <br>
@@ -127,7 +126,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
           <br>
           <br>
 
-          div class="table-wrapper">
+          <div class="table-wrapper">
             <table class="table">
             <thead class="thead-light">
                <tr>
