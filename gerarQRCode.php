@@ -2,42 +2,12 @@
 session_start();
 include_once('config.php');
 
-//cadastro
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
   unset($_SESSION['email']);
   unset($_SESSION['senha']);
   header('Location:entrar.php');
 }
 $logado = $_SESSION['email'];
-
-if (!empty($_GET['search'])) {
-  $data = $_GET['search'];
-  $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' ";
-
-} else {
-  $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
-}
-
-
-$result2 = $conexao_regis->query($sql);
-
-
-if (isset($_POST['submit'])) {
-
-  include_once('config.php');
-
-  $nome = $_POST['username'];
-  $email = $_POST['email'];
-  $cidade = $_POST['cidade'];
-  $estado = $_POST['estado'];
-  $telefone = $_POST['phone'];
-  $sexo = $_POST['sexo'];
-
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,email,cidade,estado,telefone,sexo) 
-VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
-}
-
 ?>
 <!doctype html>
 <html>
@@ -83,7 +53,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
           <div class="nav_list"> 
             <?php
               
-              echo "<a href='sistema.php' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
+              echo "<a href='sistema.php' class='nav_link'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta-Alunos</span> </a>"; 
               
               echo "<a href='sistema_coach_forms.php' class='nav_link'> <i
@@ -93,7 +63,7 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
-              echo "<a href='gerarQRCode.php' class='nav_link'> <svg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' preserveAspectRatio='xMidYMid meet' 
+              echo "<a href='qrcode.php' class='nav_link active'> <svg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' preserveAspectRatio='xMidYMid meet' 
               viewBox='0 0 32 32'><path fill='currentColor' d='M5 5v8h2v2h2v-2h4V5H5zm8 8v2h2v2h-4v2H5v8h8v-8h6v-2h-2v-2h4v-2h2v2h2v-2h2V5h-8v8h-6zm12 2v2h2v-2h-2zm0 2h-2v2h2v-2zm0 2v2h2v-2h-2zm0 2h-2v-2h-2v2h-5v6h2v-4h4v2h2v-2h1v-2zm-3 4h-2v2h2v-2zm1-8v-2h-2v2h2zm-12 0v-2H9v2h2zm-4-2H5v2h2v-2zm8-10v4h-1v2h1v1h2V9h1V7h-1V5h-2zM7 7h4v4H7V7zm14 0h4v4h-4V7zM8 8v2h2V8H8zm14 0v2h2V8h-2zM7 21h4v4H7v-4zm1 1v2h2v-2H8zm17 3v2h2v-2h-2z'/></svg>
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
@@ -104,69 +74,29 @@ VALUES ('$nome','$email','$cidade','$estado','$telefone','$sexo')");
     </div>
     <!--Container Main start-->
     <div class="height-100 bg-light">
-    <main class="mdl-layout__content">
-        <div class="page-content">
-
-        <h2><b>André</b></h2>
-
-          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, telefone, email, cidade e estado</b></p>
-
-          <br>
-          <br>
-          <div class="box-search">
-              <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
-              <button onclick="searchData()" class="btn btn-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-               </svg>
-        </button>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                 <h2><b>André</b></h2>
+                 <p>Esse <b>Qr code</b> levará para a <b>página de registro</b>. Distribua esse código aos seus clientes.</p>
+                <br>
+                <br>
           </div>
-          <br>
-          <br>
 
-          <div class="table-wrapper">
-            <table class="table">
-            <thead class="thead-light">
-               <tr>
-                <th scope="row">Código</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Excluir</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php
-        while ($user_data = mysqli_fetch_assoc($result2)) {
-          echo "<tr>";
-          echo "<td>" . $user_data['cod'] . "</td>";
-          echo "<td>" . $user_data['nome'] . "</td>";
-          echo "<td>" . $user_data['email'] . "</td>";
-          echo "<td>" . $user_data['telefone'] . "</td>";
-          echo "<td>" . $user_data['sexo'] . "</td>";
-          echo "<td>" . $user_data['cidade'] . "</td>";
-          echo "<td>" .$user_data['estado'] . "</td>";
-          echo "<td>
-
-          <a class='btn btn-sm btn-dark'  href='delete.php?cod=$user_data[cod]'
-          placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-            <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-            <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-          </svg>
-          </a>
-        </td>";
-          echo "<tr>";
-        }
-        ?>
-              </tbody>
-            </table>
+          <!-- registro -->
+          <div>
+            <h1>Gerar QR Code</h1>
+            <p> código para página de registro</p>
           </div>
-</div>
-        
+        <div class="form">
+          <input type="text" value="http://localhost/Coach-System-/register.php" id="link">
+          <a href="./assets/pdf/Qr_code_register.pdf" download>
+          <button onclick="GerarQRCode()">Gerar</button></a>
+          
+        </div>
+        <div class="qr-code">
+          <img id="QRCodeImage" class="img">
+        </div>
+        </main>
     </div>
 
     <!--Container Main end-->

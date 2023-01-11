@@ -12,37 +12,36 @@ $logado = $_SESSION['email'];
 $cod = $_GET['cod'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM saude_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
-  or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or opcao  LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
-  or data_fim LIKE '%$data%' or obs LIKE '%$data%' or obs_andre LIKE '%$data%' ";
+  $sql = "SELECT * FROM relacionamento_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
+  or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or opcao LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
+  or data_fim LIKE '%$data%' or obs LIKE '%$data%' or obs_andre LIKE '%$data%'";
 } else {
   
-  $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from saude_12_meses where saude_12_meses.cod = $cod ";
+  $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from relacionamento_12_meses where relacionamento_12_meses.cod = $cod ";
 }
-$result2 = $conexao_forms15->query($sql);
+$result2 = $conexao_formsSaude->query($sql);
 
 if (isset($_POST['submit'])) {
 
   include_once('config.php');
-    $oque= $_POST['oque'];
-    $porquem= $_POST['porquem'];
-    $onde= $_POST['onde'];
-    $quando= $_POST['quando'];
-    $porque= $_POST['porque'];
-    $como= $_POST['como'];
-    $nome= $_POST['nome'];
-    $sobrenome= $_POST['sobrenome'];
-    $objet= $_POST['objet'];
-    $opcao= $_POST['opcao'];
-    $responsa=$_POST['responsa'];
-    $data_inicio= $_POST['data_inicio'];
-    $data_fim= $_POST['data_fim'];
-    $obs= $_POST['obs'];
-    $obs_andre= $_POST['obs_andre'];
+  $oque= $_POST['oque'];
+  $porquem= $_POST['porquem'];
+  $onde= $_POST['onde'];
+  $quando= $_POST['quando'];
+  $porque= $_POST['porque'];
+  $como= $_POST['como'];
+  $nome= $_POST['nome'];
+  $sobrenome= $_POST['sobrenome'];
+  $objet= $_POST['objet'];
+  $opcao= $_POST['opcao'];
+  $responsa=$_POST['responsa'];
+  $data_inicio= $_POST['data_inicio'];
+  $data_fim= $_POST['data_fim'];
+  $obs= $_POST['obs'];
 
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO saude_12_meses(obs_andre) 
-    VALUES ('$obs_andre')"); 
-    header('coach_testando_saude.php');
+  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
+  header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))
   {
@@ -50,33 +49,33 @@ if(!empty($_GET['cod']))
     include_once('config.php');
 
     $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM saude_12_meses WHERE cod=$cod";
+    $sqlselect = "SELECT * FROM relacionamento_12_meses WHERE cod=$cod";
     $result = $conexao_forms15->query($sqlselect);
 
     if($result->num_rows > 0)
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-            $oque= $user_data['oque'];
-            $porquem= $user_data['porquem'];
-            $onde= $user_data['onde'];
-            $quando= $user_data['quando'];
-            $porque= $user_data['porque'];
-            $como= $user_data['como'];
-            $nome= $user_data['nome'];
-            $sobrenome= $user_data['sobrenome'];
-            $objet= $user_data['objet'];
-            $opcao= $user_data['opcao'];
-            $responsa=$user_data['responsa'];
-            $data_inicio= $user_data['data_inicio'];
-            $data_fim= $user_data['data_fim'];
-            $obs= $user_data['obs'];
-            $obs_andre= $user_data['obs_andre'];
+          $oque= $user_data['oque'];
+          $porquem= $user_data['porquem'];
+          $onde= $user_data['onde'];
+          $quando= $user_data['quando'];
+          $porque= $user_data['porque'];
+          $como= $user_data['como'];
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $objet= $user_data['objet'];
+          $opcao= $user_data['opcao'];
+          $responsa=$user_data['responsa'];
+          $data_inicio= $user_data['data_inicio'];
+          $data_fim= $user_data['data_fim'];
+          $obs= $user_data['obs'];
+          $obs_andre= $user_data['obs_andre'];
         }
 
     }
     else{
-        header('Location: sistema_coach_forms.php');
+        header('Location: testando.php');
     }
   }
   else
@@ -90,7 +89,6 @@ if(!empty($_GET['cod']))
 $user_data = mysqli_fetch_assoc($result2);
 $nome= $user_data['nome'];
 ?> 
-
 <!doctype html>
 <html>
 
@@ -166,7 +164,7 @@ $nome= $user_data['nome'];
         echo " Formulário de 12 meses do aluno(a)
         <h2><b>$nome</b></h2>"
         ?><br>
-      <h3><li>Saúde</li></h3>
+      <h3><li>Relacionamento</li></h3>
       <?php
         echo"<form action='save_edit_coach_saude.php' method='post' name='forms'>";
       ?>
@@ -218,7 +216,7 @@ $nome= $user_data['nome'];
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
 </div><br><br> -->
 <br>
-      <p><b>Metas sobre saúde</b></p>
+      <p><b>Metas sobre relacionamento</b></p>
    <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
         <?php
