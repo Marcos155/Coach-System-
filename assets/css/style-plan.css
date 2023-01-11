@@ -111,7 +111,7 @@
   }
 }
 .pricingTable-firstTable_table:nth-of-type(2):before {
-  content: "Most Popular";
+  content: "Mais popular";
   position: absolute;
   color: white;
   display: block;

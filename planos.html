@@ -51,7 +51,15 @@
             display: none;
         }
         body{
-            background: linear-gradient(180deg,rgb(255, 0, 47) 35%,rgba(0, 0, 0, 0.983) 100%);
+            background: 	#f6f5f7;
+            color:rgb(255,0,0);
+        }
+        .pricingTable-firstTable_table:nth-of-type(2):before {
+            content: "Mais popular";
+        }
+        .pricingTable-firstTable_table{
+            background-color: #fff;
+            box-shadow: 2px 2px 2px 1px  black;
         }
     </style>
     <script>
@@ -75,8 +83,11 @@
         <!-- partial:index.partial.html -->
         <form action="register.php" method="post">
         <div class="pricingTable">
-            <h2 class="pricingTable-title" style="color: #ffffff;">Encontre o plano certo para você!</h2>
-            <h3 class="pricingTable-subtitle" style="color:	#000000;">Cada plano com avaliação gratuita de 30 dias.</h3>
+            <h2 class="pricingTable-title" style="color: 	#f90d3c; text-shadow: 1px 1px 1px #000">Encontre o plano certo para você!</h2>
+            
+            <h3 class="pricingTable-subtitle" style="color:	#000000;">junte-se ao time e vamos rumo ao sucesso!	&#128513;</h3>
+            
+            <!--
             <div class="video">
             <iframe width="560" height="315" src="https://www.youtube.com/embed/dhYOPzcsbGM?controls=0"
                 title="YouTube video player" frameborder="0"
@@ -84,6 +95,7 @@
                 allowfullscreen></iframe>
             </div>
             <br><br>
+        -->
             <ul class="pricingTable-firstTable">
                 <li class="pricingTable-firstTable_table">
                     <h1 class="pricingTable-firstTable_table__header">Básico</h1>
@@ -98,7 +110,7 @@
                     <input class="pricingTable-firstTable_table__getstart" value="Começar Agora" type="submit">
                 </li>
                 <li class="pricingTable-firstTable_table">
-                    <h1 class="pricingTable-firstTable_table__header">Comun</h1>
+                    <h1 class="pricingTable-firstTable_table__header">Comum</h1>
                     <p class="pricingTable-firstTable_table__pricing"><span>R$</span><span>249</span><span>por
                             Mês</span>
                     </p>
