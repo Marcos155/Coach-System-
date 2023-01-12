@@ -262,10 +262,10 @@ $nome= $user_data['nome'];
               <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(0,0,0); color: #fff;' value='Voltar'>
             </a>
             ";
-            echo"   
+           /* echo"   
             <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(0,0,0); color: #fff;' value='Salvar observação' name='update'
             onclick='return validar()'
-           id='update'>";
+           id='update'>";*/
           ?>
         </div>
         </form>

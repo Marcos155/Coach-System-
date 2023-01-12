@@ -1,7 +1,7 @@
 .conteudo {
     margin: 0 auto;
     width: 100%;;
-    max-width: 450px;
+    max-width: 510px;
     margin-top: 50px;
     margin-bottom: 50px;
     padding: 55px;
@@ -18,18 +18,18 @@
     width: 350px;
     padding: 15px;
     border-radius: 12px;
-    border: 1px solid #191818;
+    border: 3px solid #191818;
     outline: none;
     font-size: 1.2rem;
-    background: #191818;
-    color: #FFF;
+    background: #e2dfdf;
+    color: #000;
 }
 
 .topo button {
     width: 45px;
     border-radius: 12px;
     border: 1px solid #191818;
-    background: #191818;
+    background: 	#1C1C1C;
     color: #FFF;
     outline: none;
 }
@@ -46,7 +46,8 @@
 
 #listaTarefas li {
     padding: 20px;
-    background: #191818;
+    background: #e2dfdf;
+    border: 3px solid #191818;
     border-radius: 12px;
     display: flex;
     justify-content: space-between;
@@ -61,7 +62,7 @@
     height: 38px;
     margin-right: 8px;
     cursor: pointer;
-    background: #2b2a2a;
+    background: 	#1C1C1C;
     color: #FFF;
     outline: none;
 }
@@ -83,7 +84,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    background: #191818;
+    background: #e2dfdf;
     border: 1px solid #2f2e2e;
     width: 415px;
     border-radius: 12px;

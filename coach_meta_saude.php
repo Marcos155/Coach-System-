@@ -51,8 +51,8 @@
     <div class="height-100 bg-light">
     <main class="mdl-layout__content">
         <div class="page-content">
-        <h2 style="color:#000;"><b>André</b></h2>
-        <p style="color:#000;">você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, telefone, email, cidade e estado</b></p>
+        <h2 style="color:#000;"><b>Cadastro de metas</b></h2>
+        <p style="color:#000;">cadastre metas em relação à saúde</b></p>
             <br>
         <div class="conteudo">
         <div class="topo">
@@ -74,7 +74,9 @@
         <button id="janelaEdicaoBtnFechar">
             <i class="fa fa-remove fa-2x"></i>
         </button>
+        
         <h2 id="idTarefaEdicao">#1021</h2>
+
         <hr>
         <form>
             <div class="frm-linha">
@@ -87,6 +89,15 @@
         </form>
     </div>
     <div id="janelaEdicaoFundo"></div>
+    <div>
+          <?php
+            echo "
+            <a href='sistema_metas_coach.php'>
+              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(0,0,0); color: #fff;' value='Voltar'>
+            </a>
+            ";
+          ?>
+        </div>
     <script src="coach_cad_meta.js"></script>
     <!--Container Main end-->
     <script type='text/javascript'
