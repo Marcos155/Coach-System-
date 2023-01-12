@@ -196,3 +196,5 @@ ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
 ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 
+
+

@@ -211,7 +211,6 @@
       </div>
     </div>
     <div class="height-100 bg-light">
-
       <b>
         <p>Agora seus objetivos para os proximos <u>12 meses</u></p>
       </b>
@@ -252,7 +251,7 @@
       <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1"  name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1"  name="opcao">
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
@@ -285,12 +284,13 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="" name="obs" required><br>
       </div>
+      <!--
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_1"
-          placeholder="André ira preencher" name="obs_andre"><br>
+          placeholder="André irá preencher" name="obs_andre" value="André irá preencher"><br>
       </div>
- <br>
+ <br>-->
       <!-- //////////// -->
       
       <p>Agora sobre <b>relacionamentos</b></p>
@@ -328,7 +328,7 @@
       <!-- nova parte -->
       <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao">
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
@@ -361,12 +361,13 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="" name="obs" required><br>
       </div>
+      <!--
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_2"
           placeholder="André ira preencher" name="obs_andre"><br>
       </div>
- <br><br>
+ <br><br>-->
       <!-- //////////// -->
      
       <p>Agora sobre seu <b>trabalho</b></p>
@@ -404,7 +405,7 @@
 <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao">
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
@@ -437,12 +438,13 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="" name="obs" required><br>
       </div>
+      <!--
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_3"
           placeholder="André irá preencher" name="obs_andre"><br>
       </div>
- <br><br>
+ <br><br>-->
       <!-- //////////// -->
       
       <p>Agora sobre seu <b>dinheiro</b></p>
@@ -480,7 +482,7 @@
     <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao">
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
@@ -513,12 +515,13 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="" name="obs" required><br>
       </div>
+      <!--
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_4"
           placeholder="André ira preencher" name="obs_andre"><br>
       </div>
- <br><br>
+ <br><br>-->
       <!-- //////////// -->
       
       
@@ -558,7 +561,7 @@
       <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao" checked>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao">
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
 </div>
 <div class="form-check form-check-inline">
@@ -591,11 +594,12 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="" name="obs" required><br>
       </div>
+      <!--
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type="text" class="form-control" id="complementos_5"
           placeholder="André ira preencher" name="obs_andre"><br>
-      </div>
+      </div>-->
       <!-- //////////// -->
       <h5><b>Agora para finalizar...</b></h5>
       <div class="form-group espace">
@@ -618,8 +622,10 @@
           placeholder="Email" name="email" required />
         <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo email usado no cadastro</small>
       </div>
+    
       <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;"
-        name="submit">Enviar</button>
+        name="submit" onclick="alert('sucesso!')">Enviar</button>
+     
       </form>
     </div>
     <!--Container Main end-->

@@ -129,6 +129,7 @@ header('show_sistema_persona.php');
                <th scope="row">Turma</th>
                 <th scope="row">Código</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
                 <th scope="col">formulário</th>
                 <th scope="col">Saúde</th>
                 <th scope="col">Relacionamento</th>
@@ -147,6 +148,7 @@ header('show_sistema_persona.php');
           echo "<td></td>";
           echo "<td>" . $user_data['cod'] . "</td>";
           echo "<td>" . $user_data['nome'] . "</td>";
+          echo "<td>" . $user_data['sobrenome'] . "</td>";
           echo "<td>
                   <a class='btn btn-sm btn-dark' href='coach_testando.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
                     Formulário
@@ -259,7 +261,7 @@ searchData();
 }
 });
 function searchData() {
-window.location = 'sistema.php?search=' + search.value;
+window.location = 'sistema_coach_forms.php?search=' + search.value;
 };
 
 

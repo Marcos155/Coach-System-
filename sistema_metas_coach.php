@@ -1,4 +1,43 @@
 <?php
+session_start();
+include_once('config.php');
+
+//cadastro
+if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+  unset($_SESSION['email']);
+  unset($_SESSION['senha']);
+  header('Location:entrar.php');
+}
+$logado = $_SESSION['email'];
+
+if (!empty($_GET['search'])) {
+  $data = $_GET['search'];
+  $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' ";
+
+} else {
+  $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
+}
+
+
+$result2 = $conexao_regis->query($sql);
+
+
+if (isset($_POST['submit'])) {
+
+  include_once('config.php');
+
+  $nome = $_POST['username'];
+  $sobrenome = $_POST['sobrenome'];
+  $email = $_POST['email'];
+  $cidade = $_POST['cidade'];
+  $estado = $_POST['estado'];
+  $telefone = $_POST['phone'];
+  $sexo = $_POST['sexo'];
+
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo) 
+VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')");
+}
 ?>
 <!doctype html>
 <html>
@@ -12,7 +51,22 @@
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
   <link rel="stylesheet" href="assets/css/style-trelo.css">
+  <style>
+        .table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+    }
 
+     .box-search{
+            display: flex;
+            justify-content: center;
+            gap: .1%;
+        }
+    #pesquisar:focus{
+      border-color: rgba(0,0,0,0.4);
+      box-shadow:none;
+    }
+  </style>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
@@ -55,60 +109,76 @@
         <p>você aqui você pode analisar como estão indo as metas de seus alunos</b></p>
 
 <br><br><br>
-     <b><p>Marque aqueles que estão concluídos</p></b><br><br>
-      <div style="display: flex; justify-content: space-evenly;">
-        <section class="list">
-          <header>Objetivos: daqui 15 anos</header>
-          <article class="card">
-            <header><input class="" type="checkbox">Drag and Drop CSS</header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header><input class="" type="checkbox">Maybe something else ?</header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card">
-            <header><input class="" type="checkbox">Drag and Drop JS</header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Relacionamentos)</header>
-          <article class="card">
-            <header><input class="" type="checkbox">Global HTML</header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header><input class="" type="checkbox">Global CSS</header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Financeiro)</header>
-          <article class="card">
-            <header><input class="" type="checkbox">Global HTML</header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header><input class="" type="checkbox">Global CSS</header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Outros)</header>
-          <article class="card">
-            <header><input class="" type="checkbox">Global HTML</header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header><input class="" type="checkbox">Global CSS</header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-      </div><br><br><br><br>
+<h3><b>Cadastrar</b> Metas</h3>
+<div class="box-search">
+              <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
+              <button onclick="searchData()" class="btn btn-dark">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+               </svg>
+        </button>
+          </div>
+          <br>
+          <br>
+
+          <div class="table-wrapper">
+            <table class="table">
+            <thead class="thead-light">
+               <tr>
+                <th scope="row">turma</th>
+                <th scope="row">Código</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Saúde</th>
+                <th scope="col">Relacionamento</th>
+                <th scope="col">Dinheiro</th>
+                <th scope="col">Trabalho</th>
+                <th scope="col">Outro</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+        while ($user_data = mysqli_fetch_assoc($result2)) {
+          echo "<tr>";
+          echo "<td></td>";
+          echo "<td>" . $user_data['cod'] . "</td>";
+          echo "<td>" . $user_data['nome'] . "</td>";
+          echo "<td>" . $user_data['sobrenome'] . "</td>";
+          echo "
+        <td>
+          <a class='btn btn-sm btn-dark' href='coach_meta_saude.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+            Cadastrar
+          </a>
+        </td>
+        <td>
+          <a class='btn btn-sm btn-dark' href='#' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+            Cadastrar
+          </a>
+        </td>
+        <td>
+          <a class='btn btn-sm btn-dark' href='#' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+            Cadastrar
+          </a>
+        </td>
+        <td>
+          <a class='btn btn-sm btn-dark' href='#' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+            Cadastrar
+          </a>
+        </td>
+        <td>
+          <a class='btn btn-sm btn-dark' href='#' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+            Cadastrar
+          </a>
+        </td> ";
+          echo "<tr>";
+        }
+        ?>
+              </tbody>
+            </table>
+          </div>
+          <br><br><br><br>
+          <h3><b>Analisar</b> Metas</h3>
+          <br>
       <b>
         <p>Veja aqui os dados de desempenhos das turmas e alunos</p>
       </b>
@@ -288,7 +358,38 @@
     <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
       myLink.addEventListener('click', function (e) {
         e.preventDefault();
-      });</script>
+      });
+      
+            /* do antigo sistema */
+            $(document).ready(function(){
+
+$(".search-block").hide();
+$(".expander-title").click(function(){
+  $(this).next(".search-block").slideToggle("fast");
+});
+
+});
+
+var search = document.getElementById('pesquisar');
+search.addEventListener("keydown", function (event) {
+if (event.key === "Enter") {
+searchData();
+}
+});
+function searchData() {
+window.location = 'sistema_metas_coach.php?search=' + search.value;
+};
+
+
+$(document).ready(function () {
+
+$(".search-block").hide();
+$(".expander-title").click(function () {
+$(this).next(".search-block").slideToggle("fast");
+});
+
+});
+      </script>
 
   </body>
 

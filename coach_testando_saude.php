@@ -14,7 +14,7 @@ if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM saude_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
   or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or opcao  LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
-  or data_fim LIKE '%$data%' or obs LIKE '%$data%' or obs_andre LIKE '%$data%' ";
+  or data_fim LIKE '%$data%' or obs LIKE '%$data%'";
 } else {
   
   $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from saude_12_meses where saude_12_meses.cod = $cod ";
@@ -38,10 +38,9 @@ if (isset($_POST['submit'])) {
     $data_inicio= $_POST['data_inicio'];
     $data_fim= $_POST['data_fim'];
     $obs= $_POST['obs'];
-    $obs_andre= $_POST['obs_andre'];
 
-    $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO saude_12_meses(obs_andre) 
-    VALUES ('$obs_andre')"); 
+    /*$resultSaude= mysqli_query($conexao_forms15,"INSERT INTO saude_12_meses(obs_andre) 
+    VALUES ('$obs_andre')"); */
     header('coach_testando_saude.php');
 }
 if(!empty($_GET['cod']))
@@ -71,7 +70,6 @@ if(!empty($_GET['cod']))
             $data_inicio= $user_data['data_inicio'];
             $data_fim= $user_data['data_fim'];
             $obs= $user_data['obs'];
-            $obs_andre= $user_data['obs_andre'];
         }
 
     }
@@ -168,7 +166,7 @@ $nome= $user_data['nome'];
         ?><br>
       <h3><li>Saúde</li></h3>
       <?php
-        echo"<form action='save_edit_coach_saude.php' method='post' name='forms'>";
+        /*echo"<form action='save_edit_coach_saude.php' method='post' name='forms'>";*/
       ?>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
@@ -248,13 +246,14 @@ $nome= $user_data['nome'];
         <?php
         echo "<input type='text' class='form-control' value=' $user_data[obs]' id='obs'>";
         ?><br>
-      
+    <form action='save_edit_coach_saude.php' method='post' name='forms'>
+      <!--
     </div class="mb-3">
         <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
-        <input type='text' class='form-control' <?php echo "value=' $user_data[obs_andre]' "?> id='obs_andre' name='obs_andre'>
+        <input type='text' class='form-control' <?php //echo "value=' $user_data[obs_andre]' "?> id='obs_andre' name='obs_andre'>
         <br>
-      </div>
+      </div>-->
       
       <div>
           <?php

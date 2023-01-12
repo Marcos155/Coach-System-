@@ -1,45 +1,3 @@
-<?php
-session_start();
-include_once('config.php');
-
-//cadastro
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  header('Location:entrar.php');
-}
-$logado = $_SESSION['email'];
-
-if (!empty($_GET['search'])) {
-  $data = $_GET['search'];
-  $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' ";
-
-} else {
-  $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
-}
-
-
-$result2 = $conexao_regis->query($sql);
-
-
-if (isset($_POST['submit'])) {
-
-  include_once('config.php');
-
-  $nome = $_POST['username'];
-  $sobrenome = $_POST['sobrenome'];
-  $email = $_POST['email'];
-  $cidade = $_POST['cidade'];
-  $estado = $_POST['estado'];
-  $telefone = $_POST['phone'];
-  $sexo = $_POST['sexo'];
-
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo) 
-VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')");
-}
-
-?>
 <!doctype html>
 <html>
 
@@ -51,23 +9,9 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
-  
-  <style>
-        .table-wrapper {
-    max-height: 500px;
-    overflow-y: auto;
-    }
-
-    .box-search{
-            display: flex;
-            justify-content: center;
-            gap: .1%;
-        }
-    #pesquisar:focus{
-      border-color: rgba(0,0,0,0.4);
-      box-shadow:none;
-    }
-  </style>
+  <link rel="stylesheet" href="style_coach_cad_meta.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
@@ -84,13 +28,13 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
           <div class="nav_list"> 
             <?php
               
-              echo "<a href='sistema.php' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
+              echo "<a href='sistema.php' class='nav_link'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta-Alunos</span> </a>"; 
               
               echo "<a href='sistema_coach_forms.php' class='nav_link'> <i
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário-Alunos</span> </a>"; 
               
-              echo "<a href='sistema_metas_coach.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
+              echo "<a href='sistema_metas_coach.php' class='nav_link active'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
@@ -107,71 +51,43 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
     <div class="height-100 bg-light">
     <main class="mdl-layout__content">
         <div class="page-content">
+        <h2 style="color:#000;"><b>André</b></h2>
+        <p style="color:#000;">você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, telefone, email, cidade e estado</b></p>
+            <br>
+        <div class="conteudo">
+        <div class="topo">
+            <input type="text" 
+                id="inputNovaTarefa"
+                placeholder="Adicionar nova meta"
+                >
 
-        <h2><b>André</b></h2>
+            <button id="btnAddTarefa">
+                <i class="fa fa-plus"></i>
+            </button>
+        </div>
 
-          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, telefone, email, cidade e estado</b></p>
+        <ul id="listaTarefas">
+        </ul>
+    </div>   
 
-          <br>
-          <br>
-          <div class="box-search">
-              <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
-              <button onclick="searchData()" class="btn btn-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-               </svg>
+    <div id="janelaEdicao">
+        <button id="janelaEdicaoBtnFechar">
+            <i class="fa fa-remove fa-2x"></i>
         </button>
-          </div>
-          <br>
-          <br>
-
-          <div class="table-wrapper">
-            <table class="table">
-            <thead class="thead-light">
-               <tr>
-                <th scope="row">Código</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Excluir</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php
-        while ($user_data = mysqli_fetch_assoc($result2)) {
-          echo "<tr>";
-          echo "<td>" . $user_data['cod'] . "</td>";
-          echo "<td>" . $user_data['nome'] . "</td>";
-          echo "<td>" . $user_data['sobrenome'] . "</td>";
-          echo "<td>" . $user_data['email'] . "</td>";
-          echo "<td>" . $user_data['telefone'] . "</td>";
-          echo "<td>" . $user_data['sexo'] . "</td>";
-          echo "<td>" . $user_data['cidade'] . "</td>";
-          echo "<td>" .$user_data['estado'] . "</td>";
-          echo "<td>
-
-          <a class='btn btn-sm btn-dark'  href='delete.php?cod=$user_data[cod]'
-          placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-            <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-            <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-          </svg>
-          </a>
-        </td>";
-          echo "<tr>";
-        }
-        ?>
-              </tbody>
-            </table>
-          </div>
-</div>
-        
+        <h2 id="idTarefaEdicao">#1021</h2>
+        <hr>
+        <form>
+            <div class="frm-linha">
+                <label for="nome">Meta</label>
+                <input type="text" id="inputTarefaNomeEdicao">
+            </div>
+            <div class="frm-linha">
+                <button id="btnAtualizarTarefa">Salvar</button>
+            </div>
+        </form>
     </div>
-
+    <div id="janelaEdicaoFundo"></div>
+    <script src="coach_cad_meta.js"></script>
     <!--Container Main end-->
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>

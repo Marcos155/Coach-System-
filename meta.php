@@ -21,213 +21,308 @@
       $result2 = $conexao_regis->query($sql);
       $user_data = mysqli_fetch_assoc($result2);
 $nome= $user_data['nome'];
-$nome= $user_data['nome'];
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>Meta</title>
-    <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.teal-deep_purple.min.css">
-    <link rel="stylesheet" href="assets/css/style-profile.css">
-    <link rel="stylesheet" href="assets/css/meta.css">
-    <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Roboto:300,300i,400,400i,500,700,900"
-        rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script defer src=https://kit.fontawesome.com/79b5047e4f.js crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style.css">
-    <style>
-        .mdl-layout__header {
-            background-color: rgb(255, 0, 0);
-        }
-
-        .table-wrapper {
-            max-height: 500px;
-            overflow-y: auto;
-        }
-
-        label,
-        p,
-        button,
-        .form-check {
-            color: #000;
-            margin-left: 0.3vw;
-        }
-
-        .espace {
-            margin-right: 1rem;
-            margin-left: 1rem;
-        }
-
-        .alinhar {
-            text-align: center;
-        }
-    </style>
-    <script>
-
-    </script>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Meta</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/style-trelo.css">
+  <style>
+    .table-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+    }
+  </style>
 </head>
 
-<body>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header administration">
-        <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-                <div class="current-user">
-                    <i class="material-icons">account_circle</i>
-                    <!-- 
-                    <i class="material-icons" onclick="clicar()" onmouseenter="mouse()">account_circle</i>
-                    <span class="foto">Clique no icone para selecionar a foto de perfil</span>
-                    <div class="file">
-                        <input type="file" id="file" accept="image/*" placeholder="Selecione a foto de perfil">
-                        <label class="hover" for="file">Selecione a foto de perfil
-                        </label>
-                    </div>-->
-                    <?php echo "olá, $nome!" ?>
-                </div>
-            </div>
-            <div class="mdl-layout-spacer"></div>
-        </header>
-        <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">
-        <?php
-          echo $nome; 
-        ?>
-      </span>
-            <nav class="mdl-navigation">
-                <br>
-                <nav class="mdl-navigation">
-                    <?php
-            echo "<a class='mdl-navigation__link' href='testando.php?cod=$user_data[cod]'>Formulário</a>";
-          ?>
-                    <br>
-                    <a class="mdl-navigation__link" href="show_sistema_persona.php">Conta</a>
-                    <br>
-                    <a class="mdl-navigation__link active" href="meta.php">meta</a>
-                    <br>
-                    <a class="mdl-navigation__link" href="notas.php">Notas</a>
-          <br>
-                    <a class="mdl-navigation__link" href="sair.php">Sair</a>
-                </nav>
-        </div><br><br><br><br>
-        <main class="mdl-layout__content">
-            <div class="page-content">
-                <div class="m-5">
-                    <h1>Meta</h1>
-                </div>
-                <div class="bar">
-                    <input class="bar-input" type="radio" name="input" id="input_0" />
-                    <div class="bar-view">
-                        <label class="bar-button" for="input_0">5</label>
-                    </div>
-                    <input class="bar-input" type="radio" name="input" id="input_1" />
-                    <div class="bar-view">
-                        <label class="bar-button" for="input_1">4</label>
-                    </div>
-                    <input class="bar-input" type="radio" name="input" id="input_2" />
-                    <div class="bar-view">
-                        <label class="bar-button" for="input_2">3</label>
-                    </div>
-                    <input class="bar-input" type="radio" name="input" id="input_3" />
-                    <div class="bar-view">
-                        <label class="bar-button" for="input_3">2</label>
-                    </div>
-                    <input class="bar-input" type="radio" name="input" id="input_4" />
-                    <div class="bar-view">
-                        <label class="bar-button" for="input_4">1</label>
-                    </div>
-                </div>
-                <div class="command">Clique no objetivo que foi concluido</div><br><br>
-                <form action="obrigado.html" method="POST">
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
-                            <label class="form-check-label" for="invalidCheck">
-                                1: Formulário preenchido
-                            </label><br>
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
-                            <label class="form-check-label" for="invalidCheck">
-                                2: Aulas realizadas
-                            </label><br>
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
-                            <label class="form-check-label" for="invalidCheck">
-                                3: Anotação preenchida
-                            </label><br>
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
-                            <label class="form-check-label" for="invalidCheck">
-                                4: Acompanhamento realizado
-                            </label><br>
-                            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" >
-                            <label class="form-check-label" for="invalidCheck">
-                                5 : Meta concluída
-                            </label><br><br><br>
-                            <div class="form-group espace">
-                                <label for="exampleFormControlTextarea1">Faça anotações do que foi feito na
-                                    semana</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                </form>
-                <button type="submit" class="btn btn-dark">Enviar</button>
-            </div>
-        </main>
-        <script>
+<body className='snippet-body' style="background-color:#f8f9fa">
 
-            function clicar() {
-                document.getElementsByClassName('file')[0].style.display = "flex";
-                document.getElementsByClassName('foto')[0].style.display = "none";
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+      <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name"> <?php
+              echo $nome ?></span> </a>
+          <div class="nav_list"> 
+            <?php
+              echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
+                class='nav_name'>Início</span> </a>";
+              
+              echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+              <span class='nav_name'>Conta</span> </a>"; 
+              
+              echo "<a href='testando.php?cod=$user_data[cod]' class='nav_link'> <i
+              class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
+              
+              echo "<a href='meta.php?cod=$user_data[cod]' class='nav_link active'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
+              
+              echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
+            ?>
+          </div>
+        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </a>
+      </nav>
+    </div>
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+      <br><br>
+      <h2> Olá
+        <?php echo $nome ?>&#128578;
+      </h2>
+      <br>
+      <b>
+        <p>essas são suas metas para alcançar seu objetivo</p>
+      </b>
+      <br>
+     <b><p>Marque aqueles que estão concluídos</p></b><br><br>
+     <div class="table-wrapper">
+      <div style="display: flex; justify-content: space-evenly;">
+        <section class="list">
+          <header>Objetivos: daqui 15 anos</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox"><?php ?>
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <!-- 12 meses -->
+        <section class="list">
+          <header>Objetivos: 12 meses (Saúde)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Relacionamentos)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Dinheiro)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Trabalho)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Outros)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+      </div>
+    </div>
+      <br><br><br><br>
+
+      <!-- grpaficos -->
+      <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
+      <div style="width: 30vw; display: inline-block; margin-left: 35%;">
+        <canvas id="conclusao" width="300" height="300"></canvas>
+      </div><br><br><br>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="assets/js/style-trelo.js"></script>
+      <script>
+        const ctx = document.getElementById('turmas').getContext('2d');
+        const turmas = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Turma 1', 'turma2', 'Turma 3', 'turma 4', 'Turma 5', 'turma 6' ///turmas tem que vir aqui 
+            ],
+            datasets: [{
+              label: 'Notas das turmas',
+              data: [6, 5, 3, 9, 8, 7], ///dados das notas tem que estarem aqui 
+              backgroundColor: [
+                '#198754b8'
+
+              ],
+              hoverBackgroundColor: [
+                '#198754',
+              ],
+              borderColor: [
+                'black',
+              ],
+              borderWidth: 1,
+              hoverBorderWidth: 5,
+            }]
+          },
+          options: {
+            scales: {
+              indexAxis: 'x',
             }
-            function mouse() {
-                document.getElementsByClassName('foto')[0].style.display = "block";
+          }
+        });
+
+      </script>
+      <script>
+        new Chart(
+          document.getElementById('alunos'),
+          {
+            type: 'bar',
+            data: {
+              labels: ['Aluno 1', 'Aluno2', 'Aluno 3', 'Aluno 4', 'Aluno 5', 'Aluno 6' ///nome dos alunos tem que vir aqui 
+              ],
+              datasets: [{
+                label: 'Notas dos alunos',
+                data: [6, 5, 3, 9, 8, 7], ///dados das notas tem que estarem aqui 
+                backgroundColor: [
+                  '#6a0baaa6'
+                ],
+                hoverBackgroundColor: [
+                  '#6a0baa',],
+                borderColor: [
+                  'black',
+                ],
+                borderWidth: 1,
+                hoverBorderWidth: 5,
+              }]
+            },
+            options: {
+              scales: {
+                indexAxis: 'x',
+              }
             }
-            const progressBar = document.getElementById("progress-bar");
-            const progressNext = document.getElementById("progress-next");
-            const progressPrev = document.getElementById("progress-prev");
-            const steps = document.querySelectorAll(".step");
-            let active = 1;
+          });
+        new Chart(
+          document.getElementById('conclusao'),
+          {
+            type: 'doughnut',
+            data: {
+              labels: ['Falta concluir', 'Concluído'///
+              ],
+              datasets: [{
+                label: 'Notas dos alunos',
+                data: [6, 5], ///trazer os dados de conclusão das anotações, numero 6 falta é o falta concluir  
+                backgroundColor: [
+                  '#0040ffb0',
+                  'white',
+                ],
+                hoverBackgroundColor: [
+                  '#0040ff',
+                  'white'
+                ],
+                borderColor: [
+                  'black',
+                ],
+                borderWidth: 1,
+                hoverBorderWidth: 5,
+              }]
+            },
+            options: {
+              scales: {
+                indexAxis: 'x',
+              }
+            }
+          });
+      </script>
+    </div>
+    <!--Container Main end-->
+    <script type='text/javascript'
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
 
-            progressNext.addEventListener("click", () => {
-                active++;
-                if (active > steps.length) {
-                    active = steps.length;
-                }
-                updateProgress();
-            });
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+          const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId),
+            bodypd = document.getElementById(bodyId),
+            headerpd = document.getElementById(headerId)
 
-            progressPrev.addEventListener("click", () => {
-                active--;
-                if (active < 1) {
-                    active = 1;
-                }
-                updateProgress();
-            });
+          // Validate that all variables exist
+          if (toggle && nav && bodypd && headerpd) {
+            toggle.addEventListener('click', () => {
+              // show navbar
+              nav.classList.toggle('show')
+              // change icon
+              toggle.classList.toggle('bx-x')
+              // add padding to body
+              bodypd.classList.toggle('body-pd')
+              // add padding to header
+              headerpd.classList.toggle('body-pd')
+            })
+          }
+        }
 
-            const updateProgress = () => {
-                // toggle active class on list items
-                steps.forEach((step, i) => {
-                    if (i < active) {
-                        step.classList.add("active");
-                    } else {
-                        step.classList.remove("active");
-                    }
-                });
-                // set progress bar width  
-                progressBar.style.width =
-                    ((active - 1) / (steps.length - 1)) * 100 + "%";
-                // enable disable prev and next buttons
-                if (active === 1) {
-                    progressPrev.disabled = true;
-                } else if (active === steps.length) {
-                    progressNext.disabled = true;
-                } else {
-                    progressPrev.disabled = false;
-                    progressNext.disabled = false;
-                }
-            };
-        </script>
-</body>
+        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+        /*===== LINK ACTIVE =====*/
+        const linkColor = document.querySelectorAll('.nav_link')
+
+        function colorLink() {
+          if (linkColor) {
+            linkColor.forEach(l => l.classList.remove('active'))
+            this.classList.add('active')
+          }
+        }
+        linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        // Your code to run since DOM is loaded and ready
+      });</script>
+    <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
+      myLink.addEventListener('click', function (e) {
+        e.preventDefault();
+      });</script>
+
+  </body>
+
 </html>
