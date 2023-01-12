@@ -163,7 +163,15 @@
         placeholder="Como fazer ?" name="como" value="<?php echo $como ?>" >
       </div>
 
-
+      <p>Acredita que é possivel realizar a meta ?</p>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1"  name="opcao"  <?php echo ($opcao == 'opcao') ? 'checked' : ''?>>
+  <label class="form-check-label" for="inlineCheckbox1">Sim</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao"  <?php echo ($opcao == 'opcao') ? 'checked' : ''?>>
+  <label class="form-check-label" for="inlineCheckbox2">Não</label>
+</div><br><br>
       <p><b>Metas sobre saúde</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>

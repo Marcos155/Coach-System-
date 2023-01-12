@@ -46,13 +46,14 @@ if (isset($_POST['submit'])) {
   $nome= $_POST['nome'];
   $sobrenome= $_POST['sobrenome'];
   $objet= $_POST['objet'];
+  $opcao= $_POST['opcao'];
   $responsa=$_POST['responsa'];
   $data_inicio= $_POST['data_inicio'];
   $data_fim= $_POST['data_fim'];
   $obs= $_POST['obs'];
 
-  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,responsa,data_inicio,data_fim,obs) 
-  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$responsa','$data_inicio','$data_fim','$obs')"); 
+  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO saude_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
   header('show_sistema_persona.php');
 
     /* relacionamento */

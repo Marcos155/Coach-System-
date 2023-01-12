@@ -251,12 +251,12 @@
       <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1"  name="opcao">
-  <label class="form-check-label" for="inlineCheckbox1">Sim</label>
+  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="opcao"  name="opcao">
+  <label class="form-check-label" for="opcao">Sim</label>
 </div>
 <div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
-  <label class="form-check-label" for="inlineCheckbox2">Não</label>
+  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="opcao" name="opcao">
+  <label class="form-check-label" for="opcao">Não</label>
 </div><br><br>
 <p><b>Metas sobre saúde</b></p><br>
    <div class="mb-3">
