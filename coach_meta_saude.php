@@ -22,6 +22,12 @@
     transition: all 0.3s;
     border: none;
 }
+.topo input{
+  background:#fff;
+}
+#listaTarefas li{
+  background:#fff;
+}
   </style>
 </head>
 
