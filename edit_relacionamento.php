@@ -163,6 +163,13 @@
       </div>
 
 
+      <p>Acredita que é possivel realizar a meta ?</p>
+            <input type="radio" value="sim" name="opcao" <?php echo ($opcao == 'sim') ? 'checked' : ''?> class="form-check-input">
+            <label for="sim">Sim</label>
+            <input type="radio"  value="nao" name ="opcao" <?php echo ($opcao == 'nao') ? 'checked' : ''?> class="form-check-input">
+            <label for="nao">Não</label>
+            <br><br>
+
       <p><b>Metas sobre relacionamentos</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>

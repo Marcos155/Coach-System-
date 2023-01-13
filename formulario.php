@@ -332,6 +332,12 @@
           placeholder="Como fazer ?" name="como" required><br>
       </div>
       <!-- nova parte -->
+      <p>Acredita que é possivel realizar a meta ?</p>
+            <input type="radio" value="sim" name="opcao" checked  class="form-check-input">
+            <label for="sim">Sim</label>
+            <input type="radio"  value="nao" name ="opcao" class="form-check-input">
+            <label for="nao">Não</label>
+            <br><br>
       <!--
       <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
@@ -410,6 +416,12 @@
           placeholder="Como fazer ?" name="como" required><br>
       </div>
 <!-- nova parte -->
+<p>Acredita que é possivel realizar a meta ?</p>
+            <input type="radio" value="sim" name="opcao" checked  class="form-check-input">
+            <label for="sim">Sim</label>
+            <input type="radio"  value="nao" name ="opcao" class="form-check-input">
+            <label for="nao">Não</label>
+            <br><br>
 <!--
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
@@ -488,6 +500,12 @@
           placeholder="Como fazer ?" name="como" required><br>
       </div>
     <!-- nova parte -->
+    <p>Acredita que é possivel realizar a meta ?</p>
+            <input type="radio" value="sim" name="opcao" checked  class="form-check-input">
+            <label for="sim">Sim</label>
+            <input type="radio"  value="nao" name ="opcao" class="form-check-input">
+            <label for="nao">Não</label>
+            <br><br>
     <!--
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
@@ -568,6 +586,12 @@
       </div>
       <br>
       <!-- nova parte -->
+      <p>Acredita que é possivel realizar a meta ?</p>
+            <input type="radio" value="sim" name="opcao" checked  class="form-check-input">
+            <label for="sim">Sim</label>
+            <input type="radio"  value="nao" name ="opcao" class="form-check-input">
+            <label for="nao">Não</label>
+            <br><br>
       <!--
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">

@@ -8,7 +8,7 @@ if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true
     header('Location:entrar.php');
   }
   $logado = $_SESSION['email'];
-  
+
 if (isset($_POST['submit'])) {
 
 /* formulário 15 anos */
@@ -57,12 +57,13 @@ header('show_sistema_persona.php');
   $nome= $_POST['nome'];
   $sobrenome= $_POST['sobrenome'];
   $objet= $_POST['objet'];
+  $opcao= $_POST['opcao'];
   $responsa=$_POST['responsa'];
   $data_inicio= $_POST['data_inicio'];
   $data_fim= $_POST['data_fim'];
   $obs= $_POST['obs'];
-  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,responsa,data_inicio,data_fim,obs) 
-  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$responsa','$data_inicio','$data_fim','$obs')"); 
+  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
   header('show_sistema_persona.php');
 
   /* trabalho */
@@ -76,12 +77,13 @@ header('show_sistema_persona.php');
   $nome= $_POST['nome'];
   $sobrenome= $_POST['sobrenome'];
   $objet= $_POST['objet'];
+  $opcao= $_POST['opcao'];
   $responsa=$_POST['responsa'];
   $data_inicio= $_POST['data_inicio'];
   $data_fim= $_POST['data_fim'];
   $obs= $_POST['obs'];
-  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO trabalho_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,responsa,data_inicio,data_fim,obs) 
-  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$responsa','$data_inicio','$data_fim','$obs')"); 
+  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO trabalho_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
   header('show_sistema_persona.php');
 
 /* dinheiro */
@@ -95,12 +97,13 @@ include_once('config.php');
   $nome= $_POST['nome'];
   $sobrenome= $_POST['sobrenome'];
   $objet= $_POST['objet'];
+  $opcao= $_POST['opcao'];
   $responsa=$_POST['responsa'];
   $data_inicio= $_POST['data_inicio'];
   $data_fim= $_POST['data_fim'];
   $obs= $_POST['obs'];
-  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,responsa,data_inicio,data_fim,obs) 
-  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$responsa','$data_inicio','$data_fim','$obs')"); 
+  $resultSaude= mysqli_query($conexao_forms15,"INSERT INTO dinheiro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
   header('show_sistema_persona.php');
 
 /* outro */
@@ -114,12 +117,13 @@ $como= $_POST['como'];
 $nome= $_POST['nome'];
 $sobrenome= $_POST['sobrenome'];
 $objet= $_POST['objet'];
+$opcao= $_POST['opcao'];
 $responsa=$_POST['responsa'];
 $data_inicio= $_POST['data_inicio'];
 $data_fim= $_POST['data_fim'];
 $obs= $_POST['obs'];
-$resultSaude= mysqli_query($conexao_forms15,"INSERT INTO outro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,responsa,data_inicio,data_fim,obs) 
-VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$responsa','$data_inicio','$data_fim','$obs')"); 
+$resultSaude= mysqli_query($conexao_forms15,"INSERT INTO outro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
+VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
 header('show_sistema_persona.php');
 }
 header('Location: show_sistema_persona.php');
