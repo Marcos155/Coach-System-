@@ -204,6 +204,12 @@
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
           placeholder="" name="obs" value="<?php echo $obs ?>" ><br>
       </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        placeholder="Por que está editando seu formulário?" 
+              name="edicao" required>
+      </div>
 
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
        
