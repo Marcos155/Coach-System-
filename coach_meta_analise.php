@@ -1,63 +1,22 @@
-<?php
-session_start();
-include_once('config.php');
-
-//cadastro
-if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
-  unset($_SESSION['email']);
-  unset($_SESSION['senha']);
-  header('Location:entrar.php');
-}
-$logado = $_SESSION['email'];
-
-if (!empty($_GET['search'])) {
-  $data = $_GET['search'];
-  $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' ";
-
-} else {
-  $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
-}
-
-
-$result2 = $conexao_regis->query($sql);
-
-
-if (isset($_POST['submit'])) {
-
-  include_once('config.php');
-
-  $nome = $_POST['username'];
-  $sobrenome = $_POST['sobrenome'];
-  $email = $_POST['email'];
-  $cidade = $_POST['cidade'];
-  $estado = $_POST['estado'];
-  $telefone = $_POST['phone'];
-  $sexo = $_POST['sexo'];
-
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo) 
-VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')");
-}
-?>
 <!doctype html>
 <html>
 
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Meta</title>
+  <title>Conta</title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
-  <link rel="stylesheet" href="assets/css/style-trelo.css">
+  
   <style>
         .table-wrapper {
     max-height: 500px;
     overflow-y: auto;
     }
 
-     .box-search{
+    .box-search{
             display: flex;
             justify-content: center;
             gap: .1%;
@@ -83,23 +42,23 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
 
   <body id="body-pd">
     <header class="header" id="header">
-    <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:black"></i> </div>
+      <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:black"></i> </div>
       <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
     <div class="l-navbar" id="nav-bar" style="background-color: darkgray;">
-    <nav class="nav">
+      <nav class="nav">
         <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon' style="color:black"></i> <span class="nav_logo-name" style="color:black"> <?php
               echo "Administração" ?></span> </a>
           <div class="nav_list"> 
             <?php
               
-              echo "<a href='sistema.php' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+              echo "<a href='sistema.php' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta-Alunos</span> </a>"; 
               
               echo "<a href='sistema_coach_forms.php' class='nav_link'> <i
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário-Alunos</span> </a>"; 
               
-              echo "<a href='sistema_metas_coach.php' class='nav_link active'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
+              echo "<a href='sistema_metas_coach.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
@@ -114,122 +73,101 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
     </div>
     <!--Container Main start-->
     <div>
-    <h2><b>André</b></h2>
-
-        <p>você aqui você pode <b>analisar</b> como estão indo as <b>metas de seus alunos</b></p>
-
-<br><br><br>
-<h3><b>Cadastrar</b> Metas</h3>
-<div class="box-search">
-              <input type="search" class="form-control w-25" placeholder="Pesquisar" id="pesquisar">
-              <button onclick="searchData()" class="btn btn-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-               </svg>
-        </button>
-          </div>
-          <br>
-          <br>
-
-          <div class="table-wrapper">
-            <table class="table">
-            <thead class="thead-light">
-               <tr>
-                <th scope="col">turma</th>
-                <th scope="col">Código</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
-                <th scope="col">Saúde</th>
-                <th scope="col">Relacionamento</th>
-                <th scope="col">Dinheiro</th>
-                <th scope="col">Trabalho</th>
-                <th scope="col">Outro</th>
-                <th scope="col">Análise</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php
-        while ($user_data = mysqli_fetch_assoc($result2)) {
-          echo "<tr>";
-          echo "<td></td>";
-          echo "<td>" . $user_data['cod'] . "</td>";
-          echo "<td>" . $user_data['nome'] . "</td>";
-          echo "<td>" . $user_data['sobrenome'] . "</td>";
-          echo "
-        <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_saude.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
-            Cadastrar
-          </a>
-        </td>
-        <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_relacionamento.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
-            Cadastrar
-          </a>
-        </td>
-        <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_dinheiro.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
-            Cadastrar
-          </a>
-        </td>
-        <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_trabalho.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
-            Cadastrar
-          </a>
-        </td>
-        <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_outro.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
-            Cadastrar
-          </a>
-        </td> 
-        <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_analise.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
-            Analisar
-          </a>
-        </td> ";
-          echo "<tr>";
-        }
-        ?>
-              </tbody>
-            </table>
-          </div>
-          <br><br><br><br>
-          <h3><b>Analisar</b> Metas</h3>
-          <br>
-      <b>
-        <p>Veja aqui os dados de desempenhos das turmas e alunos</p>
-      </b>
+      <h2><b>André</b></h2>
+        <p>Aqui você pode <b>analisar</b> como está o <b>andamento das metas</b> de seu aluno(a)</b></p>
 <br><br>
-      <div style="justify-content: space-evenly; display: flex;">
-        <div style="width: 30vw; display: inline-block">
-          <h2>Média de conclusão turmas</h2>
-          <div class="box-search">
-            <input type="search" class="form-control w-25" placeholder="Turmas" id="pesquisar">
-            <button onclick="searchData()" class="btn btn-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-                viewBox="0 0 16 16">
-                <path
-                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-              </svg>
-            </button>
-          </div>
-          <canvas id="turmas" width="400" height="400"></canvas>
-        </div>
+     <div class="table-wrapper">
+      <div style="display: flex; justify-content: space-evenly;">
+        <section class="list">
+          <header>Objetivos: daqui 15 anos</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox"><?php ?>
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <!-- 12 meses -->
+        <section class="list">
+          <header>Objetivos: 12 meses (Saúde)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Relacionamentos)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Dinheiro)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Trabalho)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Outros)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+      </div>
+    </div>
+      <br><br><br><br>
 
-        <div style="width: 30vw; display: inline-block;">
-          <h2>Média de conclusão alunos</h2>
-          <div class="box-search">
-            <input type="search" class="form-control w-25" placeholder="Aluno" id="pesquisar">
-            <button onclick="searchData()" class="btn btn-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-                viewBox="0 0 16 16">
-                <path
-                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-              </svg>
-            </button>
-          </div>
-          <canvas id="alunos" width="400" height="400"></canvas>
-        </div>
-      </div><br><br><br>
+      <!-- grpaficos -->
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">
         <canvas id="conclusao" width="300" height="300"></canvas>
@@ -329,7 +267,9 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
             }
           });
       </script>
-    </div>
+
+</div>
+
     <!--Container Main end-->
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
@@ -355,7 +295,6 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
             })
           }
         }
-
         showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
 
         /*===== LINK ACTIVE =====*/
@@ -376,8 +315,8 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
         e.preventDefault();
       });
       
-            /* do antigo sistema */
-            $(document).ready(function(){
+      /* do antigo sistema */
+      $(document).ready(function(){
 
 $(".search-block").hide();
 $(".expander-title").click(function(){
@@ -393,7 +332,7 @@ searchData();
 }
 });
 function searchData() {
-window.location = 'sistema_metas_coach.php?search=' + search.value;
+window.location = 'sistema.php?search=' + search.value;
 };
 
 

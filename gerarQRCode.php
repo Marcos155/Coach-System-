@@ -37,6 +37,12 @@ $logado = $_SESSION['email'];
       border-color: rgba(0,0,0,0.4);
       box-shadow:none;
     }
+    body{
+      background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
+    }
+    button:hover{
+      border:none;
+    }
   </style>
 </head>
 

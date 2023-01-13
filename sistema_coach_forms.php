@@ -66,7 +66,8 @@ header('show_sistema_persona.php');
       box-shadow:none;
     }
     body{
-    background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);
+    /*background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);*/
+    background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
 }
 .btn:hover{
  

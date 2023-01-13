@@ -135,7 +135,8 @@ $user_data = mysqli_fetch_assoc($result2);
       
     }
     body{
-    background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);
+    /*background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);*/
+    background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
 }
 .btn:hover{
     background-color: #f01e1e;

@@ -14,7 +14,8 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <style>
         body{
-    background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);
+    /*background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);*/
+    background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
 }
 .btn:hover{
     background-color: #f01e1e;
@@ -35,6 +36,10 @@
 button:hover{
   opacity: 0.7;
   transition:all 0.5s;
+}
+.frm-linha input {
+  background:#fff;
+  color:#000;
 }
   </style>
 </head>
