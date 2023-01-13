@@ -128,6 +128,10 @@ $nome= $user_data['nome'];
     transition: all 0.3s;
     border: none;
 }
+.btn{
+  background-color: #000;
+  color: #fff;
+}
   </style>
 </head>
 
@@ -274,7 +278,7 @@ $nome= $user_data['nome'];
           <?php
             echo "
             <a href='sistema_coach_forms.php?cod=$user_data[cod]'>
-              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(0,0,0); color: #fff;' value='Voltar'>
+              <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
             </a>
             ";
            /* echo"   

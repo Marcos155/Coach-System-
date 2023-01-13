@@ -143,6 +143,10 @@ $user_data = mysqli_fetch_assoc($result2);
     transition: all 0.3s;
     border: none;
 }
+.btn{
+  background-color: #000;
+  color: #fff;
+}
   </style>
 </head>
 
@@ -215,7 +219,7 @@ $user_data = mysqli_fetch_assoc($result2);
           <?php
             echo "
             <a href='sistema_coach_forms.php'>
-              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(0,0,0); color: #fff;' value='Voltar'>
+              <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
             </a>
             ";   
           ?>
