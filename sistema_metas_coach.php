@@ -182,7 +182,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
           </a>
         </td> 
         <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_analise.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+          <a class='btn btn-sm btn-dark' href='coach_meta_analise.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver andamento'>
             Analisar
           </a>
         </td> ";

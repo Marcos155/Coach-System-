@@ -167,6 +167,99 @@
     </div>
       <br><br><br><br>
 
+      <p>andamento das <b>metas cadastradas por seu aluno(a)</b></p>
+<br><br>
+     <div class="table-wrapper">
+      <div style="display: flex; justify-content: space-evenly;">
+        <section class="list">
+          <header>Objetivos: daqui 15 anos</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox"><?php ?>
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <!-- 12 meses -->
+        <section class="list">
+          <header>Objetivos: 12 meses (Saúde)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Relacionamentos)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Dinheiro)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Trabalho)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+        <section class="list">
+          <header>Objetivos: 12 meses (Outros)</header>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+          <article class="card">
+            <header>
+                <input class="" type="checkbox">
+            </header>
+            <div class="detail">1/2</div>
+          </article>
+        </section>
+      </div>
+    </div>
+      <br><br><br><br>
+
       <!-- grpaficos -->
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">

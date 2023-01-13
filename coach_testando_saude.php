@@ -267,13 +267,13 @@ $nome= $user_data['nome'];
         echo "<input type='text' class='form-control' value=' $user_data[obs]' id='obs'>";
         ?><br>
     <form action='save_edit_coach_saude.php' method='post' name='forms'>
-      <!--
+      
     </div class="mb-3">
         <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
         <input type='text' class='form-control' <?php //echo "value=' $user_data[obs_andre]' "?> id='obs_andre' name='obs_andre'>
         <br>
-      </div>-->
+      </div>
       
       <div>
           <?php
@@ -282,10 +282,10 @@ $nome= $user_data['nome'];
               <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
             </a>
             ";
-           /* echo"   
-            <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(0,0,0); color: #fff;' value='Salvar observação' name='update'
+            echo"   
+            <input type='submit' class='btn' class='enviar_forms' value='Salvar observação' name='update'
             onclick='return validar()'
-           id='update'>";*/
+           id='update'>";
           ?>
         </div>
         </form>

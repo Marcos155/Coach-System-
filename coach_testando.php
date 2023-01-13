@@ -216,6 +216,14 @@ $user_data = mysqli_fetch_assoc($result2);
               <input type='text' class='form-control' aria-describedby='emailHelp' name='outro' value="<?php echo $outro ?>" id='outro'>
           </div>
           <br>
+
+             
+    </div class="form-group espace">
+        <div for="exampleInputEmail1">
+        <label for="exampleFormControlTextarea1" class="form-label">Comentários</label>
+        <input type='text' class='form-control' <?php //echo "value=' $user_data[obs_andre]' "?> id='obs_andre' name='obs_andre'>
+        <br>
+      </div>
           <div>
           <?php
             echo "
@@ -223,6 +231,10 @@ $user_data = mysqli_fetch_assoc($result2);
               <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
             </a>
             ";   
+            echo"   
+            <input type='submit' class='btn' class='enviar_forms' value='Salvar observação' name='update'
+            onclick='return validar()'
+           id='update'>";
           ?>
         </div>
           <br>

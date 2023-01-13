@@ -86,7 +86,7 @@ $nome= $user_data['nome'];
       </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div>
       <br><br>
       <h2> Olá <?php echo $nome ?></h2><br>
       <b>

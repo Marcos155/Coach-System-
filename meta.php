@@ -85,6 +85,7 @@ $nome= $user_data['nome'];
       </b>
       <br>
      <b><p>Marque aqueles que estão concluídos</p></b><br><br>
+     <b><h3>Metas já registradas</h3></b><br>
      <div class="table-wrapper">
       <div style="display: flex; justify-content: space-evenly;">
         <section class="list">
@@ -174,7 +175,11 @@ $nome= $user_data['nome'];
         </section>
       </div>
     </div>
-      <br><br><br><br>
+    <br>
+    <a href='aluno_cad_meta.php'>
+      <input type='submit' class='btn' class='enviar_forms' style='background-color:	#FF0000; color: #fff;' value='Cadastrar nova meta'>
+    </a>
+    <br><br><br>
 
       <!-- grpaficos -->
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
