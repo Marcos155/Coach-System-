@@ -22,11 +22,19 @@
     transition: all 0.3s;
     border: none;
 }
+.btn{
+  background-color: #000;
+  color: #fff;
+}
 .topo input{
   background:#fff;
 }
 #listaTarefas li{
   background:#fff;
+}
+button:hover{
+  opacity: 0.7;
+  transition:all 0.5s;
 }
   </style>
 </head>
@@ -110,7 +118,7 @@
           <?php
             echo "
             <a href='sistema_metas_coach.php'>
-              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(0,0,0); color: #fff;' value='Voltar'>
+              <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
             </a>
             ";
           ?>
