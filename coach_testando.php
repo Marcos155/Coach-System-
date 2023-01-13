@@ -134,6 +134,15 @@ $user_data = mysqli_fetch_assoc($result2);
       font-weight: bold;
       
     }
+    body{
+    background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);
+}
+.btn:hover{
+    background-color: #f01e1e;
+    color: rgb(247, 247, 247);
+    transition: all 0.3s;
+    border: none;
+}
   </style>
 </head>
 
@@ -173,7 +182,7 @@ $user_data = mysqli_fetch_assoc($result2);
       </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div >
     <main class="mdl-layout__content">
         <div class="page-content">
         <?php

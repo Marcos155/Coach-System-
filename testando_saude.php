@@ -135,8 +135,8 @@ $nome= $user_data['nome'];
               echo $nome ?></span> </a>
           <div class="nav_list"> 
             <?php
-              echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
-                class='nav_name'>Início</span> </a>";
+              /*echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
+                class='nav_name'>Início</span> </a>";*/
               
               echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta</span> </a>"; 
@@ -200,6 +200,13 @@ $nome= $user_data['nome'];
 
 
       <p>Acredita que é possivel realizar a meta ?</p>
+            <input type="radio" value="sim" name="opcao" <?php echo ($opcao == 'sim') ? 'checked' : ''?> class="form-check-input" id="sim">
+            <label for="sim">Sim</label>
+            <input type="radio"  value="nao" name ="opcao" <?php echo ($opcao == 'nao') ? 'checked' : ''?> class="form-check-input" id="nao">
+            <label for="nao">Não</label>
+            <br><br>
+
+      <!--
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1"  name="opcao" checked>
   <label class="form-check-label" for="inlineCheckbox1">Sim</label>
@@ -207,7 +214,7 @@ $nome= $user_data['nome'];
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
-</div><br><br> 
+</div><br><br> -->
 
       <p><b>Metas sobre saúde</b></p><br>
    <div class="mb-3">
@@ -342,6 +349,11 @@ $nome= $user_data['nome'];
     const input_saude11 = document.querySelector('#obs');
       input_saude11.disabled=true;
 
+      const input_saude12 = document.querySelector('#sim');
+      input_saude12.disabled=true;
+
+      const input_saude13 = document.querySelector('#nao');
+      input_saude13.disabled=true;
 
       </script>
 

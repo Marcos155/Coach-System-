@@ -184,7 +184,7 @@
       </b><br>
       <?php
         //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-        echo"<form action='testando.php' method='post'>";
+        echo"<form action='direcao_forms.php' method='post'>";
       ?>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como quer estar de saúde?</label>
@@ -250,6 +250,12 @@
       
       <!-- nova parte -->
 <p>Acredita que é possivel realizar a meta ?</p>
+            <input type="radio" value="sim" name="opcao" checked  class="form-check-input">
+            <label for="sim">Sim</label>
+            <input type="radio"  value="nao" name ="opcao" class="form-check-input">
+            <label for="nao">Não</label>
+            <br><br>
+<!--
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox1" value="opcao"  name="opcao">
   <label class="form-check-label" for="opcao">Sim</label>
@@ -257,7 +263,7 @@
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox2" value="opcao" name="opcao">
   <label class="form-check-label" for="opcao">Não</label>
-</div><br><br>
+</div><br><br>-->
 <p><b>Metas sobre saúde</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
@@ -326,6 +332,7 @@
           placeholder="Como fazer ?" name="como" required><br>
       </div>
       <!-- nova parte -->
+      <!--
       <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao">
@@ -334,7 +341,7 @@
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
-</div><br><br>
+</div><br><br>-->
 <p><b>Metas sobre relacionamentos</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
@@ -403,6 +410,7 @@
           placeholder="Como fazer ?" name="como" required><br>
       </div>
 <!-- nova parte -->
+<!--
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao">
@@ -411,7 +419,7 @@
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
-</div><br><br>
+</div><br><br>-->
 <p><b>Metas sobre trabalho</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
@@ -480,6 +488,7 @@
           placeholder="Como fazer ?" name="como" required><br>
       </div>
     <!-- nova parte -->
+    <!--
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao">
@@ -488,7 +497,7 @@
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
-</div><br><br>
+</div><br><br>-->
 <p><b>Metas sobre dinheiro</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
@@ -559,6 +568,7 @@
       </div>
       <br>
       <!-- nova parte -->
+      <!--
 <p>Acredita que é possivel realizar a meta ?</p>
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1" name="opcao">
@@ -567,7 +577,7 @@
 <div class="form-check form-check-inline">
   <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao">
   <label class="form-check-label" for="inlineCheckbox2">Não</label>
-</div><br><br>
+</div><br><br>-->
 <p><b>Metas sobre outros objetivos</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
@@ -622,9 +632,8 @@
           placeholder="Email" name="email" required />
         <small id="emailHelp" class="form-text text-muted">Coloque aqui o mesmo email usado no cadastro</small>
       </div>
-    
       <button type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;"
-        name="submit" onclick="alert('sucesso!')">Enviar</button>
+        name="submit" >Enviar</button>
      
       </form>
     </div>

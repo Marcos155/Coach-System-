@@ -118,6 +118,15 @@ $nome= $user_data['nome'];
       background-color: rgb(230, 0, 0);
       cursor:pointer;
     }
+    body{
+    background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);
+}
+.btn:hover{
+    background-color: #f01e1e;
+    color: rgb(247, 247, 247);
+    transition: all 0.3s;
+    border: none;
+}
   </style>
 </head>
 
@@ -157,7 +166,7 @@ $nome= $user_data['nome'];
       </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div>
       <br><br>
       <?php
         echo " Formulário de 12 meses do aluno(a)

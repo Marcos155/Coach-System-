@@ -135,8 +135,8 @@ $nome= $user_data['nome'];
               echo $nome ?></span> </a>
           <div class="nav_list"> 
             <?php
-              echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
-                class='nav_name'>Início</span> </a>";
+             /* echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
+                class='nav_name'>Início</span> </a>";*/
               
               echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta</span> </a>"; 

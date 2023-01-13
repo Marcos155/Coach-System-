@@ -12,6 +12,17 @@
   <link rel="stylesheet" href="style_coach_cad_meta.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+        body{
+    background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);
+}
+.btn:hover{
+    background-color: #f01e1e;
+    color: rgb(247, 247, 247);
+    transition: all 0.3s;
+    border: none;
+}
+  </style>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
@@ -48,7 +59,7 @@
       </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div>
     <main class="mdl-layout__content">
         <div class="page-content">
         <h2 style="color:#000;"><b>Cadastro de metas</b></h2>

@@ -20,6 +20,7 @@ $logado = $_SESSION['email'];
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="style_gerarQRCode.css">
   
   <style>
         .table-wrapper {
@@ -63,7 +64,7 @@ $logado = $_SESSION['email'];
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
-              echo "<a href='qrcode.php' class='nav_link active'> <svg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' preserveAspectRatio='xMidYMid meet' 
+              echo "<a href='gerarQRCode.php' class='nav_link active'> <svg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' preserveAspectRatio='xMidYMid meet' 
               viewBox='0 0 32 32'><path fill='currentColor' d='M5 5v8h2v2h2v-2h4V5H5zm8 8v2h2v2h-4v2H5v8h8v-8h6v-2h-2v-2h4v-2h2v2h2v-2h2V5h-8v8h-6zm12 2v2h2v-2h-2zm0 2h-2v2h2v-2zm0 2v2h2v-2h-2zm0 2h-2v-2h-2v2h-5v6h2v-4h4v2h2v-2h1v-2zm-3 4h-2v2h2v-2zm1-8v-2h-2v2h2zm-12 0v-2H9v2h2zm-4-2H5v2h2v-2zm8-10v4h-1v2h1v1h2V9h1V7h-1V5h-2zM7 7h4v4H7V7zm14 0h4v4h-4V7zM8 8v2h2V8H8zm14 0v2h2V8h-2zM7 21h4v4H7v-4zm1 1v2h2v-2H8zm17 3v2h2v-2h-2z'/></svg>
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
@@ -73,16 +74,17 @@ $logado = $_SESSION['email'];
       </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div >
         <main class="mdl-layout__content">
             <div class="page-content">
                  <h2><b>André</b></h2>
-                 <p>Esse <b>Qr code</b> levará para a <b>página de registro</b>. Distribua esse código aos seus clientes.</p>
+                 <p>Esse <b>Qr code</b> levará para a <b>página de registro</b>. Distribua esse código aos seus alunos.</p>
                 <br>
                 <br>
           </div>
 
-          <!-- registro -->
+        <div class="body_qr">
+          <!--
           <div>
             <h1>Gerar QR Code</h1>
             <p> código para página de registro</p>
@@ -95,9 +97,49 @@ $logado = $_SESSION['email'];
         </div>
         <div class="qr-code">
           <img id="QRCodeImage" class="img">
-        </div>
+        </div>-->
+        <div class="container">
+        <div class="form">
+      <input type="text" value="http://localhost/Coach-System-/register.php" id="link">
+      <a href="./assets/pdf/Qr_code_register.pdf" download>
+      <button>Gerar QR Code</button>
+  </a>
+    </div>
+    <div class="qr-code">
+      <img src="" alt="qr-code">
+    </div>
+  </div>
+
+  </div>
         </main>
     </div>
+    <script>
+      const input = document.querySelector('#link');
+      input.disabled=true;
+    </script>
+    <script>
+      const container = document.querySelector('.container'),
+  Input = document.querySelector('.form input'),
+  btn = container.querySelector('.form button'),
+  Img = container.querySelector('.qr-code img');
+
+btn.addEventListener('click', () => {
+  let qrValue = Input.value;
+  if (!qrValue) return;
+  btn.innerText = "Gerando..."
+  Img.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${qrValue}`;
+  Img.addEventListener('load', () => {
+    container.classList.add('active');
+    btn.innerText = "Gerar QR Code"
+  })
+});
+
+Input.addEventListener('keyup', () =>{
+  if(!Input.value){
+    container.classList.remove('active');
+  }
+})
+    </script>
 
     <!--Container Main end-->
     <script type='text/javascript'
@@ -174,6 +216,7 @@ $(this).next(".search-block").slideToggle("fast");
 });
 
 });
+
       </script>
 
   </body>

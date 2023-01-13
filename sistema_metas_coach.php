@@ -66,6 +66,15 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
       border-color: rgba(0,0,0,0.4);
       box-shadow:none;
     }
+    body{
+    background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);
+}
+.btn:hover{
+    background-color: #f01e1e;
+    color: rgb(247, 247, 247);
+    transition: all 0.3s;
+    border: none;
+}
   </style>
 </head>
 
@@ -103,7 +112,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
       </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div>
     <h2><b>André</b></h2>
 
         <p>você aqui você pode analisar como estão indo as metas de seus alunos</b></p>

@@ -119,6 +119,15 @@ $nome= $user_data['nome'];
       background-color: rgb(230, 0, 0);
       cursor:pointer;
     }
+    body{
+    background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);
+}
+.btn:hover{
+    background-color: #f01e1e;
+    color: rgb(247, 247, 247);
+    transition: all 0.3s;
+    border: none;
+}
   </style>
 </head>
 
@@ -158,7 +167,7 @@ $nome= $user_data['nome'];
       </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div>
       <br><br>
       <?php
         echo " Formulário de 12 meses do aluno(a)
@@ -204,6 +213,12 @@ $nome= $user_data['nome'];
         echo "<input type='text' class='form-control' value=' $user_data[como]' id='como'>";
         ?>
       </div>
+      <p>Acredita que é possivel realizar a meta ?</p>
+            <input type="radio" value="sim" name="opcao" <?php echo ($opcao == 'sim') ? 'checked' : ''?> class="form-check-input" id="sim">
+            <label for="sim">Sim</label>
+            <input type="radio"  value="nao" name ="opcao" <?php echo ($opcao == 'nao') ? 'checked' : ''?> class="form-check-input" id="nao">
+            <label for="nao">Não</label>
+            <br><br>
 
 <!--
       <p>Acredita que é possivel realizar a meta ?</p>
@@ -351,6 +366,12 @@ $nome= $user_data['nome'];
 
     const input_saude11 = document.querySelector('#obs');
       input_saude11.disabled=true;
+
+      const input_saude12 = document.querySelector('#sim');
+      input_saude12.disabled=true;
+
+      const input_saude13 = document.querySelector('#nao');
+      input_saude13.disabled=true;
       </script>
 
   </body>
