@@ -338,6 +338,13 @@ $nome= $user_data['nome'];
 
     const input_saude11 = document.querySelector('#obs');
       input_saude11.disabled=true;
+
+      const input_saude12 = document.querySelector('#sim');
+      input_saude12.disabled=true;
+
+      const input_saude13 = document.querySelector('#nao');
+      input_saude13.disabled=true;
+
       </script>
 
   </body>
