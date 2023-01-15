@@ -208,3 +208,6 @@ ALTER TABLE db_coach.dinheiro_12_meses
 add column mot_edit varchar(350) null after obs;
 ALTER TABLE db_coach.outro_12_meses
 add column mot_edit varchar(350) null after obs;
+
+ALTER TABLE db_coach.formulario_15_anos
+add column obs_andre varchar(500) null after mot_edit;

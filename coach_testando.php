@@ -1,18 +1,18 @@
 <?php
 session_start();
 include_once('config.php');
-
-//formulário
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
   unset($_SESSION['email']);
   unset($_SESSION['senha']);
   header('Location:entrar.php');
 }
 $logado = $_SESSION['email'];
+
+
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or email LIKE '%$data%'  or saude LIKE '%$data%' or relacionamento LIKE '%$data%' or financeiro LIKE '%$data%'
-  or espiritual LIKE '%$data%' or outro LIKE '%$data%' or mot_edit LIKE '%$data%' ";
+  or espiritual LIKE '%$data%' or outro LIKE '%$data%' or mot_edit LIKE '%$data%' or obs_andre LIKE '%$data%' ";
 
 } else {
   $sql = /*"SELECT * FROM formulario ORDER BY cod DESC";*/"SELECT*from formulario_15_anos where formulario_15_anos.email = '$logado' ";
@@ -31,8 +31,9 @@ if (isset($_POST['submit'])) {
   $espiritual= $_POST['espiritual'];
   $outro= $_POST['outro'];
   $mot_edit= $_POST['mot_edit'];
-$result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(nome,sobrenome,email,saude,relacionamento,financeiro,espiritual,outro,mot_edit) 
-VALUES ('$nome','$sobrenome','$email','$saude','$relacionamento','$financeiro','$espiritual','$outro', '$mot_edit')"); 
+  $result= mysqli_query($conexao_forms15,"INSERT INTO formulario_15_anos(obs_andre) 
+  VALUES ('$obs_andre')");
+  header('Location:coach_testando.php');
 }
 if(!empty($_GET['cod']))
   {
@@ -86,6 +87,7 @@ if(!empty($_GET['cod']))
         $espiritual = $user_data['espiritual'];
         $outro = $user_data['outro'];
         $mot_edit= $user_data['mot_edit'];
+        $obs_andre=$user_data['obs_andre'];
       }
     }else{
       header('Location:sistema_coach_forms.php');
@@ -95,8 +97,6 @@ if(!empty($_GET['cod']))
   };
 
 $user_data = mysqli_fetch_assoc($result2);
-
-
 //$nome= $user_data['nome'];
 ?> 
 <!doctype html>
@@ -191,13 +191,14 @@ $user_data = mysqli_fetch_assoc($result2);
     </div>
     <!--Container Main start-->
     <div >
+    <form action='save_obsAndre_testando.php' method='post' name='forms'> 
     <main class="mdl-layout__content">
         <div class="page-content">
         <?php
         echo " Formulário de 15 anos do aluno(a)
         <h2><b>$nome</b></h2>"
         ?>
-        <div>
+        <div>  
           <div class="form-group espace">
             <label for="exampleInputEmail1">Saúde</label>
             <input type='text' class='form-control' aria-describedby='emailHelp' name=saude  value="<?php echo $saude ?>" id='saude'>
@@ -223,28 +224,32 @@ $user_data = mysqli_fetch_assoc($result2);
               <label for="exampleInputEmail1">Motivo edição do formulário</label>
               <input type='text' class='form-control' aria-describedby='emailHelp' name='mot_edit' value="<?php echo $mot_edit ?>" id='mot_edit'>
           </div>
-          <br>       
-    </div class="form-group espace">
-        <div for="exampleInputEmail1">
-        <label for="exampleFormControlTextarea1" class="form-label">Comentários</label>
-        <input type='text' class='form-control' <?php //echo "value=' $user_data[obs_andre]' "?> id='obs_andre' name='obs_andre'>
-        <br>
-      </div>
-          <div>
+          <br> 
+        
+          
+            </div class="form-group espace">
+              <div for="exampleInputEmail1">
+                <label for="exampleFormControlTextarea1" class="form-label">Comentários</label>
+                <input type='text' class='form-control' <?php echo "value=' $user_data[obs_andre]' "?> id='obs_andre' name='obs_andre'><br>
+              </div>
+            <div>
+         
           <?php
             echo "
             <a href='sistema_coach_forms.php'>
               <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
             </a>
             ";   
-            echo"   
+            /*echo"   
             <input type='submit' class='btn' class='enviar_forms' value='Salvar observação' name='update'
-            onclick='return validar()'
-           id='update'>";
+           id='update'>";*/
           ?>
-        </div>
+            <input type='submit' class='btn' class='enviar_forms' value='Salvar observação' name='update'
+           id='update'>
+      </div>
           <br>
 </div>
+</form>
 </div>
     <!--Container Main end-->
     <script type='text/javascript'
