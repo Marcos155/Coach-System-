@@ -274,12 +274,14 @@ $nome= $user_data['nome'];
         echo "<input type='text' class='form-control' value=' $user_data[outro]' id='outro'>";
         ?>
       </div>
+      
       <div>
           <?php
             echo "
             <a href='edit.php?cod=$user_data[cod]'>
               <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar formulário'>
-            </a>";   
+            </a>
+              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Comentários do Coach'>";
           ?>
       </div>
       <br><br>
@@ -292,6 +294,7 @@ $nome= $user_data['nome'];
               <a href='testando_saude.php?cod=$user_data[cod]'>
                 <input type='submit' class='btn' class='enviar_forms' style='background-color:	#4169E1; color: #fff;' value='Saúde'>
               </a>
+
               <a href='testando_relacionamento.php?cod=$user_data[cod]'>
                 <input type='submit' class='btn' class='enviar_forms' style='background-color:	#DC143C; color: #fff;' value='Relacionamento'>
               </a>
@@ -302,7 +305,7 @@ $nome= $user_data['nome'];
                 <input type='submit' class='btn' class='enviar_forms' style='background-color:	#32CD32; color: #fff;' value='Dinheiro'>
               </a>
               <a  href='testando_outro.php?cod=$user_data[cod]'>
-                <input type='submit' class='btn' class='enviar_forms' style='background-color:#8A2BE2; color: #fff;' value='Outros Objetivos'>
+                <input type='submit' class='btn' class='enviar_forms' style='background-color:#8A2BE2; color: #fff;' value='Outros objetivos'>
               </a>
             ";   
           ?>
