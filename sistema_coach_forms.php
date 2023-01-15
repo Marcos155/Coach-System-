@@ -12,7 +12,7 @@ $logado = $_SESSION['email'];
 
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
-  $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' ";
+  $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM formulario_15_anos ORDER BY cod DESC";

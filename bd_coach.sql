@@ -196,4 +196,15 @@ ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
 ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 
-
+ALTER TABLE db_coach.formulario_15_anos
+add column mot_edit varchar(350) null after cod;
+ALTER TABLE db_coach.saude_12_meses
+add column mot_edit varchar(350) null after obs;
+ALTER TABLE db_coach.relacionamento_12_meses
+add column mot_edit varchar(350) null after obs;
+ALTER TABLE db_coach.trabalho_12_meses
+add column mot_edit varchar(350) null after obs;
+ALTER TABLE db_coach.dinheiro_12_meses
+add column mot_edit varchar(350) null after obs;
+ALTER TABLE db_coach.outro_12_meses
+add column mot_edit varchar(350) null after obs;
