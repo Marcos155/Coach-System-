@@ -29,6 +29,7 @@
           $outro= $user_data['outro'];
           $nome= $user_data['nome'];
           $email= $user_data['email'];
+          $mot_edit=$user_data['mot_edit'];
         }
 
     }
@@ -55,6 +56,8 @@
     $outro= $_POST['outro'];
     $nome= $_POST['nome'];
     $email= $_POST['email'];
+    $result= mysqli_query($conexao_forms15, "INSERT INTO fomrulario_15_anos(mot_edit) 
+    VALUES ('$mot_edit')");
     
     header('Location:edit.php');
   }
@@ -148,7 +151,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
         placeholder="Por que está editando seu formulário?" 
-              name="edicao" required>
+        name="mot_edit" value="<?php echo $mot_edit ?>" required>
       </div>
       
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"

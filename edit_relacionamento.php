@@ -36,6 +36,7 @@
           $data_inicio= $user_data['data_inicio'];
           $data_fim= $user_data['data_fim'];
           $obs= $user_data['obs'];
+          $mot_edit=$user_data['mot_edit'];
         }
 
     }
@@ -68,6 +69,9 @@
     $data_inicio= $_POST['data_inicio'];
     $data_fim= $_POST['data_fim'];
     $obs= $_POST['obs'];
+    $mot_edit=$_POST['mot_edit'];
+    $result= mysqli_query($conexao_forms15, "INSERT INTO relacionamento_12_meses(mot_edit) 
+    VALUES ('$mot_edit')");
     
     header('Location:edit_relacionamento.php');
   }
@@ -200,7 +204,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
         placeholder="Por que está editando seu formulário?" 
-              name="edicao" required>
+        name="mot_edit" value="<?php echo $mot_edit ?>" required>
       </div>
 
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"

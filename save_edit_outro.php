@@ -16,10 +16,10 @@
         $data_inicio= $_POST['data_inicio'];
         $data_fim= $_POST['data_fim'];
         $obs= $_POST['obs'];
-         
+        $mot_edit=$_POST['mot_edit'];
 
         $sqlupdate = "UPDATE outro_12_meses SET oque='$oque',porquem='$porquem',onde='$onde',quando='$quando',porque='$porque',como='$como',objet='$objet',opcao='$opcao',responsa='$responsa',data_inicio='$data_inicio',
-        data_fim='$data_fim',obs='$obs'
+        data_fim='$data_fim',obs='$obs',mot_edit='$mot_edit'
         WHERE cod='$cod' ";
         $result2 = $conexao_forms15->query($sqlupdate);
     }
