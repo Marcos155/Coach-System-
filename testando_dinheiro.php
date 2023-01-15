@@ -119,6 +119,43 @@ $nome= $user_data['nome'];
       background-color: rgb(230, 0, 0);
       cursor:pointer;
     }
+    dialog::backdrop{
+      background: rgb(0 0 0 / .5);
+    }
+    dialog{
+      border:none;
+      border-radius: .5rem;
+      box-shadow: 0 0 1em rgb(0 0 0 / .3);
+      width:80%;
+    }
+    #abrir_dialog{
+      color:#fff;
+      border-radius:5px;
+      border:none;
+      padding: 7px 8px 8px 8px;
+      outline:none;
+    }
+    #fechar_dialog{
+      color:#fff;
+      border-radius:5px;
+      border:none;
+      outline:none;
+    }
+    #abrir_dialog:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    #fechar_dialog:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    input:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    #titulo_dialog{
+      font-weight:bold;
+    }
   </style>
 </head>
 
@@ -246,18 +283,37 @@ $nome= $user_data['nome'];
       <div>
           <?php
             echo "
-            <a href='edit_dinheiro.php?cod=$user_data[cod]'>
-              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar formulário'>
-            </a>
             <a href='testando.php?cod=$user_data[cod]'>
               <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Voltar'>
             </a>
+            <a href='edit_dinheiro.php?cod=$user_data[cod]'>
+              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar formulário'>
+            </a>
             ";   
           ?>
+           <button id='abrir_dialog'>Comentários</button>
+              <dialog>
+                <h2 id='titulo_dialog'>Comentários do Coach</h2>
+                <?php
+                echo "<p>$obs_andre</p>";
+                ?>
+                <button id='fechar_dialog'>Ok</button>
+              <dialog>
         </div>
           <br>
     </div>
     <!--Container Main end-->
+    <script>
+      const button = document.querySelector("button");
+      const modal = document.querySelector("dialog");
+      const buttonClose = document.querySelector("dialog button");
+      button.onclick=function(){
+        modal.showModal();
+      };
+      buttonClose.onclick=function(){
+        modal.close();
+      };
+    </script>
     
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>

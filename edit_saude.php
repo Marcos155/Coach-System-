@@ -214,9 +214,7 @@
         placeholder="Por que está editando seu formulário?" 
         name="mot_edit" value="<?php echo $mot_edit ?>" required>
       </div>
-
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
-       
           id="update">
     </div>
  
