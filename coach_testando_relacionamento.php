@@ -14,7 +14,7 @@ if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM relacionamento_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
   or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or opcao LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
-  or data_fim LIKE '%$data%' or obs LIKE '%$data%' ";
+  or data_fim LIKE '%$data%' or obs LIKE '%$data%' or mot_edit LIKE '%$data%' ";
 } else {
   
   $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from relacionamento_12_meses where relacionamento_12_meses.cod = $cod ";
@@ -38,9 +38,10 @@ if (isset($_POST['submit'])) {
   $data_inicio= $_POST['data_inicio'];
   $data_fim= $_POST['data_fim'];
   $obs= $_POST['obs'];
+  $mot_edit=$_POST['mot_edit'];
 
-  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs) 
-  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs')"); 
+  $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO relacionamento_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs,mot_edit) 
+  VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs','$mot_edit')"); 
   header('show_sistema_persona.php');
 }
 if(!empty($_GET['cod']))
@@ -70,6 +71,7 @@ if(!empty($_GET['cod']))
           $data_inicio= $user_data['data_inicio'];
           $data_fim= $user_data['data_fim'];
           $obs= $user_data['obs'];
+          $mot_edit=$user_data['mot_edit'];
         }
 
     }
@@ -265,6 +267,12 @@ $nome= $user_data['nome'];
         <?php
         echo "<input type='text' class='form-control' value=' $user_data[obs]' id='obs'>";
         ?><br>
+
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Motivo da edição do formulário</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[mot_edit]' id='mot_edit' name='mot_edit'>";
+        ?><br>
       
     </div class="mb-3">
         <div class="mb-3">
@@ -375,6 +383,9 @@ $nome= $user_data['nome'];
 
       const input_saude13 = document.querySelector('#nao');
       input_saude13.disabled=true;
+
+      const input_saude14 = document.querySelector('#mot_edit');
+      input_saude14.disabled=true;
       </script>
 
   </body>

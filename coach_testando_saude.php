@@ -14,7 +14,7 @@ if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM saude_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
   or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or opcao  LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
-  or data_fim LIKE '%$data%' or obs LIKE '%$data%'";
+  or data_fim LIKE '%$data%' or obs LIKE '%$data%'or mot_edit LIKE '%$data%' ";
 } else {
   
   $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from saude_12_meses where saude_12_meses.cod = $cod ";
@@ -266,6 +266,12 @@ $nome= $user_data['nome'];
         <?php
         echo "<input type='text' class='form-control' value=' $user_data[obs]' id='obs'>";
         ?><br>
+
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Motivo da edição do formulário</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[mot_edit]' id='mot_edit' name='mot_edit'>";
+        ?><br>
     <form action='save_edit_coach_saude.php' method='post' name='forms'>
       
     </div class="mb-3">
@@ -377,6 +383,9 @@ $nome= $user_data['nome'];
 
       const input_saude13 = document.querySelector('#nao');
       input_saude13.disabled=true;
+
+      const input_saude14 = document.querySelector('#mot_edit');
+      input_saude14.disabled=true;
       </script>
 
   </body>
