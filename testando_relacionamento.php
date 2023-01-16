@@ -283,11 +283,11 @@ $nome= $user_data['nome'];
       <div>
           <?php
             echo "
-            <a href='edit_relacionamento.php?cod=$user_data[cod]'>
-              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar formulário'>
-            </a>
             <a href='testando.php?cod=$user_data[cod]'>
               <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Voltar'>
+            </a>
+            <a href='edit_relacionamento.php?cod=$user_data[cod]'>
+              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar formulário'>
             </a>
             ";   
           ?>

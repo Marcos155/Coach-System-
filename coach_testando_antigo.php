@@ -69,11 +69,12 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Editar formulário</title>
+  <title>Conta</title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
+  
   <style>
         .table-wrapper {
     max-height: 500px;
@@ -118,22 +119,24 @@ input[type="submit"]{
   outline:none;
 }
   </style>
-
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
 
   <body id="body-pd">
-  <header class="header" id="header">
+    <header class="header" id="header">
       <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:black"></i> </div>
       <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
     <div class="l-navbar" id="nav-bar" style="background-color: darkgray;">
-    <nav class="nav">
+      <nav class="nav">
         <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon' style="color:black"></i> <span class="nav_logo-name" style="color:black"> <?php
               echo "Administração" ?></span> </a>
           <div class="nav_list"> 
             <?php
+              echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
+                class='nav_name'>Início</span> </a>";
+              
               echo "<a href='sistema.php' class='nav_link'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta-Alunos</span> </a>"; 
               
@@ -153,67 +156,70 @@ input[type="submit"]{
         </a>
       </nav>
     </div>
-
-
+    <!--Container Main start-->
     <div >
-      <br><br>
-      <h2><?php echo $nome ?>, edite aqui sua meta para daqui a 15 anos &#128578;</h2><br>
-      <?php
+    <main class="mdl-layout__content">
+        <div class="page-content">
+        <?php
+        echo " Formulário de 15 anos do aluno(a)
+        <h2><b>$nome</b></h2>"
+        ?>
+       <?php
         //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
         echo"<form action='save_obsAndre.php' method='post' name='forms'>";
       ?>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Saúde</label>
-        <input type="text" class="form-control" id="saude"
-         type="text" placeholder="saúde" name="username" value="<?php echo $saude ?>" 
-        required>
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
-        <input type="text" class="form-control" id="relacionamento"
-        placeholder="Email para contato" type="email" placeholder="Email" name="email" 
-        value="<?php echo $relacionamento ?>"  required>
-      </div>
-      <input type="hidden" name="cod" value="<?php echo $cod ?>">
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Financeiro</label>
-        <input type="tel" class="form-control"   placeholder="financeiro" id="financeiro"
-              name="phone" value="<?php echo $financeiro ?>" required>
-      </div>
-     
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Espiritual</label>
-        <input type="text" class="form-control"  
-        placeholder="espiritual" id="espiritual"
-              name="cidade" value="<?php echo $espiritual ?>" >
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Outro</label>
-        <input type="text" class="form-control"  id="outro"
-        placeholder="demais objetivos" 
-              name="estado" value="<?php echo $outro ?>" >
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
-        <input type="text" class="form-control"  id="mot_edit"
-        placeholder="Por que está editando seu formulário?" 
-        name="mot_edit" value="<?php echo $mot_edit ?>" required>
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Observação</label>
+        <div>  
+          <div class="form-group espace">
+            <label for="exampleInputEmail1">Saúde</label>
+            <input type='text' class='form-control' aria-describedby='emailHelp' name="username" value="<?php echo $saude ?>"  id='saude'>
+          </div><br>
+          <div class="form-group espace">
+              <label for="exampleFormControlTextarea1">Relacionamento</label>
+              <input type='text' class='form-control' rows='3' name="email" 
+        value="<?php echo $relacionamento ?>" id='relacionamento'>
+          </div><br>
+          <div class="form-group espace">
+              <label for="exampleInputPassword1">Financeiro</label>
+              <input type='text' class='form-control' name="phone" value="<?php echo $financeiro ?>" id='financeiro'>
+          </div><br>
+           <div class="form-group espace">
+              <label for="exampleInputPassword1">Espiritual</label>
+              <input type='text' class='form-control' name="cidade" value="<?php echo $espiritual ?>"  id='espiritual'>
+          </div><br>
+          <div class="form-group espace">
+              <label for="exampleInputEmail1">Demais objetivos</label>
+              <input type='text' class='form-control' aria-describedby='emailHelp' name="estado" value="<?php echo $outro ?>"  id='outro'>
+          </div>
+          <br>
+          <div class="form-group espace">
+              <label for="exampleInputEmail1">Motivo edição do formulário</label>
+              <input type='text' class='form-control' aria-describedby='emailHelp' name='mot_edit' value="<?php echo $mot_edit ?>" id='mot_edit'>
+          </div>
+          <br>  
+          <div class="form-group espace">
+        <label for="exampleInputEmail1">Observação</label>
         <input type="text" class="form-control"  
         placeholder="observação" 
         name="obs_andre" value="<?php echo $obs_andre ?>" required>
       </div>
-      
-        <input type="submit" class="btn" class="enviar_forms" value="Salvar" name="update"
-          id="update">
-        <a href='sistema_coach_forms.php'>
-            <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
-        </a>
-    </div>
- 
+      <br>
+          <?php
+            echo "
+            <a href='sistema_coach_forms.php'>
+              <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
+            </a>
+            ";   
+            echo"   
+            <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Fazer observação' name='update'
+            id='update'>";
+              
+          ?>
+      </div>
       </form>
+          <br>
+</div>
+</div>
+    <!--Container Main end-->
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
@@ -258,9 +264,38 @@ input[type="submit"]{
       myLink.addEventListener('click', function (e) {
         e.preventDefault();
       });
-         
-      </script>
-      <script>
+      
+      /* do antigo sistema */
+      $(document).ready(function(){
+
+$(".search-block").hide();
+$(".expander-title").click(function(){
+  $(this).next(".search-block").slideToggle("fast");
+});
+
+});
+
+var search = document.getElementById('pesquisar');
+search.addEventListener("keydown", function (event) {
+if (event.key === "Enter") {
+searchData();
+}
+});
+function searchData() {
+window.location = 'sistema.php?search=' + search.value;
+};
+
+
+$(document).ready(function () {
+
+$(".search-block").hide();
+$(".expander-title").click(function () {
+$(this).next(".search-block").slideToggle("fast");
+});
+
+});
+</script>
+<script>
       const input = document.querySelector('#saude');
       input.disabled=true;
 

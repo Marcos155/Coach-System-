@@ -16,6 +16,15 @@ $logado = $_SESSION['email'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style_obrigado_forms.css">
     <title>Formulário</title>
+    <style>
+        body{
+           background-attachment: fixed;
+           background-image: radial-gradient( #f6f5f7 35%,rgb(97, 97, 97));
+        }
+        .bem_vindo_texto{
+            color:	#DC143C;
+        }
+    </style>
 </head>
 <body>
     <div class="conteudo">
@@ -23,7 +32,7 @@ $logado = $_SESSION['email'];
             <h1><?php echo $logado ?>,</h1>
         </div>
         <div class="bem_vindo">
-            <h1>bem vindo ao time &#128513;</h1>
+            <h1 class="bem_vindo_texto">bem vindo ao time &#128513;</h1>
         </div>
         <br><br><br>
         <div class="conteudo2">

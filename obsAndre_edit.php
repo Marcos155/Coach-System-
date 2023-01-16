@@ -15,40 +15,32 @@
     include_once('config.php');
 
     $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM saude_12_meses WHERE cod=$cod";
-    $result = $conexao_formsSaude->query($sqlselect);
+    $sqlselect = "SELECT * FROM formulario_15_anos WHERE cod=$cod";
+    $result = $conexao_forms15->query($sqlselect);
 
     if($result->num_rows > 0)
     {
         while($user_data = mysqli_fetch_assoc($result))
         {
-          $oque= $user_data['oque'];
-          $porquem= $user_data['porquem'];
-          $onde= $user_data['onde'];
-          $quando= $user_data['quando'];
-          $porque= $user_data['porque'];
-          $como= $user_data['como'];
+          $saude= $user_data['saude'];
+          $relacionamento= $user_data['relacionamento'];
+          $financeiro= $user_data['financeiro'];
+          $espiritual= $user_data['espiritual'];
+          $outro= $user_data['outro'];
           $nome= $user_data['nome'];
-          $sobrenome= $user_data['sobrenome'];
-          $objet= $user_data['objet'];
-          $opcao= $user_data['opcao'];
-          $responsa=$user_data['responsa'];
-          $data_inicio= $user_data['data_inicio'];
-          $data_fim= $user_data['data_fim'];
-          $obs= $user_data['obs'];
+          $email= $user_data['email'];
           $mot_edit=$user_data['mot_edit'];
-          $obs_andre=$obs_andre['obs_andre'];
-
+          $obs_andre=$user_data['obs_andre'];
         }
 
     }
     else{
-        header('Location: coach_testando_saude.php');
+        header('Location: testando.php');
     }
   }
   else
   {
-    header('Location: coach_testando_saude.php');
+    header('Location: testando.php');
     /*$fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");
@@ -56,27 +48,19 @@
   }
   if(isset($_POST['submit']))
   {
+    
     include_once('config.php');
-    $oque= $_POST['oque'];
-    $porquem= $_POST['porquem'];
-    $onde= $_POST['onde'];
-    $quando= $_POST['quando'];
-    $porque= $_POST['porque'];
-    $como= $_POST['como'];
+    $saude= $_POST['saude'];
+    $relacionamento= $_POST['relacionamento'];
+    $financeiro= $_POST['financeiro'];
+    $espiritual= $_POST['espiritual'];
+    $outro= $_POST['outro'];
     $nome= $_POST['nome'];
-    $sobrenome= $_POST['sobrenome'];
-    $objet= $_POST['objet'];
-    $opcao= $_POST['opcao'];
-    $responsa=$_POST['responsa'];
-    $data_inicio= $_POST['data_inicio'];
-    $data_fim= $_POST['data_fim'];
-    $obs= $_POST['obs'];
-    $mot_edit=$_POST['mot_edit'];
-    $obs_andre=$_POST['obs_andre'];
-    $result= mysqli_query($conexao_forms15, "INSERT INTO saude_12_meses(obs_andre) 
+    $email= $_POST['email'];
+    $result= mysqli_query($conexao_forms15, "INSERT INTO fomrulario_15_anos(obs_andre) 
     VALUES ('$obs_andre')");
     
-    header('Location:obsAndre_edit.php');
+    header('Location:edit.php');
   }
 ?>
 <!doctype html>
@@ -128,100 +112,55 @@
 
     <div class="height-100 bg-light">
       <br><br>
-      <h2><?php echo $nome ?>, edite aqui sua meta de saúde para daqui a 12 meses &#128578;</h2><br>
+      <h2><?php echo $nome ?>, edite aqui sua meta para daqui a 15 anos &#128578;</h2><br>
       <?php
         //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
         echo"<form action='save_obsAndre.php' method='post' name='forms'>";
       ?>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-        placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Ex: Estar na faixa do 65Kg"  name="oque" value="<?php echo $oque ?>" 
+        <label for="exampleFormControlTextarea1" class="form-label">Saúde</label>
+        <input type="text" class="form-control" id="saude"
+         type="text" placeholder="saúde" name="username" value="<?php echo $saude ?>" 
         required>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-        placeholder="Email para contato" type="text" placeholder="Alguma pessoa em especial ?" name="porquem" 
-        value="<?php echo $porquem ?>"  required>
+        <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
+        <input type="text" class="form-control" id="relacionamento"
+        placeholder="Email para contato" type="email" placeholder="Email" name="email" 
+        value="<?php echo $relacionamento ?>"  required>
       </div>
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Onde precisa estar para alcançar esse objetivo ?" name="onde" value="<?php echo $onde ?>" required>
+        <label for="exampleFormControlTextarea1" class="form-label">Financeiro</label>
+        <input type="tel" class="form-control"   placeholder="financeiro" id="financeiro"
+              name="phone" value="<?php echo $financeiro ?>" required>
       </div>
      
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
-        <input type="date" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Em qual época quer alcançar?" name="quando" value="<?php echo $quando ?>" >
+        <label for="exampleFormControlTextarea1" class="form-label">Espiritual</label>
+        <input type="text" class="form-control"  
+        placeholder="espiritual" id="espiritual"
+              name="cidade" value="<?php echo $espiritual ?>" >
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Motivo do objetivo" name="porque" value="<?php echo $porque ?>" >
-      </div>
-      
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Como?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Como fazer ?" name="como" value="<?php echo $como ?>" >
-      </div>
-
-      <p>Acredita que é possivel realizar a meta ?</p>
-            <input type="radio" value="sim" name="opcao" <?php echo ($opcao == 'sim') ? 'checked' : ''?> class="form-check-input">
-            <label for="sim">Sim</label>
-            <input type="radio"  value="nao" name ="opcao" <?php echo ($opcao == 'nao') ? 'checked' : ''?> class="form-check-input">
-            <label for="nao">Não</label>
-            <br><br>
-      <!--
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1"  name="opcao"  <?php //echo ($opcao == 'opcao') ? 'checked' : ''?>>
-  <label class="form-check-label" for="inlineCheckbox1">Sim</label>
-</div>
-<div class="form-check form-check-inline">
-  <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2" name="opcao"  <?php //echo ($opcao == 'opcao') ? 'checked' : ''?>>
-  <label class="form-check-label" for="inlineCheckbox2">Não</label>
-</div><br><br>-->
-      <p><b>Metas sobre saúde</b></p><br>
-   <div class="mb-3">
- <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="objet" value="<?php echo $objet ?>" ><br>
-      </div>
-    <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="responsa" value="<?php echo $responsa ?>" ><br>
-      </div>
-<div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
-        <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="data_inicio" value="<?php echo $data_inicio ?>" ><br>
-      </div>
-<div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
-        <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="data_fim" value="<?php echo $data_fim ?>" ><br>
-      </div>
-<div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="obs" value="<?php echo $obs ?>" ><br>
+        <label for="exampleFormControlTextarea1" class="form-label">Outro</label>
+        <input type="text" class="form-control"  id="outro"
+        placeholder="demais objetivos" 
+              name="estado" value="<?php echo $outro ?>" >
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        <input type="text" class="form-control"  id="mot_edit"
         placeholder="Por que está editando seu formulário?" 
         name="mot_edit" value="<?php echo $mot_edit ?>" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observação</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Por que está editando seu formulário?" 
+        <input type="text" class="form-control"  
+        placeholder="observação" 
         name="obs_andre" value="<?php echo $obs_andre ?>" required>
       </div>
+      
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
           id="update">
     </div>
@@ -273,6 +212,25 @@
       });
          
       </script>
+      <script>
+      const input = document.querySelector('#saude');
+      input.disabled=true;
+
+      const input2 = document.querySelector('#relacionamento');
+      input2.disabled=true;
+
+      const input3 = document.querySelector('#financeiro');
+      input3.disabled=true;
+
+      const input4 = document.querySelector('#espiritual');
+      input4.disabled=true;
+
+      const input5 = document.querySelector('#outro');
+      input5.disabled=true;
+
+      const input6 = document.querySelector('#mot_edit');
+      input6.disabled=true;
+    </script>
 
   </body>
 
