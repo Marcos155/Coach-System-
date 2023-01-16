@@ -3,6 +3,7 @@
 
     if(isset($_POST['update']))
     {
+        $cod=$_POST['cod'];
         $obs_andre= $_POST['obs_andre'];
          
 

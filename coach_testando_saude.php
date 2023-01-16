@@ -272,6 +272,7 @@ $nome= $user_data['nome'];
         <?php
         echo "<input type='text' class='form-control' value=' $user_data[mot_edit]' id='mot_edit' name='mot_edit'>";
         ?><br>
+    
     <form action='save_edit_coach_saude.php' method='post' name='forms'>
       
     </div class="mb-3">
@@ -280,12 +281,14 @@ $nome= $user_data['nome'];
         <input type='text' class='form-control' <?php //echo "value=' $user_data[obs_andre]' "?> id='obs_andre' name='obs_andre'>
         <br>
       </div>
-      
       <div>
           <?php
             echo "
             <a href='sistema_coach_forms.php?cod=$user_data[cod]'>
               <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
+            </a>
+            <a href='obsAndre_edit.php?cod=$user_data[cod]'>
+              <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Editar'>
             </a>
             ";
             echo"   
@@ -295,7 +298,8 @@ $nome= $user_data['nome'];
           ?>
         </div>
         </form>
-          <br>
+         
+        <br>
     </div>
     <!--Container Main end-->
     
