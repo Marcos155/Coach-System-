@@ -76,7 +76,7 @@ $nome= $user_data['nome'];
     <!--Container Main start-->
     <div class="height-100 bg-light">
       <br><br>
-      <h2> Olá
+      <h2> Olá,
         <?php echo $nome ?>&#128578;
       </h2>
       <br>

@@ -279,7 +279,7 @@ $obs_andre= $user_data['obs_andre'];
     <!--Container Main start-->
     <div class="height-100 bg-light">
       <br><br>
-      <h2> Olá <?php echo $nome ?></h2><br>
+      <h2> Olá, <?php echo $nome ?>&#128578;</h2><br>
       <b>
         <p>essa é sua visão de futuro para daqui 15 anos.</p>
       </b>

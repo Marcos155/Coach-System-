@@ -88,7 +88,7 @@ $nome= $user_data['nome'];
     <!--Container Main start-->
     <div>
       <br><br>
-      <h2> Olá <?php echo $nome ?></h2><br>
+      <h2> Olá, <?php echo $nome ?>&#128578;</h2><br>
       <b>
         <p>esses foram os dados preenchidos em seu cadastro.</p>
       </b>
