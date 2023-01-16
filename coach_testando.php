@@ -156,60 +156,63 @@ input[type="submit"]{
 
 
     <div >
-      <br><br>
-      <h2><?php echo $nome ?>, edite aqui sua meta para daqui a 15 anos &#128578;</h2><br>
+    <?php
+        echo " formulário para daqui 15 anos do aluno(a)
+        <h2><b>$nome</b></h2>"
+        ?><br>
+      <h3><li>Visão de futuro 15 anos</li></h3>
       <?php
         //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
         echo"<form action='save_obsAndre.php' method='post' name='forms'>";
       ?>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Saúde</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Saúde:</label>
         <input type="text" class="form-control" id="saude"
          type="text" placeholder="saúde" name="username" value="<?php echo $saude ?>" 
         required>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos:</label>
         <input type="text" class="form-control" id="relacionamento"
         placeholder="Email para contato" type="email" placeholder="Email" name="email" 
         value="<?php echo $relacionamento ?>"  required>
       </div>
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Financeiro</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Financeiro:</label>
         <input type="tel" class="form-control"   placeholder="financeiro" id="financeiro"
               name="phone" value="<?php echo $financeiro ?>" required>
       </div>
      
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Espiritual</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Espiritual:</label>
         <input type="text" class="form-control"  
         placeholder="espiritual" id="espiritual"
               name="cidade" value="<?php echo $espiritual ?>" >
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Outro</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Demais objetivos:</label>
         <input type="text" class="form-control"  id="outro"
         placeholder="demais objetivos" 
               name="estado" value="<?php echo $outro ?>" >
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Motivo da edição do formulário</label>
         <input type="text" class="form-control"  id="mot_edit"
         placeholder="Por que está editando seu formulário?" 
         name="mot_edit" value="<?php echo $mot_edit ?>" required>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Observação</label>
+        <label for="exampleFormControlTextarea1" class="form-label"><b>Complementos para o objetivo:</b></label>
         <input type="text" class="form-control"  
-        placeholder="observação" 
+        placeholder="Faça observações a cerca dos objetivos desse aluno" 
         name="obs_andre" value="<?php echo $obs_andre ?>" required>
       </div>
       <a href='sistema_coach_forms.php'>
             <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
         </a>
-        <input type="submit" class="btn" class="enviar_forms" value="Salvar" name="update"
-          id="update">
+        <input type="submit" class="btn" class="enviar_forms" value="Salvar observação" name="update"
+          id="update"><br><br>
         
     </div>
  

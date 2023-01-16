@@ -125,7 +125,7 @@
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
-        placeholder="Email para contato" type="email" placeholder="Email" name="email" 
+        placeholder="Email para contato" type="email" placeholder="Relacionamento" name="email" 
         value="<?php echo $relacionamento ?>"  required>
       </div>
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
