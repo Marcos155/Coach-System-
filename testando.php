@@ -152,6 +152,7 @@ if(!empty($_GET['cod']))
           $financeiro= $user_data['financeiro'];
           $espiritual= $user_data['espiritual'];
           $outro= $user_data['outro'];
+          $obs_andre=$user_data['obs_andre'];
         }
 
     }
@@ -171,6 +172,7 @@ if(!empty($_GET['cod']))
  
 $user_data = mysqli_fetch_assoc($result2);
 $nome= $user_data['nome'];
+$obs_andre= $user_data['obs_andre'];
 ?> 
 
 <!doctype html>

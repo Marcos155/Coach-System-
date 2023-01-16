@@ -205,12 +205,12 @@ input[type="submit"]{
         placeholder="observação" 
         name="obs_andre" value="<?php echo $obs_andre ?>" required>
       </div>
-      
-        <input type="submit" class="btn" class="enviar_forms" value="Salvar" name="update"
-          id="update">
-        <a href='sistema_coach_forms.php'>
+      <a href='sistema_coach_forms.php'>
             <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
         </a>
+        <input type="submit" class="btn" class="enviar_forms" value="Salvar" name="update"
+          id="update">
+        
     </div>
  
       </form>
