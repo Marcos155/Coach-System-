@@ -206,7 +206,7 @@ input[type="submit"]{
         <label for="exampleFormControlTextarea1" class="form-label"><b>Complementos para o objetivo:</b></label>
         <input type="text" class="form-control"  
         placeholder="Faça observações a cerca dos objetivos desse aluno" 
-        name="obs_andre" value="<?php echo $obs_andre ?>" required>
+        name="obs_andre" value="<?php echo $obs_andre ?>">
       </div>
       <a href='sistema_coach_forms.php'>
             <input type='submit' class='btn' class='enviar_forms' value='Voltar'>

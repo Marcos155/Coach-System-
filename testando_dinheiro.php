@@ -14,7 +14,7 @@ if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM dinheiro_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
   or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or opcao LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
-  or data_fim LIKE '%$data%' or obs LIKE '%$data%'";
+  or data_fim LIKE '%$data%' or obs LIKE '%$data%' or obs_andre LIKE '%$data%' ";
 } else {
   
   $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from dinheiro_12_meses where dinheiro_12_meses.cod = $cod ";
@@ -70,6 +70,7 @@ if(!empty($_GET['cod']))
           $data_inicio= $user_data['data_inicio'];
           $data_fim= $user_data['data_fim'];
           $obs= $user_data['obs'];
+          $obs_andre=$user_data['obs_andre'];
         }
 
     }
@@ -87,6 +88,7 @@ if(!empty($_GET['cod']))
   }
 $user_data = mysqli_fetch_assoc($result2);
 $nome= $user_data['nome'];
+$obs_andre= $user_data['obs_andre'];
 ?> 
 
 <!doctype html>

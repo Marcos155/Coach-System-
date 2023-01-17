@@ -139,7 +139,8 @@ $nome= $user_data['nome'];
             echo "
             <a href='edit_regis.php?cod=$user_data[cod]'>
             <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Completar cadastro'>
-            </a>";
+            </a>
+            ";
 
             
           ?>
@@ -198,24 +199,24 @@ $nome= $user_data['nome'];
     const input2 = document.querySelector('#email');
       input2.disabled=true;
 
-    const input6 = document.querySelector('#data_nasc');
-      input6.disabled=true;
-
-
-    const input3 = document.querySelector('#telefone');
+    const input3 = document.querySelector('#data_nasc');
       input3.disabled=true;
 
-    const input4 = document.querySelector('#sexo');
+
+    const input4 = document.querySelector('#telefone');
       input4.disabled=true;
 
-    const input5 = document.querySelector('#cidade');
+    const input5 = document.querySelector('#sexo');
       input5.disabled=true;
 
-    const input6 = document.querySelector('#estado');
+    const input6 = document.querySelector('#cidade');
       input6.disabled=true;
 
-    const input6 = document.querySelector('#data_nasc');
-      input6.disabled=true;
+    const input7 = document.querySelector('#estado');
+      input7.disabled=true;
+
+    const input8 = document.querySelector('#data_nasc');
+      input8.disabled=true;
       </script>
 
   </body>

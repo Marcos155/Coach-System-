@@ -34,7 +34,6 @@ add column cidade varchar(50) null after senha;
 ALTER TABLE db_coach.cadastro
 add column estado varchar(40) null after cidade;
 ;
-
 create table db_coach.saude_12_meses(
 	oque varchar (300) not null,
     porquem varchar (300) not null,
@@ -211,4 +210,5 @@ add column mot_edit varchar(350) null after obs;
 ALTER TABLE db_coach.formulario_15_anos
 add column obs_andre varchar(500) null after mot_edit;
 
-
+ALTER TABLE db_coach.cadastro MODIFY COLUMN senha varchar(200);
+ALTER TABLE db_coach.cadastro MODIFY COLUMN senha varchar(300);

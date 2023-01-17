@@ -129,7 +129,7 @@
         <label for="exampleFormControlTextarea1" class="form-label">Sobrenome</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
         placeholder="Seu sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="sobrenome" value="<?php echo $sobrenome ?>" >
+              name="sobrenome" value="<?php echo $sobrenome ?>">
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Email</label>
@@ -147,29 +147,30 @@
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Sexo</label>
         <br>
-            <input type="radio" value="feminino" name="sexo" <?php echo ($sexo == 'feminino') ? 'checked' : ''?> required>
+            <input type="radio" value="feminino" name="sexo" <?php echo ($sexo == 'feminino') ? 'checked' : ''?> >
             <label for="faminino">Feminino</label>
-            <input type="radio"  value="masculino" name ="sexo" <?php echo ($sexo == 'masculino') ? 'checked' : ''?> required>
+            <input type="radio"  value="masculino" name ="sexo" <?php echo ($sexo == 'masculino') ? 'checked' : ''?> >
             <label for="masculino">Masculino</label>
-            <input type="radio" value="outro" name ="sexo" <?php echo ($sexo == 'outro') ? 'checked' : ''?> required>
+            <input type="radio" value="outro" name ="sexo" <?php echo ($sexo == 'outro') ? 'checked' : ''?> >
             <label for="outro">Outro</label>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Cidade</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
         placeholder="Qual sua cidade?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="cidade" value="<?php echo $cidade ?>" required >
+              name="cidade" value="<?php echo $cidade ?>" >
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Estado</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
         placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="estado" value="<?php echo $estado ?>" required>
+              name="estado" value="<?php echo $estado ?>" >
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de Nascimento</label>
-        <input type="date" class="form-control" id="exampleFormControlTextarea1" name="data_nasc" value="<?php echo $data_nasc ?>" required>
+        <input type="date" class="form-control" id="exampleFormControlTextarea1" name="data_nasc" value="<?php echo $data_nasc ?>" >
       </div>
+      
       <div  class="mb-3">
 
             
@@ -200,8 +201,8 @@
         
         </div>
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
-           onclick="return validar()"
-          id="update">
+          id="update" onclick="return validar()">
+          <br><br>
     </div>
  
       </form>
@@ -250,6 +251,7 @@
         e.preventDefault();
       });
           /*repetir senha */
+        
   function validar(){
   var senha=forms.password.value;
   var confirmar_senha=forms.confirm_password.value;
@@ -275,12 +277,11 @@
 					forms.senha.focus();
           document.getElementById('senha').value='';
           document.getElementById('confirmar_senha').value='';
-          /*forms.reset();*/
 					return false;
 				}
   }
-
     /* mostrar e ocultar senha */
+    
     function mostrarOcultarSenha(){
     var senha=document.getElementById("senha");
     if(senha.type=="password"){

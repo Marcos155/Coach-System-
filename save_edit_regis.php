@@ -7,7 +7,7 @@
         $nome= $_POST['username'];
         $sobrenome= $_POST['sobrenome'];
         $email= $_POST['email'];
-        $senha=$_POST['password'];
+        $senha= $_POST['password'];
         $telefone= $_POST['phone'];
         $sexo= $_POST['sexo']; 
         $cidade=$_POST['cidade'];

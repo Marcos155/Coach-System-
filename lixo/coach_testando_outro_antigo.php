@@ -1,21 +1,56 @@
 <?php
-  session_start();
-  include_once('config.php');
-  if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
-      {
-          unset($_SESSION['email']);
-          unset($_SESSION['senha']);
-          header('Location:entrar.php');
-      }
-      $logado = $_SESSION['email'];
+session_start();
+include_once('config.php');
+
+//formulário
+if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
+  unset($_SESSION['email']);
+  unset($_SESSION['senha']);
+  header('Location:entrar.php');
+}
+$logado = $_SESSION['email'];
+$cod = $_GET['cod'];
+if (!empty($_GET['search'])) {
+  $data = $_GET['search'];
+  $sql = "SELECT * FROM outro_12_meses WHERE cod LIKE '%$data%' or oque LIKE '%$data%'  or porquem LIKE '%$data%'  or onde LIKE '%$data%' or quando LIKE '%$data%' or porque LIKE '%$data%'
+  or como LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or objet LIKE '%$data%' or opcao LIKE '%$data%' or responsa LIKE '%$data%' or data_inicio LIKE '%$data%'
+  or data_fim LIKE '%$data%' or obs LIKE '%$data%' or mot_edit LIKE '%$data%' ";
+} else {
   
-  if(!empty($_GET['cod']))
+  $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from outro_12_meses where outro_12_meses.cod = $cod ";
+}
+$result2 = $conexao_forms15->query($sql);
+
+if (isset($_POST['submit'])) {
+
+  include_once('config.php');
+    $oque= $_POST['oque'];
+    $porquem= $_POST['porquem'];
+    $onde= $_POST['onde'];
+    $quando= $_POST['quando'];
+    $porque= $_POST['porque'];
+    $como= $_POST['como'];
+    $nome= $_POST['nome'];
+    $sobrenome= $_POST['sobrenome'];
+    $objet= $_POST['objet'];
+    $opcao= $_POST['opcao'];
+    $responsa=$_POST['responsa'];
+    $data_inicio= $_POST['data_inicio'];
+    $data_fim= $_POST['data_fim'];
+    $obs= $_POST['obs'];
+    $mot_edit=$_POST['mot_edit'];
+
+    $resultSaude= mysqli_query($conexao_formsSaude,"INSERT INTO outro_12_meses(oque,porquem,onde,quando,porque,como,nome,sobrenome,objet,opcao,responsa,data_inicio,data_fim,obs,mot_edit) 
+    VALUES ('$oque','$porquem','$onde','$quando','$porque','$como','$nome','$sobrenome','$objet','$opcao','$responsa','$data_inicio','$data_fim','$obs','$mot_edit')"); 
+    header('show_sistema_persona.php');
+}
+if(!empty($_GET['cod']))
   {
   
     include_once('config.php');
 
     $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM saude_12_meses WHERE cod=$cod";
+    $sqlselect = "SELECT * FROM outro_12_meses WHERE cod=$cod";
     $result = $conexao_forms15->query($sqlselect);
 
     if($result->num_rows > 0)
@@ -37,53 +72,31 @@
           $data_fim= $user_data['data_fim'];
           $obs= $user_data['obs'];
           $mot_edit=$user_data['mot_edit'];
-          $obs_andre=$user_data['obs_andre'];
-          }
+        }
 
     }
     else{
-        header('Location: testando_dinheiro.php');
+        header('Location: testando.php');
     }
   }
   else
   {
-    header('Location: testando_dinheiro.php');
-    /*$fallback = 'index.html';
+    /*header('testando.php');*/
+    $fallback = 'index.html';
     $anterior = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $fallback;
     header("location: {$anterior}");
-    exit;*/
+    exit;
   }
-  if(isset($_POST['submit']))
-  {
-    include_once('config.php');
-    $oque= $_POST['oque'];
-    $porquem= $_POST['porquem'];
-    $onde= $_POST['onde'];
-    $quando= $_POST['quando'];
-    $porque= $_POST['porque'];
-    $como= $_POST['como'];
-    $nome= $_POST['nome'];
-    $sobrenome= $_POST['sobrenome'];
-    $objet= $_POST['objet'];
-    $opcao= $_POST['opcao'];
-    $responsa=$_POST['responsa'];
-    $data_inicio= $_POST['data_inicio'];
-    $data_fim= $_POST['data_fim'];
-    $obs= $_POST['obs'];
-    $mot_edit=$_POST['mot_edit'];
-    $result= mysqli_query($conexao_forms15, "INSERT INTO saude_12_meses(obs_andre) 
-    VALUES ('$obs_andre')");
-    
-    header('Location:edit_dinheiro.php');
-  }
-?>
+$user_data = mysqli_fetch_assoc($result2);
+$nome= $user_data['nome'];
+?> 
 <!doctype html>
 <html>
 
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Editar formulário</title>
+  <title>Conta</title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -127,7 +140,7 @@
 <body className='snippet-body' style="background-color:#f8f9fa">
 
   <body id="body-pd">
-  <header class="header" id="header">
+    <header class="header" id="header">
       <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:black"></i> </div>
       <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
@@ -159,56 +172,53 @@
         </a>
       </nav>
     </div>
-
-
-    <div class="height-100 bg-light">
-    <br><br>
+    <!--Container Main start-->
+    <div>
+      <br><br>
       <?php
         echo " Formulário de 12 meses do aluno(a)
         <h2><b>$nome</b></h2>"
         ?><br>
-      <h3><li>Saúde</li></h3>
+      <h3><li>Demais objetivos</li></h3>
       <?php
-        //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
-        echo"<form action='save_obsAndre_saude.php' method='post' name='forms'>";
+        echo"<form action='save_edit_coach_saude.php' method='post' name='forms'>";
       ?>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
-        <input type="text" class="form-control" id="oque"
-        placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Ex: Estar na faixa do 65Kg"  name="oque" value="<?php echo $oque ?>" 
-        required>
+        <?php
+        echo "<input type='text' class='form-control'  value=' $user_data[oque]' id='oque'>";
+        ?>
+        </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
+        <?php
+        echo "<input type='text' class='form-control'  value='$user_data[porquem]' id='porquem'>";
+        ?>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
-        <input type="text" class="form-control" id="porquem"
-        placeholder="Email para contato" type="text" placeholder="Alguma pessoa em especial ?" name="porquem" 
-        value="<?php echo $porquem ?>"  required>
-      </div>
-      <input type="hidden" name="cod" value="<?php echo $cod ?>">
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
-        <input type="text" class="form-control"  id="onde"
-        placeholder="Onde precisa estar para alcançar esse objetivo ?" name="onde" value="<?php echo $onde ?>" required>
-      </div>
-     
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
-        <input type="date" class="form-control"   id="quando"
-        placeholder="Em qual época quer alcançar?" name="quando" value="<?php echo $quando ?>" >
+      <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
+        <?php
+        echo "<input type='text' class='form-control'  value=' $user_data[onde]' id='onde'>";
+        ?>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
-        <input type="text" class="form-control"  id="porque"
-        placeholder="Motivo do objetivo" name="porque" value="<?php echo $porque ?>" >
+      <label for="exampleFormControlTextarea1" class="form-label">Quando?</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[quando]' id='quando'>";
+        ?>
       </div>
-      
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Como?</label>
-        <input type="text" class="form-control"  id="como"
-        placeholder="Como fazer ?" name="como" value="<?php echo $como ?>" >
+      <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[porque]' id='porque'>";
+        ?>
       </div>
-
-
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Como</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[como]' id='como'>";
+        ?>
+      </div>
       <p>Acredita que é possivel realizar a meta ?</p>
             <input type="radio" value="sim" name="opcao" <?php echo ($opcao == 'sim') ? 'checked' : ''?> class="form-check-input" id="sim">
             <label for="sim">Sim</label>
@@ -216,52 +226,79 @@
             <label for="nao">Não</label>
             <br><br>
 
-      <p><b>Metas sobre outros objetivos</b></p><br>
+<!--
+      <p>Acredita que é possivel realizar a meta ?</p>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"  name="option" checked>
+  <label class="form-check-label" for="inlineCheckbox1">Sim</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" name="option">
+  <label class="form-check-label" for="inlineCheckbox2">Não</label>
+</div><br><br> -->
+<br>
+      <p><b>Metas sobre outros objetivos</b></p>
    <div class="mb-3">
- <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
-        <input type="text" class="form-control" id="objet"
-          placeholder="" name="objet" value="<?php echo $objet ?>" ><br>
+        <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[objet]' id='objet'>";
+        ?><br>
       </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
-        <input type="text" class="form-control" id="responsa"
-          placeholder="" name="responsa" value="<?php echo $responsa ?>" ><br>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[responsa]' id='responsa'>";
+        ?><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
-        <input type="date" class="form-control" id="data_inicio"
-          placeholder="Em qual época quer alcançar?" name="data_inicio" value="<?php echo $data_inicio ?>" ><br>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[data_inicio]' id='data_inicio'>";
+        ?><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
-        <input type="date" class="form-control" id="data_fim"
-          placeholder="Em qual época quer alcançar?" name="data_fim" value="<?php echo $data_fim ?>" ><br>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[data_fim]' id='data_fim'>";
+        ?><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
-        <input type="text" class="form-control" id="obs"
-          placeholder="" name="obs" value="<?php echo $obs ?>" ><br>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[obs]' id='obs'>";
+        ?><br>
+
+<div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Motivo da edição do formulário</label>
+        <?php
+        echo "<input type='text' class='form-control' value=' $user_data[mot_edit]' id='mot_edit' name='mot_edit'>";
+        ?><br>
+      
+    </div class="mb-3">
+        <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">complementos para o objetivo:</label>
+        <input type='text' class='form-control' <?php //echo "value=' $user_data[obs_andre]' "?> id='obs_andre' name='obs_andre'>
+        <br>
       </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
-        <input type="text" class="form-control"  id="mot_edit"
-        placeholder="Por que está editando seu formulário?" 
-        name="mot_edit" value="<?php echo $mot_edit ?>" required>
-      </div>
-      <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label"><b>Complementos para o objetivo:</b></label>
-        <input type="text" class="form-control"  
-        placeholder="Faça observações a cerca dos objetivos desse aluno" 
-        name="obs_andre" value="<?php echo $obs_andre ?>">
-      </div>
-      <a href='sistema_coach_forms.php'>
-            <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
-        </a>
-        <input type="submit" class="btn" class="enviar_forms" value="Salvar observação" name="update"
-          id="update"><br><br>
+      
+      <div>
+          <?php
+            echo "
+            <a href='sistema_coach_forms.php?cod=$user_data[cod]'>
+              <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
+            </a>
+            ";
+            echo"   
+            <input type='submit' class='btn' class='enviar_forms' value='Salvar observação' name='update'
+            onclick='return validar()'
+           id='update'>";
+          ?>
+        </div>
+        </form>
+          <br>
     </div>
- 
-      </form>
+    <!--Container Main end-->
+    
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
@@ -307,8 +344,7 @@
         e.preventDefault();
       });
 
-
-       /* bloqueio inputs saúde */
+    /* bloqueio inputs saúde */
     const input_saude = document.querySelector('#oque');
     input_saude.disabled=true;
       
@@ -342,6 +378,7 @@
     const input_saude11 = document.querySelector('#obs');
       input_saude11.disabled=true;
 
+
       const input_saude12 = document.querySelector('#sim');
       input_saude12.disabled=true;
 
@@ -350,7 +387,6 @@
 
       const input_saude14 = document.querySelector('#mot_edit');
       input_saude14.disabled=true;
-         
       </script>
 
   </body>

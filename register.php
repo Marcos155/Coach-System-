@@ -7,7 +7,7 @@
     $nome= $_POST['username'];
     $sobrenome= $_POST['sobrenome'];
     $email= $_POST['email'];
-    $senha= $_POST['password'];
+    $senha=  $_POST['password'];
     $tele= $_POST['phone'];
 
     $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone) 
