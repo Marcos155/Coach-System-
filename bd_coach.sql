@@ -210,5 +210,4 @@ add column mot_edit varchar(350) null after obs;
 ALTER TABLE db_coach.formulario_15_anos
 add column obs_andre varchar(500) null after mot_edit;
 
-ALTER TABLE db_coach.cadastro MODIFY COLUMN senha varchar(200);
 ALTER TABLE db_coach.cadastro MODIFY COLUMN senha varchar(300);
