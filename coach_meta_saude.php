@@ -1,3 +1,41 @@
+<?php
+  session_start();
+  include_once('config.php');
+  if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+      {
+          unset($_SESSION['email']);
+          unset($_SESSION['senha']);
+          header('Location:entrar.php');
+      }
+      $logado = $_SESSION['email'];
+
+      if(!empty($_GET['cod']))
+      {
+      
+        include_once('config.php');
+    
+        $cod = $_GET['cod'];
+        $sqlselect = "SELECT * FROM meta_saude WHERE cod=$cod";
+        $result = $conexao_forms15->query($sqlselect);
+    
+        if($result->num_rows > 0)
+        {
+            while($user_data = mysqli_fetch_assoc($result))
+            {
+              $nome= $user_data['nome'];
+              $id_meta=$user_data['id_meta'];
+            }
+    
+        }
+        else{
+            header('Location: testando.php');
+        }
+      }
+      else
+      {
+        header('Location: testando.php');
+      }
+?>
 <!doctype html>
 <html>
 
@@ -16,6 +54,7 @@
         body{
     /*background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);*/
     background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
+    background-attachment: fixed;
 }
 .btn:hover{
     background-color: #f01e1e;
@@ -40,6 +79,9 @@ button:hover{
 .frm-linha input {
   background:#fff;
   color:#000;
+}
+#idTarefaEdicao{
+  opacity: 0;
 }
   </style>
 </head>
@@ -85,13 +127,14 @@ button:hover{
         <p style="color:#000;">cadastre metas em relação à saúde</b></p>
             <br>
         <div class="conteudo">
+        
         <div class="topo">
-            <input type="text" 
-                id="inputNovaTarefa"
-                placeholder="Adicionar nova meta"
-                >
-
-            <button id="btnAddTarefa">
+        
+        <?php
+        echo"<form action='save_metaSaude.php' method='post' name='forms'>";
+        ?>
+            <input type="text" name="nome" id="inputNovaTarefa" placeholder="Adicionar nova meta" <?php echo"value=$nome "?>>
+            <button id="btnAddTarefa" type="submit" name="update" id="update">
                 <i class="fa fa-plus"></i>
             </button>
         </div>
@@ -106,7 +149,7 @@ button:hover{
         </button>
         
         <h2 id="idTarefaEdicao">#1021</h2>
-
+        <h2 >Metas Saúde</h2>
         <hr>
         <form>
             <div class="frm-linha">

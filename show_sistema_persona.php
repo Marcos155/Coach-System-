@@ -52,6 +52,12 @@ $nome= $user_data['nome'];
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
+  <style>
+    .btn:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+  </style>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">

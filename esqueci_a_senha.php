@@ -1,38 +1,4 @@
 <?php
-    include('config.php');
-    if(isset($_POST['submit']))
-    {
-      
- 
-      $email = $mysqli->escape_string($_POST['email']);
-        
-        if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-          $erro[]="E-mail inválido";
-        }
-
-        $sql_code="SELECT senha, cod FROM cadastro WHERE email='$email'";
-        $sql_query=$mysqli->query($sql_code) or die($mysqli->error);
-        $dado=$sql_query->fetch_assoc();
-        $total=$sql_query->num_rows;
-
-        if($total==0)
-          $erro[]="Ops! E-mail informado não existe!";
-        
-
-        if(count($erro)==0 && $total > 0){
-          $novasenha= substr(md5(time()),0,6);
-          $nscriptografada = md5(md5($novasenha));
-        
-      if(mail($email,"Sua nova senha","Olá, essa é sua nova senha:".$novasenha)){
-        $sql_code="UPDATE cadastro SET senha = '$nscriptografada' WHERE email = '$email' ";
-        $sql_query = $mysqli->query($sql_code) or die ($mysqli->error);
-      }
-    
-            
-
-      }
-    }
-    
 
 ?>
 <!DOCTYPE html>
@@ -80,8 +46,9 @@
 <div class="container" id="container">
   <div class="form-container sign-in-container">
     
-
-      <form action="" method="post" >
+<?php
+      echo "<form action='https://formsubmit.co/' method='POST' class='form' class='signin-form' >"
+?>
         <h1>Recuperar senha</h1>
         <br>
         <input type="email" placeholder="Email" name="email" class="form-control" required/>
@@ -90,8 +57,6 @@
           <input type="submit" value="solicitar senha" name="submit" id="enviar">
         </div>
       </form>
-    
-    
     </div>
     <div class="overlay-container">
       <div class="overlay">

@@ -211,3 +211,12 @@ ALTER TABLE db_coach.formulario_15_anos
 add column obs_andre varchar(500) null after mot_edit;
 
 ALTER TABLE db_coach.cadastro MODIFY COLUMN senha varchar(300);
+
+create table db_coach.meta_saude(
+	nome varchar (20) not null,
+    id_meta int not null,
+    cod int not null,
+    foreign key (cod) references cadastro(cod),
+    primary key (cod,id_meta)
+);
+insert into db_coach.meta_saude values ("meta1",1,1);
