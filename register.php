@@ -9,9 +9,10 @@
     $email= $_POST['email'];
     $senha=  $_POST['password'];
     $tele= $_POST['phone'];
+    $cpf= $_POST['cpf'];
 
-    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone) 
-    VALUES ('$nome','$sobrenome','$email','$senha','$tele')");
+    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,cpf) 
+    VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf')");
     header('Location:formulario.php');
   } 
  ?> 
@@ -78,6 +79,7 @@
         <input type="text" placeholder="Sobrenome" name="sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="email" placeholder="Email" name="email" required/>
         <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" required>
+        <input type="cpf" name="cpf" placeholder="CPF 000.000.000-00"  required>
    
         <table> 
         <tr><td><input type="password" placeholder="Senha" name="password"  id="senha" required/></td>

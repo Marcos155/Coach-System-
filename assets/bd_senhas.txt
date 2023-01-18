@@ -1,0 +1,4 @@
+database: bd_coach
+username: q0ga3y9uciqoiv8lu5k0
+host: aws-sa-east-1.connect.psdb.cloud
+password: pscale_pw_G2VitKtuYIixqehCqwOwSRVQ9TS1vxBk2sxVqqypqrt

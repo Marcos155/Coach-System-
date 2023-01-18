@@ -220,3 +220,7 @@ create table db_coach.meta_saude(
     primary key (cod,id_meta)
 );
 insert into db_coach.meta_saude values ("meta1",1,1);
+
+
+ALTER TABLE db_coach.cadastro
+add column cpf varchar(14) null after sexo;
