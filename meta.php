@@ -20,11 +20,15 @@
       } 
       $resultRelacionamento = $conexao_regis->query($sql);
       $user_data = mysqli_fetch_assoc($resultRelacionamento);
-      $cod=$user_data['cod'];
-      $nome= $user_data['nome'];
       $feitoRelacionamento= $user_data['feito'];
       $metaRelacionamento= $user_data['meta'];
- 
+
+
+
+
+  /* universal */
+  $cod=$user_data['cod'];
+  $nome= $user_data['nome'];
 ?>
 <!doctype html>
 <html>

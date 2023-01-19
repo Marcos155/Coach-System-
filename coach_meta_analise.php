@@ -25,6 +25,7 @@
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
           $metaRelacionamento= $user_data['meta'];
+          $feitoRelacionamento=$user_data['feito'];
         }
 
     }
@@ -43,12 +44,12 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Conta</title>
+  <title>Meta</title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
-  
+  <link rel="stylesheet" href="assets/css/style-trelo.css">
   <style>
         .table-wrapper {
     max-height: 500px;
@@ -74,13 +75,66 @@
     transition: all 0.3s;
     border: none;
 }
+dialog::backdrop{
+      background: rgb(0 0 0 / .5);
+    }
+    dialog{
+      border:none;
+      border-radius: .5rem;
+      box-shadow: 0 0 1em rgb(0 0 0 / .3);
+      width:80%;
+    }
+    #abrir_dialog{
+      color:#000;
+      border-radius:5px;
+      border:none;
+      padding: 7px 14px 7px 14px;
+      outline:none;
+    }
+    #fechar_dialog{
+      color:#fff;
+      border-radius:5px;
+      border:none;
+      outline:none;
+      background:#000;
+    }
+    #abrir_dialog:hover{
+      padding: 6px 13px 6px 13px;
+      opacity: 0.7;
+     
+    }
+    #fechar_dialog:hover{
+      background:#f01e1e;
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    input:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    #titulo_dialog{
+      font-weight:bold;
+    }
+    input[type=checkbox] {
+         position: absolute;
+	       cursor: pointer;
+         left:1.1rem;
+         height:20px;
+         width:20px;
+         background-color:#000;
+         border-radius:2px;
+    }
+    h5{
+      text-indent:1.6rem;
+    }
+  
   </style>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
 
   <body id="body-pd">
-    <header class="header" id="header">
+  <header class="header" id="header">
       <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:black"></i> </div>
       <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
@@ -111,199 +165,41 @@
       </nav>
     </div>
     <!--Container Main start-->
-    <div>
-      <h2><b>André</b></h2>
-        <p>Aqui você pode <b>analisar</b> como está o <b>andamento das metas</b> de seu aluno(a)</b></p>
+    <div class="height-100 bg-light">
+        <p>Analise do <b>andamento das metas</b> do aluno(a)</b><h2><?php echo "<b> <big>$nome</big></b>";?></h2></p>
 <br><br>
-
      <div class="table-wrapper">
       <div style="display: flex; justify-content: space-evenly;">
-       <!--
-        <section class="list">
-          <header>Objetivos: daqui 15 anos</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox"><?php ?>
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
--->
+     
         <!-- 12 meses -->
+
         <section class="list">
-          <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card">
-            
+        <header>Objetivos: 12 meses (Relacionamentos)</header>
+          <article class="card"  id='abrir_dialog' >
             <header>
-                <input class="" type="checkbox">
-            </header>
-            <!--
-            <div class="detail">1/2</div>
-            -->
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Relacionamento)</header>
-          <article class="card">
-          <header>
-                <input class="" type="checkbox">
                 <?php echo $metaRelacionamento ?>
             </header>
-            <!--
-            <div class="detail">1/2</div>
-            -->
-          </article>
+          </article> 
+          <dialog>
+          <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php echo ($feitoRelacionamento == 'feito') ? 'checked' : ''?> id="feitoRelacionamento">
+            <h5><?php echo "$metaRelacionamento"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
+        <dialog>
         </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Dinheiro)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Trabalho)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Outros)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
+        
       </div>
     </div>
-      <br><br><br><br>
-<!--
-      <p>andamento das <b>metas cadastradas por seu aluno(a)</b></p>
-<br><br>
-     <div class="table-wrapper">
-      <div style="display: flex; justify-content: space-evenly;">
-        <section class="list">
-          <header>Objetivos: daqui 15 anos</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>-->
-        <!-- 12 meses -->
-        <!--
-        <section class="list">
-          <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Relacionamentos)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Dinheiro)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Trabalho)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Outros)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-      </div>
-    </div>
-      <br><br><br><br>-->
+    <!--
+    <br>
+    <a href='aluno_cad_meta.php'>
+      <input type='submit' class='btn' class='enviar_forms' style='background-color:	#FF0000; color: #fff;' value='Cadastrar nova meta'>
+    </a>-->
+    <br><br><br>
 
-      <!-- grpaficos -->
+      <!-- grpaficos 
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">
         <canvas id="conclusao" width="300" height="300"></canvas>
@@ -402,11 +298,27 @@
               }
             }
           });
-      </script>
-
-</div>
-
+      </script>-->
+    </div>
     <!--Container Main end-->
+
+    <script>
+      const button = document.querySelector("#abrir_dialog");
+      const modal = document.querySelector("dialog");
+      const buttonClose = document.querySelector("dialog #fechar_dialog");
+      button.onclick=function(){
+        modal.showModal();
+      };
+      buttonClose.onclick=function(){
+        modal.close();
+      };
+
+      const input_feitoRelacionamento = document.querySelector('#feitoRelacionamento');
+      input_feitoRelacionamento.disabled=true;
+         
+    </script>
+
+
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
@@ -431,6 +343,7 @@
             })
           }
         }
+
         showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
 
         /*===== LINK ACTIVE =====*/
@@ -449,38 +362,7 @@
     <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
       myLink.addEventListener('click', function (e) {
         e.preventDefault();
-      });
-      
-      /* do antigo sistema */
-      $(document).ready(function(){
-
-$(".search-block").hide();
-$(".expander-title").click(function(){
-  $(this).next(".search-block").slideToggle("fast");
-});
-
-});
-
-var search = document.getElementById('pesquisar');
-search.addEventListener("keydown", function (event) {
-if (event.key === "Enter") {
-searchData();
-}
-});
-function searchData() {
-window.location = 'sistema.php?search=' + search.value;
-};
-
-
-$(document).ready(function () {
-
-$(".search-block").hide();
-$(".expander-title").click(function () {
-$(this).next(".search-block").slideToggle("fast");
-});
-
-});
-      </script>
+      });</script>
 
   </body>
 
