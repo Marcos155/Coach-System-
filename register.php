@@ -11,27 +11,40 @@
     $tele= $_POST['phone'];
     $cpf= $_POST['cpf'];
 
+    /* cadastro */
     $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,cpf) 
     VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf')");
 
+    /* metas */
     $result2= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(nome,sobrenome,email) 
     VALUES ('$nome','$sobrenome','$email')");
-    header('Location:formulario.php');
-
     $result3= mysqli_query($conexao_forms15, "INSERT INTO meta_saude(nome,sobrenome,email) 
     VALUES ('$nome','$sobrenome','$email')");
-    header('Location:formulario.php');
-
     $result4= mysqli_query($conexao_forms15, "INSERT INTO meta_trabalho(nome,sobrenome,email) 
     VALUES ('$nome','$sobrenome','$email')");
-    header('Location:formulario.php');
-
     $result5= mysqli_query($conexao_forms15, "INSERT INTO meta_dinheiro(nome,sobrenome,email) 
     VALUES ('$nome','$sobrenome','$email')");
-    header('Location:formulario.php');
-
     $result6= mysqli_query($conexao_forms15, "INSERT INTO meta_outro(nome,sobrenome,email) 
     VALUES ('$nome','$sobrenome','$email')");
+
+    /* formulario 15 anos */
+    $result7= mysqli_query($conexao_forms15, "INSERT INTO formulario_15_anos(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+
+    /* formularios 12 meses */
+    $result8= mysqli_query($conexao_forms15, "INSERT INTO saude_12_meses(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    $result9= mysqli_query($conexao_forms15, "INSERT INTO relacionamento_12_meses(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    $result10= mysqli_query($conexao_forms15, "INSERT INTO dinheiro_12_meses(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    $result11= mysqli_query($conexao_forms15, "INSERT INTO trabalho_12_meses(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    $result12= mysqli_query($conexao_forms15, "INSERT INTO outro_12_meses(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    
+    
+    
     header('Location:formulario.php');
   } 
  ?> 

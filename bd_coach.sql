@@ -29,21 +29,21 @@ ALTER TABLE db_coach.cadastro
 add column estado varchar(40) null after cidade;
 ;
 create table db_coach.saude_12_meses(
-	oque varchar (255) not null,
-    porquem varchar (255) not null,
-    onde varchar (255) not null,
-    quando date not null,
-    porque varchar (255) not null,
-    como varchar (255) not null,
+	oque varchar (255),
+    porquem varchar (255),
+    onde varchar (255),
+    quando date,
+    porque varchar (255),
+    como varchar (255),
 	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
 create table db_coach.relacionamento_12_meses(
-	oque varchar (255) not null,
-    porquem varchar (255) not null,
-    onde varchar (255) not null,
-    quando date not null,
+	oque varchar (255),
+    porquem varchar (255),
+    onde varchar (255),
+    quando date,
     porque varchar (255),
     como varchar (255),
 	cod int  not null auto_increment,
@@ -51,10 +51,10 @@ create table db_coach.relacionamento_12_meses(
     primary key (cod)
 );
 create table db_coach.trabalho_12_meses(
-	oque varchar (255) not null,
-    porquem varchar (255) not null,
-    onde varchar (255) not null,
-    quando date not null,
+	oque varchar (255),
+    porquem varchar (255),
+    onde varchar (255),
+    quando date,
     porque varchar (255),
     como varchar (300),
 	cod int  not null auto_increment,
@@ -62,10 +62,10 @@ create table db_coach.trabalho_12_meses(
     primary key (cod)
 );
 create table db_coach.dinheiro_12_meses(
-	oque varchar (255) not null,
-    porquem varchar (255) not null,
-    onde varchar (255) not null,
-    quando date not null,
+	oque varchar (255),
+    porquem varchar (255),
+    onde varchar (255),
+    quando date,
     porque varchar (255),
     como varchar (255),
 	cod int not null auto_increment,
@@ -73,10 +73,10 @@ create table db_coach.dinheiro_12_meses(
     primary key (cod)
 );
 create table db_coach.outro_12_meses(
-	oque varchar (255) not null,
-    porquem varchar (255) not null,
-    onde varchar (255) not null,
-    quando date not null,
+	oque varchar (255),
+    porquem varchar (255),
+    onde varchar (255),
+    quando date,
     porque varchar (255),
     como varchar (255),
 	cod int not null auto_increment,
@@ -264,5 +264,17 @@ ALTER TABLE db_coach.meta_dinheiro
 add column feito varchar(5) null after meta;
 ALTER TABLE db_coach.meta_outro
 add column feito varchar(5) null after meta;
+
+ALTER TABLE db_coach.saude_12_meses
+add column email varchar(60) null after sobrenome;
+ALTER TABLE db_coach.relacionamento_12_meses
+add column email varchar(60) null after sobrenome;
+ALTER TABLE db_coach.trabalho_12_meses
+add column email varchar(60) null after sobrenome;
+ALTER TABLE db_coach.dinheiro_12_meses
+add column email varchar(60) null after sobrenome;
+ALTER TABLE db_coach.outro_12_meses
+add column email varchar(60) null after sobrenome;
+
 
 

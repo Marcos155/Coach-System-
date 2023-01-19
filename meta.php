@@ -115,7 +115,7 @@ else
             header('Location:entrar.php');
         }
     $logado = $_SESSION['email'];
-
+*/
     if (!empty($_GET['search'])) {
         $dataRelacionamento = $_GET['search'];
         $sql = "SELECT * FROM meta_relacionamento WHERE cod LIKE '%$dataRelacionamento%' or nome LIKE '%$dataRelacionamento%' or sobrenome like '%$dataRelacionamento%' or email LIKE '%$dataRelacionamento%' or 
@@ -124,12 +124,14 @@ else
       } else {
         $sql ="SELECT*from meta_relacionamento where meta_relacionamento.email = '$logado' ";
       } 
-      $resultRelacionamento = $conexao_regis->query($sql);
+      /*
       $user_data = mysqli_fetch_assoc($resultRelacionamento);
       $feitoRelacionamento= $user_data['feito'];
       $metaRelacionamento= $user_data['meta'];
       $cod=$user_data['cod'];
       $nome= $user_data['nome'];*/
+      $result2 = $conexao_regis->query($sql);
+      $user_data = mysqli_fetch_assoc($result2);
 ?>
 <!doctype html>
 <html>
