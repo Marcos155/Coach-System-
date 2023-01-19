@@ -13,17 +13,11 @@ create table db_coach.formulario_15_anos(
     financeiro varchar (500),
     espiritual varchar(500),
     outro varchar (800),
-	cod int not null auto_increment,
+	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
-create table tb_login(
-	email varchar (45) not null,
-    senha varchar (20) not null,
-    cod int not null auto_increment,
-    foreign key (cod) references cadastro(cod),
-    primary key (cod)
-);
+
 ALTER TABLE `db_coach`.`cadastro` 
 ADD COLUMN `telefone` VARCHAR(12) NULL AFTER `senha`,
 ADD COLUMN `sexo` VARCHAR(10)  NULL AFTER `telefone`;
@@ -41,7 +35,7 @@ create table db_coach.saude_12_meses(
     quando date not null,
     porque varchar (300) not null,
     como varchar (300) not null,
-	cod int not null auto_increment,
+	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
@@ -52,7 +46,7 @@ create table db_coach.relacionamento_12_meses(
     quando date not null,
     porque varchar (300),
     como varchar (300),
-	cod int not null auto_increment,
+	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
@@ -63,7 +57,7 @@ create table db_coach.trabalho_12_meses(
     quando date not null,
     porque varchar (300),
     como varchar (300),
-	cod int not null auto_increment,
+	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
@@ -210,17 +204,18 @@ add column mot_edit varchar(350) null after obs;
 ALTER TABLE db_coach.formulario_15_anos
 add column obs_andre varchar(500) null after mot_edit;
 
-ALTER TABLE db_coach.cadastro MODIFY COLUMN senha varchar(300);
-
-create table db_coach.meta_saude(
-	nome varchar (20) not null,
-    id_meta int not null,
-    cod int not null,
-    foreign key (cod) references cadastro(cod),
-    primary key (cod,id_meta)
-);
-insert into db_coach.meta_saude values ("meta1",1,1);
-
-
+ALTER TABLE db_coach.cadastro MODIFY COLUMN senha varchar(100);
 ALTER TABLE db_coach.cadastro
 add column cpf varchar(14) null after sexo;
+
+create table db_coach.meta_relacionamento(
+	nome varchar (20) not null,
+    sobrenome varchar (45) not null,
+    email varchar (60) not null,
+    meta varchar (200) ,
+    cod int not null auto_increment,
+    foreign key (cod) references cadastro(cod),
+    primary key(cod)
+);
+
+

@@ -31,6 +31,7 @@
           $cidade= $user_data['cidade'];
           $estado= $user_data['estado'];
           $data_nasc= $user_data['data_nasc'];
+          $cpf= $user_data['cpf'];
         }
 
     }
@@ -59,8 +60,9 @@
     $cidade= $_POST['cidade'];
     $estado= $_POST['estado'];
     $data_nasc= $_POST['data_nasc'];
-    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(cidade,estado,data_nasc) 
-    VALUES ('$cidade','$estado','$data_nasc')");
+    $cpf= $_POST['cpf'];
+    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(cidade,estado,data_nasc,cpf) 
+    VALUES ('$cidade','$estado','$data_nasc','$cpf')");
     
     header('Location:edit_regis.php');
   }
@@ -145,9 +147,13 @@
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Telefone</label>
-        <input type="tel" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="telefone"  placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
-              name="phone" value="<?php echo $telefone ?>" required>
+        <input type="tel" class="form-control" id="exampleFormControlTextarea1"  placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
+              name="phone" value="<?php echo $telefone ?>">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">CPF</label>
+        <input type="tel" class="form-control" id="exampleFormControlTextarea1"  placeholder="CPF 000.000.000-00"
+              name="cpf" value="<?php echo $cpf ?>" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Sexo</label>

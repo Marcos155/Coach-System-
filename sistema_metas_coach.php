@@ -157,32 +157,32 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
           echo "<td>" . $user_data['sobrenome'] . "</td>";
           echo "
         <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_saude.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+          <a class='btn btn-sm btn-dark' href='#' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
             Cadastrar
           </a>
         </td>
         <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_relacionamento.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+          <a class='btn btn-sm btn-dark' href='coach_meta_relacionamento.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
             Cadastrar
           </a>
         </td>
         <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_dinheiro.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+          <a class='btn btn-sm btn-dark' href='coach_meta_dinheiro.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
             Cadastrar
           </a>
         </td>
         <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_trabalho.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+          <a class='btn btn-sm btn-dark' href='coach_meta_trabalho.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
             Cadastrar
           </a>
         </td>
         <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_outro.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
+          <a class='btn btn-sm btn-dark' href='coach_meta_outro.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver formulário'>
             Cadastrar
           </a>
         </td> 
         <td>
-          <a class='btn btn-sm btn-dark' href='coach_meta_analise.php?$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver andamento'>
+          <a class='btn btn-sm btn-dark' href='coach_meta_analise.php?cod=$user_data[cod]' placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Ver andamento'>
             Analisar
           </a>
         </td> ";

@@ -25,6 +25,10 @@
     $sqlselect7 = "SELECT * FROM cadastro  WHERE cod=$cod";
     $result7 = $conexao_forms15->query($sqlselect7);
 
+    $sqlselect8 = "SELECT * FROM meta_relacionamento WHERE cod=$cod";
+    $result8 = $conexao_forms15->query($sqlselect7);
+
+
     if($result->num_rows > 0)
     {
        $sqldelete="DELETE FROM formulario_15_anos WHERE cod=$cod";
@@ -64,6 +68,12 @@
     if($result7->num_rows > 0)
     {
        $sqldelete="DELETE FROM cadastro WHERE cod=$cod";
+       $resultdelete = $conexao_forms15->query($sqldelete);
+    }
+
+    if($result8->num_rows > 0)
+    {
+       $sqldelete="DELETE FROM meta_relacionamento WHERE cod=$cod";
        $resultdelete = $conexao_forms15->query($sqldelete);
     }
 

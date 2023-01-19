@@ -71,7 +71,7 @@
     }
 
     img {
-      margin: 5px 5px 5px 5px;
+      margin: 5px 0px 5px 0px;
     }
   </style>
 </head>
@@ -125,8 +125,9 @@
         <div style="position: relative; width: 100%;">
           <div style="width:100%; position: absolute; top: 0; left: 0;">
             <input type="password" placeholder="Senha" name="password" id="senha" required />
-            <img src="eyes.png" alt="" id="eyesvg" onclick=" mostrarOcultarSenha()" width="24px">
+            <img src="eyes.png" alt="" id="eyesvg" onclick=" mostrarOcultarSenha()" width="24px" class="olho">
           </div>
+       
         </div><br><br><br><br><br>
         
         <a href="esqueci_a_senha.php" target="_blank">Esqueceu sua senha?</a>

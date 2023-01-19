@@ -119,7 +119,7 @@ header('show_sistema_persona.php');
 
         <h2><b>André</b></h2>
 
-        <p>você pode procurar por um formulário de um aluno procurando por <b>nome</b>,<b> código de aluno</b> e <b>código de turma</b></p>
+        <p>você pode procurar por um formulário de um aluno procurando por <b>nome</b>, <b>sobrenome</b>, <b> código de aluno</b> e <b>código de turma</b></p>
 
         <br>
           <br>

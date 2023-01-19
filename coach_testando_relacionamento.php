@@ -161,7 +161,7 @@
     </div>
 
 
-    <div class="height-100 bg-light">
+    <div >
     <br><br>
       <?php
         echo " Formulário de 12 meses do aluno(a)

@@ -9,32 +9,7 @@
       }
       $logado = $_SESSION['email'];
 
-      if(!empty($_GET['cod']))
-      {
-      
-        include_once('config.php');
-    
-        $cod = $_GET['cod'];
-        $sqlselect = "SELECT * FROM meta_saude WHERE cod=$cod";
-        $result = $conexao_forms15->query($sqlselect);
-    
-        if($result->num_rows > 0)
-        {
-            while($user_data = mysqli_fetch_assoc($result))
-            {
-              $nome= $user_data['nome'];
-              $id_meta=$user_data['id_meta'];
-            }
-    
-        }
-        else{
-            header('Location: testando.php');
-        }
-      }
-      else
-      {
-        header('Location: testando.php');
-      }
+  
 ?>
 <!doctype html>
 <html>
@@ -133,7 +108,7 @@ button:hover{
         <?php
         echo"<form action='save_metaSaude.php' method='post' name='forms'>";
         ?>
-            <input type="text" name="nome" id="inputNovaTarefa" placeholder="Adicionar nova meta" <?php echo"value=$nome "?>>
+            <input type="text" name="nome" id="inputNovaTarefa" placeholder="Adicionar nova meta" <?php// echo"value=$nome "?>>
             <button id="btnAddTarefa" type="submit" name="update" id="update">
                 <i class="fa fa-plus"></i>
             </button>

@@ -13,7 +13,7 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' ";
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' or cpf LIKE '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
@@ -34,9 +34,10 @@ if (isset($_POST['submit'])) {
   $estado = $_POST['estado'];
   $telefone = $_POST['phone'];
   $sexo = $_POST['sexo'];
+  $cpf = $_POST['cpf'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo) 
-VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')");
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo,cpf) 
+VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$cpf')");
 }
 
 ?>
@@ -120,7 +121,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
 
         <h2><b>André</b></h2>
 
-          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, telefone, email, cidade e estado</b></p>
+          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, telefone, email, CPF, cidade e estado</b></p>
 
           <br>
           <br>
@@ -143,6 +144,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
                 <th scope="col">Nome</th>
                 <th scope="col">Sobrenome</th>
                 <th scope="col">Email</th>
+                <th scope="col">CPF</th>
                 <th scope="col">Telefone</th>
                 <th scope="col">Sexo</th>
                 <th scope="col">Cidade</th>
@@ -158,6 +160,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
           echo "<td>" . $user_data['nome'] . "</td>";
           echo "<td>" . $user_data['sobrenome'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
+          echo "<td>" . $user_data['cpf'] . "</td>";
           echo "<td>" . $user_data['telefone'] . "</td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
           echo "<td>" . $user_data['cidade'] . "</td>";
