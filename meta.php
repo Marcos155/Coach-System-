@@ -11,21 +11,20 @@
     $logado = $_SESSION['email'];
 
     if (!empty($_GET['search'])) {
-        $data = $_GET['search'];
-        $sql = "SELECT * FROM meta_relacionamento WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome like '%$data%' or email LIKE '%$data%' or 
-          meta LIKE '%$data%' or feito like '%$data%' ";
+        $dataRelacionamento = $_GET['search'];
+        $sql = "SELECT * FROM meta_relacionamento WHERE cod LIKE '%$dataRelacionamento%' or nome LIKE '%$dataRelacionamento%' or sobrenome like '%$dataRelacionamento%' or email LIKE '%$dataRelacionamento%' or 
+          meta LIKE '%$dataRelacionamento%' or feito like '%$dataRelacionamento%' ";
       
       } else {
         $sql ="SELECT*from meta_relacionamento where meta_relacionamento.email = '$logado' ";
       } 
-      $result2 = $conexao_regis->query($sql);
-      $user_data = mysqli_fetch_assoc($result2);
+      $resultRelacionamento = $conexao_regis->query($sql);
+      $user_data = mysqli_fetch_assoc($resultRelacionamento);
+      $cod=$user_data['cod'];
       $nome= $user_data['nome'];
-      $feito= $user_data['feito'];
+      $feitoRelacionamento= $user_data['feito'];
       $metaRelacionamento= $user_data['meta'];
-
-
-      
+ 
 ?>
 <!doctype html>
 <html>
@@ -65,7 +64,7 @@
       border-radius:5px;
       border:none;
       outline:none;
-      background:#000;
+      background:#f01e1e;
     }
     #abrir_dialog:hover{
       padding: 6px 13px 6px 13px;
@@ -84,6 +83,19 @@
     #titulo_dialog{
       font-weight:bold;
     }
+    input[type=checkbox] {
+         position: absolute;
+	       cursor: pointer;
+         left:1.1rem;
+         height:20px;
+         width:20px;
+         background-color:#eee;
+         border-radius:2px;
+    }
+    h5{
+      text-indent:1.6rem;
+    }
+  
   </style>
 </head>
 
@@ -143,11 +155,12 @@
           </article> 
           <form action="save_feito_metaRelacionamento.php" method="post">
           <dialog>
-          <h2 id='titulo_dialog'>Meta sobre Relacionamento</h2>
-            <input type="checkbox" name="feito" <?php echo ($feito == 'on') ? 'checked' : ''?>>
-            <?php echo " $metaRelacionamento"; ?>
+          <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php echo ($feitoRelacionamento == 'feito') ? 'checked' : ''?> >
+            <h5><?php echo "$metaRelacionamento"; ?></h5>
             <br><br>
-          <button id='fechar_dialog' name="submit" type="submit">Ok</button>
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
         <dialog>
         </form>
         </section>
