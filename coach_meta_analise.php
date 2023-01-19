@@ -1,3 +1,42 @@
+<?php
+  session_start();
+  include_once('config.php');
+  if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+      {
+          unset($_SESSION['email']);
+          unset($_SESSION['senha']);
+          header('Location:entrar.php');
+      }
+      $logado = $_SESSION['email'];
+  
+  if(!empty($_GET['cod']))
+  {
+  
+    include_once('config.php');
+    $cod = $_GET['cod'];
+    $sqlselect = "SELECT * FROM meta_relacionamento WHERE cod=$cod";
+    $result2 = $conexao_forms15->query($sqlselect);
+
+    if($result2->num_rows > 0)
+    {
+        while($user_data = mysqli_fetch_assoc($result2))
+        {
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $email= $user_data['email'];
+          $metaRelacionamento= $user_data['meta'];
+        }
+
+    }
+    else{
+        header('Location: sistema_metas_coach.php');
+    }
+  }
+  else
+  {
+    header('Location: sistema_metas_coach.php');
+  }
+?>
 <!doctype html>
 <html>
 
@@ -76,8 +115,10 @@
       <h2><b>André</b></h2>
         <p>Aqui você pode <b>analisar</b> como está o <b>andamento das metas</b> de seu aluno(a)</b></p>
 <br><br>
+
      <div class="table-wrapper">
       <div style="display: flex; justify-content: space-evenly;">
+       <!--
         <section class="list">
           <header>Objetivos: daqui 15 anos</header>
           <article class="card">
@@ -93,29 +134,30 @@
             <div class="detail">1/2</div>
           </article>
         </section>
+-->
         <!-- 12 meses -->
         <section class="list">
           <header>Objetivos: 12 meses (Saúde)</header>
           <article class="card">
+            
             <header>
                 <input class="" type="checkbox">
             </header>
+            <!--
             <div class="detail">1/2</div>
+            -->
           </article>
         </section>
         <section class="list">
-          <header>Objetivos: 12 meses (Relacionamentos)</header>
+          <header>Objetivos: 12 meses (Relacionamento)</header>
           <article class="card">
-            <header>
+          <header>
                 <input class="" type="checkbox">
+                <?php echo $metaRelacionamento ?>
             </header>
+            <!--
             <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
+            -->
           </article>
         </section>
         <section class="list">
@@ -166,7 +208,7 @@
       </div>
     </div>
       <br><br><br><br>
-
+<!--
       <p>andamento das <b>metas cadastradas por seu aluno(a)</b></p>
 <br><br>
      <div class="table-wrapper">
@@ -181,12 +223,13 @@
           </article>
           <article class="card">
             <header>
-                <input class="" type="checkbox"><?php ?>
+                <input class="" type="checkbox">
             </header>
             <div class="detail">1/2</div>
           </article>
-        </section>
+        </section>-->
         <!-- 12 meses -->
+        <!--
         <section class="list">
           <header>Objetivos: 12 meses (Saúde)</header>
           <article class="card">
@@ -258,7 +301,7 @@
         </section>
       </div>
     </div>
-      <br><br><br><br>
+      <br><br><br><br>-->
 
       <!-- grpaficos -->
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">

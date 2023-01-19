@@ -12,15 +12,17 @@
 
     if (!empty($_GET['search'])) {
         $data = $_GET['search'];
-        $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-          telefone LIKE '%$data%' or sexo LIKE '%$data%' or senha LIKE '%$data%' or cidade LIKE '%$cidade%' or estado LIKE '%$estado%' ";
+        $sql = "SELECT * FROM meta_relacionamento WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome like '%$data%' or email LIKE '%$data%' or 
+          meta LIKE '%$data%' or feito like '%$data%' ";
       
       } else {
-        $sql = /*"SELECT * FROM cadastro ORDER BY cod DESC";*/ "SELECT*from cadastro where cadastro.email = '$logado' ";
+        $sql ="SELECT*from meta_relacionamento where meta_relacionamento.email = '$logado' ";
       }
       $result2 = $conexao_regis->query($sql);
       $user_data = mysqli_fetch_assoc($result2);
-$nome= $user_data['nome'];
+      $nome= $user_data['nome'];
+      $metaRelacionamento= $user_data['meta'];
+      
 ?>
 <!doctype html>
 <html>
@@ -88,6 +90,7 @@ $nome= $user_data['nome'];
      <b><h3>Metas já registradas</h3></b><br>
      <div class="table-wrapper">
       <div style="display: flex; justify-content: space-evenly;">
+      <!--
         <section class="list">
           <header>Objetivos: daqui 15 anos</header>
           <article class="card">
@@ -103,6 +106,7 @@ $nome= $user_data['nome'];
             <div class="detail">1/2</div>
           </article>
         </section>
+  -->
         <!-- 12 meses -->
         <section class="list">
           <header>Objetivos: 12 meses (Saúde)</header>
@@ -117,16 +121,13 @@ $nome= $user_data['nome'];
           <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card">
             <header>
-                <input class="" type="checkbox">
+                <input type="checkbox" name="feito">
+                <?php echo $metaRelacionamento ?>
             </header>
+            <!--
             <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
+  -->
+          </article> 
         </section>
         <section class="list">
           <header>Objetivos: 12 meses (Dinheiro)</header>

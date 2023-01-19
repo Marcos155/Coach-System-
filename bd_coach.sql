@@ -253,5 +253,16 @@ create table db_coach.meta_outro(
     foreign key (cod) references cadastro(cod),
     primary key(cod)
 );
+ALTER TABLE db_coach.meta_relacionamento MODIFY COLUMN meta varchar(500);
+ALTER TABLE db_coach.meta_relacionamento
+add column feito varchar(5) null after meta;
+ALTER TABLE db_coach.meta_saude
+add column feito varchar(5) null after meta;
+ALTER TABLE db_coach.meta_trabalho
+add column feito varchar(5) null after meta;
+ALTER TABLE db_coach.meta_dinheiro
+add column feito varchar(5) null after meta;
+ALTER TABLE db_coach.meta_outro
+add column feito varchar(5) null after meta;
 
 
