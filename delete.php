@@ -28,6 +28,22 @@
     $sqlselect8 = "SELECT * FROM meta_relacionamento WHERE cod=$cod";
     $result8 = $conexao_forms15->query($sqlselect7);
 
+    
+    $sqlselect9 = "SELECT * FROM meta_saude WHERE cod=$cod";
+    $result9 = $conexao_forms15->query($sqlselect7);
+
+    
+    $sqlselect10 = "SELECT * FROM meta_trabalho WHERE cod=$cod";
+    $result10 = $conexao_forms15->query($sqlselect7);
+
+    
+    $sqlselect11 = "SELECT * FROM meta_dinheiro WHERE cod=$cod";
+    $result11 = $conexao_forms15->query($sqlselect7);
+
+    
+    $sqlselect12 = "SELECT * FROM meta_outro WHERE cod=$cod";
+    $result12 = $conexao_forms15->query($sqlselect7);
+
 
     if($result->num_rows > 0)
     {
@@ -74,6 +90,34 @@
     if($result8->num_rows > 0)
     {
        $sqldelete="DELETE FROM meta_relacionamento WHERE cod=$cod";
+       $resultdelete = $conexao_forms15->query($sqldelete);
+    }
+
+    
+    if($result9->num_rows > 0)
+    {
+       $sqldelete="DELETE FROM meta_saude WHERE cod=$cod";
+       $resultdelete = $conexao_forms15->query($sqldelete);
+    }
+
+    
+    if($result10->num_rows > 0)
+    {
+       $sqldelete="DELETE FROM meta_trabalho WHERE cod=$cod";
+       $resultdelete = $conexao_forms15->query($sqldelete);
+    }
+
+    
+    if($result11->num_rows > 0)
+    {
+       $sqldelete="DELETE FROM meta_dinheiro WHERE cod=$cod";
+       $resultdelete = $conexao_forms15->query($sqldelete);
+    }
+
+    
+    if($result12->num_rows > 0)
+    {
+       $sqldelete="DELETE FROM meta_outro WHERE cod=$cod";
        $resultdelete = $conexao_forms15->query($sqldelete);
     }
 

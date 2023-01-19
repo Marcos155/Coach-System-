@@ -17,11 +17,14 @@
       
       } else {
         $sql ="SELECT*from meta_relacionamento where meta_relacionamento.email = '$logado' ";
-      }
+      } 
       $result2 = $conexao_regis->query($sql);
       $user_data = mysqli_fetch_assoc($result2);
       $nome= $user_data['nome'];
+      $feito= $user_data['feito'];
       $metaRelacionamento= $user_data['meta'];
+
+
       
 ?>
 <!doctype html>
@@ -40,6 +43,46 @@
     .table-wrapper {
     max-height: 500px;
     overflow-y: auto;
+    }
+    dialog::backdrop{
+      background: rgb(0 0 0 / .5);
+    }
+    dialog{
+      border:none;
+      border-radius: .5rem;
+      box-shadow: 0 0 1em rgb(0 0 0 / .3);
+      width:80%;
+    }
+    #abrir_dialog{
+      color:#000;
+      border-radius:5px;
+      border:none;
+      padding: 7px 14px 7px 14px;
+      outline:none;
+    }
+    #fechar_dialog{
+      color:#fff;
+      border-radius:5px;
+      border:none;
+      outline:none;
+      background:#000;
+    }
+    #abrir_dialog:hover{
+      padding: 6px 13px 6px 13px;
+      opacity: 0.7;
+     
+    }
+    #fechar_dialog:hover{
+      background:#f01e1e;
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    input:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    #titulo_dialog{
+      font-weight:bold;
     }
   </style>
 </head>
@@ -84,105 +127,41 @@
       <br>
       <b>
         <p>essas são suas metas para alcançar seu objetivo</p>
-      </b>
-      <br>
-     <b><p>Marque aqueles que estão concluídos</p></b><br><br>
+      </b><br><br>
      <b><h3>Metas já registradas</h3></b><br>
      <div class="table-wrapper">
       <div style="display: flex; justify-content: space-evenly;">
-      <!--
-        <section class="list">
-          <header>Objetivos: daqui 15 anos</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox"><?php ?>
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-  -->
+     
         <!-- 12 meses -->
+
         <section class="list">
-          <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card">
+        <header>Objetivos: 12 meses (Relacionamentos)</header>
+          <article class="card"  id='abrir_dialog' >
             <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Relacionamentos)</header>
-          <article class="card">
-            <header>
-                <input type="checkbox" name="feito">
                 <?php echo $metaRelacionamento ?>
             </header>
-            <!--
-            <div class="detail">1/2</div>
-  -->
           </article> 
+          <form action="save_feito_metaRelacionamento.php" method="post">
+          <dialog>
+          <h2 id='titulo_dialog'>Meta sobre Relacionamento</h2>
+            <input type="checkbox" name="feito" <?php echo ($feito == 'on') ? 'checked' : ''?>>
+            <?php echo " $metaRelacionamento"; ?>
+            <br><br>
+          <button id='fechar_dialog' name="submit" type="submit">Ok</button>
+        <dialog>
+        </form>
         </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Dinheiro)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Trabalho)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
-        <section class="list">
-          <header>Objetivos: 12 meses (Outros)</header>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-          <article class="card">
-            <header>
-                <input class="" type="checkbox">
-            </header>
-            <div class="detail">1/2</div>
-          </article>
-        </section>
+        
       </div>
     </div>
+    <!--
     <br>
     <a href='aluno_cad_meta.php'>
       <input type='submit' class='btn' class='enviar_forms' style='background-color:	#FF0000; color: #fff;' value='Cadastrar nova meta'>
-    </a>
+    </a>-->
     <br><br><br>
 
-      <!-- grpaficos -->
+      <!-- grpaficos 
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">
         <canvas id="conclusao" width="300" height="300"></canvas>
@@ -281,9 +260,23 @@
               }
             }
           });
-      </script>
+      </script>-->
     </div>
     <!--Container Main end-->
+
+    <script>
+      const button = document.querySelector("#abrir_dialog");
+      const modal = document.querySelector("dialog");
+      const buttonClose = document.querySelector("dialog #fechar_dialog");
+      button.onclick=function(){
+        modal.showModal();
+      };
+      buttonClose.onclick=function(){
+        modal.close();
+      };
+    </script>
+
+
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
