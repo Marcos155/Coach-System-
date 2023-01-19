@@ -14,18 +14,88 @@
   
     include_once('config.php');
     $cod = $_GET['cod'];
-    $sqlselect = "SELECT * FROM meta_relacionamento WHERE cod=$cod";
-    $result2 = $conexao_forms15->query($sqlselect);
+    /* relacionamento */
+    $sqlselectRelacionamento = "SELECT * FROM meta_relacionamento WHERE cod=$cod";
+    $resultRelacionamento = $conexao_forms15->query($sqlselectRelacionamento);
 
-    if($result2->num_rows > 0)
+    /* saude */
+    $sqlselectSaude = "SELECT * FROM meta_saude WHERE cod=$cod";
+    $resultSaude = $conexao_forms15->query($sqlselectSaude);
+
+    /* Trabalho */
+    $sqlselectTrabalho = "SELECT * FROM meta_trabalho WHERE cod=$cod";
+    $resultTrabalho = $conexao_forms15->query($sqlselectTrabalho);
+
+    /* Dinheiro */
+    $sqlselectDinheiro = "SELECT * FROM meta_dinheiro WHERE cod=$cod";
+    $resultDinheiro = $conexao_forms15->query($sqlselectDinheiro);
+
+    /* Outro */
+    $sqlselectOutro = "SELECT * FROM meta_outro WHERE cod=$cod";
+    $resultOutro = $conexao_forms15->query($sqlselectOutro);
+
+    /* relacionamento */
+    if($resultRelacionamento->num_rows > 0)
     {
-        while($user_data = mysqli_fetch_assoc($result2))
+        while($user_data = mysqli_fetch_assoc($resultRelacionamento))
         {
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
           $metaRelacionamento= $user_data['meta'];
           $feitoRelacionamento=$user_data['feito'];
+        }
+
+    }
+    /* Saude */
+    if($resultSaude->num_rows > 0)
+    {
+        while($user_data = mysqli_fetch_assoc($resultSaude))
+        {
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $email= $user_data['email'];
+          $metaSaude= $user_data['meta'];
+          $feitoSaude=$user_data['feito'];
+        }
+
+    }
+    /* Trabalho */
+    if($resultTrabalho->num_rows > 0)
+    {
+        while($user_data = mysqli_fetch_assoc($resultTrabalho))
+        {
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $email= $user_data['email'];
+          $metaTrabalho= $user_data['meta'];
+          $feitoTrabalho=$user_data['feito'];
+        }
+
+    }
+    /* Dinheiro */
+    if($resultDinheiro->num_rows > 0)
+    {
+        while($user_data = mysqli_fetch_assoc($resultDinheiro))
+        {
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $email= $user_data['email'];
+          $metaDinheiro= $user_data['meta'];
+          $feitoDinheiro=$user_data['feito'];
+        }
+
+    }
+    /* Outro */
+    if($resultOutro->num_rows > 0)
+    {
+        while($user_data = mysqli_fetch_assoc($resultOutro))
+        {
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $email= $user_data['email'];
+          $metaOutro= $user_data['meta'];
+          $feitoOutro=$user_data['feito'];
         }
 
     }
@@ -173,6 +243,28 @@ dialog::backdrop{
      
         <!-- 12 meses -->
 
+        
+        <!-- Saúde -->
+        <section class="list">
+        <header>Objetivos: 12 meses (Saúde)</header>
+          <article class="card" >
+            <header>
+                <?php echo $metaSaude ?>
+            </header>
+          </article> 
+          <!--
+          <dialog>
+          <h2 id='titulo_dialogSaude'>Metas sobre Saúde</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoSaude == 'feito') ? 'checked' : ''?> id="feitoSaude">
+            <h5><?php //echo "$metaSaude"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialogSaude'>
+        <dialog>
+  -->
+        </section>
+
+        <!-- relacionamento -->
         <section class="list">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialog' >
@@ -189,14 +281,72 @@ dialog::backdrop{
             <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
         <dialog>
         </section>
+
+        
+        <!-- trabalho -->
+        <section class="list">
+        <header>Objetivos: 12 meses (Trabalho)</header>
+          <article class="card" >
+            <header>
+                <?php echo $metaTrabalho ?>
+            </header>
+          </article> 
+          <!--
+          <dialog>
+          <h2 id='titulo_dialog'>Metas sobre Trabalho</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoTrabalho == 'feito') ? 'checked' : ''?> id="feitoTrabalho">
+            <h5><?php //echo "$metaTrabalho"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
+        <dialog>
+  -->
+        </section>
+
+        
+        <!-- dinheiro -->
+        <section class="list">
+        <header>Objetivos: 12 meses (Dinheiro)</header>
+          <article class="card"  id='abrir_dialog' >
+            <header>
+                <?php echo $metaDinheiro ?>
+            </header>
+          </article> 
+          <!--
+          <dialog>
+          <h2 id='titulo_dialog'>Metas sobre Dinheiro</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoDinheiro == 'feito') ? 'checked' : ''?> id="feitoDinheiro">
+            <h5><?php //echo "$metaDinheiro"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
+        <dialog>
+  -->
+        </section>
+
+        
+        <!-- outro -->
+        <section class="list">
+        <header>Objetivos: 12 meses (Demais objetivos)</header>
+          <article class="card"  id='abrir_dialog' >
+            <header>
+                <?php echo $metaOutro ?>
+            </header>
+          </article> 
+          <!--
+          <dialog>
+          <h2 id='titulo_dialog'>Metas sobre Outro</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoOutro == 'feito') ? 'checked' : ''?> id="feitoOutro">
+            <h5><?php //echo "$metaOutro"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
+        <dialog>-->
+        </section>
         
       </div>
     </div>
-    <!--
-    <br>
-    <a href='aluno_cad_meta.php'>
-      <input type='submit' class='btn' class='enviar_forms' style='background-color:	#FF0000; color: #fff;' value='Cadastrar nova meta'>
-    </a>-->
+    
     <br><br><br>
 
       <!-- grpaficos 

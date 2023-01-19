@@ -1,7 +1,113 @@
 <?php
     session_start();
     include_once('config.php');
-    
+    if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+    {
+        unset($_SESSION['email']);
+        unset($_SESSION['senha']);
+        header('Location:entrar.php');
+    }
+    $logado = $_SESSION['email'];
+
+if(!empty($_GET['cod']))
+{
+
+  include_once('config.php');
+  $cod = $_GET['cod'];
+  /* relacionamento */
+  $sqlselectRelacionamento = "SELECT * FROM meta_relacionamento WHERE cod=$cod";
+  $resultRelacionamento = $conexao_forms15->query($sqlselectRelacionamento);
+
+  /* saude */
+  $sqlselectSaude = "SELECT * FROM meta_saude WHERE cod=$cod";
+  $resultSaude = $conexao_forms15->query($sqlselectSaude);
+
+  /* Trabalho */
+  $sqlselectTrabalho = "SELECT * FROM meta_trabalho WHERE cod=$cod";
+  $resultTrabalho = $conexao_forms15->query($sqlselectTrabalho);
+
+  /* Dinheiro */
+  $sqlselectDinheiro = "SELECT * FROM meta_dinheiro WHERE cod=$cod";
+  $resultDinheiro = $conexao_forms15->query($sqlselectDinheiro);
+
+  /* Outro */
+  $sqlselectOutro = "SELECT * FROM meta_outro WHERE cod=$cod";
+  $resultOutro = $conexao_forms15->query($sqlselectOutro);
+
+  /* relacionamento */
+  if($resultRelacionamento->num_rows > 0)
+  {
+      while($user_data = mysqli_fetch_assoc($resultRelacionamento))
+      {
+        $nome= $user_data['nome'];
+        $sobrenome= $user_data['sobrenome'];
+        $email= $user_data['email'];
+        $metaRelacionamento= $user_data['meta'];
+        $feitoRelacionamento=$user_data['feito'];
+      }
+
+  }
+  /* Saude */
+  if($resultSaude->num_rows > 0)
+  {
+      while($user_data = mysqli_fetch_assoc($resultSaude))
+      {
+        $nome= $user_data['nome'];
+        $sobrenome= $user_data['sobrenome'];
+        $email= $user_data['email'];
+        $metaSaude= $user_data['meta'];
+        $feitoSaude=$user_data['feito'];
+      }
+
+  }
+  /* Trabalho */
+  if($resultTrabalho->num_rows > 0)
+  {
+      while($user_data = mysqli_fetch_assoc($resultTrabalho))
+      {
+        $nome= $user_data['nome'];
+        $sobrenome= $user_data['sobrenome'];
+        $email= $user_data['email'];
+        $metaTrabalho= $user_data['meta'];
+        $feitoTrabalho=$user_data['feito'];
+      }
+
+  }
+  /* Dinheiro */
+  if($resultDinheiro->num_rows > 0)
+  {
+      while($user_data = mysqli_fetch_assoc($resultDinheiro))
+      {
+        $nome= $user_data['nome'];
+        $sobrenome= $user_data['sobrenome'];
+        $email= $user_data['email'];
+        $metaDinheiro= $user_data['meta'];
+        $feitoDinheiro=$user_data['feito'];
+      }
+
+  }
+  /* Outro */
+  if($resultOutro->num_rows > 0)
+  {
+      while($user_data = mysqli_fetch_assoc($resultOutro))
+      {
+        $nome= $user_data['nome'];
+        $sobrenome= $user_data['sobrenome'];
+        $email= $user_data['email'];
+        $metaOutro= $user_data['meta'];
+        $feitoOutro=$user_data['feito'];
+      }
+
+  }
+  else{
+      header('Location: testando.php');
+  }
+}
+else
+{
+  header('Location: testando.php');
+}
+    /*
     if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
         {
             unset($_SESSION['email']);
@@ -22,13 +128,8 @@
       $user_data = mysqli_fetch_assoc($resultRelacionamento);
       $feitoRelacionamento= $user_data['feito'];
       $metaRelacionamento= $user_data['meta'];
-
-
-
-
-  /* universal */
-  $cod=$user_data['cod'];
-  $nome= $user_data['nome'];
+      $cod=$user_data['cod'];
+      $nome= $user_data['nome'];*/
 ?>
 <!doctype html>
 <html>
@@ -150,6 +251,28 @@
      
         <!-- 12 meses -->
 
+        <!-- saude -->
+        <section class="list">
+        <header>Objetivos: 12 meses (Saúde)</header>
+          <article class="card">
+            <header>
+                <?php echo $metaSaude ?>
+            </header>
+          </article> 
+          <form action="save_feito_metaSaude.php" method="post">
+            <!--
+          <dialog>
+          <h2 id='titulo_dialog'>Metas sobre Saude</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoSaude == 'feito') ? 'checked' : ''?> >
+            <h5><?php //echo "$metaSaude"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php //echo $cod ;?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
+        <dialog>-->
+        </form>
+        </section>
+
+        <!-- relacionamento -->
         <section class="list">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialog' >
@@ -166,6 +289,69 @@
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
         <dialog>
+        </form>
+        </section>
+
+         <!-- Trabalho -->
+         <section class="list">
+        <header>Objetivos: 12 meses (Trabalho)</header>
+          <article class="card">
+            <header>
+                <?php echo $metaTrabalho ?>
+            </header>
+          </article> 
+          <form action="save_feito_metaTrabalho.php" method="post">
+            <!--
+          <dialog>
+          <h2 id='titulo_dialog'>Metas sobre Trabalho</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php// echo ($feitoTrabalho == 'feito') ? 'checked' : ''?> >
+            <h5><?php// echo "$metaTrabalho"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
+        <dialog>-->
+        </form>
+        </section>
+
+         <!-- Dinheiro -->
+         <section class="list">
+        <header>Objetivos: 12 meses (Dinheiro)</header>
+          <article class="card"  >
+            <header>
+                <?php echo $metaDinheiro ?>
+            </header>
+          </article> 
+          <form action="save_feito_metaDinheiro.php" method="post">
+            <!--
+          <dialog>
+          <h2 id='titulo_dialog'>Metas sobre Dinheiro</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoDinheiro == 'feito') ? 'checked' : ''?> >
+            <h5><?php //echo "$metaDinheiro"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
+        <dialog>-->
+        </form>
+        </section>
+
+         <!-- Outro -->
+         <section class="list">
+        <header>Objetivos: 12 meses (Demais objetivos)</header>
+          <article class="card" >
+            <header>
+                <?php echo $metaOutro ?>
+            </header>
+          </article> 
+          <form action="save_feito_metaOutro.php" method="post">
+            <!--
+          <dialog>
+          <h2 id='titulo_dialog'>Metas sobre Outro</h2><br>
+            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoOutro == 'feito') ? 'checked' : ''?> >
+            <h5><?php //echo "$metaOutro"; ?></h5>
+            <br><br>
+            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
+        <dialog>-->
         </form>
         </section>
         

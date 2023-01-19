@@ -8,11 +8,11 @@ create table cadastro(
     primary key(cod,email)
 );
 create table db_coach.formulario_15_anos(
-	saude varchar (500),
-    relacionamento varchar (500),
-    financeiro varchar (500),
-    espiritual varchar(500),
-    outro varchar (800),
+	saude varchar (255),
+    relacionamento varchar (255),
+    financeiro varchar (255),
+    espiritual varchar(255),
+    outro varchar (255),
 	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
@@ -29,56 +29,56 @@ ALTER TABLE db_coach.cadastro
 add column estado varchar(40) null after cidade;
 ;
 create table db_coach.saude_12_meses(
-	oque varchar (300) not null,
-    porquem varchar (300) not null,
-    onde varchar (300) not null,
+	oque varchar (255) not null,
+    porquem varchar (255) not null,
+    onde varchar (255) not null,
     quando date not null,
-    porque varchar (300) not null,
-    como varchar (300) not null,
+    porque varchar (255) not null,
+    como varchar (255) not null,
 	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
 create table db_coach.relacionamento_12_meses(
-	oque varchar (300) not null,
-    porquem varchar (300) not null,
-    onde varchar (300) not null,
+	oque varchar (255) not null,
+    porquem varchar (255) not null,
+    onde varchar (255) not null,
     quando date not null,
-    porque varchar (300),
-    como varchar (300),
+    porque varchar (255),
+    como varchar (255),
 	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
 create table db_coach.trabalho_12_meses(
-	oque varchar (300) not null,
-    porquem varchar (300) not null,
-    onde varchar (300) not null,
+	oque varchar (255) not null,
+    porquem varchar (255) not null,
+    onde varchar (255) not null,
     quando date not null,
-    porque varchar (300),
+    porque varchar (255),
     como varchar (300),
 	cod int  not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
 create table db_coach.dinheiro_12_meses(
-	oque varchar (300) not null,
-    porquem varchar (300) not null,
-    onde varchar (300) not null,
+	oque varchar (255) not null,
+    porquem varchar (255) not null,
+    onde varchar (255) not null,
     quando date not null,
-    porque varchar (300),
-    como varchar (300),
+    porque varchar (255),
+    como varchar (255),
 	cod int not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
 );
 create table db_coach.outro_12_meses(
-	oque varchar (300) not null,
-    porquem varchar (300) not null,
-    onde varchar (300) not null,
+	oque varchar (255) not null,
+    porquem varchar (255) not null,
+    onde varchar (255) not null,
     quando date not null,
-    porque varchar (300),
-    como varchar (300),
+    porque varchar (255),
+    como varchar (255),
 	cod int not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key (cod)
@@ -105,77 +105,77 @@ add column data_nasc date null after estado;
 ALTER TABLE `db_coach`.`saude_12_meses` 
 ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
 ALTER TABLE `db_coach`.`saude_12_meses` 
-ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ADD COLUMN `objet` VARCHAR(255) NULL AFTER `sobrenome`;
 ALTER TABLE `db_coach`.`saude_12_meses` 
-ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ADD COLUMN `responsa` VARCHAR(255) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`saude_12_meses` 
 ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
 ALTER TABLE `db_coach`.`saude_12_meses` 
 ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
 ALTER TABLE `db_coach`.`saude_12_meses` 
-ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ADD COLUMN `obs` VARCHAR(255) NULL AFTER `data_fim`;
 ALTER TABLE `db_coach`.`saude_12_meses` 
-ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+ADD COLUMN `obs_andre` VARCHAR(255) NULL AFTER `obs`;
 
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
 ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
-ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ADD COLUMN `objet` VARCHAR(255) NULL AFTER `sobrenome`;
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
-ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ADD COLUMN `responsa` VARCHAR(255) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
 ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
 ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
-ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ADD COLUMN `obs` VARCHAR(255) NULL AFTER `data_fim`;
 ALTER TABLE `db_coach`.`relacionamento_12_meses` 
-ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+ADD COLUMN `obs_andre` VARCHAR(255) NULL AFTER `obs`;
 
 ALTER TABLE `db_coach`.`trabalho_12_meses` 
 ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
 ALTER TABLE `db_coach`.`trabalho_12_meses` 
-ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ADD COLUMN `objet` VARCHAR(255) NULL AFTER `sobrenome`;
 ALTER TABLE `db_coach`.`trabalho_12_meses` 
-ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ADD COLUMN `responsa` VARCHAR(255) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`trabalho_12_meses` 
 ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
 ALTER TABLE `db_coach`.`trabalho_12_meses` 
 ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
 ALTER TABLE `db_coach`.`trabalho_12_meses` 
-ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ADD COLUMN `obs` VARCHAR(255) NULL AFTER `data_fim`;
 ALTER TABLE `db_coach`.`trabalho_12_meses` 
-ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+ADD COLUMN `obs_andre` VARCHAR(255) NULL AFTER `obs`;
 
 ALTER TABLE `db_coach`.`dinheiro_12_meses` 
 ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
 ALTER TABLE `db_coach`.`dinheiro_12_meses` 
-ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ADD COLUMN `objet` VARCHAR(255) NULL AFTER `sobrenome`;
 ALTER TABLE `db_coach`.`dinheiro_12_meses` 
-ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ADD COLUMN `responsa` VARCHAR(255) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`dinheiro_12_meses` 
 ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
 ALTER TABLE `db_coach`.`dinheiro_12_meses` 
 ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
 ALTER TABLE `db_coach`.`dinheiro_12_meses` 
-ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ADD COLUMN `obs` VARCHAR(255) NULL AFTER `data_fim`;
 ALTER TABLE `db_coach`.`dinheiro_12_meses` 
-ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+ADD COLUMN `obs_andre` VARCHAR(255) NULL AFTER `obs`;
 
 ALTER TABLE `db_coach`.`outro_12_meses` 
 ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
-ADD COLUMN `objet` VARCHAR(200) NULL AFTER `sobrenome`;
+ADD COLUMN `objet` VARCHAR(255) NULL AFTER `sobrenome`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
-ADD COLUMN `responsa` VARCHAR(200) NULL AFTER `objet`;
+ADD COLUMN `responsa` VARCHAR(255) NULL AFTER `objet`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
 ADD COLUMN `data_inicio` date NULL AFTER `responsa`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
 ADD COLUMN `data_fim` date  NULL AFTER `data_inicio`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
-ADD COLUMN `obs` VARCHAR(300) NULL AFTER `data_fim`;
+ADD COLUMN `obs` VARCHAR(255) NULL AFTER `data_fim`;
 ALTER TABLE `db_coach`.`outro_12_meses` 
-ADD COLUMN `obs_andre` VARCHAR(500) NULL AFTER `obs`;
+ADD COLUMN `obs_andre` VARCHAR(255) NULL AFTER `obs`;
 ALTER TABLE `db_coach`.`formulario_15_anos` 
 ADD COLUMN `sobrenome` VARCHAR(45) NULL AFTER `nome`;
 ALTER TABLE `db_coach`.`saude_12_meses` 
@@ -190,19 +190,19 @@ ALTER TABLE `db_coach`.`outro_12_meses`
 ADD COLUMN `opcao` VARCHAR(3) NULL AFTER `objet`;
 
 ALTER TABLE db_coach.formulario_15_anos
-add column mot_edit varchar(350) null after cod;
+add column mot_edit varchar(255) null after cod;
 ALTER TABLE db_coach.saude_12_meses
-add column mot_edit varchar(350) null after obs;
+add column mot_edit varchar(255) null after obs;
 ALTER TABLE db_coach.relacionamento_12_meses
-add column mot_edit varchar(350) null after obs;
+add column mot_edit varchar(255) null after obs;
 ALTER TABLE db_coach.trabalho_12_meses
-add column mot_edit varchar(350) null after obs;
+add column mot_edit varchar(255) null after obs;
 ALTER TABLE db_coach.dinheiro_12_meses
-add column mot_edit varchar(350) null after obs;
+add column mot_edit varchar(255) null after obs;
 ALTER TABLE db_coach.outro_12_meses
-add column mot_edit varchar(350) null after obs;
+add column mot_edit varchar(255) null after obs;
 ALTER TABLE db_coach.formulario_15_anos
-add column obs_andre varchar(500) null after mot_edit;
+add column obs_andre varchar(255) null after mot_edit;
 
 ALTER TABLE db_coach.cadastro MODIFY COLUMN senha varchar(100);
 ALTER TABLE db_coach.cadastro
@@ -212,7 +212,7 @@ create table db_coach.meta_relacionamento(
 	nome varchar (20) not null,
     sobrenome varchar (45) not null,
     email varchar (60) not null,
-    meta varchar (200) ,
+    meta varchar (255) ,
     cod int not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key(cod)
@@ -221,7 +221,7 @@ create table db_coach.meta_saude(
 	nome varchar (20) not null,
     sobrenome varchar (45) not null,
     email varchar (60) not null,
-    meta varchar (200) ,
+    meta varchar (255) ,
     cod int not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key(cod)
@@ -230,7 +230,7 @@ create table db_coach.meta_trabalho(
 	nome varchar (20) not null,
     sobrenome varchar (45) not null,
     email varchar (60) not null,
-    meta varchar (200) ,
+    meta varchar (255) ,
     cod int not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key(cod)
@@ -239,7 +239,7 @@ create table db_coach.meta_dinheiro(
 	nome varchar (20) not null,
     sobrenome varchar (45) not null,
     email varchar (60) not null,
-    meta varchar (200) ,
+    meta varchar (255) ,
     cod int not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key(cod)
@@ -248,12 +248,12 @@ create table db_coach.meta_outro(
 	nome varchar (20) not null,
     sobrenome varchar (45) not null,
     email varchar (60) not null,
-    meta varchar (200) ,
+    meta varchar (255) ,
     cod int not null auto_increment,
     foreign key (cod) references cadastro(cod),
     primary key(cod)
 );
-ALTER TABLE db_coach.meta_relacionamento MODIFY COLUMN meta varchar(500);
+ALTER TABLE db_coach.meta_relacionamento MODIFY COLUMN meta varchar(255);
 ALTER TABLE db_coach.meta_relacionamento
 add column feito varchar(5) null after meta;
 ALTER TABLE db_coach.meta_saude
