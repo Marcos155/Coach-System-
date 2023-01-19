@@ -1,3 +1,55 @@
+<?php
+  session_start();
+  include_once('config.php');
+  if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
+      {
+          unset($_SESSION['email']);
+          unset($_SESSION['senha']);
+          header('Location:entrar.php');
+      }
+      $logado = $_SESSION['email'];
+  
+  if(!empty($_GET['cod']))
+  {
+  
+    include_once('config.php');
+    $cod = $_GET['cod'];
+    $sqlselect = "SELECT * FROM meta_outro WHERE cod=$cod";
+    $result2 = $conexao_forms15->query($sqlselect);
+
+    if($result2->num_rows > 0)
+    {
+        while($user_data = mysqli_fetch_assoc($result2))
+        {
+          $nome= $user_data['nome'];
+          $sobrenome= $user_data['sobrenome'];
+          $email= $user_data['email'];
+          $meta= $user_data['meta'];
+        }
+
+    }
+    else{
+        header('Location: sistema_metas_coach.php');
+    }
+  }
+  else
+  {
+    header('Location: sistema_metas_coach.php');
+  }
+  if(isset($_POST['submit']))
+  {
+    
+    include_once('config.php');
+    $email= $_POST['email'];
+    $nome= $_POST['nome'];
+    $sobrenome= $_POST['sobrenome'];
+    $meta= $_POST['meta'];
+    $result= mysqli_query($conexao_forms15, "INSERT INTO meta_outro(meta) 
+    VALUES ('$meta')");
+    
+    header('Location:coach_meta_outro.php');
+  }
+?>
 <!doctype html>
 <html>
 
@@ -16,6 +68,7 @@
         body{
     /*background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);*/
     background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
+    background-attachment: fixed;
 }
 .btn:hover{
     background-color: #f01e1e;
@@ -26,6 +79,7 @@
 .btn{
   background-color: #000;
   color: #fff;
+  outline:none;
 }
 .topo input{
   background:#fff;
@@ -41,6 +95,53 @@ button:hover{
   background:#fff;
   color:#000;
 }
+#idTarefaEdicao{
+  opacity: 0;
+}
+#meta{
+  background: #ccc;
+}
+dialog::backdrop{
+      background: rgb(0 0 0 / .5);
+    }
+    dialog{
+      border:none;
+      border-radius: .5rem;
+      box-shadow: 0 0 1em rgb(0 0 0 / .3);
+      width:80%;
+    }
+    #abrir_dialog{
+      color:#fff;
+      border-radius:5px;
+      border:none;
+      padding: 7px 14px 7px 14px;
+      outline:none;
+    }
+    #fechar_dialog{
+      color:#fff;
+      border-radius:5px;
+      border:none;
+      outline:none;
+      background:#000;
+    }
+    #abrir_dialog:hover{
+      padding: 6px 13px 6px 13px;
+      opacity: 0.7;
+     
+    }
+    #fechar_dialog:hover{
+      background:#f01e1e;
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    input:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    #titulo_dialog{
+      font-weight:bold;
+    }
+    
   </style>
 </head>
 
@@ -82,43 +183,88 @@ button:hover{
     <main class="mdl-layout__content">
         <div class="page-content">
         <h2 style="color:#000;"><b>Cadastro de metas</b></h2>
-        <p style="color:#000;">cadastre metas em relação à demais objetivos</b></p>
-            <br>
+        <p style="color:#000;">cadastro de metas em relação à outro</b></p>
+        <?php
+        echo "<h3>aluno(a) <b>$nome</b></h3>"
+        ?><br>
         <div class="conteudo">
+        
         <div class="topo">
-            <input type="text" 
-                id="inputNovaTarefa"
-                placeholder="Adicionar nova meta"
-                >
-
-            <button id="btnAddTarefa">
+          <form action="save_meta_outro.php" method="post" name="forms">
+            <!--
+          <label for="id_meta">Número da meta <b>(máx:20)</b></label>
+            <input list="num_meta" id="id_meta" name="id_meta" type="number" min="1" max="20" required/>
+            <datalist id="num_meta">
+              <option value="1"></option>
+              <option value="2"></option>
+              <option value="3"></option>
+              <option value="4"></option>
+              <option value="5"></option>
+              <option value="6"></option>
+              <option value="7"></option>
+              <option value="8"></option>
+              <option value="9"></option>
+              <option value="10"></option>
+              <option value="11"></option>
+              <option value="12"></option>
+              <option value="13"></option>
+              <option value="14"></option>
+              <option value="15"></option>
+              <option value="16"></option>
+              <option value="17"></option>
+              <option value="18"></option>
+              <option value="19"></option>
+              <option value="20"></option>
+            </datalist>
+            <br>
+            <br>-->
+            <input type="text" name="meta" id="inputNovaTarefa" placeholder="Adicionar nova meta">
+            
+            
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <br><br>
+            <input id="meta" value="<?php echo $meta ?>">
+          
+        </div>
+        <button type="submit" class="btn" class="enviar_forms" name="update"  id="update" data-toggle='tooltip' data-placement='right' title='Adicionar meta'>
                 <i class="fa fa-plus"></i>
             </button>
-        </div>
+            </form>
+        <button type="submit" class="btn" id="exluir" onclick="eliminaMeta ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
+            <i class="fa fa-trash"></i>
+        </button>
 
-        <ul id="listaTarefas">
-        </ul>
+        <button type="submit" class="btn" class="expandir"   id='abrir_dialog'  data-toggle='tooltip' data-placement='right' title='Ver meta'>
+            <i class="fa fa-expand"></i>
+        </button>
+       
+        <dialog>
+          <h2 id='titulo_dialog'>Meta sobre Saúde</h2>
+            <?php echo "<p>$meta</p>"; ?>
+          <button id='fechar_dialog'>Ok</button>
+        <dialog>
+
     </div>   
 
+<!--
     <div id="janelaEdicao">
         <button id="janelaEdicaoBtnFechar">
             <i class="fa fa-remove fa-2x"></i>
         </button>
-        
-        <h2 id="idTarefaEdicao">#1021</h2>
-
-        <hr>
-        <form>
+        <h2 id="idTarefaEdicao"></h2>
+        <h2>Meta Relacionamento</h2>
+        <hr>   
             <div class="frm-linha">
                 <label for="nome">Meta</label>
                 <input type="text" id="inputTarefaNomeEdicao">
             </div>
             <div class="frm-linha">
                 <button id="btnAtualizarTarefa">Salvar</button>
-            </div>
-        </form>
+            </div>     
     </div>
     <div id="janelaEdicaoFundo"></div>
+-->
+        
     <div>
           <?php
             echo "
@@ -127,7 +273,33 @@ button:hover{
             </a>
             ";
           ?>
-        </div>
+    </div>
+    <script>
+       function eliminaMeta (el){
+    var confirma =confirm("Tem a certeza que quer eliminar a Meta?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/delete_metaOutro.php?cod=<?php echo $cod?>";
+       
+    } 
+};
+    </script>
+    <script>
+      const input_saude7 = document.querySelector('#meta');
+      input_saude7.disabled=true;
+    </script>
+<script>
+      const button = document.querySelector("#abrir_dialog");
+      const modal = document.querySelector("dialog");
+      const buttonClose = document.querySelector("dialog #fechar_dialog");
+      button.onclick=function(){
+        modal.showModal();
+      };
+      buttonClose.onclick=function(){
+        modal.close();
+      };
+    </script>
+
+
     <script src="coach_cad_meta.js"></script>
     <!--Container Main end-->
     <script type='text/javascript'

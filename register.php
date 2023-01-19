@@ -17,6 +17,22 @@
     $result2= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(nome,sobrenome,email) 
     VALUES ('$nome','$sobrenome','$email')");
     header('Location:formulario.php');
+
+    $result3= mysqli_query($conexao_forms15, "INSERT INTO meta_saude(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    header('Location:formulario.php');
+
+    $result4= mysqli_query($conexao_forms15, "INSERT INTO meta_trabalho(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    header('Location:formulario.php');
+
+    $result5= mysqli_query($conexao_forms15, "INSERT INTO meta_dinheiro(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    header('Location:formulario.php');
+
+    $result6= mysqli_query($conexao_forms15, "INSERT INTO meta_outro(nome,sobrenome,email) 
+    VALUES ('$nome','$sobrenome','$email')");
+    header('Location:formulario.php');
   } 
  ?> 
 <!DOCTYPE html>

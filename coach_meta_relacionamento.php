@@ -220,19 +220,21 @@ dialog::backdrop{
             <br>-->
             <input type="text" name="meta" id="inputNovaTarefa" placeholder="Adicionar nova meta">
             
-            <button type="submit" class="btn" class="enviar_forms" name="update"  id="update" >
-                <i class="fa fa-plus"></i>
-            </button>
+            
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <br><br>
             <input id="meta" value="<?php echo $meta ?>">
-          </form>
+          
         </div>
-        <button type="submit" class="btn" id="exluir" onclick="eliminaMeta ()" name="deletar">
+        <button type="submit" class="btn" class="enviar_forms" name="update"  id="update" data-toggle='tooltip' data-placement='right' title='Adicionar meta'>
+                <i class="fa fa-plus"></i>
+            </button>
+            </form>
+        <button type="submit" class="btn" id="exluir" onclick="eliminaMeta ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
             <i class="fa fa-trash"></i>
         </button>
 
-        <button type="submit" class="btn" class="expandir"   id='abrir_dialog'  >
+        <button type="submit" class="btn" class="expandir"   id='abrir_dialog'  data-toggle='tooltip' data-placement='right' title='Ver meta'>
             <i class="fa fa-expand"></i>
         </button>
        
@@ -273,12 +275,13 @@ dialog::backdrop{
           ?>
     </div>
     <script>
-       function eliminaMeta (){
+       function eliminaMeta (el){
     var confirma =confirm("Tem a certeza que quer eliminar a Meta?");
     if (confirma==true){
         window.location.href="http://localhost/Coach-System-/delete_metaRelacionamento.php?cod=<?php echo $cod?>";
+       
     } 
-}
+};
     </script>
     <script>
       const input_saude7 = document.querySelector('#meta');
@@ -295,7 +298,6 @@ dialog::backdrop{
         modal.close();
       };
     </script>
-
 
 
     <script src="coach_cad_meta.js"></script>

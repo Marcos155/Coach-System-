@@ -217,5 +217,41 @@ create table db_coach.meta_relacionamento(
     foreign key (cod) references cadastro(cod),
     primary key(cod)
 );
+create table db_coach.meta_saude(
+	nome varchar (20) not null,
+    sobrenome varchar (45) not null,
+    email varchar (60) not null,
+    meta varchar (200) ,
+    cod int not null auto_increment,
+    foreign key (cod) references cadastro(cod),
+    primary key(cod)
+);
+create table db_coach.meta_trabalho(
+	nome varchar (20) not null,
+    sobrenome varchar (45) not null,
+    email varchar (60) not null,
+    meta varchar (200) ,
+    cod int not null auto_increment,
+    foreign key (cod) references cadastro(cod),
+    primary key(cod)
+);
+create table db_coach.meta_dinheiro(
+	nome varchar (20) not null,
+    sobrenome varchar (45) not null,
+    email varchar (60) not null,
+    meta varchar (200) ,
+    cod int not null auto_increment,
+    foreign key (cod) references cadastro(cod),
+    primary key(cod)
+);
+create table db_coach.meta_outro(
+	nome varchar (20) not null,
+    sobrenome varchar (45) not null,
+    email varchar (60) not null,
+    meta varchar (200) ,
+    cod int not null auto_increment,
+    foreign key (cod) references cadastro(cod),
+    primary key(cod)
+);
 
 

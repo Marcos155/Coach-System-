@@ -7,9 +7,9 @@
         $meta= $_POST['meta'];
     
 
-        $sqlupdate = "UPDATE meta_relacionamento SET meta='$meta'
+        $sqlupdate = "UPDATE meta_outro SET meta='$meta'
         WHERE cod='$cod' ";
         $result2 = $conexao_forms15->query($sqlupdate);
     }
-    header('Location:coach_meta_relacionamento.php?cod='.$cod);
+    header('Location:coach_meta_outro.php?cod='.$cod);
 ?>
