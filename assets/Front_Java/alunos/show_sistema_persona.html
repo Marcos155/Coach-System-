@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Conta</title>
+  <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
+  <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+  <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="css/nav.css">
+  <style>
+    .btn:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+  </style>
+</head>
+
+<body className='snippet-body' style="background-color:#f8f9fa">
+
+  <body id="body-pd">
+    <header class="header" id="header">
+      <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+      <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+    </header>
+    <div class="l-navbar" id="nav-bar">
+      <nav class="nav">
+        <div> <a href="#" class="nav_logo"> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Nome do Aluno</span> </a>
+          <div class="nav_list"> 
+            
+           <a href='show_sistema_persona.html' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
+              <span class='nav_name'>Conta</span> </a>
+              
+            <a href='testando.html' class='nav_link'> <i
+              class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>
+            <a href='meta.html' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>
+             <a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>
+            
+          </div>
+        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </a>
+      </nav>
+    </div>
+    <!--Container Main start-->
+    <div>
+      <br><br>
+      <h2> Olá, nome do cara&#128578;</h2><br>
+      <b>
+        <p>esses foram os dados preenchidos em seu cadastro.</p>
+      </b>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Código</label>
+        <input type='text' class='form-control'  value='' id='cod'>
+        </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+       <input type='text' class='form-control'  value='' id='email'>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Telefone</label>
+        <input type='text' class='form-control'  value='' id='telefone'>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Sexo</label>
+        <input type='text' class='form-control' value='' id='sexo'>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Cidade</label>
+       <input type='text' class='form-control' value=' ' id='cidade'>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Estado</label>
+       <input type='text' class='form-control'  value='' id='estado'>
+      </div>
+      <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Data de Nascimento</label>
+        <input type='text' class='form-control'  value='' id='data_nasc'>
+      </div>
+      <div>
+        
+            <a href='edit_regis.html'>
+            <input type='submit' class='btn' class='enviar_forms' style='background-color:rgb(255,0,0); color: #fff;' value='Completar cadastro'>
+            </a>
+            
+        </div>
+          <br>
+    </div>
+
+    <!--Container Main end-->
+    <script type='text/javascript'
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
+    <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
+
+        const showNavbar = (toggleId, navId, bodyId, headerId) => {
+          const toggle = document.getElementById(toggleId),
+            nav = document.getElementById(navId),
+            bodypd = document.getElementById(bodyId),
+            headerpd = document.getElementById(headerId)
+
+          // Validate that all variables exist
+          if (toggle && nav && bodypd && headerpd) {
+            toggle.addEventListener('click', () => {
+              // show navbar
+              nav.classList.toggle('show')
+              // change icon
+              toggle.classList.toggle('bx-x')
+              // add padding to body
+              bodypd.classList.toggle('body-pd')
+              // add padding to header
+              headerpd.classList.toggle('body-pd')
+            })
+          }
+        }
+
+        showNavbar('header-toggle', 'nav-bar', 'body-pd', 'header')
+
+        /*===== LINK ACTIVE =====*/
+        const linkColor = document.querySelectorAll('.nav_link')
+
+        function colorLink() {
+          if (linkColor) {
+            linkColor.forEach(l => l.classList.remove('active'))
+            this.classList.add('active')
+          }
+        }
+        linkColor.forEach(l => l.addEventListener('click', colorLink))
+
+        // Your code to run since DOM is loaded and ready
+      });</script>
+    <script type='text/javascript'>var myLink = document.querySelector('a[href="#"]');
+      myLink.addEventListener('click', function (e) {
+        e.preventDefault();
+      });
+      const input = document.querySelector('#cod');
+      input.disabled=true;
+      
+    const input2 = document.querySelector('#email');
+      input2.disabled=true;
+
+    const input3 = document.querySelector('#data_nasc');
+      input3.disabled=true;
+
+
+    const input4 = document.querySelector('#telefone');
+      input4.disabled=true;
+
+    const input5 = document.querySelector('#sexo');
+      input5.disabled=true;
+
+    const input6 = document.querySelector('#cidade');
+      input6.disabled=true;
+
+    const input7 = document.querySelector('#estado');
+      input7.disabled=true;
+
+    const input8 = document.querySelector('#data_nasc');
+      input8.disabled=true;
+      </script>
+
+  </body>
+
+</html>
