@@ -206,7 +206,7 @@
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Algum outro ?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Escreva outro objetivo" name="outro">
+        <input type="text" class="form-control" id="exampleFormControlTextarea1" placeholder="Escreva outro objetivo" name="outro" required>
         <small id="emailHelp" class="form-text text-muted">Descreva aqui algum outro objetivo que tenha e que foi listado acima</small>
       </div>
       
