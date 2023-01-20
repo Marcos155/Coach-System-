@@ -130,7 +130,8 @@ else
       $metaRelacionamento= $user_data['meta'];
       $cod=$user_data['cod'];
       $nome= $user_data['nome'];*/
-      $result2 = $conexao_regis->query($sql);
+      /*$result2 = $conexao_regis->query($sql);*/
+      $result2 = $conexao_forms15->query($sql);
       $user_data = mysqli_fetch_assoc($result2);
 ?>
 <!doctype html>

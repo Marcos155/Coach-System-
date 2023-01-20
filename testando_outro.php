@@ -19,6 +19,7 @@ if (!empty($_GET['search'])) {
   
   $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from outro_12_meses where outro_12_meses.cod = $cod ";
 }
+/*$result2 = $conexao_forms15->query($sql);*/
 $result2 = $conexao_forms15->query($sql);
 
 if (isset($_POST['submit'])) {

@@ -20,7 +20,8 @@ if (!empty($_GET['search'])) {
 }
 
 
-$result2 = $conexao_regis->query($sql);
+/*$result2 = $conexao_regis->query($sql);*/
+$result2 = $conexao_forms15->query($sql);
 
 
 if (isset($_POST['submit'])) {

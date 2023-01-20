@@ -17,7 +17,8 @@ if (!empty($_GET['search'])) {
 } else {
   $sql = /*"SELECT * FROM cadastro ORDER BY cod DESC";*/ "SELECT*from cadastro where cadastro.email = '$logado' ";
 }
-$result2 = $conexao_regis->query($sql);
+/*$result2 = $conexao_regis->query($sql);*/
+$result2=$conexao_forms15->query($sql);
 if (isset($_POST['submit'])) {
 
   include_once('config.php');

@@ -9,7 +9,8 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
     $senha = $_POST['password'];
 
     $sql = "SELECT * FROM cadastro WHERE email = '$email' and senha = '$senha'";
-    $result = $conexao_regis->query($sql);
+    /*$result = $conexao_regis->query($sql);*/
+    $result=$conexao_forms15->query($sql);
 
     if($email=='adm@gmail.com' && $senha=='123456'){
         $_SESSION['email'] = $email;

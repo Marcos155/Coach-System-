@@ -19,7 +19,8 @@ if (!empty($_GET['search'])) {
   
   $sql = /*"SELECT * FROM saude_12_meses ORDER BY cod DESC";*/"SELECT*from saude_12_meses where saude_12_meses.cod = $cod ";
 }
-$result2 = $conexao_formsSaude->query($sql);
+/*$result2 = $conexao_formsSaude->query($sql);*/
+$result2 = $conexao_forms15->query($sql);
 
 if (isset($_POST['submit'])) {
 
@@ -50,7 +51,8 @@ if(!empty($_GET['cod']))
 
     $cod = $_GET['cod'];
     $sqlselect = "SELECT * FROM saude_12_meses WHERE cod=$cod";
-    $result = $conexao_formsSaude->query($sqlselect);
+    /*$result = $conexao_formsSaude->query($sqlselect);*/
+    $result = $conexao_forms15->query($sqlselect);
 
     if($result->num_rows > 0)
     {

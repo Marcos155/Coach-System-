@@ -26,7 +26,7 @@ $data_inicio= $_POST['data_inicio'];
 $data_fim= $_POST['data_fim'];
 $obs= $_POST['obs'];
 
-$resultSaude= mysqli_query($conexao_formsSaude,"UPDATE saude_12_meses SET oque='$oque',porquem='$porquem',onde='$onde',quando='$quando',porque='$porque',como='$como',
+$resultSaude= mysqli_query($conexao_forms15,"UPDATE saude_12_meses SET oque='$oque',porquem='$porquem',onde='$onde',quando='$quando',porque='$porque',como='$como',
 objet='$objet',opcao='$opcao',responsa='$responsa',data_inicio='$data_inicio',data_fim='$data_fim',obs='$obs'
 WHERE saude_12_meses.email='$logado'"); 
 

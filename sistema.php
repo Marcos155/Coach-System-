@@ -19,8 +19,8 @@ if (!empty($_GET['search'])) {
   $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
 }
 
-
-$result2 = $conexao_regis->query($sql);
+/*$result2 = $conexao_regis->query($sql);*/
+$result2 = $conexao_forms15->query($sql);
 
 
 if (isset($_POST['submit'])) {
@@ -39,7 +39,6 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo,cpf) 
 VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$cpf')");
 }
-
 ?>
 <!doctype html>
 <html>
@@ -264,5 +263,4 @@ $(this).next(".search-block").slideToggle("fast");
       </script>
 
   </body>
-
 </html>

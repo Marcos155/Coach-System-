@@ -16,7 +16,8 @@
 
     $cod = $_GET['cod'];
     $sqlselect = "SELECT * FROM saude_12_meses WHERE cod=$cod";
-    $result = $conexao_formsSaude->query($sqlselect);
+    /*$result = $conexao_formsSaude->query($sqlselect);*/
+    $result = $conexao_forms15->query($sqlselect);
 
     if($result->num_rows > 0)
     {
