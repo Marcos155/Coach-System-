@@ -138,6 +138,7 @@
     body{
     /*background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);*/
     background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
+    background-attachment: fixed;
 }
 .btn:hover{
     background-color: #f01e1e;
@@ -236,7 +237,7 @@ dialog::backdrop{
       </nav>
     </div>
     <!--Container Main start-->
-    <div class="height-100 bg-light">
+    <div>
         <p>Analise do <b>andamento das metas</b> do aluno(a)</b><h2><?php echo "<b> <big>$nome</big></b>";?></h2></p>
 <br><br>
      <div class="table-wrapper">
