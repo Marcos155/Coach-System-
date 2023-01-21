@@ -5,10 +5,8 @@
     include_once('config.php');
 
     $cod = $_GET['cod'];
-    $meta= $_POST['meta1'];
 
-
-    $sqlupdate = "UPDATE meta_relacionamento SET meta1= NULL
+    $sqlupdate = "UPDATE meta_relacionamento SET meta2= NULL
     WHERE cod='$cod' ";
     $result2 = $conexao_forms15->query($sqlupdate);
   
