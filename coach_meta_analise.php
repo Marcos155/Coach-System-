@@ -244,12 +244,11 @@ dialog::backdrop{
       <div style="display: flex; justify-content: space-evenly;">
      
         <!-- 12 meses -->
-
         
         <!-- Saúde -->
         <section class="list">
         <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card" >
+          <article class="card" id='abrir_dialogSaude'>
             <header>
                 <?php echo $metaSaude ?>
             </header>
@@ -262,7 +261,7 @@ dialog::backdrop{
             <br><br>
             <input type="hidden" name="cod" value="<?php //echo $cod ?>">
             <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialogSaude'>
-        <dialog>
+          </dialog>
   -->
         </section>
 
@@ -274,7 +273,8 @@ dialog::backdrop{
                 <?php echo $metaRelacionamento ?>
             </header>
           </article> 
-          <dialog>
+          
+        <dialog>
           <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
             <input type="checkbox" value="feito" name="feito" <?php echo ($feitoRelacionamento == 'feito') ? 'checked' : ''?> id="feitoRelacionamento">
             <h5><?php echo "$metaRelacionamento"; ?></h5>
@@ -455,9 +455,9 @@ dialog::backdrop{
     <!--Container Main end-->
 
     <script>
-      const button = document.querySelector("#abrir_dialog");
-      const modal = document.querySelector("dialog");
-      const buttonClose = document.querySelector("dialog #fechar_dialog");
+     const button = document.querySelector("#abrir_dialog");
+     const modal = document.querySelector("dialog");
+     const buttonClose = document.querySelector("dialog #fechar_dialog");
       button.onclick=function(){
         modal.showModal();
       };
@@ -465,6 +465,7 @@ dialog::backdrop{
         modal.close();
       };
 
+      /* travar input check */
       const input_feitoRelacionamento = document.querySelector('#feitoRelacionamento');
       input_feitoRelacionamento.disabled=true;
          

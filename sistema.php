@@ -134,7 +134,6 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
           </div>
           <br>
           <br>
-
           <div class="table-wrapper">
             <table class="table">
             <thead class="thead-light">
@@ -165,8 +164,6 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
           echo "<td>" . $user_data['cidade'] . "</td>";
           echo "<td>" .$user_data['estado'] . "</td>";
           echo "<td>
-
-          
           <a class='btn btn-sm btn-dark'  href='delete.php?cod=$user_data[cod]'
           placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
@@ -178,6 +175,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
           echo "<tr>";
         }
         ?>
+        
               </tbody>
             </table>
           </div>

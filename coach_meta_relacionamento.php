@@ -218,7 +218,7 @@ dialog::backdrop{
             </datalist>
             <br>
             <br>-->
-            <input type="text" name="meta" id="inputNovaTarefa" placeholder="Adicionar nova meta">
+            <input type="text" name="meta" id="inputNovaTarefa" placeholder="Adicionar nova meta" required>
             
             
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
