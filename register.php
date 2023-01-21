@@ -45,7 +45,8 @@
     
     
     
-    header('Location:formulario.php');
+    /*header('Location:formulario.php');*/
+    header('Location:show_sistema_persona.php');
   } 
  ?> 
 <!DOCTYPE html>

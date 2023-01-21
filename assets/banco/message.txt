@@ -1,5 +1,4 @@
 
-
 create table cadastro(
 	cod int primary key not null auto_increment,
     cpf varchar (14) not null,
@@ -149,7 +148,11 @@ create table meta_relacionamento(
 	meta3 varchar (255),
 	meta4 varchar (255),
 	meta5 varchar (255),
-    feito char(5),
+    feito1 char(5),
+	feito2 char(5),
+	feito3 char(5),
+	feito4 char(5),
+	feito5 char(5),
     email varchar(60)
 );
 
@@ -158,8 +161,16 @@ create table meta_saude(
 	cod int primary key not null auto_increment,
 	nome VARCHAR(20),
     sobrenome VARCHAR(45),
-    meta varchar(350),
-    feito char(5),
+	meta1 varchar(255),
+	meta2 varchar (255),
+	meta3 varchar (255),
+	meta4 varchar (255),
+	meta5 varchar (255),
+    feito1 char(5),
+	feito2 char(5),
+	feito3 char(5),
+	feito4 char(5),
+	feito5 char(5),
     email varchar(60)
 );
 
@@ -168,8 +179,16 @@ create table meta_trabalho(
 	cod int primary key not null auto_increment,
 	nome VARCHAR(20),
     sobrenome VARCHAR(45),
-    meta varchar(350),
-    feito char(5),
+	meta1 varchar(255),
+	meta2 varchar (255),
+	meta3 varchar (255),
+	meta4 varchar (255),
+	meta5 varchar (255),
+    feito1 char(5),
+	feito2 char(5),
+	feito3 char(5),
+	feito4 char(5),
+	feito5 char(5),
     email varchar(60)
 );
 
@@ -178,8 +197,16 @@ create table meta_dinheiro(
 	cod int primary key not null auto_increment,
 	nome VARCHAR(20),
     sobrenome VARCHAR(45),
-    meta varchar(350),
-    feito char(5),
+    meta1 varchar(255),
+	meta2 varchar (255),
+	meta3 varchar (255),
+	meta4 varchar (255),
+	meta5 varchar (255),
+    feito1 char(5),
+	feito2 char(5),
+	feito3 char(5),
+	feito4 char(5),
+	feito5 char(5),
     email varchar(60)
 );
 
@@ -188,7 +215,15 @@ create table meta_outro(
 	cod int primary key not null auto_increment,
 	nome VARCHAR(20),
     sobrenome VARCHAR(45),
-    meta varchar(350),
-    feito char(5),
+    meta1 varchar(255),
+	meta2 varchar (255),
+	meta3 varchar (255),
+	meta4 varchar (255),
+	meta5 varchar (255),
+    feito1 char(5),
+	feito2 char(5),
+	feito3 char(5),
+	feito4 char(5),
+	feito5 char(5),
     email varchar(60)
 );

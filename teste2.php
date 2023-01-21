@@ -49,7 +49,8 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
     {   
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
-        header('Location:formulario.php');
+        /*header('Location:formulario.php');*/
+        header('Location:show_sistema_persona.php');
     } }
     
    
