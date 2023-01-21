@@ -24,7 +24,11 @@
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
-          $meta= $user_data['meta'];
+          $meta1= $user_data['meta1'];
+          $meta2= $user_data['meta2'];
+          $meta3= $user_data['meta3'];
+          $meta4= $user_data['meta4'];
+          $meta5= $user_data['meta5'];
         }
 
     }
@@ -35,19 +39,6 @@
   else
   {
     header('Location: sistema_metas_coach.php');
-  }
-  if(isset($_POST['submit']))
-  {
-    
-    include_once('config.php');
-    $email= $_POST['email'];
-    $nome= $_POST['nome'];
-    $sobrenome= $_POST['sobrenome'];
-    $meta= $_POST['meta'];
-    $result= mysqli_query($conexao_forms15, "INSERT INTO meta_dinheiro(meta) 
-    VALUES ('$meta')");
-    
-    header('Location:coach_meta_dinheiro.php');
   }
 ?>
 <!doctype html>
@@ -141,12 +132,10 @@ dialog::backdrop{
     #titulo_dialog{
       font-weight:bold;
     }
-    
   </style>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
-
   <body id="body-pd">
     <header class="header" id="header">
       <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:black"></i> </div>
@@ -186,63 +175,64 @@ dialog::backdrop{
         <p style="color:#000;">cadastro de metas em relação à dinheiro</b></p>
         <?php
         echo "<h3>aluno(a) <b>$nome</b></h3>"
-        ?><br>
+        ?>
         <div class="conteudo">
         
         <div class="topo">
           <form action="save_meta_dinheiro.php" method="post" name="forms">
-            <!--
-          <label for="id_meta">Número da meta <b>(máx:20)</b></label>
-            <input list="num_meta" id="id_meta" name="id_meta" type="number" min="1" max="20" required/>
-            <datalist id="num_meta">
-              <option value="1"></option>
-              <option value="2"></option>
-              <option value="3"></option>
-              <option value="4"></option>
-              <option value="5"></option>
-              <option value="6"></option>
-              <option value="7"></option>
-              <option value="8"></option>
-              <option value="9"></option>
-              <option value="10"></option>
-              <option value="11"></option>
-              <option value="12"></option>
-              <option value="13"></option>
-              <option value="14"></option>
-              <option value="15"></option>
-              <option value="16"></option>
-              <option value="17"></option>
-              <option value="18"></option>
-              <option value="19"></option>
-              <option value="20"></option>
-            </datalist>
-            <br>
-            <br>-->
-            <input type="text" name="meta" id="inputNovaTarefa" placeholder="Adicionar nova meta">
-            
-            
-            <input type="hidden" name="cod" value="<?php echo $cod ?>">
-            <br><br>
-            <input id="meta" value="<?php echo $meta ?>">
-          
-        </div>
-        <button type="submit" class="btn" class="enviar_forms" name="update"  id="update" data-toggle='tooltip' data-placement='right' title='Adicionar meta'>
+            <input type="text" name="meta" id="inputNovaTarefa" placeholder="Adicionar nova meta" required>
+            <button type="submit" class="btn" class="enviar_forms" name="update"  id="update" data-toggle='tooltip' data-placement='right' title='Adicionar meta'>
                 <i class="fa fa-plus"></i>
             </button>
-            </form>
-        <button type="submit" class="btn" id="exluir" onclick="eliminaMeta ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
-            <i class="fa fa-trash"></i>
-        </button>
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <br><br>
+            
+            <p>Meta 1 :</p>
+            <input id="meta1" value="<?php echo $meta1 ?>" placeholder="Meta 1 ainda não cadastrada">
+            <button type="submit" class="btn" id="exluir" onclick="eliminaMeta1 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
+              <i class="fa fa-trash"></i>
+            </button>
 
+            <br><br>
+            <p>Meta 2 :</p>
+            <input id="meta2" value="<?php echo $meta2 ?>" placeholder="Meta 2 ainda não cadastrada">
+            <button type="submit" class="btn" id="exluir" onclick="eliminaMeta2 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
+              <i class="fa fa-trash"></i>
+            </button>
+
+            <br><br>
+            <p>Meta 3 :</p>
+            <input id="meta3" value="<?php echo $meta3 ?>" placeholder="Meta 3 ainda não cadastrada">
+            <button type="submit" class="btn" id="exluir" onclick="eliminaMeta3 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
+              <i class="fa fa-trash"></i>
+            </button>
+
+            <br><br>
+            <p>Meta 4 :</p>
+            <input id="meta4" value="<?php echo $meta4 ?>" placeholder="Meta 4 ainda não cadastrada">
+            <button type="submit" class="btn" id="exluir" onclick="eliminaMeta4 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
+              <i class="fa fa-trash"></i>
+            </button>
+
+            <br><br>
+            <p>Meta 5 :</p>
+            <input id="meta5" value="<?php echo $meta5 ?>" placeholder="Meta 5 ainda não cadastrada">
+            <button type="submit" class="btn" id="exluir" onclick="eliminaMeta5 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
+              <i class="fa fa-trash"></i>
+            </button>
+          
+        </div>
+            </form>
+        <!--
         <button type="submit" class="btn" class="expandir"   id='abrir_dialog'  data-toggle='tooltip' data-placement='right' title='Ver meta'>
             <i class="fa fa-expand"></i>
         </button>
        
         <dialog>
-          <h2 id='titulo_dialog'>Meta sobre Saúde</h2>
-            <?php echo "<p>$meta</p>"; ?>
+          <h2 id='titulo_dialog'>Meta sobre dinheiro</h2>
+            <?php //echo "<p>$meta</p>"; ?>
           <button id='fechar_dialog'>Ok</button>
-        <dialog>
+        <dialog>-->
 
     </div>   
 
@@ -252,7 +242,7 @@ dialog::backdrop{
             <i class="fa fa-remove fa-2x"></i>
         </button>
         <h2 id="idTarefaEdicao"></h2>
-        <h2>Meta Relacionamento</h2>
+        <h2>Meta dinheiro</h2>
         <hr>   
             <div class="frm-linha">
                 <label for="nome">Meta</label>
@@ -273,15 +263,49 @@ dialog::backdrop{
             </a>
             ";
           ?>
+          <br><br>
     </div>
     <script>
-       function eliminaMeta (el){
+       function eliminaMeta1 (el){
     var confirma =confirm("Tem a certeza que quer eliminar a Meta?");
     if (confirma==true){
-        window.location.href="http://localhost/Coach-System-/delete_metaDinheiro.php?cod=<?php echo $cod?>";
+        window.location.href="http://localhost/Coach-System-/delete_metadinheiro.php?cod=<?php echo $cod?>";
        
     } 
 };
+
+function eliminaMeta2 (el){
+    var confirma =confirm("Tem a certeza que quer eliminar a Meta?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/delete_meta2dinheiro.php?cod=<?php echo $cod?>";
+       
+    } 
+};
+
+function eliminaMeta3 (el){
+    var confirma =confirm("Tem a certeza que quer eliminar a Meta?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/delete_meta3dinheiro.php?cod=<?php echo $cod?>";
+       
+    } 
+};
+
+function eliminaMeta4 (el){
+    var confirma =confirm("Tem a certeza que quer eliminar a Meta?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/delete_meta4dinheiro.php?cod=<?php echo $cod?>";
+       
+    } 
+};
+
+function eliminaMeta5 (el){
+    var confirma =confirm("Tem a certeza que quer eliminar a Meta?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/delete_meta5dinheiro.php?cod=<?php echo $cod?>";
+       
+    } 
+};
+
 function confirmaSair(){
     var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
     if (confirma==true){
@@ -291,8 +315,20 @@ function confirmaSair(){
 };
     </script>
     <script>
-      const input_saude7 = document.querySelector('#meta');
-      input_saude7.disabled=true;
+      const input_meta1 = document.querySelector('#meta1');
+      input_meta1.disabled=true;
+
+      const input_meta2 = document.querySelector('#meta2');
+      input_meta2.disabled=true;
+
+      const input_meta3 = document.querySelector('#meta3');
+      input_meta3.disabled=true;
+
+      const input_meta4 = document.querySelector('#meta4');
+      input_meta4.disabled=true;
+
+      const input_meta5 = document.querySelector('#meta5');
+      input_meta5.disabled=true;
     </script>
 <script>
       const button = document.querySelector("#abrir_dialog");

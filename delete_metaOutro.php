@@ -8,7 +8,7 @@
     $meta= $_POST['meta'];
 
 
-    $sqlupdate = "UPDATE meta_outro SET meta= NULL
+    $sqlupdate = "UPDATE meta_outro SET meta1= NULL
     WHERE cod='$cod' ";
     $result2 = $conexao_forms15->query($sqlupdate);
 
