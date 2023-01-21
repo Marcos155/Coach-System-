@@ -185,12 +185,12 @@ $obs_andre= $user_data['obs_andre'];
               echo "<a href='testando.php?cod=$user_data[cod]' class='nav_link active'> <i
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
               
-              echo "<a href='meta.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
+              echo "<a href='meta.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
             ?>
           </div>
-        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon' onclick="confirmaSair()"></i> <span class="nav_name">Sair</span>
         </a>
       </nav>
     </div>
@@ -319,6 +319,16 @@ $obs_andre= $user_data['obs_andre'];
           <br>
     </div>
     <!--Container Main end-->
+
+    <script>
+      function confirmaSair(){
+    var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/sair.php";
+       
+    } 
+};
+    </script>
     <script>
       const button = document.querySelector("button");
       const modal = document.querySelector("dialog");
