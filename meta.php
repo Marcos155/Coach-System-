@@ -42,7 +42,7 @@ if(!empty($_GET['cod']))
         $nome= $user_data['nome'];
         $sobrenome= $user_data['sobrenome'];
         $email= $user_data['email'];
-        $metaRelacionamento= $user_data['meta'];
+        $metaRelacionamento= $user_data['meta1'];
         $feitoRelacionamento=$user_data['feito'];
       }
 

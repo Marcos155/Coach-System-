@@ -4,22 +4,20 @@
     if(isset($_POST['update']))
     {
         $cod=$_POST['cod'];
-        $meta= $_POST['meta'];
+        $meta= $_POST['meta1'];
     
-        $verifica_meta="SELECT meta FROM meta_relacionamento WHERE cod='$cod' ";
-        $result_meta = $conexao_forms15->query($verifica_meta);
+        $verifica_meta1= "SELECT meta1 FROM meta_relacionamento WHERE cod='$cod'";
+        $result_meta = $conexao_forms15->query($verifica_meta1);
 
 
-        if(empty($verifica_meta)){
-        $sqlupdate = "UPDATE meta_relacionamento SET meta='$meta'
+        
+        $sqlupdate = "UPDATE meta_relacionamento SET meta1='$meta' 
         WHERE cod='$cod' ";
-        $result2 = $conexao_forms15->query($sqlupdate);
-        }
-        else if(empty($verifica_meta2)){
-            $sqlupdate = "UPDATE meta_relacionamento SET meta2='$meta'
-            WHERE cod='$cod' ";
-            $result2 = $conexao_forms15->query($sqlupdate);
-        }
+        $result = $conexao_forms15->query($sqlupdate);
+        
+        
+        
+        
         
     }
     header('Location:coach_meta_relacionamento.php?cod='.$cod);

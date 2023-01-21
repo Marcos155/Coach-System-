@@ -1,0 +1,194 @@
+
+
+create table cadastro(
+	cod int primary key not null auto_increment,
+    cpf varchar (14) not null,
+	nome varchar (20) not null,
+    sobrenome VARCHAR(45) not null,
+    email varchar (60) not null,
+    senha varchar (20) not null,
+    telefone VARCHAR(20),
+    sexo VARCHAR(10),
+    cidade varchar(50),
+	estado varchar(40),
+    data_nasc date 
+);
+
+
+create table formulario_15_anos(
+	cod int primary key not null auto_increment,
+	saude varchar (500),
+    relacionamento varchar (500),
+    financeiro varchar (500),
+    espiritual varchar(500),
+    outro varchar (800),
+    nome varchar(20),
+	email varchar(60),
+    sobrenome VARCHAR(45),
+    mot_edit varchar(350),
+    obs_andre varchar(500)
+);
+
+
+create table saude_12_meses(
+	cod int primary key not null auto_increment,
+	oque varchar (300),
+    porquem varchar (300),
+    onde varchar (300),
+    quando date,
+    porque varchar (300),
+    como varchar (300),
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    objet VARCHAR(200),
+    responsa VARCHAR(200),
+    data_inicio date,
+    data_fim date,
+    obs VARCHAR(300), 
+    obs_andre VARCHAR(500),
+    opcao VARCHAR(3),
+    mot_edit varchar(350),
+    email varchar(60)
+);
+
+
+create table relacionamento_12_meses(
+	cod int primary key not null auto_increment,
+	oque varchar (300),
+    porquem varchar (300),
+    onde varchar (300),
+    quando date,
+    porque varchar (300),
+    como varchar (300),
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    objet VARCHAR(200),
+    responsa VARCHAR(200),
+    data_inicio date,
+    data_fim date,
+    obs VARCHAR(300), 
+    obs_andre VARCHAR(500),
+    opcao VARCHAR(3),
+    mot_edit varchar(350),
+    email varchar(60)
+);
+
+
+create table trabalho_12_meses(
+	cod int primary key not null auto_increment,
+	oque varchar (300),
+    porquem varchar (300),
+    onde varchar (300),
+    quando date,
+    porque varchar (300),
+    como varchar (300),
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    objet VARCHAR(200),
+    responsa VARCHAR(200),
+    data_inicio date,
+    data_fim date,
+    obs VARCHAR(300), 
+    obs_andre VARCHAR(500),
+    opcao VARCHAR(3),
+    mot_edit varchar(350),
+    email varchar(60)
+);
+
+
+create table dinheiro_12_meses(
+	cod int primary key not null auto_increment,
+	oque varchar (300),
+    porquem varchar (300),
+    onde varchar (300),
+    quando date,
+    porque varchar (300),
+    como varchar (300),
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    objet VARCHAR(200),
+    responsa VARCHAR(200),
+    data_inicio date,
+    data_fim date,
+    obs VARCHAR(300), 
+    obs_andre VARCHAR(500),
+    opcao VARCHAR(3),
+    mot_edit varchar(350),
+    email varchar(60)
+);
+
+
+create table outro_12_meses(
+	cod int primary key not null auto_increment,
+	oque varchar (300),
+    porquem varchar (300),
+    onde varchar (300),
+    quando date,
+    porque varchar (300),
+    como varchar (300),
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    objet VARCHAR(200),
+    responsa VARCHAR(200),
+    data_inicio date,
+    data_fim date,
+    obs VARCHAR(300), 
+    obs_andre VARCHAR(500),
+    opcao VARCHAR(3),
+    mot_edit varchar(350),
+    email varchar(60)
+);
+
+
+create table meta_relacionamento(
+	cod int primary key not null auto_increment,
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    meta1 varchar(255),
+	meta2 varchar (255),
+	meta3 varchar (255),
+	meta4 varchar (255),
+	meta5 varchar (255),
+    feito char(5),
+    email varchar(60)
+);
+
+
+create table meta_saude(
+	cod int primary key not null auto_increment,
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    meta varchar(350),
+    feito char(5),
+    email varchar(60)
+);
+
+
+create table meta_trabalho(
+	cod int primary key not null auto_increment,
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    meta varchar(350),
+    feito char(5),
+    email varchar(60)
+);
+
+
+create table meta_dinheiro(
+	cod int primary key not null auto_increment,
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    meta varchar(350),
+    feito char(5),
+    email varchar(60)
+);
+
+
+create table meta_outro(
+	cod int primary key not null auto_increment,
+	nome VARCHAR(20),
+    sobrenome VARCHAR(45),
+    meta varchar(350),
+    feito char(5),
+    email varchar(60)
+);

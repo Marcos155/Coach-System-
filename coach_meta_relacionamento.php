@@ -24,7 +24,7 @@
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
-          $meta= $user_data['meta'];
+          $meta= $user_data['meta1'];
         }
 
     }
@@ -43,8 +43,8 @@
     $email= $_POST['email'];
     $nome= $_POST['nome'];
     $sobrenome= $_POST['sobrenome'];
-    $meta= $_POST['meta'];
-    $result= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(meta) 
+    $meta= $_POST['meta1'];
+    $result= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(meta1) 
     VALUES ('$meta')");
     
     header('Location:coach_meta_relacionamento.php');
@@ -141,12 +141,10 @@ dialog::backdrop{
     #titulo_dialog{
       font-weight:bold;
     }
-    
   </style>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
-
   <body id="body-pd">
     <header class="header" id="header">
       <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:black"></i> </div>
@@ -174,7 +172,7 @@ dialog::backdrop{
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
           </div>
-        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon' onclick="confirmaSair()"></i> <span class="nav_name">Sair</span>
         </a>
       </nav>
     </div>
@@ -218,11 +216,12 @@ dialog::backdrop{
             </datalist>
             <br>
             <br>-->
-            <input type="text" name="meta" id="inputNovaTarefa" placeholder="Adicionar nova meta" required>
+            <input type="text" name="meta1" id="inputNovaTarefa" placeholder="Adicionar nova meta" required>
             
             
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <br><br>
+            <p>Última meta cadastrada:</p>
             <input id="meta" value="<?php echo $meta ?>">
           
         </div>
@@ -279,6 +278,14 @@ dialog::backdrop{
     var confirma =confirm("Tem a certeza que quer eliminar a Meta?");
     if (confirma==true){
         window.location.href="http://localhost/Coach-System-/delete_metaRelacionamento.php?cod=<?php echo $cod?>";
+       
+    } 
+};
+
+function confirmaSair(){
+    var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/sair.php";
        
     } 
 };

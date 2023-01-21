@@ -232,7 +232,7 @@ dialog::backdrop{
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
           </div>
-        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon' onclick="confirmaSair()"></i> <span class="nav_name">Sair</span>
         </a>
       </nav>
     </div>
@@ -468,6 +468,14 @@ dialog::backdrop{
       /* travar input check */
       const input_feitoRelacionamento = document.querySelector('#feitoRelacionamento');
       input_feitoRelacionamento.disabled=true;
+
+      function confirmaSair(){
+    var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/sair.php";
+       
+    } 
+};
          
     </script>
 
