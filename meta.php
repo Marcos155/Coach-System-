@@ -42,8 +42,18 @@ if(!empty($_GET['cod']))
         $nome= $user_data['nome'];
         $sobrenome= $user_data['sobrenome'];
         $email= $user_data['email'];
-        $metaRelacionamento= $user_data['meta1'];
-        $feitoRelacionamento=$user_data['feito'];
+        
+        $metaRelacionamento1= $user_data['meta1'];
+        $metaRelacionamento2= $user_data['meta2'];
+        $metaRelacionamento3= $user_data['meta3'];
+        $metaRelacionamento4= $user_data['meta4'];
+        $metaRelacionamento5= $user_data['meta5'];
+        
+        $feitoRelacionamento1=$user_data['feito1'];
+        $feitoRelacionamento2=$user_data['feito2'];
+        $feitoRelacionamento3=$user_data['feito3'];
+        $feitoRelacionamento4=$user_data['feito1'];
+        $feitoRelacionamento5=$user_data['feito5'];
       }
 
   }
@@ -55,8 +65,18 @@ if(!empty($_GET['cod']))
         $nome= $user_data['nome'];
         $sobrenome= $user_data['sobrenome'];
         $email= $user_data['email'];
-        $metaSaude= $user_data['meta'];
-        $feitoSaude=$user_data['feito'];
+       
+        $metaSaude1= $user_data['meta1'];
+        $metaSaude2= $user_data['meta2'];
+        $metaSaude3= $user_data['meta3'];
+        $metaSaude4= $user_data['meta4'];
+        $metaSaude5= $user_data['meta5'];
+        
+        $feitoSaude1=$user_data['feito1'];
+        $feitoSaude2=$user_data['feito2'];
+        $feitoSaude3=$user_data['feito3'];
+        $feitoSaude4=$user_data['feito1'];
+        $feitoSaude5=$user_data['feito5'];
       }
 
   }
@@ -68,8 +88,18 @@ if(!empty($_GET['cod']))
         $nome= $user_data['nome'];
         $sobrenome= $user_data['sobrenome'];
         $email= $user_data['email'];
-        $metaTrabalho= $user_data['meta'];
-        $feitoTrabalho=$user_data['feito'];
+        
+        $metaTrabalho1= $user_data['meta1'];
+        $metaTrabalho2= $user_data['meta2'];
+        $metaTrabalho3= $user_data['meta3'];
+        $metaTrabalho4= $user_data['meta4'];
+        $metaTrabalho5= $user_data['meta5'];
+        
+        $feitoTrabalho1=$user_data['feito1'];
+        $feitoTrabalho2=$user_data['feito2'];
+        $feitoTrabalho3=$user_data['feito3'];
+        $feitoTrabalho4=$user_data['feito1'];
+        $feitoTrabalho5=$user_data['feito5'];
       }
 
   }
@@ -81,8 +111,18 @@ if(!empty($_GET['cod']))
         $nome= $user_data['nome'];
         $sobrenome= $user_data['sobrenome'];
         $email= $user_data['email'];
-        $metaDinheiro= $user_data['meta'];
-        $feitoDinheiro=$user_data['feito'];
+        
+        $metaDinheiro1= $user_data['meta1'];
+        $metaDinheiro2= $user_data['meta2'];
+        $metaDinheiro3= $user_data['meta3'];
+        $metaDinheiro4= $user_data['meta4'];
+        $metaDinheiro5= $user_data['meta5'];
+        
+        $feitoDinheiro1=$user_data['feito1'];
+        $feitoDinheiro2=$user_data['feito2'];
+        $feitoDinheiro3=$user_data['feito3'];
+        $feitoDinheiro4=$user_data['feito1'];
+        $feitoDinheiro5=$user_data['feito5'];
       }
 
   }
@@ -94,8 +134,18 @@ if(!empty($_GET['cod']))
         $nome= $user_data['nome'];
         $sobrenome= $user_data['sobrenome'];
         $email= $user_data['email'];
-        $metaOutro= $user_data['meta'];
-        $feitoOutro=$user_data['feito'];
+        
+        $metaOutro1= $user_data['meta1'];
+        $metaOutro2= $user_data['meta2'];
+        $metaOutro3= $user_data['meta3'];
+        $metaOutro4= $user_data['meta4'];
+        $metaOutro5= $user_data['meta5'];
+        
+        $feitoOutro1=$user_data['feito1'];
+        $feitoOutro2=$user_data['feito2'];
+        $feitoOutro3=$user_data['feito3'];
+        $feitoOutro4=$user_data['feito1'];
+        $feitoOutro5=$user_data['feito5'];
       }
 
   }
@@ -131,6 +181,22 @@ else
       $cod=$user_data['cod'];
       $nome= $user_data['nome'];*/
       /*$result2 = $conexao_regis->query($sql);*/
+
+
+      if(isset($_POST['feito1']))
+      {
+          $cod=$_POST['cod'];
+          $feitoRelacionamento1= $_POST['feito1'];
+  
+          $sqlupdate = "UPDATE meta_relacionamento SET feito1='$feitoRelacionamento1'
+          WHERE cod='$cod' ";
+          $result2 = $conexao_forms15->query($sqlupdate);
+          
+      }
+
+
+
+
       $result2 = $conexao_forms15->query($sql);
       $user_data = mysqli_fetch_assoc($result2);
 ?>
@@ -259,7 +325,7 @@ else
         <header>Objetivos: 12 meses (Saúde)</header>
           <article class="card">
             <header>
-                <?php echo $metaSaude ?>
+                <?php echo $metaSaude1 ?>
             </header>
           </article> 
           <form action="save_feito_metaSaude.php" method="post">
@@ -280,18 +346,19 @@ else
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialog' >
             <header>
-                <?php echo $metaRelacionamento ?>
+                <?php echo $metaRelacionamento1 ?>
             </header>
           </article> 
-          <form action="save_feito_metaRelacionamento.php" method="post">
+          <form action="meta.php" method="post">
+          <!--
           <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php echo ($feitoRelacionamento == 'feito') ? 'checked' : ''?> >
-            <h5><?php echo "$metaRelacionamento"; ?></h5>
+            <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
+            <input type="checkbox" value="feito" name="feito1" <?php //echo ($feitoRelacionamento1 == 'feito') ? 'checked' : ''?> >
+            <h5><?php //echo "$metaRelacionamento1"; ?></h5>
             <br><br>
-            <input type="hidden" name="cod" value="<?php echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>
+            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="feito1" id='fechar_dialog'>
+        <dialog>-->
         </form>
         </section>
 
@@ -300,7 +367,7 @@ else
         <header>Objetivos: 12 meses (Trabalho)</header>
           <article class="card">
             <header>
-                <?php echo $metaTrabalho ?>
+                <?php echo $metaTrabalho1 ?>
             </header>
           </article> 
           <form action="save_feito_metaTrabalho.php" method="post">
@@ -321,7 +388,7 @@ else
         <header>Objetivos: 12 meses (Dinheiro)</header>
           <article class="card"  >
             <header>
-                <?php echo $metaDinheiro ?>
+                <?php echo $metaDinheiro1 ?>
             </header>
           </article> 
           <form action="save_feito_metaDinheiro.php" method="post">
@@ -342,7 +409,7 @@ else
         <header>Objetivos: 12 meses (Demais objetivos)</header>
           <article class="card" >
             <header>
-                <?php echo $metaOutro ?>
+                <?php echo $metaOutro1 ?>
             </header>
           </article> 
           <form action="save_feito_metaOutro.php" method="post">

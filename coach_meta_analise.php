@@ -42,8 +42,18 @@
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
-          $metaRelacionamento= $user_data['meta'];
-          $feitoRelacionamento=$user_data['feito'];
+          
+        $metaRelacionamento1= $user_data['meta1'];
+        $metaRelacionamento2= $user_data['meta2'];
+        $metaRelacionamento3= $user_data['meta3'];
+        $metaRelacionamento4= $user_data['meta4'];
+        $metaRelacionamento5= $user_data['meta5'];
+        
+        $feitoRelacionamento1=$user_data['feito1'];
+        $feitoRelacionamento2=$user_data['feito2'];
+        $feitoRelacionamento3=$user_data['feito3'];
+        $feitoRelacionamento4=$user_data['feito4'];
+        $feitoRelacionamento5=$user_data['feito5'];
         }
 
     }
@@ -55,8 +65,18 @@
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
-          $metaSaude= $user_data['meta'];
-          $feitoSaude=$user_data['feito'];
+          
+          $metaSaude1= $user_data['meta1'];
+          $metaSaude2= $user_data['meta2'];
+          $metaSaude3= $user_data['meta3'];
+          $metaSaude4= $user_data['meta4'];
+          $metaSaude5= $user_data['meta5'];
+          
+          $feitoSaude1=$user_data['feito1'];
+          $feitoSaude2=$user_data['feito2'];
+          $feitoSaude3=$user_data['feito3'];
+          $feitoSaude4=$user_data['feito4'];
+          $feitoSaude5=$user_data['feito5'];
         }
 
     }
@@ -68,8 +88,18 @@
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
-          $metaTrabalho= $user_data['meta'];
-          $feitoTrabalho=$user_data['feito'];
+          
+          $metaTrabalho1= $user_data['meta1'];
+          $metaTrabalho2= $user_data['meta2'];
+          $metaTrabalho3= $user_data['meta3'];
+          $metaTrabalho4= $user_data['meta4'];
+          $metaTrabalho5= $user_data['meta5'];
+          
+          $feitoTrabalho1=$user_data['feito1'];
+          $feitoTrabalho2=$user_data['feito2'];
+          $feitoTrabalho3=$user_data['feito3'];
+          $feitoTrabalho4=$user_data['feito4'];
+          $feitoTrabalho5=$user_data['feito5'];
         }
 
     }
@@ -81,8 +111,18 @@
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
-          $metaDinheiro= $user_data['meta'];
-          $feitoDinheiro=$user_data['feito'];
+          
+          $metaDinheiro1= $user_data['meta1'];
+          $metaDinheiro2= $user_data['meta2'];
+          $metaDinheiro3= $user_data['meta3'];
+          $metaDinheiro4= $user_data['meta4'];
+          $metaDinheiro5= $user_data['meta5'];
+          
+          $feitoDinheiro1=$user_data['feito1'];
+          $feitoDinheiro2=$user_data['feito2'];
+          $feitoDinheiro3=$user_data['feito3'];
+          $feitoDinheiro4=$user_data['feito4'];
+          $feitoDinheiro5=$user_data['feito5'];
         }
 
     }
@@ -94,8 +134,18 @@
           $nome= $user_data['nome'];
           $sobrenome= $user_data['sobrenome'];
           $email= $user_data['email'];
-          $metaOutro= $user_data['meta'];
-          $feitoOutro=$user_data['feito'];
+          
+          $metaOutro1= $user_data['meta1'];
+          $metaOutro2= $user_data['meta2'];
+          $metaOutro3= $user_data['meta3'];
+          $metaOutro4= $user_data['meta4'];
+          $metaOutro5= $user_data['meta5'];
+          
+          $feitoOutro1=$user_data['feito1'];
+          $feitoOutro2=$user_data['feito2'];
+          $feitoOutro3=$user_data['feito3'];
+          $feitoOutro4=$user_data['feito4'];
+          $feitoOutro5=$user_data['feito5'];
         }
 
     }
@@ -136,7 +186,6 @@
       box-shadow:none;
     }
     body{
-    /*background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);*/
     background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
     background-attachment: fixed;
 }
@@ -198,7 +247,9 @@ dialog::backdrop{
     h5{
       text-indent:1.6rem;
     }
-  
+  input{
+    border-radius:20px;
+  }
  
   </style>
 </head>
@@ -241,112 +292,36 @@ dialog::backdrop{
         <p>Analise do <b>andamento das metas</b> do aluno(a)</b><h2><?php echo "<b> <big>$nome</big></b>";?></h2></p>
 <br><br>
      <div class="table-wrapper">
-      <div style="display: flex; justify-content: space-evenly;">
-     
-        <!-- 12 meses -->
-        
-        <!-- Saúde -->
-        <section class="list">
-        <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card" id='abrir_dialogSaude'>
-            <header>
-                <?php echo $metaSaude ?>
-            </header>
-          </article> 
-          <!--
-          <dialog>
-          <h2 id='titulo_dialogSaude'>Metas sobre Saúde</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoSaude == 'feito') ? 'checked' : ''?> id="feitoSaude">
-            <h5><?php //echo "$metaSaude"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialogSaude'>
-          </dialog>
-  -->
-        </section>
-
-        <!-- relacionamento -->
-        <section class="list">
+     <section class="list">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialog' >
-            <header>
-                <?php echo $metaRelacionamento ?>
-            </header>
-          </article> 
+          <form action="meta.php" method="post">
+            <ul>
+              <li>
+                <?php echo "$metaRelacionamento1"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento2"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento3"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento4"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento5"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
           
-        <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php echo ($feitoRelacionamento == 'feito') ? 'checked' : ''?> id="feitoRelacionamento">
-            <h5><?php echo "$metaRelacionamento"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>
-        </section>
-
-        
-        <!-- trabalho -->
-        <section class="list">
-        <header>Objetivos: 12 meses (Trabalho)</header>
-          <article class="card" >
-            <header>
-                <?php echo $metaTrabalho ?>
-            </header>
-          </article> 
-          <!--
-          <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Trabalho</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoTrabalho == 'feito') ? 'checked' : ''?> id="feitoTrabalho">
-            <h5><?php //echo "$metaTrabalho"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>
-  -->
-        </section>
-
-        
-        <!-- dinheiro -->
-        <section class="list">
-        <header>Objetivos: 12 meses (Dinheiro)</header>
-          <article class="card"  id='abrir_dialog' >
-            <header>
-                <?php echo $metaDinheiro ?>
-            </header>
-          </article> 
-          <!--
-          <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Dinheiro</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoDinheiro == 'feito') ? 'checked' : ''?> id="feitoDinheiro">
-            <h5><?php //echo "$metaDinheiro"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>
-  -->
-        </section>
-
-        
-        <!-- outro -->
-        <section class="list">
-        <header>Objetivos: 12 meses (Demais objetivos)</header>
-          <article class="card"  id='abrir_dialog' >
-            <header>
-                <?php echo $metaOutro ?>
-            </header>
-          </article> 
-          <!--
-          <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Outro</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoOutro == 'feito') ? 'checked' : ''?> id="feitoOutro">
-            <h5><?php //echo "$metaOutro"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>-->
-        </section>
-        
-      </div>
+        </form>
+          </article>    
+        </section>     
     </div>
     
     <br><br><br>
