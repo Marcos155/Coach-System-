@@ -301,23 +301,23 @@ dialog::backdrop{
             <ul>
               <li>
                 <?php echo "$metaSaude1"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude1 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaSaude2"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude2 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude2 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaSaude3"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude3 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude3 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaSaude4"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude4 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude4 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaSaude5"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude5 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude5 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
             </ul>
           
@@ -332,23 +332,23 @@ dialog::backdrop{
             <ul>
               <li>
                 <?php echo "$metaRelacionamento1"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaRelacionamento2"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaRelacionamento3"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaRelacionamento4"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaRelacionamento5"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
           
@@ -364,23 +364,23 @@ dialog::backdrop{
             <ul>
               <li>
                 <?php echo "$metaTrabalho1"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaTrabalho2"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaTrabalho3"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaTrabalho4"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaTrabalho5"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
             </ul>
         </form>
@@ -394,23 +394,23 @@ dialog::backdrop{
             <ul>
               <li>
                 <?php echo "$metaDinheiro1"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaDinheiro2"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaDinheiro3"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaDinheiro4"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaDinheiro5"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
             </ul>
         </form>
@@ -424,23 +424,23 @@ dialog::backdrop{
             <ul>
               <li>
                 <?php echo "$metaOutro1"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro1 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro1 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaOutro2"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro2 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro2 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaOutro3"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro3 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro3 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaOutro4"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro4 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro4 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
               <li>
                 <?php echo "$metaOutro5"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro5 == 'Ok') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro5 == 'Ok') ? 'checked' : ''?> disabled>
               </li>
             </ul>
           

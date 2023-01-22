@@ -174,24 +174,19 @@ else
       } else {
         $sql ="SELECT*from meta_relacionamento where meta_relacionamento.email = '$logado' ";
       } 
-      /*
-      $user_data = mysqli_fetch_assoc($resultRelacionamento);
-      $feitoRelacionamento= $user_data['feito'];
-      $metaRelacionamento= $user_data['meta'];
-      $cod=$user_data['cod'];
-      $nome= $user_data['nome'];*/
-      /*$result2 = $conexao_regis->query($sql);*/
 
-
-      if(isset($_POST['feito1']))
+      if(isset($_POST['submit_relacionamento']))
       {
           $cod=$_POST['cod'];
           $feitoRelacionamento1= $_POST['feito1'];
+          $feitoRelacionamento2= $_POST['feito2'];
+          $feitoRelacionamento3= $_POST['feito3'];
+          $feitoRelacionamento4= $_POST['feito4'];
+          $feitoRelacionamento5= $_POST['feito5'];
   
-          $sqlupdate = "UPDATE meta_relacionamento SET feito1='$feitoRelacionamento1'
-          WHERE cod='$cod' ";
+          $sqlupdate = "UPDATE meta_relacionamento SET feito1='$feitoRelacionamento1',feito2='$feitoRelacionamento2',feito3='$feitoRelacionamento3',
+          feito4='$feitoRelacionamento4',feito5='$feitoRelacionamento5' WHERE cod='$cod' ";
           $result2 = $conexao_forms15->query($sqlupdate);
-          
       }
 
 
@@ -323,106 +318,307 @@ else
         <!-- saude -->
         <section class="list">
         <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card">
-            <header>
-                <?php echo $metaSaude1 ?>
-            </header>
+          <article class="card" id='abrir_dialogSaude'>
+          <ul>
+              <li>
+                <?php echo "$metaSaude1"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude2"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude3"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude4"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude5"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+            <dialog id="dialog_saude">
+            <form action="meta.php" method="post" name="forms">
+            <h2 id='titulo_dialog'>Metas sobre Saúde</h2><br>
+            <ul>
+              <li>
+                <form action="meta.php" method="post">
+                <?php echo "$metaSaude1"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'Ok') ? 'checked' : ''?> >
+                </form>
+              </li>
+              
+              <li>
+                <?php echo "$metaSaude2"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude3"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude4"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude5"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Saude" id='fechar_dialogSaude' >
+            </form>
+            </dialog>
           </article> 
-          <form action="save_feito_metaSaude.php" method="post">
-            <!--
-          <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Saude</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoSaude == 'feito') ? 'checked' : ''?> >
-            <h5><?php //echo "$metaSaude"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ;?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>-->
-        </form>
+          
         </section>
 
         <!-- relacionamento -->
         <section class="list">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
-          <article class="card"  id='abrir_dialog' >
-            <header>
-                <?php echo $metaRelacionamento1 ?>
-            </header>
-          </article> 
-          <form action="meta.php" method="post">
-          <!--
-          <dialog>
+          <article class="card"  id='abrir_dialogRelacionamento' >
+            <ul>
+              <li>
+                <form action="meta.php" method="post">
+                <?php echo "$metaRelacionamento1"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : ''?> >
+                </form>
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento2"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento3"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento4"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento5"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> >
+              </li>
+            </ul>
+          <dialog id="dialog_relacionamento">
+            <form action="meta.php" method="post" name="forms">
             <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
-            <input type="checkbox" value="feito" name="feito1" <?php //echo ($feitoRelacionamento1 == 'feito') ? 'checked' : ''?> >
-            <h5><?php //echo "$metaRelacionamento1"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="feito1" id='fechar_dialog'>
-        <dialog>-->
-        </form>
+            <ul>
+              <li>
+                <form action="meta.php" method="post">
+                <?php echo "$metaRelacionamento1"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : ''?> name="feito1" >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento2"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : ''?> name="feito2">
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento3"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : ''?> name="feito3" >
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento4"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : ''?> name="feito4">
+              </li>
+              <li>
+                <?php echo "$metaRelacionamento5"; ?>
+                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> name="feito5">
+              </li>
+            </ul>
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_relacionamento" id='fechar_dialogRelacionamento' >
+            </form>
+            </dialog>
+          </article> 
         </section>
 
          <!-- Trabalho -->
          <section class="list">
         <header>Objetivos: 12 meses (Trabalho)</header>
-          <article class="card">
-            <header>
-                <?php echo $metaTrabalho1 ?>
-            </header>
+          <article class="card" id='abrir_dialogTrabalho'>
+          <ul>
+              <li>
+                <?php echo "$metaTrabalho1"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho2"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho3"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho4"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho5"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+            <dialog id="dialog_trabalho">
+            <form action="meta.php" method="post" name="forms">
+            <h2 id='titulo_dialog'>Metas sobre Trabalho</h2><br>
+            <ul>
+              <li>
+                <form action="meta.php" method="post">
+                <?php echo "$metaTrabalho1"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'Ok') ? 'checked' : ''?> >
+                </form>
+              </li>
+              
+              <li>
+                <?php echo "$metaTrabalho2"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho3"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho4"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho5"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Trabalho" id='fechar_dialogTrabalho' >
+            </form>
+            </dialog>
           </article> 
-          <form action="save_feito_metaTrabalho.php" method="post">
-            <!--
-          <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Trabalho</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php// echo ($feitoTrabalho == 'feito') ? 'checked' : ''?> >
-            <h5><?php// echo "$metaTrabalho"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>-->
-        </form>
         </section>
 
          <!-- Dinheiro -->
          <section class="list">
         <header>Objetivos: 12 meses (Dinheiro)</header>
-          <article class="card"  >
-            <header>
-                <?php echo $metaDinheiro1 ?>
-            </header>
+          <article class="card" id='abrir_dialogDinheiro'>
+          <ul>
+              <li>
+                <?php echo "$metaDinheiro1"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro2"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro3"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro4"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro5"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+            <dialog id="dialog_dinheiro">
+            <form action="meta.php" method="post" name="forms">
+            <h2 id='titulo_dialog'>Metas sobre Dinheiro</h2><br>
+            <ul>
+              <li>
+                <form action="meta.php" method="post">
+                <?php echo "$metaDinheiro1"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'Ok') ? 'checked' : ''?> >
+                </form>
+              </li>
+              
+              <li>
+                <?php echo "$metaDinheiro2"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro3"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro4"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro5"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Dinheiro" id='fechar_dialogDinheiro' >
+            </form>
+            </dialog>
           </article> 
-          <form action="save_feito_metaDinheiro.php" method="post">
-            <!--
-          <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Dinheiro</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoDinheiro == 'feito') ? 'checked' : ''?> >
-            <h5><?php //echo "$metaDinheiro"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>-->
-        </form>
         </section>
 
          <!-- Outro -->
          <section class="list">
         <header>Objetivos: 12 meses (Demais objetivos)</header>
-          <article class="card" >
-            <header>
-                <?php echo $metaOutro1 ?>
-            </header>
+          <article class="card" id='abrir_dialogOutro' >
+          <ul>
+              <li>
+                <?php echo "$metaOutro1"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro2"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro3"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro4"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro5"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+            <dialog id="dialog_outro">
+            <form action="meta.php" method="post" name="forms">
+            <h2 id='titulo_dialog'>Metas sobre Outro</h2><br>
+            <ul>
+              <li>
+                <form action="meta.php" method="post">
+                <?php echo "$metaOutro1"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro1 == 'Ok') ? 'checked' : ''?> >
+                </form>
+              </li>
+              
+              <li>
+                <?php echo "$metaOutro2"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro3"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro4"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro5"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+            <input type="hidden" name="cod" value="<?php echo $cod ?>">
+            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Outro" id='fechar_dialogOutro' >
+            </form>
+            </dialog>
           </article> 
-          <form action="save_feito_metaOutro.php" method="post">
-            <!--
-          <dialog>
-          <h2 id='titulo_dialog'>Metas sobre Outro</h2><br>
-            <input type="checkbox" value="feito" name="feito" <?php //echo ($feitoOutro == 'feito') ? 'checked' : ''?> >
-            <h5><?php //echo "$metaOutro"; ?></h5>
-            <br><br>
-            <input type="hidden" name="cod" value="<?php //echo $cod ?>">
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="update" id='fechar_dialog'>
-        <dialog>-->
-        </form>
         </section>
         
       </div>
@@ -548,18 +744,57 @@ else
     </script>
 
     <script>
-      const button = document.querySelector("#abrir_dialog");
-      const modal = document.querySelector("dialog");
-      const buttonClose = document.querySelector("dialog #fechar_dialog");
-      button.onclick=function(){
-        modal.showModal();
+      /* relacioanamento */
+      const buttonRelacionamento = document.querySelector("#abrir_dialogRelacionamento");
+      const modalRelacionamento = document.querySelector("#dialog_relacionamento");
+      const buttonCloseRelacionamento = document.querySelector("dialog #fechar_dialogRelacionamento");
+      buttonRelacionamento.onclick=function(){
+        modalRelacionamento.showModal();
       };
-      buttonClose.onclick=function(){
-        modal.close();
+      buttonCloseRelacionamento.onclick=function(){
+        modalRelacionamento.closeModal();
+      };
+      /* saúde */
+      const buttonSaude = document.querySelector("#abrir_dialogSaude");
+      const modalSaude = document.querySelector("#dialog_saude");
+      const buttonCloseSaude = document.querySelector("dialog #fechar_dialogSaude");
+      buttonSaude.onclick=function(){
+        modalSaude.showModal();
+      };
+      buttonCloseSaude.onclick=function(){
+        modalSaude.closeModal();
+      };
+      /* trabalho */
+      const buttonTrabalho = document.querySelector("#abrir_dialogTrabalho");
+      const modalTrabalho = document.querySelector("#dialog_trabalho");
+      const buttonCloseTrabalho = document.querySelector("dialog #fechar_dialogTrabalho");
+      buttonTrabalho.onclick=function(){
+        modalTrabalho.showModal();
+      };
+      buttonCloseTrabalho.onclick=function(){
+        modalTrabalho.closeModal();
+      };
+      /* dinheiro */
+      const buttonDinheiro = document.querySelector("#abrir_dialogDinheiro");
+      const modalDinheiro = document.querySelector("#dialog_dinheiro");
+      const buttonCloseDinheiro = document.querySelector("dialog #fechar_dialogDinheiro");
+      buttonDinheiro.onclick=function(){
+        modalDinheiro.showModal();
+      };
+      buttonCloseDinheiro.onclick=function(){
+        modalDinheiro.closeModal();
+      };
+      /* outro */
+      const buttonOutro = document.querySelector("#abrir_dialogOutro");
+      const modalOutro = document.querySelector("#dialog_outro");
+      const buttonCloseOutro = document.querySelector("dialog #fechar_dialogOutro");
+      buttonOutro.onclick=function(){
+        modalOutro.showModal();
+      };
+      buttonCloseOutro.onclick=function(){
+        modalOutro.closeModal();
       };
     </script>
-
-
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
