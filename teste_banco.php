@@ -4,28 +4,20 @@
     include_once('config.php');
     $cod = $_GET['cod'];
     $cod2 = $cod;
-
     
-    $sqlselect5 = "SELECT * FROM dinheiro_12_meses  WHERE cod=$cod2";
-    $result5 = $conexao_forms15->query($sqlselect5);
+    $select=strval("SELECT max(cod) FROM outro_12_meses");
+    $result_select = $conexao_forms15->query($select);
 
-    if($result5->num_rows > 0)
-    {
-       /*$sqldelete="DELETE FROM dinheiro_12_meses WHERE cod=$cod2";
-       $resultdelete = $conexao_forms15->query($sqldelete);*/
-
-
-       $max_cod= "SELECT max(cod) FROM dinheiro_12_meses";
-       $result_max_cod = $conexao_forms15->query($max_cod);
-     /*
-       $troca_cod=" ALTER TABLE dinheiro_12_meses SET cod=$cod2 WHERE cod=$max_cod";
-       $result_troca_cod = $conexao_forms15->query($troca_cod);
-      
-       $reiniciar="ALTER TABLE dinheiro_12_meses AUTO_INCREMENT= $result_troca_cod+1";
-       $result_reiniciar = $conexao_forms15->query($reiniciar);*/
-    }
+    $set= "SET @count = $select ";
+    $result_set = $conexao_forms15->query($set);
+    
+   $update="UPDATE outro_12_meses SET outro_12_meses.cod= @count + 1";
+   $result_update = $conexao_forms15->query($update);
+   
+    
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,8 +29,8 @@
 <body>
     <h1>
         <?php 
-        echo $result_max_cod;
+        echo $result_update;
         ?>
     </h1>
 </body>
-</html>
+</html
