@@ -296,63 +296,65 @@ dialog::backdrop{
       <!-- saúde -->
      <section class="list">
         <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card"  id='abrir_dialog' >
-          <form action="meta.php" method="post">
+          <article class="card"  id='abrir_dialogSaude' >
             <ul>
               <li>
                 <?php echo "$metaSaude1"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude1 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?>  disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaSaude2"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude2 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoSaude2 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaSaude3"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude3 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoSaude3 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaSaude4"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude4 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoSaude4 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaSaude5"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude5 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoSaude5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-          
-        </form>
           </article>    
         </section>     
         <!-- relacionamentos -->
         <section class="list">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialog' >
-          <form action="meta.php" method="post">
             <ul>
               <li>
                 <?php echo "$metaRelacionamento1"; ?>
                 <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaRelacionamento2"; ?>
                 <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaRelacionamento3"; ?>
                 <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaRelacionamento4"; ?>
                 <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaRelacionamento5"; ?>
                 <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-          
-        </form>
           </article>    
         </section> 
 
@@ -360,98 +362,102 @@ dialog::backdrop{
          <section class="list">
         <header>Objetivos: 12 meses (Trabalho)</header>
           <article class="card"  id='abrir_dialog' >
-          <form action="meta.php" method="post">
             <ul>
               <li>
                 <?php echo "$metaTrabalho1"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaTrabalho2"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaTrabalho3"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaTrabalho4"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaTrabalho5"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-        </form>
           </article>    
         </section> 
          <!-- dinheiro -->
          <section class="list">
         <header>Objetivos: 12 meses (Dinheiro)</header>
           <article class="card"  id='abrir_dialog' >
-          <form action="meta.php" method="post">
             <ul>
               <li>
                 <?php echo "$metaDinheiro1"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaDinheiro2"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaDinheiro3"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaDinheiro4"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaDinheiro5"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-        </form>
           </article>    
         </section> 
          <!--outro -->
          <section class="list">
         <header>Objetivos: 12 meses (Outros Objetivos)</header>
           <article class="card"  id='abrir_dialog' >
-          <form action="meta.php" method="post">
             <ul>
               <li>
                 <?php echo "$metaOutro1"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro1 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoOutro1 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaOutro2"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro2 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoOutro2 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaOutro3"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro3 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoOutro3 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaOutro4"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro4 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoOutro4 == 'on') ? 'checked' : ''?> disabled>
               </li>
+              <br>
               <li>
                 <?php echo "$metaOutro5"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro5 == 'Ok') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoOutro5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-          
-        </form>
           </article>    
         </section> 
     </div>
     </div>
     
     <br><br><br>
-
       <!-- grpaficos 
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">
@@ -554,33 +560,9 @@ dialog::backdrop{
       </script>-->
     </div>
     <!--Container Main end-->
-
     <script>
-     const button = document.querySelector("#abrir_dialog");
-     const modal = document.querySelector("dialog");
-     const buttonClose = document.querySelector("dialog #fechar_dialog");
-      button.onclick=function(){
-        modal.showModal();
-      };
-      buttonClose.onclick=function(){
-        modal.close();
-      };
-
-      /* travar input check */
-      const input_feitoRelacionamento = document.querySelector('#feitoRelacionamento');
-      input_feitoRelacionamento.disabled=true;
-
-      function confirmaSair(){
-    var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
-    if (confirma==true){
-        window.location.href="http://localhost/Coach-System-/sair.php";
-       
-    } 
-};
-         
+      
     </script>
-
-
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {
