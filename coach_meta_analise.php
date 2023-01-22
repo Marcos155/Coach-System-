@@ -292,7 +292,40 @@ dialog::backdrop{
         <p>Analise do <b>andamento das metas</b> do aluno(a)</b><h2><?php echo "<b> <big>$nome</big></b>";?></h2></p>
 <br><br>
      <div class="table-wrapper">
+     <div style="display: flex; justify-content: space-evenly;">
+      <!-- saúde -->
      <section class="list">
+        <header>Objetivos: 12 meses (Saúde)</header>
+          <article class="card"  id='abrir_dialog' >
+          <form action="meta.php" method="post">
+            <ul>
+              <li>
+                <?php echo "$metaSaude1"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude2"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude3"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude4"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaSaude5"; ?>
+                <input type="checkbox"  <?php echo ($feitoSaude5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+          
+        </form>
+          </article>    
+        </section>     
+        <!-- relacionamentos -->
+        <section class="list">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialog' >
           <form action="meta.php" method="post">
@@ -321,7 +354,100 @@ dialog::backdrop{
           
         </form>
           </article>    
-        </section>     
+        </section> 
+
+         <!-- Trabalho -->
+         <section class="list">
+        <header>Objetivos: 12 meses (Trabalho)</header>
+          <article class="card"  id='abrir_dialog' >
+          <form action="meta.php" method="post">
+            <ul>
+              <li>
+                <?php echo "$metaTrabalho1"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho2"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho3"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho4"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaTrabalho5"; ?>
+                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+        </form>
+          </article>    
+        </section> 
+         <!-- dinheiro -->
+         <section class="list">
+        <header>Objetivos: 12 meses (Dinheiro)</header>
+          <article class="card"  id='abrir_dialog' >
+          <form action="meta.php" method="post">
+            <ul>
+              <li>
+                <?php echo "$metaDinheiro1"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro2"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro3"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro4"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaDinheiro5"; ?>
+                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+        </form>
+          </article>    
+        </section> 
+         <!--outro -->
+         <section class="list">
+        <header>Objetivos: 12 meses (Outros Objetivos)</header>
+          <article class="card"  id='abrir_dialog' >
+          <form action="meta.php" method="post">
+            <ul>
+              <li>
+                <?php echo "$metaOutro1"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro1 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro2"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro2 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro3"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro3 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro4"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro4 == 'Ok') ? 'checked' : ''?> >
+              </li>
+              <li>
+                <?php echo "$metaOutro5"; ?>
+                <input type="checkbox"  <?php echo ($feitoOutro5 == 'Ok') ? 'checked' : ''?> >
+              </li>
+            </ul>
+          
+        </form>
+          </article>    
+        </section> 
+    </div>
     </div>
     
     <br><br><br>
