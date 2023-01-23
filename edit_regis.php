@@ -73,7 +73,7 @@
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Formulário</title>
+  <title>Completar Cadastro</title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -91,7 +91,6 @@
   <body id="body-pd">
     <header class="header" id="header">
       <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-      <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
     <div class="l-navbar" id="nav-bar">
       <nav class="nav">
@@ -102,10 +101,10 @@
               /*echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
                 class='nav_name'>Início</span> </a>";*/
               
-                echo "<a href='show_sistema_persona.php?cod=$cod' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+                echo "<a href='show_sistema_persona.php?cod=$cod' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
                 <span class='nav_name'>Conta</span> </a>"; 
                 
-                echo "<a href='testando.php?cod=$cod' class='nav_link active'> <i
+                echo "<a href='testando.php?cod=$cod' class='nav_link'> <i
                 class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
                 
                 echo "<a href='meta.php?cod=$cod' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
@@ -147,13 +146,13 @@
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Telefone</label>
-        <input type="tel" class="form-control" id="exampleFormControlTextarea1"  placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
-              name="phone" value="<?php echo $telefone ?>">
+        <input type="tel" class="form-control"  placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}"
+              name="phone" value="<?php echo $telefone ?>" maxlength="15" id="tel">
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">CPF</label>
         <input type="tel" class="form-control" id="exampleFormControlTextarea1"  placeholder="CPF 000.000.000-00"
-              name="cpf" value="<?php echo $cpf ?>" required>
+              name="cpf" value="<?php echo $cpf ?>" maxlength="11" oninput="mascara(this)" required>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Sexo</label>
@@ -168,14 +167,42 @@
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Cidade</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Qual sua cidade?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="cidade" value="<?php echo $cidade ?>" >
+        placeholder="Qual sua cidade?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" name="cidade" value="<?php echo $cidade ?>" >
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Estado</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
-              name="estado" value="<?php echo $estado ?>" >
+        placeholder="Qual seu estado?" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" name="estado" value="<?php echo $estado ?>" list="estados" >
+        <datalist id="estados">
+            <option>Acre </option>
+            <option>Alagoas </option>
+            <option>Amapá </option>
+            <option>Amazonas </option>
+            <option>Bahia </option>
+            <option>Ceará </option>
+            <option>Distrito Federal </option>
+            <option>Espírito Santo </option>
+            <option>Goiás </option>
+            <option>Maranhão </option>
+            <option>Mato Grosso </option>
+            <option>Mato Grosso do Sul </option>
+            <option>Minas Gerais </option>
+            <option>Pará</option>
+            <option>Acre  </option>
+            <option>Alagoas  </option>
+            <option>Amapá  </option>
+            <option>Amazonas  </option>
+            <option>Bahia  </option>
+            <option>Ceará  </option>
+            <option>Distrito Federal  </option>
+            <option>Espírito Santo  </option>
+            <option>Goiás  </option>
+            <option>Maranhão  </option>
+            <option>Mato Grosso  </option>
+            <option>Mato Grosso do Sul  </option>
+            <option>Minas Gerais  </option>
+            <option>Pará </option>
+        </datalist>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de Nascimento</label>
@@ -218,10 +245,35 @@
  
       </form>
 
-      
+
+
+      <script>
+const tel = document.getElementById('tel') // Seletor do campo de telefone
+
+tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
+tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
+
+const mascaraTelefone = (valor) => {
+    valor = valor.replace(/\D/g, "")
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
+    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+    tel.value = valor // Insere o(s) valor(es) no campo
+}
+function mascara(i){
+   var v = i.value;
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   i.setAttribute("maxlength", "14");
+   if (v.length == 3 || v.length == 7) i.value += ".";
+   if (v.length == 11) i.value += "-";
+}
+
+</script>
     <script>
       function confirmaSair(){
-    var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
+    var confirma =confirm("<?php echo $nome ?>, tem certeza que deseja encerrar a sessão?");
     if (confirma==true){
         window.location.href="http://localhost/Coach-System-/sair.php";
        
@@ -285,10 +337,9 @@
           document.getElementById('confirmar_senha').value='';
 					return false;
 				}
-				
-	if(confirmar_senha.length <= 5){
-					alert('Preencha o campo confirmar senha com minimo 6 caracteres');
-					forms.confirmar_senha.focus();
+  if(senha.length > 20){
+					alert('O campo senha só aceita até 20 caracteres');
+					forms.senha.focus();
           document.getElementById('senha').value='';
           document.getElementById('confirmar_senha').value='';
 					return false;
