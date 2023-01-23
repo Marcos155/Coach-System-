@@ -101,13 +101,6 @@
   <div class="form-container sign-in-container">
       <form  action="register.php" method="post" name="forms">
         <h1>Criar conta</h1>
-        <!--
-        <div class="social-container">
-          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-        </div>
--->
         <input type="text" placeholder="Nome" name="username" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="text" placeholder="Sobrenome" name="sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="email" placeholder="Email" name="email" required/>
@@ -229,10 +222,9 @@ function mascara(i){
           document.getElementById('confirmar_senha').value='';
 					return false;
 				}
-				
-	if(confirmar_senha.length <= 5){
-					alert('Preencha o campo confirmar senha com minimo 6 caracteres');
-					forms.confirmar_senha.focus();
+  if(senha.length > 20){
+					alert('O campo senha só aceita até 20 caracteres');
+					forms.senha.focus();
           document.getElementById('senha').value='';
           document.getElementById('confirmar_senha').value='';
 					return false;
