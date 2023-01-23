@@ -106,13 +106,13 @@
               /*echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
                 class='nav_name'>Início</span> </a>";*/
               
-                echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+                echo "<a href='show_sistema_persona.php?cod=$cod' class='nav_link'> <i class='bx bx-user nav_icon'></i>
                 <span class='nav_name'>Conta</span> </a>"; 
                 
-                echo "<a href='testando.php?cod=$user_data[cod]' class='nav_link active'> <i
+                echo "<a href='testando.php?cod=$cod' class='nav_link active'> <i
                 class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
                 
-                echo "<a href='meta.php?cod=$user_data[cod]'' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
+                echo "<a href='meta.php?cod=$cod'' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
                 
                 echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
             ?>
@@ -216,7 +216,7 @@
       
     <script>
       function confirmaSair(){
-    var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
+    var confirma =confirm("<?php echo $nome ?>, tem certeza que deseja encerrar a sessão?");
     if (confirma==true){
         window.location.href="http://localhost/Coach-System-/sair.php";
        

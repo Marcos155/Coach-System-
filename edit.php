@@ -119,13 +119,12 @@
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Saúde</label>
         <input type="text" class="form-control" id="saude"
-         type="text" placeholder="saúde" name="username" value="<?php echo $saude ?>"required maxlength="490">
+         type="text" placeholder="Saúde" name="username" value="<?php echo $saude ?>"required maxlength="490">
          <label for="characters">Quantidade de caracteres: 490/ </label><span id="char_saude"></span><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
-        <input type="text" class="form-control" id="relacionamento"
-        placeholder="Email para contato" type="email" placeholder="Relacionamento" name="email" value="<?php echo $relacionamento ?>"  required maxlength="490">
+        <input type="text" class="form-control" id="relacionamento" type="email" placeholder="Relacionamento" name="email" value="<?php echo $relacionamento ?>"  required maxlength="490">
         <label for="characters">Quantidade de caracteres: 490/ </label><span id="char_relacionamento"></span><br>
       </div>
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
@@ -138,13 +137,13 @@
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Espiritual</label>
         <input type="text" class="form-control" id="espiritual" 
-        placeholder="espiritual"name="cidade" value="<?php echo $espiritual ?>" maxlength="490" required>
+        placeholder="Espiritual"name="cidade" value="<?php echo $espiritual ?>" maxlength="490" required>
         <label for="characters">Quantidade de caracteres: 490/ </label><span id="char_espiritual"></span><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Outro</label>
         <input type="text" class="form-control" id="outro" 
-        placeholder="demais objetivos" name="estado" value="<?php echo $outro ?>" maxlength="790">
+        placeholder="Coloque aqui demais objetivos que deseje alcançar" name="estado" value="<?php echo $outro ?>" maxlength="790">
         <label for="characters_outro">Quantidade de caracteres: 790/ </label><span id="char_outro"></span><br>
       </div>
       <div class="mb-3">
@@ -155,64 +154,64 @@
         <label for="characters">Quantidade de caracteres: 300/ </label><span id="char_mot_edit"></span><br>
       </div>
       
-        <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
-          id="update">
-    </div>
+        <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update" id="update">
+        <br><br>
+      </div>
  
       </form>
 
       <script>
         /* Saúde */
-        var desc = document.querySelector("#saude");
-      desc.addEventListener("keypress", function(e) {
-      var maxChars = 490;
-      inputLength = desc.value.length;
+        var desc_saude = document.querySelector("#saude");
+      desc_saude.addEventListener("keypress", function(e) {
+      var maxChars_saude = 490;
+      inputLength = desc_saude.value.length;
       document.getElementById('char_saude').innerText = inputLength
-      if(inputLength >= maxChars) {
+      if(inputLength >= maxChars_saude) {
       e.preventDefault();
       window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
       }  
       });
         /* relacionamentos */
-        var desc = document.querySelector("#relacionamento");
-      desc.addEventListener("keypress", function(e) {
-      var maxChars = 490;
-      inputLength = desc.value.length;
+        var desc_relacionamento = document.querySelector("#relacionamento");
+      desc_relacionamento.addEventListener("keypress", function(e) {
+      var maxChars_relacionamento = 490;
+      inputLength = desc_relacionamento.value.length;
       document.getElementById('char_relacionamento').innerText = inputLength
-      if(inputLength >= maxChars) {
+      if(inputLength >= maxChars_relacionamento) {
       e.preventDefault();
       window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
       }  
       });
         /* financeiro */
-        var desc = document.querySelector("#financeiro");
-      desc.addEventListener("keypress", function(e) {
-      var maxChars = 490;
-      inputLength = desc.value.length;
+        var desc_financeiro = document.querySelector("#financeiro");
+      desc_financeiro.addEventListener("keypress", function(e) {
+      var maxChars_financeiro = 490;
+      inputLength = desc_financeiro.value.length;
       document.getElementById('char_financeiro').innerText = inputLength
-      if(inputLength >= maxChars) {
+      if(inputLength >= maxChars_financeiro) {
       e.preventDefault();
       window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
       }  
       });
         /* esíritual */
-        var desc = document.querySelector("#espiritual");
-      desc.addEventListener("keypress", function(e) {
-      var maxChars = 490;
-      inputLength = desc.value.length;
+        var desc_espiritual = document.querySelector("#espiritual");
+      desc_espiritual.addEventListener("keypress", function(e) {
+      var maxChars_espiritual = 490;
+      inputLength = desc_espiritual.value.length;
       document.getElementById('char_espiritual').innerText = inputLength
-      if(inputLength >= maxChars) {
+      if(inputLength >= maxChars_espiritual) {
       e.preventDefault();
       window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
       }  
       });
         /* outro */
-        var desc = document.querySelector("#outro");
-      desc.addEventListener("keypress", function(e) {
-      var maxChars = 790;
-      inputLength = desc.value.length;
+        var desc_outro = document.querySelector("#outro");
+      desc_outro.addEventListener("keypress", function(e) {
+      var maxChars_outro = 790;
+      inputLength = desc_outro.value.length;
       document.getElementById('char_outro').innerText = inputLength
-      if(inputLength >= maxChars) {
+      if(inputLength >= maxChars_outro) {
       e.preventDefault();
       window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
       }  
@@ -231,7 +230,7 @@
       </script>
     <script>
       function confirmaSair(){
-    var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
+    var confirma =confirm("<?php echo $nome ?>, tem certeza que deseja encerrar a sessão?");
     if (confirma==true){
         window.location.href="http://localhost/Coach-System-/sair.php";
        
