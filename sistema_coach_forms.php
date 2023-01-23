@@ -44,7 +44,7 @@ header('show_sistema_persona.php');
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Conta</title>
+  <title>Formulário-Alunos</title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -99,7 +99,7 @@ header('show_sistema_persona.php');
               echo "<a href='sistema_coach_forms.php' class='nav_link active'> <i
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário-Alunos</span> </a>"; 
               
-              echo "<a href='sistema_metas_coach.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
+              echo "<a href='sistema_metas_coach.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Meta-Alunos</span></a>" ;
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
@@ -108,7 +108,7 @@ header('show_sistema_persona.php');
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
           </div>
-        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon' onclick="confirmaSair()"></i> <span class="nav_name">Sair</span>
         </a>
       </nav>
     </div>
@@ -211,6 +211,15 @@ header('show_sistema_persona.php');
     </div>
 
     <!--Container Main end-->
+
+    <script>
+      function confirmaSair(){
+    var confirma =confirm("André, certeza que deseja encerrar a sessão?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/sair.php";
+    } 
+};
+    </script>
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {

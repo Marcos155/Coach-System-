@@ -52,7 +52,7 @@ if(!empty($_GET['cod']))
         $feitoRelacionamento1=$user_data['feito1'];
         $feitoRelacionamento2=$user_data['feito2'];
         $feitoRelacionamento3=$user_data['feito3'];
-        $feitoRelacionamento4=$user_data['feito1'];
+        $feitoRelacionamento4=$user_data['feito4'];
         $feitoRelacionamento5=$user_data['feito5'];
       }
 
@@ -75,7 +75,7 @@ if(!empty($_GET['cod']))
         $feitoSaude1=$user_data['feito1'];
         $feitoSaude2=$user_data['feito2'];
         $feitoSaude3=$user_data['feito3'];
-        $feitoSaude4=$user_data['feito1'];
+        $feitoSaude4=$user_data['feito4'];
         $feitoSaude5=$user_data['feito5'];
       }
 
@@ -98,7 +98,7 @@ if(!empty($_GET['cod']))
         $feitoTrabalho1=$user_data['feito1'];
         $feitoTrabalho2=$user_data['feito2'];
         $feitoTrabalho3=$user_data['feito3'];
-        $feitoTrabalho4=$user_data['feito1'];
+        $feitoTrabalho4=$user_data['feito4'];
         $feitoTrabalho5=$user_data['feito5'];
       }
 
@@ -121,7 +121,7 @@ if(!empty($_GET['cod']))
         $feitoDinheiro1=$user_data['feito1'];
         $feitoDinheiro2=$user_data['feito2'];
         $feitoDinheiro3=$user_data['feito3'];
-        $feitoDinheiro4=$user_data['feito1'];
+        $feitoDinheiro4=$user_data['feito4'];
         $feitoDinheiro5=$user_data['feito5'];
       }
 
@@ -144,7 +144,7 @@ if(!empty($_GET['cod']))
         $feitoOutro1=$user_data['feito1'];
         $feitoOutro2=$user_data['feito2'];
         $feitoOutro3=$user_data['feito3'];
-        $feitoOutro4=$user_data['feito1'];
+        $feitoOutro4=$user_data['feito4'];
         $feitoOutro5=$user_data['feito5'];
       }
 
@@ -197,7 +197,7 @@ else
           $feitoSaude4= $_POST['feito4'];
           $feitoSaude5= $_POST['feito5'];
   
-          $sqlupdate = "UPDATE meta_Saude SET feito1='$feitoSaude1',feito2='$feitoSaude2',feito3='$feitoSaude3',
+          $sqlupdate = "UPDATE meta_saude SET feito1='$feitoSaude1',feito2='$feitoSaude2',feito3='$feitoSaude3',
           feito4='$feitoSaude4',feito5='$feitoSaude5' WHERE cod='$cod' ";
           $result2 = $conexao_forms15->query($sqlupdate);
       }
@@ -210,7 +210,7 @@ else
           $feitoTrabalho4= $_POST['feito4'];
           $feitoTrabalho5= $_POST['feito5'];
   
-          $sqlupdate = "UPDATE meta_Trabalho SET feito1='$feitoTrabalho1',feito2='$feitoTrabalho2',feito3='$feitoTrabalho3',
+          $sqlupdate = "UPDATE meta_trabalho SET feito1='$feitoTrabalho1',feito2='$feitoTrabalho2',feito3='$feitoTrabalho3',
           feito4='$feitoTrabalho4',feito5='$feitoTrabalho5' WHERE cod='$cod' ";
           $result2 = $conexao_forms15->query($sqlupdate);
       }
@@ -223,7 +223,7 @@ else
           $feitoDinheiro4= $_POST['feito4'];
           $feitoDinheiro5= $_POST['feito5'];
   
-          $sqlupdate = "UPDATE meta_Dinheiro SET feito1='$feitoDinheiro1',feito2='$feitoDinheiro2',feito3='$feitoDinheiro3',
+          $sqlupdate = "UPDATE meta_dinheiro SET feito1='$feitoDinheiro1',feito2='$feitoDinheiro2',feito3='$feitoDinheiro3',
           feito4='$feitoDinheiro4',feito5='$feitoDinheiro5' WHERE cod='$cod' ";
           $result2 = $conexao_forms15->query($sqlupdate);
       }
@@ -236,7 +236,7 @@ else
           $feitoOutro4= $_POST['feito4'];
           $feitoOutro5= $_POST['feito5'];
   
-          $sqlupdate = "UPDATE meta_Outro SET feito1='$feitoOutro1',feito2='$feitoOutro2',feito3='$feitoOutro3',
+          $sqlupdate = "UPDATE meta_outro SET feito1='$feitoOutro1',feito2='$feitoOutro2',feito3='$feitoOutro3',
           feito4='$feitoOutro4',feito5='$feitoOutro5' WHERE cod='$cod' ";
           $result2 = $conexao_forms15->query($sqlupdate);
       }
@@ -306,13 +306,12 @@ else
          left:1.1rem;
          height:20px;
          width:20px;
-         background-color:#eee;
+         
          border-radius:2px;
     }
     h5{
       text-indent:1.6rem;
     }
-  
   </style>
 </head>
 
@@ -370,27 +369,27 @@ else
           <ul>
               <li>
                 <?php echo "$metaSaude1"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?>  disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaSaude2"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude2 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude2 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaSaude3"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude3 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude3 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaSaude4"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude4 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"   <?php echo ($feitoSaude4 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaSaude5"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude5 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoSaude5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
             <dialog id="dialog_saude">
@@ -439,28 +438,28 @@ else
               <li>
                 <form action="meta.php" method="post">
                 <?php echo "$metaRelacionamento1"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : ''?> disabled >
                 </form>
               </li>
               <br>
               <li>
                 <?php echo "$metaRelacionamento2"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaRelacionamento3"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaRelacionamento4"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaRelacionamento5"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
           <dialog id="dialog_relacionamento">
@@ -507,27 +506,27 @@ else
           <ul>
               <li>
                 <?php echo "$metaTrabalho1"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaTrabalho2"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'on') ? 'checked' : ''?> disabled >
               </li>
               <br>
               <li>
                 <?php echo "$metaTrabalho3"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaTrabalho4"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaTrabalho5"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
             <dialog id="dialog_trabalho">
@@ -574,27 +573,27 @@ else
           <ul>
               <li>
                 <?php echo "$metaDinheiro1"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'on') ? 'checked' : ''?>>
+                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaDinheiro2"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaDinheiro3"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'on') ? 'checked' : ''?>>
+                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaDinheiro4"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'on') ? 'checked' : ''?>>
+                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaDinheiro5"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
             <dialog id="dialog_dinheiro">
@@ -641,27 +640,27 @@ else
           <ul>
               <li>
                 <?php echo "$metaOutro1"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro1 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro1 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaOutro2"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro2 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro2 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaOutro3"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro3 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro3 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaOutro4"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro4 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro4 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
                 <?php echo "$metaOutro5"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro5 == 'on') ? 'checked' : ''?> >
+                <input type="checkbox"  <?php echo ($feitoOutro5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
             <dialog id="dialog_outro">

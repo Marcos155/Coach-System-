@@ -100,7 +100,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
               echo "<a href='sistema_coach_forms.php' class='nav_link'> <i
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário-Alunos</span> </a>"; 
               
-              echo "<a href='sistema_metas_coach.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
+              echo "<a href='sistema_metas_coach.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Meta-Alunos</span></a>" ;
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
@@ -109,7 +109,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
             ?>
           </div>
-        </div> <a href="sair.php" class="nav_link"> <i class='bx bx-log-out nav_icon'></i> <span class="nav_name">Sair</span>
+        </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon' onclick="confirmaSair()"></i> <span class="nav_name">Sair</span>
         </a>
       </nav>
     </div>
@@ -184,6 +184,15 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
     </div>
 
     <!--Container Main end-->
+
+    <script>
+      function confirmaSair(){
+    var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
+    if (confirma==true){
+        window.location.href="http://localhost/Coach-System-/sair.php";
+    } 
+};
+    </script>
     <script type='text/javascript'
       src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'>document.addEventListener("DOMContentLoaded", function (event) {

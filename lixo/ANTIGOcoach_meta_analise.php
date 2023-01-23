@@ -1,170 +1,10 @@
-<?php
-  session_start();
-  include_once('config.php');
-  if((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true))
-      {
-          unset($_SESSION['email']);
-          unset($_SESSION['senha']);
-          header('Location:entrar.php');
-      }
-      $logado = $_SESSION['email'];
-  
-  if(!empty($_GET['cod']))
-  {
-  
-    include_once('config.php');
-    $cod = $_GET['cod'];
-    /* relacionamento */
-    $sqlselectRelacionamento = "SELECT * FROM meta_relacionamento WHERE cod=$cod";
-    $resultRelacionamento = $conexao_forms15->query($sqlselectRelacionamento);
-
-    /* saude */
-    $sqlselectSaude = "SELECT * FROM meta_saude WHERE cod=$cod";
-    $resultSaude = $conexao_forms15->query($sqlselectSaude);
-
-    /* Trabalho */
-    $sqlselectTrabalho = "SELECT * FROM meta_trabalho WHERE cod=$cod";
-    $resultTrabalho = $conexao_forms15->query($sqlselectTrabalho);
-
-    /* Dinheiro */
-    $sqlselectDinheiro = "SELECT * FROM meta_dinheiro WHERE cod=$cod";
-    $resultDinheiro = $conexao_forms15->query($sqlselectDinheiro);
-
-    /* Outro */
-    $sqlselectOutro = "SELECT * FROM meta_outro WHERE cod=$cod";
-    $resultOutro = $conexao_forms15->query($sqlselectOutro);
-
-    /* relacionamento */
-    if($resultRelacionamento->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($resultRelacionamento))
-        {
-          $nome= $user_data['nome'];
-          $sobrenome= $user_data['sobrenome'];
-          $email= $user_data['email'];
-          
-        $metaRelacionamento1= $user_data['meta1'];
-        $metaRelacionamento2= $user_data['meta2'];
-        $metaRelacionamento3= $user_data['meta3'];
-        $metaRelacionamento4= $user_data['meta4'];
-        $metaRelacionamento5= $user_data['meta5'];
-        
-        $feitoRelacionamento1=$user_data['feito1'];
-        $feitoRelacionamento2=$user_data['feito2'];
-        $feitoRelacionamento3=$user_data['feito3'];
-        $feitoRelacionamento4=$user_data['feito4'];
-        $feitoRelacionamento5=$user_data['feito5'];
-        }
-
-    }
-    /* Saude */
-    if($resultSaude->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($resultSaude))
-        {
-          $nome= $user_data['nome'];
-          $sobrenome= $user_data['sobrenome'];
-          $email= $user_data['email'];
-          
-          $metaSaude1= $user_data['meta1'];
-          $metaSaude2= $user_data['meta2'];
-          $metaSaude3= $user_data['meta3'];
-          $metaSaude4= $user_data['meta4'];
-          $metaSaude5= $user_data['meta5'];
-          
-          $feitoSaude1=$user_data['feito1'];
-          $feitoSaude2=$user_data['feito2'];
-          $feitoSaude3=$user_data['feito3'];
-          $feitoSaude4=$user_data['feito4'];
-          $feitoSaude5=$user_data['feito5'];
-        }
-
-    }
-    /* Trabalho */
-    if($resultTrabalho->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($resultTrabalho))
-        {
-          $nome= $user_data['nome'];
-          $sobrenome= $user_data['sobrenome'];
-          $email= $user_data['email'];
-          
-          $metaTrabalho1= $user_data['meta1'];
-          $metaTrabalho2= $user_data['meta2'];
-          $metaTrabalho3= $user_data['meta3'];
-          $metaTrabalho4= $user_data['meta4'];
-          $metaTrabalho5= $user_data['meta5'];
-          
-          $feitoTrabalho1=$user_data['feito1'];
-          $feitoTrabalho2=$user_data['feito2'];
-          $feitoTrabalho3=$user_data['feito3'];
-          $feitoTrabalho4=$user_data['feito4'];
-          $feitoTrabalho5=$user_data['feito5'];
-        }
-
-    }
-    /* Dinheiro */
-    if($resultDinheiro->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($resultDinheiro))
-        {
-          $nome= $user_data['nome'];
-          $sobrenome= $user_data['sobrenome'];
-          $email= $user_data['email'];
-          
-          $metaDinheiro1= $user_data['meta1'];
-          $metaDinheiro2= $user_data['meta2'];
-          $metaDinheiro3= $user_data['meta3'];
-          $metaDinheiro4= $user_data['meta4'];
-          $metaDinheiro5= $user_data['meta5'];
-          
-          $feitoDinheiro1=$user_data['feito1'];
-          $feitoDinheiro2=$user_data['feito2'];
-          $feitoDinheiro3=$user_data['feito3'];
-          $feitoDinheiro4=$user_data['feito4'];
-          $feitoDinheiro5=$user_data['feito5'];
-        }
-
-    }
-    /* Outro */
-    if($resultOutro->num_rows > 0)
-    {
-        while($user_data = mysqli_fetch_assoc($resultOutro))
-        {
-          $nome= $user_data['nome'];
-          $sobrenome= $user_data['sobrenome'];
-          $email= $user_data['email'];
-          
-          $metaOutro1= $user_data['meta1'];
-          $metaOutro2= $user_data['meta2'];
-          $metaOutro3= $user_data['meta3'];
-          $metaOutro4= $user_data['meta4'];
-          $metaOutro5= $user_data['meta5'];
-          
-          $feitoOutro1=$user_data['feito1'];
-          $feitoOutro2=$user_data['feito2'];
-          $feitoOutro3=$user_data['feito3'];
-          $feitoOutro4=$user_data['feito4'];
-          $feitoOutro5=$user_data['feito5'];
-        }
-
-    }
-    else{
-        header('Location: sistema_metas_coach.php');
-    }
-  }
-  else
-  {
-    header('Location: sistema_metas_coach.php');
-  }
-?>
 <!doctype html>
 <html>
 
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Meta-Alunos</title>
+  <title>Meta</title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -188,12 +28,6 @@
     body{
     background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
     background-attachment: fixed;
-}
-.btn{
-  background:#000;
-  color:#fff;
-  outline:none;
-  border:none;
 }
 .btn:hover{
     background-color: #f01e1e;
@@ -274,13 +108,13 @@ dialog::backdrop{
           <div class="nav_list"> 
             <?php
               
-              echo "<a href='sistema.php' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+              echo "<a href='sistema.php' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta-Alunos</span> </a>"; 
               
               echo "<a href='sistema_coach_forms.php' class='nav_link'> <i
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário-Alunos</span> </a>"; 
               
-              echo "<a href='sistema_metas_coach.php' class='nav_link active'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
+              echo "<a href='sistema_metas_coach.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
@@ -298,18 +132,15 @@ dialog::backdrop{
         <p>Analise do <b>andamento das metas</b> do aluno(a)</b><h2><?php echo "<b> <big>$nome</big></b>";?></h2></p>
 <br><br>
      <div class="table-wrapper">
-      <div style="display: flex; justify-content: space-evenly;">
-     
-        <!-- 12 meses -->
-
-        <!-- saude -->
-        <section class="list">
+     <div style="display: flex; justify-content: space-evenly;">
+      <!-- saúde -->
+     <section class="list">
         <header>Objetivos: 12 meses (Saúde)</header>
-          <article class="card" id='abrir_dialogSaude'>
-          <ul>
+          <article class="card"  id='abrir_dialogSaude' >
+            <ul>
               <li>
                 <?php echo "$metaSaude1"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?>  disabled>
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
@@ -324,7 +155,7 @@ dialog::backdrop{
               <br>
               <li>
                 <?php echo "$metaSaude4"; ?>
-                <input type="checkbox"   <?php echo ($feitoSaude4 == 'on') ? 'checked' : ''?> disabled>
+                <input type="checkbox"  <?php echo ($feitoSaude4 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
@@ -332,43 +163,42 @@ dialog::backdrop{
                 <input type="checkbox"  <?php echo ($feitoSaude5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
+            <!-- dialog -->
             <dialog id="dialog_saude">
-            <form action="" method="post">
             <h2 id='titulo_dialog'>Metas sobre Saúde</h2><br>
             <ul>
               <li>
                 <?php echo "$metaSaude1"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?> name="feito1" disabled >
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?>>
               </li> 
               <br>   
               <li>
                 <?php echo "$metaSaude2"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude2 == 'on') ? 'checked' : ''?> name="feito2" disabled >
+                <input type="checkbox"  <?php echo ($feitoSaude2 == 'on') ? 'checked' : ''?>>
               </li>
               <br>
               <li>
                 <?php echo "$metaSaude3"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude3 == 'on') ? 'checked' : ''?> name="feito3" disabled >
+                <input type="checkbox"  <?php echo ($feitoSaude3 == 'on') ? 'checked' : ''?>>
               </li>
               <br>
               <li>
                 <?php echo "$metaSaude4"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude4 == 'on') ? 'checked' : ''?> name="feito4" disabled >
+                <input type="checkbox"  <?php echo ($feitoSaude4 == 'on') ? 'checked' : ''?>>
               </li>
               <br>
               <li>
                 <?php echo "$metaSaude5"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude5 == 'on') ? 'checked' : ''?> name="feito5" disabled >
+                <input type="checkbox"  <?php echo ($feitoSaude5 == 'on') ? 'checked' : ''?>>
               </li>
             </ul>
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Saude" id='fechar_dialogSaude'>
-            </form>
-            </dialog>
-          </article> 
-          
-        </section>
-
-        <!-- relacionamento -->
+            <button>
+                ok
+            </button>
+</dialog>
+          </article>    
+        </section>     
+        <!-- relacionamentos -->
         <section class="list">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialogRelacionamento' >
@@ -398,46 +228,47 @@ dialog::backdrop{
                 <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-          <dialog id="dialog_relacionamento">
+
+            <dialog id="dialog_relacionamento">
             <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
             <ul>
               <li>
-                <form action="" method="post">
                 <?php echo "$metaRelacionamento1"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : ''?> name="feito1" disabled >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : ''?> name="feito1" >
               </li>
               <br>
               <li>
                 <?php echo "$metaRelacionamento2"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : ''?> name="feito2" disabled >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : ''?> name="feito2">
               </li>
               <br>
               <li>
                 <?php echo "$metaRelacionamento3"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : ''?> name="feito3" disabled >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : ''?> name="feito3" >
               </li>
               <br>
               <li>
                 <?php echo "$metaRelacionamento4"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : ''?> name="feito4" disabled >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : ''?> name="feito4">
               </li>
               <br>
               <li>
                 <?php echo "$metaRelacionamento5"; ?>
-                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> name="feito5" disabled >
+                <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> name="feito5">
               </li>
             </ul>
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_relacionamento" id='fechar_dialogRelacionamento'>
-            </form>
+          <button>
+                ok
+            </button>
             </dialog>
-          </article> 
-        </section>
+          </article>    
+        </section> 
 
          <!-- Trabalho -->
          <section class="list">
         <header>Objetivos: 12 meses (Trabalho)</header>
-          <article class="card" id='abrir_dialogTrabalho'>
-          <ul>
+          <article class="card"  id='abrir_dialog' >
+            <ul>
               <li>
                 <?php echo "$metaTrabalho1"; ?>
                 <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'on') ? 'checked' : ''?> disabled>
@@ -445,7 +276,7 @@ dialog::backdrop{
               <br>
               <li>
                 <?php echo "$metaTrabalho2"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'on') ? 'checked' : ''?> disabled >
+                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'on') ? 'checked' : ''?> disabled>
               </li>
               <br>
               <li>
@@ -463,46 +294,13 @@ dialog::backdrop{
                 <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-            <dialog id="dialog_trabalho">
-            <h2 id='titulo_dialog'>Metas sobre Trabalho</h2><br>
-            <ul>
-              <li>
-                <form action="" method="post">
-                <?php echo "$metaTrabalho1"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho1 == 'on') ? 'checked' : ''?> name="feito1" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaTrabalho2"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho2 == 'on') ? 'checked' : ''?> name="feito2" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaTrabalho3"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho3 == 'on') ? 'checked' : ''?> name="feito3" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaTrabalho4"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho4 == 'on') ? 'checked' : ''?> name="feito4" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaTrabalho5"; ?>
-                <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'on') ? 'checked' : ''?> name="feito5" disabled >
-              </li>
-            </ul>
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Trabalho" id='fechar_dialogTrabalho'>
-            </form>
-            </dialog>
-          </article> 
-        </section>
-
-         <!-- Dinheiro -->
+          </article>    
+        </section> 
+         <!-- dinheiro -->
          <section class="list">
         <header>Objetivos: 12 meses (Dinheiro)</header>
-          <article class="card" id='abrir_dialogDinheiro'>
-          <ul>
+          <article class="card"  id='abrir_dialog' >
+            <ul>
               <li>
                 <?php echo "$metaDinheiro1"; ?>
                 <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'on') ? 'checked' : ''?> disabled>
@@ -528,46 +326,13 @@ dialog::backdrop{
                 <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-            <dialog id="dialog_dinheiro">
-            <h2 id='titulo_dialog'>Metas sobre Dinheiro</h2><br>
-            <ul>
-              <li>
-                <form action="" method="post">
-                <?php echo "$metaDinheiro1"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro1 == 'on') ? 'checked' : ''?> name="feito1" disabled >
-              </li>
-              <br> 
-              <li>
-                <?php echo "$metaDinheiro2"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro2 == 'on') ? 'checked' : ''?> name="feito2" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaDinheiro3"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro3 == 'on') ? 'checked' : ''?> name="feito3" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaDinheiro4"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro4 == 'on') ? 'checked' : ''?> name="feito4" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaDinheiro5"; ?>
-                <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'on') ? 'checked' : ''?> name="feito5" disabled >
-              </li>
-            </ul>
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Dinheiro" id='fechar_dialogDinheiro'>
-            </form>
-            </dialog>
-          </article> 
-        </section>
-
-         <!-- Outro -->
+          </article>    
+        </section> 
+         <!--outro -->
          <section class="list">
-        <header>Objetivos: 12 meses (Demais objetivos)</header>
-          <article class="card" id='abrir_dialogOutro' >
-          <ul>
+        <header>Objetivos: 12 meses (Outros Objetivos)</header>
+          <article class="card"  id='abrir_dialog' >
+            <ul>
               <li>
                 <?php echo "$metaOutro1"; ?>
                 <input type="checkbox"  <?php echo ($feitoOutro1 == 'on') ? 'checked' : ''?> disabled>
@@ -593,45 +358,13 @@ dialog::backdrop{
                 <input type="checkbox"  <?php echo ($feitoOutro5 == 'on') ? 'checked' : ''?> disabled>
               </li>
             </ul>
-            <dialog id="dialog_outro">
-            <h2 id='titulo_dialog'>Metas sobre Outro</h2><br>
-            <ul>
-              <li>
-                <form action="" method="post">
-                <?php echo "$metaOutro1"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro1 == 'on') ? 'checked' : ''?> name="feito1" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaOutro2"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro2 == 'on') ? 'checked' : ''?> name="feito2" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaOutro3"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro3 == 'on') ? 'checked' : ''?> name="feito3" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaOutro4"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro4 == 'on') ? 'checked' : ''?> name="feito4" disabled >
-              </li>
-              <br>
-              <li>
-                <?php echo "$metaOutro5"; ?>
-                <input type="checkbox"  <?php echo ($feitoOutro5 == 'on') ? 'checked' : ''?> name="feito5" disabled >
-              </li>
-            </ul>
-            <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Outro" id='fechar_dialogOutro' >
-            </form>
-            </dialog>
-          </article> 
-        </section>
-        
-      </div>
+          </article>    
+        </section> 
     </div>
+    </div>
+    
     <br><br><br>
-      <!-- gráficos 
+      <!-- grpaficos 
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">
         <canvas id="conclusao" width="300" height="300"></canvas>
@@ -733,16 +466,15 @@ dialog::backdrop{
       </script>-->
     </div>
     <!--Container Main end-->
-
     <script>
       function confirmaSair(){
-    var confirma =confirm("André,tem certeza que deseja encerrar a sessão?");
+    var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
     if (confirma==true){
-        window.location.href="http://localhost/Coach-System-/sair.php";
+        window.location.href="http://localhost/Coach-System-/index.html";
+       
     } 
 };
     </script>
-
     <script>
       /* relacioanamento */
       const buttonRelacionamento = document.querySelector("#abrir_dialogRelacionamento");
@@ -754,45 +486,15 @@ dialog::backdrop{
       buttonCloseRelacionamento.onclick=function(){
         modalRelacionamento.closeModal();
       };
-      /* saúde */
-      const buttonSaude = document.querySelector("#abrir_dialogSaude");
+       /* saúde */
+       const buttonSaude = document.querySelector("#abrir_dialogSaude");
       const modalSaude = document.querySelector("#dialog_saude");
-      const buttonCloseSaude = document.querySelector("dialog #fechar_dialogSaude");
+      const buttonCloseSaude = document.querySelector("#dialog_saude button");
       buttonSaude.onclick=function(){
         modalSaude.showModal();
       };
       buttonCloseSaude.onclick=function(){
-        modalSaude.closeModal();
-      };
-      /* trabalho */
-      const buttonTrabalho = document.querySelector("#abrir_dialogTrabalho");
-      const modalTrabalho = document.querySelector("#dialog_trabalho");
-      const buttonCloseTrabalho = document.querySelector("dialog #fechar_dialogTrabalho");
-      buttonTrabalho.onclick=function(){
-        modalTrabalho.showModal();
-      };
-      buttonCloseTrabalho.onclick=function(){
-        modalTrabalho.closeModal();
-      };
-      /* dinheiro */
-      const buttonDinheiro = document.querySelector("#abrir_dialogDinheiro");
-      const modalDinheiro = document.querySelector("#dialog_dinheiro");
-      const buttonCloseDinheiro = document.querySelector("dialog #fechar_dialogDinheiro");
-      buttonDinheiro.onclick=function(){
-        modalDinheiro.showModal();
-      };
-      buttonCloseDinheiro.onclick=function(){
-        modalDinheiro.closeModal();
-      };
-      /* outro */
-      const buttonOutro = document.querySelector("#abrir_dialogOutro");
-      const modalOutro = document.querySelector("#dialog_outro");
-      const buttonCloseOutro = document.querySelector("dialog #fechar_dialogOutro");
-      buttonOutro.onclick=function(){
-        modalOutro.showModal();
-      };
-      buttonCloseOutro.onclick=function(){
-        modalOutro.closeModal();
+        modalSaude.close();
       };
     </script>
     <script type='text/javascript'
