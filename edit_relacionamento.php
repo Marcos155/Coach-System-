@@ -106,13 +106,13 @@
               /*echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
                 class='nav_name'>Início</span> </a>";*/
               
-                echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+                echo "<a href='show_sistema_persona.php?cod=$cod' class='nav_link'> <i class='bx bx-user nav_icon'></i>
                 <span class='nav_name'>Conta</span> </a>"; 
                 
-                echo "<a href='testando.php?cod=$user_data[cod]' class='nav_link active'> <i
+                echo "<a href='testando.php?cod=$cod' class='nav_link active'> <i
                 class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
                 
-                echo "<a href='meta.php?cod=$user_data[cod]'' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
+                echo "<a href='meta.php?cod=$cod'' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
                 
                 echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
             ?>
@@ -125,28 +125,29 @@
 
     <div class="height-100 bg-light">
       <br><br>
-      <h2><?php echo $nome ?>, edite aqui sua meta para relacionamentos para daqui a 12 meses &#128578;</h2><br>
+      <h2><?php echo $nome ?>, edite aqui sua meta sobre relacionamentos para daqui 12 meses &#128578;</h2><br>
       <?php
         //echo"<form action='show_sistema_forms.php?cod=$user_data[cod]' method='post'>";
         echo"<form action='save_edit_relacionamento.php' method='post' name='forms'>";
       ?>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">O que?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-        placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Ex: Estar na faixa do 65Kg"  name="oque" value="<?php echo $oque ?>" 
-       required>
+        <input type="text" maxlength="250" class="form-control" id="oque" type="text" placeholder="Ex: Estar na faixa do 65Kg"  name="oque" value="<?php echo $oque ?>" 
+        required>
+        <label for="char_oque">Quantidade de caracteres: 250/ </label><span id="char_oque"></span>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Por quem?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-        placeholder="Email para contato" type="text" placeholder="Alguma pessoa em especial ?" name="porquem" 
-        value="<?php echo $porquem ?>"  required>
+        <input type="text" class="form-control" id="porquem" type="text" placeholder="Alguma pessoa em especial ?" name="porquem" 
+        value="<?php echo $porquem ?>"  maxlength="250" required>
+        <label for="char_porquem">Quantidade de caracteres: 250/ </label><span id="char_porquem"></span>
       </div>
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Onde?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        <input type="text" class="form-control" id="onde" maxlength="250"
         placeholder="Onde precisa estar para alcançar esse objetivo ?" name="onde" value="<?php echo $onde ?>" required>
+        <label for="char_onde">Quantidade de caracteres: 250/ </label><span id="char_onde"></span>
       </div>
      
       <div class="mb-3">
@@ -156,14 +157,16 @@
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Por quê?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Motivo do objetivo" name="porque" value="<?php echo $porque ?>" >
+        <input type="text" class="form-control" id="porque"  maxlength="250"
+        placeholder="Motivo do objetivo" name="porque" value="<?php echo $porque ?>" required>
+        <label for="char_porque">Quantidade de caracteres: 250/ </label><span id="char_porque">
       </div>
       
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Como?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Como fazer ?" name="como" value="<?php echo $como ?>" >
+        <input type="text" class="form-control" id="como" maxlength="250"
+        placeholder="Como fazer ?" name="como" value="<?php echo $como ?>" required>
+        <label for="char_como">Quantidade de caracteres: 250/ </label><span id="char_como"></span>
       </div>
 
 
@@ -177,13 +180,13 @@
       <p><b>Metas sobre relacionamentos</b></p><br>
    <div class="mb-3">
  <label for="exampleFormControlTextarea1" class="form-label">O que fazer para alcançar o objetivo ?</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="objet" value="<?php echo $objet ?>" ><br>
+        <input type="text" maxlength="150" class="form-control" id="objet" placeholder="Como alcançar esse objetivo?" name="objet" value="<?php echo $objet ?>" required>
+          <label for="char_objet">Quantidade de caracteres: 150/ </label><span id="char_objet"></span><br>
       </div>
     <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Responsável:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="responsa" value="<?php echo $responsa ?>" ><br>
+        <input type="text" maxlength="150" class="form-control" id="responsa" placeholder="Quem é o responsável por alcançar esse objetivo?" name="responsa" value="<?php echo $responsa ?>" required>
+          <label for="char_responsa">Quantidade de caracteres: 150/ </label><span id="char_responsa"></span><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
@@ -197,14 +200,13 @@
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="" name="obs" value="<?php echo $obs ?>" ><br>
+        <input type="text" class="form-control" id="obs" placeholder="Deixe aqui observações acerca desse objetivo" name="obs" value="<?php echo $obs ?>" maxlength="250">
+        <label for="char_obs">Quantidade de caracteres: 250/ </label><span id="char_obs"></span><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Por que está editando seu formulário?" 
-        name="mot_edit" value="<?php echo $mot_edit ?>" required>
+        <input type="text" class="form-control" id="mot_edit" placeholder="Por que está editando seu formulário?" name="mot_edit" value="<?php echo $mot_edit ?>" required>
+        <label for="characters">Quantidade de caracteres: 300/ </label><span id="char_mot_edit"></span><br>
       </div>
 
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update" id="update">
@@ -212,10 +214,110 @@
  
       </form>
 
-      
+      <script>
+  /* obs */
+  var desc_obs = document.querySelector("#obs");
+      desc_obs.addEventListener("keypress", function(e) {
+      var maxChars_obs = 250;
+      inputLength = desc_obs.value.length;
+      document.getElementById('char_obs').innerText = inputLength
+      if(inputLength >= maxChars_obs) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* responsa */
+        var desc_responsa = document.querySelector("#responsa");
+      desc_responsa.addEventListener("keypress", function(e) {
+      var maxChars_responsa = 1500;
+      inputLength = desc_responsa.value.length;
+      document.getElementById('char_responsa').innerText = inputLength
+      if(inputLength >= maxChars_responsa) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* objet */
+        var desc_objet = document.querySelector("#objet");
+      desc_objet.addEventListener("keypress", function(e) {
+      var maxChars_objet = 150;
+      inputLength = desc_objet.value.length;
+      document.getElementById('char_objet').innerText = inputLength
+      if(inputLength >= maxChars_objet) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+      /* porque */
+  var desc_porque = document.querySelector("#porque");
+      desc_porque.addEventListener("keypress", function(e) {
+      var maxChars_porque = 250;
+      inputLength = desc_porque.value.length;
+      document.getElementById('char_porque').innerText = inputLength
+      if(inputLength >= maxChars_porque) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* como */
+        var desc_como = document.querySelector("#como");
+      desc_como.addEventListener("keypress", function(e) {
+      var maxChars_como = 250;
+      inputLength = desc_como.value.length;
+      document.getElementById('char_como').innerText = inputLength
+      if(inputLength >= maxChars_como) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* onde */
+        var desc_onde = document.querySelector("#onde");
+      desc_onde.addEventListener("keypress", function(e) {
+      var maxChars_onde = 250;
+      inputLength = desc_onde.value.length;
+      document.getElementById('char_onde').innerText = inputLength
+      if(inputLength >= maxChars_onde) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+      /* porquem */
+      var desc_porquem = document.querySelector("#porquem");
+      desc_porquem.addEventListener("keypress", function(e) {
+      var maxChars_porquem = 250;
+      inputLength = desc_porquem.value.length;
+      document.getElementById('char_porquem').innerText = inputLength
+      if(inputLength >= maxChars_porquem) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+      /* oque */
+      var desc_oque = document.querySelector("#oque");
+      desc_oque.addEventListener("keypress", function(e) {
+      var maxChars_oque = 250;
+      inputLength = desc_oque.value.length;
+      document.getElementById('char_oque').innerText = inputLength
+      if(inputLength >= maxChars_oque) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+   /* motivo da edição */
+   var desc = document.querySelector("#mot_edit");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 300;
+      inputLength = desc.value.length;
+      document.getElementById('char_mot_edit').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+</script>
     <script>
       function confirmaSair(){
-    var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
+    var confirma =confirm("<?php echo $nome ?>, tem certeza que deseja encerrar a sessão?");
     if (confirma==true){
         window.location.href="http://localhost/Coach-System-/sair.php";
        

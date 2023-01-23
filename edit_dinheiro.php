@@ -213,8 +213,6 @@
         <br><br>
     </div>
       </form>
-
-
 <script>
   /* obs */
   var desc_obs = document.querySelector("#obs");
