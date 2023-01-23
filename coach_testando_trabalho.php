@@ -247,9 +247,10 @@
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label"><b>Complementos para o objetivo:</b></label>
-        <input type="text" class="form-control"  
-        placeholder="Faça observações a cerca dos objetivos desse aluno" 
+        <input type="text" class="form-control"  id="ParaCompletar"
+        placeholder="Faça observações a cerca dos objetivos desse aluno" maxlength="490"
         name="obs_andre" value="<?php echo $obs_andre ?>">
+        <label for="characters">Quantidade de caracteres: </label><span id="characters"></span><br>
       </div>
       <a href='sistema_coach_forms.php'>
             <input type='submit' class='btn' class='enviar_forms' value='Voltar'>
@@ -261,6 +262,17 @@
       </form>
 
       <script>
+        var desc = document.querySelector("#ParaCompletar");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 490;
+      inputLength = desc.value.length;
+      /* conta os caracteres */
+      document.getElementById('characters').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("André, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
       function confirmaSair(){
     var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
     if (confirma==true){

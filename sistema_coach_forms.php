@@ -15,7 +15,7 @@ if (!empty($_GET['search'])) {
   $sql = "SELECT * FROM formulario_15_anos WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' ";
 
 } else {
-  $sql = "SELECT * FROM formulario_15_anos ORDER BY cod DESC";
+  $sql = "SELECT * FROM formulario_15_anos WHERE cod>1 ORDER BY cod DESC";
 }
 
 $result = $conexao_forms15->query($sql);

@@ -184,6 +184,8 @@ dialog::backdrop{
             <button type="submit" class="btn" class="enviar_forms" name="update"  id="update" data-toggle='tooltip' data-placement='right' title='Adicionar meta'>
                 <i class="fa fa-plus"></i>
             </button>
+            <!--
+            <label for="characters">Quantidade de caracteres: </label><span id="characters"></span><br>-->
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <br><br>
             
@@ -222,7 +224,7 @@ dialog::backdrop{
             </button>
           
         </div>
-            </form>
+        </form>
         <!--
         <button type="submit" class="btn" class="expandir"   id='abrir_dialog'  data-toggle='tooltip' data-placement='right' title='Ver meta'>
             <i class="fa fa-expand"></i>
@@ -265,6 +267,19 @@ dialog::backdrop{
           ?>
           <br><br>
     </div>
+    <script>
+      var desc = document.querySelector("#inputNovaTarefa");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 200;
+      inputLength = desc.value.length;
+      /* conta os caracteres */
+      /*document.getElementById('characters').innerText = inputLength*/
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("André, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+    </script>
     <script>
        function eliminaMeta1 (el){
     var confirma =confirm("Tem a certeza que quer eliminar a Meta?");

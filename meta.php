@@ -312,6 +312,9 @@ else
     h5{
       text-indent:1.6rem;
     }
+    ul {
+      list-style:none;
+      }
   </style>
 </head>
 
@@ -422,6 +425,7 @@ else
                 <input type="checkbox"  <?php echo ($feitoSaude5 == 'on') ? 'checked' : ''?> name="feito5">
               </li>
             </ul>
+            <br><br>
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Saude" id='fechar_dialogSaude' >
             </form>
@@ -492,6 +496,7 @@ else
                 <input type="checkbox"  <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : ''?> name="feito5">
               </li>
             </ul>
+            <br><br>
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_relacionamento" id='fechar_dialogRelacionamento' >
             </form>
@@ -559,6 +564,7 @@ else
                 <input type="checkbox"  <?php echo ($feitoTrabalho5 == 'on') ? 'checked' : ''?> name="feito5">
               </li>
             </ul>
+            <br><br>
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Trabalho" id='fechar_dialogTrabalho' >
             </form>
@@ -626,6 +632,7 @@ else
                 <input type="checkbox"  <?php echo ($feitoDinheiro5 == 'on') ? 'checked' : ''?> name="feito5">
               </li>
             </ul>
+            <br><br>
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Dinheiro" id='fechar_dialogDinheiro' >
             </form>
@@ -693,6 +700,7 @@ else
                 <input type="checkbox"  <?php echo ($feitoOutro5 == 'on') ? 'checked' : ''?> name="feito5">
               </li>
             </ul>
+            <br><br>
             <input type="hidden" name="cod" value="<?php echo $cod ?>">
             <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Outro" id='fechar_dialogOutro' >
             </form>

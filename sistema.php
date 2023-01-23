@@ -16,7 +16,7 @@ if (!empty($_GET['search'])) {
     telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' or cpf LIKE '%$data%' ";
 
 } else {
-  $sql = "SELECT * FROM cadastro ORDER BY cod DESC";
+  $sql = "SELECT * FROM cadastro WHERE cod>1 ORDER BY cod DESC";
 }
 
 /*$result2 = $conexao_regis->query($sql);*/

@@ -111,8 +111,8 @@
         <input type="text" placeholder="Nome" name="username" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="text" placeholder="Sobrenome" name="sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="email" placeholder="Email" name="email" required/>
-        <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" required>
-        <input type="tel" name="cpf" placeholder="CPF 000.000.000-00"  required>
+        <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" maxlength="15" id="tel" required>
+        <input type="tel" name="cpf" placeholder="CPF 000.000.000-00"  id="cpf" maxlength="11" oninput="mascara(this)" required>
    
         <table> 
         <tr><td><input type="password" placeholder="Senha" name="password"  id="senha" required/></td>
@@ -166,6 +166,30 @@
   </div>
 
   <!-- Java Script -->
+<script>
+const tel = document.getElementById('tel') // Seletor do campo de telefone
+
+tel.addEventListener('keypress', (e) => mascaraTelefone(e.target.value)) // Dispara quando digitado no campo
+tel.addEventListener('change', (e) => mascaraTelefone(e.target.value)) // Dispara quando autocompletado o campo
+
+const mascaraTelefone = (valor) => {
+    valor = valor.replace(/\D/g, "")
+    valor = valor.replace(/^(\d{2})(\d)/g, "($1) $2")
+    valor = valor.replace(/(\d)(\d{4})$/, "$1-$2")
+    tel.value = valor // Insere o(s) valor(es) no campo
+}
+function mascara(i){
+   var v = i.value;
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   i.setAttribute("maxlength", "14");
+   if (v.length == 3 || v.length == 7) i.value += ".";
+   if (v.length == 11) i.value += "-";
+}
+
+</script>
   <script>
     document.getElementById('remember').addEventListener('click', function () {
       var href = this.dataset.link;

@@ -92,13 +92,13 @@
               /*echo "<a href='#' class='nav_link'> <i class='bx bx-grid-alt nav_icon'></i> <span
                 class='nav_name'>Início</span> </a>";*/
               
-                echo "<a href='show_sistema_persona.php?cod=$user_data[cod]' class='nav_link'> <i class='bx bx-user nav_icon'></i>
+                echo "<a href='show_sistema_persona.php?cod=$cod' class='nav_link'> <i class='bx bx-user nav_icon'></i>
                 <span class='nav_name'>Conta</span> </a>"; 
                 
-                echo "<a href='testando.php?cod=$user_data[cod]' class='nav_link active'> <i
+                echo "<a href='testando.php?cod=$cod' class='nav_link active'> <i
                 class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário</span> </a>"; 
                 
-                echo "<a href='meta.php?cod=$user_data[cod]'' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
+                echo "<a href='meta.php?cod=$cod'' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
                 
                 echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
             ?>
@@ -118,40 +118,41 @@
       ?>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Saúde</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-         type="text" placeholder="saúde" name="username" value="<?php echo $saude ?>" 
-        required>
+        <input type="text" class="form-control" id="saude"
+         type="text" placeholder="saúde" name="username" value="<?php echo $saude ?>"required maxlength="490">
+         <label for="characters">Quantidade de caracteres: 490/ </label><span id="char_saude"></span><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Relacionamentos</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1"
-        placeholder="Email para contato" type="email" placeholder="Relacionamento" name="email" 
-        value="<?php echo $relacionamento ?>"  required>
+        <input type="text" class="form-control" id="relacionamento"
+        placeholder="Email para contato" type="email" placeholder="Relacionamento" name="email" value="<?php echo $relacionamento ?>"  required maxlength="490">
+        <label for="characters">Quantidade de caracteres: 490/ </label><span id="char_relacionamento"></span><br>
       </div>
       <input type="hidden" name="cod" value="<?php echo $cod ?>">
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Financeiro</label>
-        <input type="tel" class="form-control" id="exampleFormControlTextarea1"  placeholder="financeiro" 
-              name="phone" value="<?php echo $financeiro ?>" required>
+        <input type="tel" class="form-control" id="financeiro"  placeholder="financeiro" name="phone" value="<?php echo $financeiro ?>" required maxlength="490">
+        <label for="characters">Quantidade de caracteres: 490/ </label><span id="char_financeiro"></span><br>
       </div>
      
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Espiritual</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="espiritual"
-              name="cidade" value="<?php echo $espiritual ?>" >
+        <input type="text" class="form-control" id="espiritual" 
+        placeholder="espiritual"name="cidade" value="<?php echo $espiritual ?>" maxlength="490" required>
+        <label for="characters">Quantidade de caracteres: 490/ </label><span id="char_espiritual"></span><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Outro</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="demais objetivos" 
-              name="estado" value="<?php echo $outro ?>" >
+        <input type="text" class="form-control" id="outro" 
+        placeholder="demais objetivos" name="estado" value="<?php echo $outro ?>" maxlength="790">
+        <label for="characters_outro">Quantidade de caracteres: 790/ </label><span id="char_outro"></span><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Registre o motivo da edição</label>
-        <input type="text" class="form-control" id="exampleFormControlTextarea1" 
+        <input type="text" class="form-control" id="mot_edit" 
         placeholder="Por que está editando seu formulário?" 
-        name="mot_edit" value="<?php echo $mot_edit ?>" required>
+        name="mot_edit" value="<?php echo $mot_edit ?>" required maxlength="300">
+        <label for="characters">Quantidade de caracteres: 300/ </label><span id="char_mot_edit"></span><br>
       </div>
       
         <input type="submit" class="btn" class="enviar_forms" style="background-color:rgb(255,0,0); color: #fff;" value="Salvar" name="update"
@@ -160,7 +161,74 @@
  
       </form>
 
-      
+      <script>
+        /* Saúde */
+        var desc = document.querySelector("#saude");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 490;
+      inputLength = desc.value.length;
+      document.getElementById('char_saude').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* relacionamentos */
+        var desc = document.querySelector("#relacionamento");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 490;
+      inputLength = desc.value.length;
+      document.getElementById('char_relacionamento').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* financeiro */
+        var desc = document.querySelector("#financeiro");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 490;
+      inputLength = desc.value.length;
+      document.getElementById('char_financeiro').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* esíritual */
+        var desc = document.querySelector("#espiritual");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 490;
+      inputLength = desc.value.length;
+      document.getElementById('char_espiritual').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* outro */
+        var desc = document.querySelector("#outro");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 790;
+      inputLength = desc.value.length;
+      document.getElementById('char_outro').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+        /* motivo da edição */
+        var desc = document.querySelector("#mot_edit");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 300;
+      inputLength = desc.value.length;
+      document.getElementById('char_mot_edit').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("<?php echo $nome ?>, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
+      </script>
     <script>
       function confirmaSair(){
     var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
