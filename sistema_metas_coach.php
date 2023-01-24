@@ -204,6 +204,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
       </b>
 <br><br>
       <div style="justify-content: space-evenly; display: flex;">
+      <!--
         <div style="width: 30vw; display: inline-block">
           <h2>Média de conclusão turmas</h2>
           <div class="box-search">
@@ -218,30 +219,21 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
           </div>
           <canvas id="turmas" width="400" height="400"></canvas>
         </div>
-
+      
         <div style="width: 30vw; display: inline-block;">
           <h2>Média de conclusão alunos</h2>
-          <div class="box-search">
-            <input type="search" class="form-control w-25" placeholder="Aluno" id="pesquisar">
-            <button onclick="searchData()" class="btn btn-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-                viewBox="0 0 16 16">
-                <path
-                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-              </svg>
-            </button>
-          </div>
           <canvas id="alunos" width="400" height="400"></canvas>
         </div>
       </div><br><br><br>
+      
       <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">
         <canvas id="conclusao" width="300" height="300"></canvas>
-      </div><br><br><br>
+      </div><br><br><br>-->
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/style-trelo.js"></script>
       <script>
-        const ctx = document.getElementById('turmas').getContext('2d');
+       /* const ctx = document.getElementById('turmas').getContext('2d');
         const turmas = new Chart(ctx, {
           type: 'bar',
           data: {
@@ -251,11 +243,11 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
               label: 'Notas das turmas',
               data: [6, 5, 3, 9, 8, 7], ///dados das notas tem que estarem aqui 
               backgroundColor: [
-                '#198754b8'
+                '#b6a9a9'
 
               ],
               hoverBackgroundColor: [
-                '#198754',
+                '#6a0baa',
               ],
               borderColor: [
                 'black',
@@ -269,10 +261,12 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
               indexAxis: 'x',
             }
           }
-        });
+        });*/
 
       </script>
+      
       <script>
+/*
         new Chart(
           document.getElementById('alunos'),
           {
@@ -284,7 +278,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
                 label: 'Notas dos alunos',
                 data: [6, 5, 3, 9, 8, 7], ///dados das notas tem que estarem aqui 
                 backgroundColor: [
-                  '#6a0baaa6'
+                  '#2f2a28'
                 ],
                 hoverBackgroundColor: [
                   '#6a0baa',],
@@ -301,6 +295,8 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
               }
             }
           });
+
+          
         new Chart(
           document.getElementById('conclusao'),
           {
@@ -312,12 +308,12 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
                 label: 'Notas dos alunos',
                 data: [6, 5], ///trazer os dados de conclusão das anotações, numero 6 falta é o falta concluir  
                 backgroundColor: [
-                  '#0040ffb0',
-                  'white',
+                  '#2f2a28',
+                  '#b6a9a9',
                 ],
                 hoverBackgroundColor: [
-                  '#0040ff',
-                  'white'
+                  '#ff4949',
+                  '#6bfb80'
                 ],
                 borderColor: [
                   'black',
@@ -331,7 +327,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
                 indexAxis: 'x',
               }
             }
-          });
+          });*/
       </script>
     </div>
     <!--Container Main end-->

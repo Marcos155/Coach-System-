@@ -3,6 +3,7 @@ session_start();
 include_once('config.php');
 
 //cadastro
+
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
   unset($_SESSION['email']);
   unset($_SESSION['senha']);
@@ -77,6 +78,47 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
     transition: all 0.3s;
     border: none;
 }
+dialog::backdrop{
+      background: rgb(0 0 0 / .5);
+    }
+    dialog{
+      border:none;
+      border-radius: .5rem;
+      box-shadow: 0 0 1em rgb(0 0 0 / .3);
+      width:80%;
+    }
+    #fechar_dialogDelete{
+      color:#fff;
+      border-radius:2px;
+      border:none;
+      outline:none;
+      background:#000;
+      font-weight:bold;
+      padding: 0 10px;
+    }
+    #Sim_dialogDelete{
+      color:#fff;
+      border-radius:2px;
+      border:none;
+      outline:none;
+      background:#000;
+      font-weight:bold;
+      padding: 0 10px;
+      margin-left:10px;
+    }
+    #Sim_dialogDelete:hover{
+      background:#f01e1e;
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    #fechar_dialogDelete:hover{
+      background:#f01e1e;
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+    #titulo_dialog{
+      font-weight:bold;
+    }
   </style>
 </head>
 
@@ -167,7 +209,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
           echo "<td>" . $user_data['cidade'] . "</td>";
           echo "<td>" .$user_data['estado'] . "</td>";
           echo "<td>
-          <a class='btn btn-sm btn-dark'  href='delete.php?cod=$user_data[cod]'
+          <a class='btn btn-sm btn-dark'  id='abrir_dialogDelete'
           placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
             <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
@@ -176,9 +218,14 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
           </a>
         </td>";
           echo "<tr>";
+          echo"            
+          <dialog id='dialog_Delete'>
+          <h2 id='titulo_dialog'>Confirma deletar cadastro?</h2><br>
+          <a href='sistema.php'><button id='fechar_dialogDelete'>Não</button></a>
+          <a href='delete.php?cod=$user_data[cod]'><button id='Sim_dialogDelete'>Sim</button></a>
+          </dialog>";
         }
         ?>
-        
               </tbody>
             </table>
           </div>
@@ -189,6 +236,18 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$
     <!--Container Main end-->
 
     <script>
+      /* dialog de deleção */
+      const buttonDelete = document.querySelector("#abrir_dialogDelete");
+      const modalDelete = document.querySelector("#dialog_Delete");
+      const buttonCloseDelete = document.querySelector("dialog #fechar_dialogDelete");
+      buttonDelete.onclick=function(){
+        modalDelete.showModal();
+      };
+      buttonCloseDelete.onclick=function(){
+        modalDelete.closeModal();
+      };
+
+      /* saida */
       function confirmaSair(){
     var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
     if (confirma==true){

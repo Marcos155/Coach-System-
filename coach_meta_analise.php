@@ -314,7 +314,7 @@ dialog::backdrop{
           <ul>
               <li>
                 <?php echo "$metaSaude1"; ?>
-                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?>  disabled>
+                <input type="checkbox"  <?php echo ($feitoSaude1 == 'on') ? 'checked' : ''?>  disabled >
               </li>
               <br>
               <li>
@@ -640,14 +640,14 @@ dialog::backdrop{
       </div>
     </div>
     <br><br><br>
-      <!-- gráficos 
-      <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
+      <!-- gráficos -->
+      <h2 style="text-align: center;">Conclusão das metas</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">
         <canvas id="conclusao" width="300" height="300"></canvas>
       </div><br><br><br>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/style-trelo.js"></script>
-      <script>
+      <script>/*
         const ctx = document.getElementById('turmas').getContext('2d');
         const turmas = new Chart(ctx, {
           type: 'bar',
@@ -676,10 +676,11 @@ dialog::backdrop{
               indexAxis: 'x',
             }
           }
-        });
+        });*/
 
       </script>
       <script>
+        /*
         new Chart(
           document.getElementById('alunos'),
           {
@@ -707,7 +708,7 @@ dialog::backdrop{
                 indexAxis: 'x',
               }
             }
-          });
+          });*/
         new Chart(
           document.getElementById('conclusao'),
           {
@@ -716,15 +717,15 @@ dialog::backdrop{
               labels: ['Falta concluir', 'Concluído'///
               ],
               datasets: [{
-                label: 'Notas dos alunos',
-                data: [6, 5], ///trazer os dados de conclusão das anotações, numero 6 falta é o falta concluir  
+                label: 'Metas concluidas',
+                data: [9, 5], ///trazer os dados de conclusão das anotações, numero 6  é o falta concluir  
                 backgroundColor: [
-                  '#0040ffb0',
-                  'white',
+                  '#2f2a28',
+                  '#b6a9a9',
                 ],
                 hoverBackgroundColor: [
-                  '#0040ff',
-                  'white'
+                  '#ff4949',
+                  '#6bfb80'
                 ],
                 borderColor: [
                   'black',
@@ -739,13 +740,14 @@ dialog::backdrop{
               }
             }
           });
-      </script>-->
+      </script>
     </div>
     <!--Container Main end-->
 
-    <script>
+    
+    <script>  
       function confirmaSair(){
-    var confirma =confirm("André,tem certeza que deseja encerrar a sessão?");
+    var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
     if (confirma==true){
         window.location.href="http://localhost/Coach-System-/sair.php";
     } 

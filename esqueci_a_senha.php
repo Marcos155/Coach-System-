@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="assets/images/favico.png" type="image/x-icon">
-  <title>Recuperar senha</title>
+  <title>Redefinir senha</title>
   <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
   <link rel="stylesheet" href="assets/css/style-login.css">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
 <?php
       echo "<form action='esqueci_a_senha.php' method='POST' class='form' class='signin-form' >"
 ?>
-        <h1>Recuperar senha</h1>
+        <h1>Redefinir senha</h1>
         <br>
         <input type="email" placeholder="Email" name="email" class="form-control" required/>
         <br>
