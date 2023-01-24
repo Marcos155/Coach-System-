@@ -267,7 +267,6 @@ dialog::backdrop{
   <body id="body-pd">
   <header class="header" id="header">
       <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle" style="color:black"></i> </div>
-      <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
     </header>
     <div class="l-navbar" id="nav-bar" style="background-color: darkgray;">
       <nav class="nav">
