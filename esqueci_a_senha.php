@@ -1,5 +1,38 @@
 <?php
+include_once('config.php');
+/*Deve funcionar quando estiver num servidor 
+if(isset($_POST['submit'])){
+  $to=$_POST['email'];
+  $subject='Redefinição de Senha Coach-André Fernandes';
+  $message='Olá, faça o registro da sua nova senha aqui ';
+  $headers='From: adm@gmail.com'."\r\n".'Reply-To: adm@gmail.com';
 
+  mail($to,$subject,$message,$headers);
+  print "Enviado!";
+
+}*/
+if(isset($_POST['submit'])){
+  include_once('config.php');
+  
+  $email=$_POST['email'];
+  $cpf=$_POST['cpf'];
+  $nome=$_POST['nome'];
+
+  $sql = "SELECT * FROM cadastro WHERE email = '$email' and cpf = '$cpf' and nome = '$nome' ";
+  $result=$conexao_forms15->query($sql);
+
+  if(mysqli_fetch_assoc($result))
+  {
+      $nova_senha= rand(100000,999999);
+      $sql_senha= "UPDATE cadastro SET senha='$nova_senha' WHERE email = '$email' and cpf = '$cpf' and nome = '$nome' ";
+      $result_senha=$conexao_forms15->query($sql_senha);
+      echo "<b><h1>Sua nova senha é: </h1></b><b><h3>$nova_senha</h3></b><h5><a href='entrar.php' target='_blank' rel='noopener noreferrer'>Entrar</a></h5>";
+  } else
+  {   
+      echo "<b><h5>Usuário não encontrado!</h5></b>";
+  } 
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,26 +80,42 @@
   <div class="form-container sign-in-container">
     
 <?php
-      echo "<form action='https://formsubmit.co/' method='POST' class='form' class='signin-form' >"
+      echo "<form action='esqueci_a_senha.php' method='POST' class='form' class='signin-form' >"
 ?>
         <h1>Recuperar senha</h1>
         <br>
         <input type="email" placeholder="Email" name="email" class="form-control" required/>
         <br>
+        <input type="tel" placeholder="CPF" name="cpf" class="form-control" id="cpf" maxlength="11" oninput="mascara(this)" required/>
+        <br>
+        <input type="text" placeholder="Nome" name="nome" class="form-control" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
+        <br>
         <div>
-          <input type="submit" value="solicitar senha" name="submit" id="enviar">
+          <input type="submit" value="Redefinir Senha" name="submit" id="enviar">
         </div>
       </form>
     </div>
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-right">
-          <h1>Fala campeão(a)</h1>
-          <p>Coloque o email cadastrado e receba um link para trocar sua senha </p>
+          <h1>Fala pessoa de sucesso</h1>
+          <p>Coloque aqui seus dados cadastrais e vamos redefinir sua senha</p>
         </div>
       </div>
     </div>
   </div>
+<script>
+  function mascara(i){
+   var v = i.value;
+   if(isNaN(v[v.length-1])){ // impede entrar outro caractere que não seja número
+      i.value = v.substring(0, v.length-1);
+      return;
+   }
+   i.setAttribute("maxlength", "14");
+   if (v.length == 3 || v.length == 7) i.value += ".";
+   if (v.length == 11) i.value += "-";
+}
+</script>
 </body>
 </html>
 
