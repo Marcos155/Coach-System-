@@ -8,10 +8,13 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
     $senha = $_POST['password'];
 
     $sql = "SELECT * FROM cadastro WHERE email = '$email' and senha = '$senha'";
-    /*$result = $conexao_regis->query($sql);*/
     $result=$conexao_forms15->query($sql);
 
-    if($email=='adm@gmail.com' && $senha=='123456'){
+    $sql_adm="SELECT cod FROM cadastro WHERE email = '$email' and senha = '$senha'";
+    $result_adm=$conexao_forms15->query($sql_adm);
+    $cod_adm=mysqli_fetch_assoc($result_adm);
+
+    if($cod_adm['cod']=='1'){
         $_SESSION['email'] = $email;
         $_SESSION['senha'] = $senha;
         header('Location:sistema.php');

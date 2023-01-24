@@ -98,7 +98,7 @@ $obs_andre= $user_data['obs_andre'];
 <head>
   <meta charset='utf-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <title>Conta</title>
+  <title>Formulário-<?php echo $nome ?></title>
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
@@ -167,7 +167,9 @@ $obs_andre= $user_data['obs_andre'];
   <body id="body-pd">
     <header class="header" id="header">
       <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
+      <!--
       <div class="header_img"> <img src="https://i.imgur.com/hczKIze.jpg" alt=""> </div>
+  -->
     </header>
     <div class="l-navbar" id="nav-bar">
       <nav class="nav">
@@ -309,7 +311,7 @@ $obs_andre= $user_data['obs_andre'];
 
     <script>
       function confirmaSair(){
-    var confirma =confirm("Tem certeza que deseja encerrar a sessão?");
+    var confirma =confirm("<?php echo $nome ?>, tem certeza que deseja encerrar a sessão?");
     if (confirma==true){
         window.location.href="http://localhost/Coach-System-/sair.php";
        

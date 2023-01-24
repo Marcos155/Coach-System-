@@ -87,7 +87,12 @@
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
   <link rel="stylesheet" href="assets/css/nav.css">
-
+  <style>
+    .btn:hover{
+      opacity: 0.7;
+      transition:all 0.5s;
+    }
+  </style>
 </head>
 
 <body className='snippet-body' style="background-color:#f8f9fa">
@@ -170,9 +175,9 @@
       </div>
 
       <p>Acredita que é possivel realizar a meta ?</p>
-            <input type="radio" value="sim" name="opcao" <?php echo ($opcao == 'sim') ? 'checked' : ''?> class="form-check-input">
+            <input type="radio" value="sim" name="opcao" <?php echo ($opcao == 'sim') ? 'checked' : ''?> class="form-check-input" required>
             <label for="sim">Sim</label>
-            <input type="radio"  value="nao" name ="opcao" <?php echo ($opcao == 'nao') ? 'checked' : ''?> class="form-check-input">
+            <input type="radio"  value="nao" name ="opcao" <?php echo ($opcao == 'nao') ? 'checked' : ''?> class="form-check-input" required>
             <label for="nao">Não</label>
             <br><br>
 
@@ -190,12 +195,12 @@
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de início:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="data_inicio" value="<?php echo $data_inicio ?>" ><br>
+          placeholder="Em qual época quer alcançar?" name="data_inicio" value="<?php echo $data_inicio ?>" required ><br>
       </div>
 <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Data de término:</label>
         <input type="date" class="form-control" id="exampleFormControlTextarea1"
-          placeholder="Em qual época quer alcançar?" name="data_fim" value="<?php echo $data_fim ?>" ><br>
+          placeholder="Em qual época quer alcançar?" name="data_fim" value="<?php echo $data_fim ?>" required><br>
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Observações:</label>

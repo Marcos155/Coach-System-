@@ -227,3 +227,7 @@ create table meta_outro(
 	feito5 char(5),
     email varchar(60)
 );
+create table turmas(
+	cod_turma int primary key not null auto_increment,
+    nome_turma varchar(12)
+);

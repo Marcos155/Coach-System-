@@ -24,5 +24,5 @@
         WHERE cod='$cod' ";
         $result2 = $conexao_forms15->query($sqlupdate);
     }
-    header('Location: stestando_dinheiro.php?cod='.$cod);
+    header('Location: testando_dinheiro.php?cod='.$cod);
 ?>
