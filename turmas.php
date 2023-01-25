@@ -14,7 +14,8 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' or cpf LIKE '%$data%' ";
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' or cpf LIKE '%$data%' or 
+    cod_turma LIKE '%$data%' or nome_turma LIKE '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM cadastro WHERE cod>1 ORDER BY cod DESC";
@@ -36,9 +37,11 @@ if (isset($_POST['submit'])) {
   $telefone = $_POST['phone'];
   $sexo = $_POST['sexo'];
   $cpf = $_POST['cpf'];
+  $cod_turma = $_POST['cod_turma'];
+  $nome_turma = $_POST['nome_turma'];
 
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo,cpf) 
-VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$cpf')");
+  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo,cpf,cod_turma,nome_turma) 
+VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$cpf','$cod_turma','$nome_turma')");
 }
 ?>
 <!doctype html>
@@ -131,7 +134,7 @@ dialog::backdrop{
           <div class="nav_list"> 
             <?php
               
-              echo "<a href='sistema.php' class='nav_link active'> <i class='bx bx-user nav_icon'></i>
+              echo "<a href='sistema.php' class='nav_link'> <i class='bx bx-user nav_icon'></i>
               <span class='nav_name'>Conta-Alunos</span> </a>"; 
               
               echo "<a href='sistema_coach_forms.php' class='nav_link'> <i
@@ -139,7 +142,7 @@ dialog::backdrop{
               
               echo "<a href='sistema_metas_coach.php' class='nav_link'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Meta-Alunos</span></a>" ;
 
-              echo "<a href='turmas.php' class='nav_link'><svg xmlns='http://www.w3.org/2000/svg' width='1.3em' height='1.3em' viewBox='0 0 24 24'><path fill='currentColor' d='M22 9V7h-2v2h-2v2h2v2h2v-2h2V9zM8 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm4.51-8.95C13.43 5.11 14 6.49 14 8s-.57 2.89-1.49 3.95C14.47 11.7 16 10.04 16 8s-1.53-3.7-3.49-3.95zm4.02 9.78C17.42 14.66 18 15.7 18 17v3h2v-3c0-1.45-1.59-2.51-3.47-3.17z'/></svg>
+              echo "<a href='turmas.php' class='nav_link active'><svg xmlns='http://www.w3.org/2000/svg' width='1.3em' height='1.3em' viewBox='0 0 24 24'><path fill='currentColor' d='M22 9V7h-2v2h-2v2h2v2h2v-2h2V9zM8 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm4.51-8.95C13.43 5.11 14 6.49 14 8s-.57 2.89-1.49 3.95C14.47 11.7 16 10.04 16 8s-1.53-3.7-3.49-3.95zm4.02 9.78C17.42 14.66 18 15.7 18 17v3h2v-3c0-1.45-1.59-2.51-3.47-3.17z'/></svg>
               <span class='nav_name'>Turmas</span></a>"; 
               
               echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
@@ -164,7 +167,7 @@ dialog::backdrop{
 
         <h2><b>André</b></h2>
 
-          <p>você pode procurar um aluno usando vários parâmetros diferentes, incluindo <b>nome, codigo, telefone, email, CPF, cidade e estado</b></p>
+          <p>você pode <b>administrar</b> suas <b>turmas</b> aqui</p>
 
           <br>
           <br>
@@ -182,49 +185,25 @@ dialog::backdrop{
             <table class="table">
             <thead class="thead-light">
                <tr>
-                <th scope="row">Código</th>
+                <th scope="row">Código Turma</th>
+                <th scope="col">Turma</th>
+                <th scope="col">Aluno</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Sobrenome</th>
                 <th scope="col">Email</th>
-                <th scope="col">CPF</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Sexo</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">Estado</th>
-                <th scope="col">Excluir</th>
                 </tr>
               </thead>
               <tbody>
               <?php
         while ($user_data = mysqli_fetch_assoc($result2)) {
           echo "<tr>";
+          echo "<td>" . $user_data['cod_turma'] . "</td>";
+          echo "<td>" . $user_data['nome_turma'] . "</td>";
           echo "<td>" . $user_data['cod'] . "</td>";
           echo "<td>" . $user_data['nome'] . "</td>";
           echo "<td>" . $user_data['sobrenome'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
-          echo "<td>" . $user_data['cpf'] . "</td>";
-          echo "<td>" . $user_data['telefone'] . "</td>";
-          echo "<td>" . $user_data['sexo'] . "</td>";
-          echo "<td>" . $user_data['cidade'] . "</td>";
-          echo "<td>" .$user_data['estado'] . "</td>";
-          echo "<td>
-          <a class='btn btn-sm btn-dark'  id='abrir_dialogDelete'
-          placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
-          <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
-            <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
-            <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
-          </svg>
-          </a>
-        </td>";
           echo "<tr>";
-          echo"            
-          <dialog id='dialog_Delete'>
-          <h2 id='titulo_dialog'>Confirma deletar cadastro?</h2><br>";
-          echo"
-          <h4>Aluno(a): ".$user_data['nome']." </h4><br><br>
-          <a href='sistema.php'><button id='fechar_dialogDelete'>Não</button></a>
-          <a href='delete.php?cod=$user_data[cod]'><button id='Sim_dialogDelete'>Sim</button></a>
-          </dialog>";
         }
         ?>
               </tbody>
@@ -237,17 +216,6 @@ dialog::backdrop{
     <!--Container Main end-->
 
     <script>
-      /* dialog de deleção */
-      const buttonDelete = document.querySelector("#abrir_dialogDelete");
-      const modalDelete = document.querySelector("#dialog_Delete");
-      const buttonCloseDelete = document.querySelector("dialog #fechar_dialogDelete");
-      buttonDelete.onclick=function(){
-        modalDelete.showModal();
-      };
-      buttonCloseDelete.onclick=function(){
-        modalDelete.closeModal();
-      };
-
       /* saida */
       function confirmaSair(){
     var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
