@@ -30,7 +30,7 @@ if(isset($_POST['submit'])){
   } else
   {   
       echo "<b><h5>Usuário não encontrado!</h5></b>";
-  } 
+  }
 
 }
 ?>
