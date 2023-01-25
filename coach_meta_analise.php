@@ -157,6 +157,179 @@
   {
     header('Location: sistema_metas_coach.php');
   }
+
+
+// gráficos (pizza)
+$x = 0;
+$y = 0;
+$saude = 0;
+$relacionamento = 0;
+$trabalho = 0;
+$dinheiro = 0;
+$outro = 0;
+//percorre o meta_saude
+
+$result_niveis_saude = "SELECT * FROM meta_saude WHERE cod=$cod";
+$resultado_niveis_saude = mysqli_query($conexao_forms15, $result_niveis_saude);
+while($row_niveis_saude = mysqli_fetch_assoc($resultado_niveis_saude)){
+    if($row_niveis_saude['feito1'] == "on"){
+        $x++;
+        $saude++;
+        
+    }if($row_niveis_saude['feito2'] == "on"){
+        $x++;
+        $saude++;
+        
+    }if($row_niveis_saude['feito3'] == "on"){
+      $x++;
+      $saude++;
+      
+    }if($row_niveis_saude['feito4'] == "on"){
+      $x++;
+      $saude++;
+      
+    }if($row_niveis_saude['feito5'] == "on"){
+      $x++;
+      $saude++;
+    }if($row_niveis_saude['feito1'] == "" && $row_niveis_saude['meta1']!=""){
+      $y++;
+  }if($row_niveis_saude['feito2'] == "" && $row_niveis_saude['meta2']!=""){
+      $y++;
+  }if($row_niveis_saude['feito3'] == "" && $row_niveis_saude['meta3']!=""){
+    $y++;
+  }if($row_niveis_saude['feito4'] == "" && $row_niveis_saude['meta4']!=""){
+    $y++;
+  }if($row_niveis_saude['feito5'] == "" && $row_niveis_saude['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_relacionamento
+
+$result_niveis_relacionamento = "SELECT * FROM meta_relacionamento WHERE cod=$cod";
+$resultado_niveis_relacionamento = mysqli_query($conexao_forms15, $result_niveis_relacionamento);
+while($row_niveis_relacionamento = mysqli_fetch_assoc($resultado_niveis_relacionamento)){
+    if($row_niveis_relacionamento['feito1'] == "on"){
+        $x++;
+        $relacionamento++;
+    }if($row_niveis_relacionamento['feito2'] == "on"){
+        $x++;
+        $relacionamento++;
+    }if($row_niveis_relacionamento['feito3'] == "on"){
+      $x++;
+      $relacionamento++;
+    }if($row_niveis_relacionamento['feito4'] == "on"){
+      $x++;
+      $relacionamento++;
+    }if($row_niveis_relacionamento['feito5'] == "on"){
+      $x++;
+      $relacionamento++;
+    }
+    if($row_niveis_relacionamento['feito1'] == "" && $row_niveis_relacionamento['meta1']!=""){
+      $y++;
+  }if($row_niveis_relacionamento['feito2'] == "" && $row_niveis_relacionamento['meta2']!=""){
+      $y++;
+  }if($row_niveis_relacionamento['feito3'] == "" && $row_niveis_relacionamento['meta3']!=""){
+    $y++;
+  }if($row_niveis_relacionamento['feito4'] == "" && $row_niveis_relacionamento['meta4']!=""){
+    $y++;
+  }if($row_niveis_relacionamento['feito5'] == "" && $row_niveis_relacionamento['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_trabalho
+$result_niveis_trabalho = "SELECT * FROM meta_trabalho WHERE cod=$cod";
+$resultado_niveis_trabalho = mysqli_query($conexao_forms15, $result_niveis_trabalho);
+while($row_niveis_trabalho = mysqli_fetch_assoc($resultado_niveis_trabalho)){
+    if($row_niveis_trabalho['feito1'] == "on"){
+        $x++;
+        $trabalho++;
+    }if($row_niveis_trabalho['feito2'] == "on"){
+       $x++;
+       $trabalho++;
+    }if($row_niveis_trabalho['feito3'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito4'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito5'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito1'] == "" && $row_niveis_trabalho['meta1']!=""){
+      $y++;
+  }if($row_niveis_trabalho['feito2'] == "" && $row_niveis_trabalho['meta2']!=""){
+      $y++;
+  }if($row_niveis_trabalho['feito3'] == "" && $row_niveis_trabalho['meta3']!=""){
+    $y++;
+  }if($row_niveis_trabalho['feito4'] == "" && $row_niveis_trabalho['meta4']!=""){
+    $y++;
+  }if($row_niveis_trabalho['feito5'] == "" && $row_niveis_trabalho['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_dinheiro
+$result_niveis_dinheiro = "SELECT * FROM meta_dinheiro WHERE cod=$cod";
+$resultado_niveis_dinheiro = mysqli_query($conexao_forms15, $result_niveis_dinheiro);
+while($row_niveis_dinheiro = mysqli_fetch_assoc($resultado_niveis_dinheiro)){
+    if($row_niveis_dinheiro['feito1'] == "on"){
+        $x++;
+        $dinheiro++;
+    }if($row_niveis_dinheiro['feito2'] == "on"){
+        $x++;
+        $dinheiro++;
+    }if($row_niveis_dinheiro['feito3'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito4'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito5'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito1'] == "" && $row_niveis_dinheiro['meta1']!=""){
+      $y++;
+  }if($row_niveis_dinheiro['feito2'] == "" && $row_niveis_dinheiro['meta2']!=""){
+      $y++;
+  }if($row_niveis_dinheiro['feito3'] == "" && $row_niveis_dinheiro['meta3']!=""){
+    $y++;
+  }if($row_niveis_dinheiro['feito4'] == "" && $row_niveis_dinheiro['meta4']!=""){
+    $y++;
+  }if($row_niveis_dinheiro['feito5'] == "" && $row_niveis_dinheiro['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_outro
+$result_niveis_outro = "SELECT * FROM meta_outro WHERE cod=$cod";
+$resultado_niveis_outro = mysqli_query($conexao_forms15, $result_niveis_outro);
+while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
+    if($row_niveis_outro['feito1'] == "on"){
+        $x++;
+        $outro++;
+    }if($row_niveis_outro['feito2'] == "on"){
+        $x++;
+        $outro++;
+    }if($row_niveis_outro['feito3'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito4'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito5'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito1'] == "" && $row_niveis_outro['meta1']!=""){
+      $y++;
+  }if($row_niveis_outro['feito2'] == "" && $row_niveis_outro['meta2']!=""){
+      $y++;
+  }if($row_niveis_outro['feito3'] == "" && $row_niveis_outro['meta3']!=""){
+    $y++;
+  }if($row_niveis_outro['feito4'] == "" && $row_niveis_outro['meta4']!=""){
+    $y++;
+  }if($row_niveis_outro['feito5'] == "" && $row_niveis_outro['meta5']!=""){
+    $y++;
+  }
+}
+
 ?>
 <!doctype html>
 <html>
@@ -312,7 +485,7 @@ dialog::backdrop{
         <!-- 12 meses -->
 
         <!-- saude -->
-        <section class="list">
+        <section class="list" style="background:#6495ED;">
         <header>Objetivos: 12 meses (Saúde)</header>
           <article class="card" id='abrir_dialogSaude'>
           <ul>
@@ -378,7 +551,7 @@ dialog::backdrop{
         </section>
 
         <!-- relacionamento -->
-        <section class="list">
+        <section class="list" style="background:#DDA0DD;">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialogRelacionamento' >
             <ul>
@@ -444,7 +617,7 @@ dialog::backdrop{
         </section>
 
          <!-- Trabalho -->
-         <section class="list">
+         <section class="list" style="background:#43f160">
         <header>Objetivos: 12 meses (Trabalho)</header>
           <article class="card" id='abrir_dialogTrabalho'>
           <ul>
@@ -510,7 +683,7 @@ dialog::backdrop{
         </section>
 
          <!-- Dinheiro -->
-         <section class="list">
+         <section class="list" style="background:#FFD700">
         <header>Objetivos: 12 meses (Dinheiro)</header>
           <article class="card" id='abrir_dialogDinheiro'>
           <ul>
@@ -576,7 +749,7 @@ dialog::backdrop{
         </section>
 
          <!-- Outro -->
-         <section class="list">
+         <section class="list" style="background:#FA8072;">
         <header>Objetivos: 12 meses (Demais objetivos)</header>
           <article class="card" id='abrir_dialogOutro' >
           <ul>
@@ -644,62 +817,44 @@ dialog::backdrop{
       </div>
     </div>
     <br><br><br>
-      <!-- gráficos -->
-      <h2 style="text-align: center;">Conclusão das metas</h2 style="text-align: center;">
-      <div style="width: 30vw; display: inline-block; margin-left: 35%;">
+    <h2 style="text-align: center;"><b>Conclusão geral das metas</b></h2 style="text-align: center;">
+      <div style="width: 20vw; display: inline-block; margin-left: 35%;">
         <canvas id="conclusao" width="300" height="300"></canvas>
+      </div><br><br><br>
+
+      <div style="width: 20vw; display: inline-block; margin-left: 35%;">
+          <h2 style="text-align: center;"><b>Conclusão por metas</b></h2 style="text-align: center;">
+          <canvas id="metas-todas" width="300" height="300"></canvas>
+        </div>
       </div><br><br><br>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/style-trelo.js"></script>
-      <script>/*
-        const ctx = document.getElementById('turmas').getContext('2d');
-        const turmas = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['Turma 1', 'turma2', 'Turma 3', 'turma 4', 'Turma 5', 'turma 6' ///turmas tem que vir aqui 
-            ],
-            datasets: [{
-              label: 'Notas das turmas',
-              data: [6, 5, 3, 9, 8, 7], ///dados das notas tem que estarem aqui 
-              backgroundColor: [
-                '#198754b8'
-
-              ],
-              hoverBackgroundColor: [
-                '#198754',
-              ],
-              borderColor: [
-                'black',
-              ],
-              borderWidth: 1,
-              hoverBorderWidth: 5,
-            }]
-          },
-          options: {
-            scales: {
-              indexAxis: 'x',
-            }
-          }
-        });*/
-
-      </script>
-      <script>
-        /*
+      <script> 
         new Chart(
-          document.getElementById('alunos'),
+          document.getElementById('metas-todas'),
           {
-            type: 'bar',
+            type: 'doughnut',
             data: {
-              labels: ['Aluno 1', 'Aluno2', 'Aluno 3', 'Aluno 4', 'Aluno 5', 'Aluno 6' ///nome dos alunos tem que vir aqui 
+              labels: ['Saúde','Relacionamento','Trabalho','Dinheiro','Outro',
               ],
               datasets: [{
-                label: 'Notas dos alunos',
-                data: [6, 5, 3, 9, 8, 7], ///dados das notas tem que estarem aqui 
+                label: 'Metas',
+                data: [<?=$saude?>, <?=$relacionamento?>, <?=$trabalho?>, <?=$dinheiro?>, <?=$outro?>],  
+                
                 backgroundColor: [
-                  '#6a0baaa6'
+                  '#6495ED',
+                  '#DDA0DD',
+                  '#7CFC00',
+                  '#FFD700',
+                  '	#FA8072',
                 ],
                 hoverBackgroundColor: [
-                  '#6a0baa',],
+                  '#4169E1',
+                  '#C71585',
+                  '#32CD32',
+                  '#FFA500',
+                  '	#B22222'
+                ],
                 borderColor: [
                   'black',
                 ],
@@ -709,10 +864,11 @@ dialog::backdrop{
             },
             options: {
               scales: {
-                indexAxis: 'x',
+                indexAxis: 'x'
               }
             }
-          });*/
+          });
+          
         new Chart(
           document.getElementById('conclusao'),
           {
@@ -721,8 +877,9 @@ dialog::backdrop{
               labels: ['Falta concluir', 'Concluído'///
               ],
               datasets: [{
-                label: 'Metas concluidas',
-                data: [9, 5], ///trazer os dados de conclusão das anotações, numero 6  é o falta concluir  
+                label: 'Metas',
+                data: [<?=$y?>, <?=$x?>], ///trazer os dados de conclusão das anotações, numero 6  é o falta concluir  
+                
                 backgroundColor: [
                   '#2f2a28',
                   '#b6a9a9',
@@ -745,7 +902,7 @@ dialog::backdrop{
             }
           });
       </script>
-    </div>
+  </div>
     <!--Container Main end-->
 
     

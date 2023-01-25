@@ -19,26 +19,190 @@ if (!empty($_GET['search'])) {
   $sql = "SELECT * FROM cadastro WHERE cod>1 ORDER BY cod DESC";
 }
 
-
-/*$result2 = $conexao_regis->query($sql);*/
 $result2 = $conexao_forms15->query($sql);
 
 
-if (isset($_POST['submit'])) {
+// gráficos (pizza)
+$x = 0;
+$y = 0;
+$saude = 0;
+$relacionamento = 0;
+$trabalho = 0;
+$dinheiro = 0;
+$outro = 0;
+//percorre o meta_saude
 
-  include_once('config.php');
-
-  $nome = $_POST['username'];
-  $sobrenome = $_POST['sobrenome'];
-  $email = $_POST['email'];
-  $cidade = $_POST['cidade'];
-  $estado = $_POST['estado'];
-  $telefone = $_POST['phone'];
-  $sexo = $_POST['sexo'];
-
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo) 
-VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')");
+$result_niveis_saude = "SELECT * FROM meta_saude";
+$resultado_niveis_saude = mysqli_query($conexao_forms15, $result_niveis_saude);
+while($row_niveis_saude = mysqli_fetch_assoc($resultado_niveis_saude)){
+    if($row_niveis_saude['feito1'] == "on"){
+        $x++;
+        $saude++;
+        
+    }if($row_niveis_saude['feito2'] == "on"){
+        $x++;
+        $saude++;
+        
+    }if($row_niveis_saude['feito3'] == "on"){
+      $x++;
+      $saude++;
+      
+    }if($row_niveis_saude['feito4'] == "on"){
+      $x++;
+      $saude++;
+      
+    }if($row_niveis_saude['feito5'] == "on"){
+      $x++;
+      $saude++;
+    }if($row_niveis_saude['feito1'] == "" && $row_niveis_saude['meta1']!=""){
+      $y++;
+  }if($row_niveis_saude['feito2'] == "" && $row_niveis_saude['meta2']!=""){
+      $y++;
+  }if($row_niveis_saude['feito3'] == "" && $row_niveis_saude['meta3']!=""){
+    $y++;
+  }if($row_niveis_saude['feito4'] == "" && $row_niveis_saude['meta4']!=""){
+    $y++;
+  }if($row_niveis_saude['feito5'] == "" && $row_niveis_saude['meta5']!=""){
+    $y++;
+  }
 }
+//percorre o meta_relacionamento
+
+$result_niveis_relacionamento = "SELECT * FROM meta_relacionamento";
+$resultado_niveis_relacionamento = mysqli_query($conexao_forms15, $result_niveis_relacionamento);
+while($row_niveis_relacionamento = mysqli_fetch_assoc($resultado_niveis_relacionamento)){
+    if($row_niveis_relacionamento['feito1'] == "on"){
+        $x++;
+        $relacionamento++;
+    }if($row_niveis_relacionamento['feito2'] == "on"){
+        $x++;
+        $relacionamento++;
+    }if($row_niveis_relacionamento['feito3'] == "on"){
+      $x++;
+      $relacionamento++;
+    }if($row_niveis_relacionamento['feito4'] == "on"){
+      $x++;
+      $relacionamento++;
+    }if($row_niveis_relacionamento['feito5'] == "on"){
+      $x++;
+      $relacionamento++;
+    }
+    if($row_niveis_relacionamento['feito1'] == "" && $row_niveis_relacionamento['meta1']!=""){
+      $y++;
+  }if($row_niveis_relacionamento['feito2'] == "" && $row_niveis_relacionamento['meta2']!=""){
+      $y++;
+  }if($row_niveis_relacionamento['feito3'] == "" && $row_niveis_relacionamento['meta3']!=""){
+    $y++;
+  }if($row_niveis_relacionamento['feito4'] == "" && $row_niveis_relacionamento['meta4']!=""){
+    $y++;
+  }if($row_niveis_relacionamento['feito5'] == "" && $row_niveis_relacionamento['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_trabalho
+$result_niveis_trabalho = "SELECT * FROM meta_trabalho";
+$resultado_niveis_trabalho = mysqli_query($conexao_forms15, $result_niveis_trabalho);
+while($row_niveis_trabalho = mysqli_fetch_assoc($resultado_niveis_trabalho)){
+    if($row_niveis_trabalho['feito1'] == "on"){
+        $x++;
+        $trabalho++;
+    }if($row_niveis_trabalho['feito2'] == "on"){
+       $x++;
+       $trabalho++;
+    }if($row_niveis_trabalho['feito3'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito4'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito5'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito1'] == "" && $row_niveis_trabalho['meta1']!=""){
+      $y++;
+  }if($row_niveis_trabalho['feito2'] == "" && $row_niveis_trabalho['meta2']!=""){
+      $y++;
+  }if($row_niveis_trabalho['feito3'] == "" && $row_niveis_trabalho['meta3']!=""){
+    $y++;
+  }if($row_niveis_trabalho['feito4'] == "" && $row_niveis_trabalho['meta4']!=""){
+    $y++;
+  }if($row_niveis_trabalho['feito5'] == "" && $row_niveis_trabalho['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_dinheiro
+$result_niveis_dinheiro = "SELECT * FROM meta_dinheiro";
+$resultado_niveis_dinheiro = mysqli_query($conexao_forms15, $result_niveis_dinheiro);
+while($row_niveis_dinheiro = mysqli_fetch_assoc($resultado_niveis_dinheiro)){
+    if($row_niveis_dinheiro['feito1'] == "on"){
+        $x++;
+        $dinheiro++;
+    }if($row_niveis_dinheiro['feito2'] == "on"){
+        $x++;
+        $dinheiro++;
+    }if($row_niveis_dinheiro['feito3'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito4'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito5'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito1'] == "" && $row_niveis_dinheiro['meta1']!=""){
+      $y++;
+  }if($row_niveis_dinheiro['feito2'] == "" && $row_niveis_dinheiro['meta2']!=""){
+      $y++;
+  }if($row_niveis_dinheiro['feito3'] == "" && $row_niveis_dinheiro['meta3']!=""){
+    $y++;
+  }if($row_niveis_dinheiro['feito4'] == "" && $row_niveis_dinheiro['meta4']!=""){
+    $y++;
+  }if($row_niveis_dinheiro['feito5'] == "" && $row_niveis_dinheiro['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_outro
+$result_niveis_outro = "SELECT * FROM meta_outro";
+$resultado_niveis_outro = mysqli_query($conexao_forms15, $result_niveis_outro);
+while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
+    if($row_niveis_outro['feito1'] == "on"){
+        $x++;
+        $outro++;
+    }if($row_niveis_outro['feito2'] == "on"){
+        $x++;
+        $outro++;
+    }if($row_niveis_outro['feito3'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito4'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito5'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito1'] == "" && $row_niveis_outro['meta1']!=""){
+      $y++;
+  }if($row_niveis_outro['feito2'] == "" && $row_niveis_outro['meta2']!=""){
+      $y++;
+  }if($row_niveis_outro['feito3'] == "" && $row_niveis_outro['meta3']!=""){
+    $y++;
+  }if($row_niveis_outro['feito4'] == "" && $row_niveis_outro['meta4']!=""){
+    $y++;
+  }if($row_niveis_outro['feito5'] == "" && $row_niveis_outro['meta5']!=""){
+    $y++;
+  }
+}
+
+$total_metas= $saude+$relacionamento+$trabalho+$dinheiro+$outro;
+$saude=($saude*100)/$total_metas;
+$relacionamento=($relacionamento*100)/$total_metas;
+$dinheiro=($dinheiro*100)/$total_metas;
+$trabalho=($trabalho*100)/$total_metas;
+$outro=($outro*100)/$total_metas;
+
+$total_XY_porce=$x+$y;
+$x=($x*100)/$total_XY_porce;
+$y=($y*100)/$total_XY_porce;
 ?>
 <!doctype html>
 <html>
@@ -208,84 +372,52 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
       </b>
 <br><br>
       <div style="justify-content: space-evenly; display: flex;">
-      <!--
+      
         <div style="width: 30vw; display: inline-block">
-          <h2>Média de conclusão turmas</h2>
-          <div class="box-search">
-            <input type="search" class="form-control w-25" placeholder="Turmas" id="pesquisar">
-            <button onclick="searchData()" class="btn btn-dark">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
-                viewBox="0 0 16 16">
-                <path
-                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-              </svg>
-            </button>
-          </div>
+          <h2>% de conclusão turmas</h2>
           <canvas id="turmas" width="400" height="400"></canvas>
         </div>
       
         <div style="width: 30vw; display: inline-block;">
-          <h2>Média de conclusão alunos</h2>
-          <canvas id="alunos" width="400" height="400"></canvas>
+          <h2>% de conclusão alunos</h2>
+          <canvas id="metas-todas" width="400" height="400"></canvas>
         </div>
       </div><br><br><br>
       
-      <h2 style="text-align: center;">Conclusão das atividades</h2 style="text-align: center;">
+      <h2 style="text-align: center;">% de conclusão das atividades</h2 style="text-align: center;">
       <div style="width: 30vw; display: inline-block; margin-left: 35%;">
         <canvas id="conclusao" width="300" height="300"></canvas>
-      </div><br><br><br>-->
+      </div><br><br><br>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/style-trelo.js"></script>
-      <script>
-       /* const ctx = document.getElementById('turmas').getContext('2d');
-        const turmas = new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: ['Turma 1', 'turma2', 'Turma 3', 'turma 4', 'Turma 5', 'turma 6' ///turmas tem que vir aqui 
-            ],
-            datasets: [{
-              label: 'Notas das turmas',
-              data: [6, 5, 3, 9, 8, 7], ///dados das notas tem que estarem aqui 
-              backgroundColor: [
-                '#b6a9a9'
-
-              ],
-              hoverBackgroundColor: [
-                '#6a0baa',
-              ],
-              borderColor: [
-                'black',
-              ],
-              borderWidth: 1,
-              hoverBorderWidth: 5,
-            }]
-          },
-          options: {
-            scales: {
-              indexAxis: 'x',
-            }
-          }
-        });*/
-
-      </script>
       
       <script>
-/*
-        new Chart(
-          document.getElementById('alunos'),
+
+new Chart(
+          document.getElementById('metas-todas'),
           {
-            type: 'bar',
+            type: 'doughnut',
             data: {
-              labels: ['Aluno 1', 'Aluno2', 'Aluno 3', 'Aluno 4', 'Aluno 5', 'Aluno 6' ///nome dos alunos tem que vir aqui 
+              labels: ['Saúde','Relacionamento','Trabalho','Dinheiro','Outro',
               ],
               datasets: [{
-                label: 'Notas dos alunos',
-                data: [6, 5, 3, 9, 8, 7], ///dados das notas tem que estarem aqui 
+                label: 'Metas (%)',
+                data: [<?=$saude?>, <?=$relacionamento?>, <?=$trabalho?>, <?=$dinheiro?>, <?=$outro?>],  
+                
                 backgroundColor: [
-                  '#2f2a28'
+                  '#6495ED',
+                  '#DDA0DD',
+                  '#7CFC00',
+                  '#FFD700',
+                  '	#FA8072',
                 ],
                 hoverBackgroundColor: [
-                  '#6a0baa',],
+                  '#4169E1',
+                  '#C71585',
+                  '#32CD32',
+                  '#FFA500',
+                  '	#B22222'
+                ],
                 borderColor: [
                   'black',
                 ],
@@ -295,7 +427,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
             },
             options: {
               scales: {
-                indexAxis: 'x',
+                indexAxis: 'x'
               }
             }
           });
@@ -306,11 +438,11 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
           {
             type: 'doughnut',
             data: {
-              labels: ['Falta concluir', 'Concluído'///
+              labels: ['Falta concluir(%)', 'Concluído(%)'///
               ],
               datasets: [{
-                label: 'Notas dos alunos',
-                data: [6, 5], ///trazer os dados de conclusão das anotações, numero 6 falta é o falta concluir  
+                label: 'Metas',
+                data: [<?=$y?>, <?=$x?>], ///trazer os dados de conclusão das anotações, numero 6 falta é o falta concluir  
                 backgroundColor: [
                   '#2f2a28',
                   '#b6a9a9',
@@ -331,7 +463,7 @@ VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo')")
                 indexAxis: 'x',
               }
             }
-          });*/
+          });
       </script>
     </div>
     <!--Container Main end-->
