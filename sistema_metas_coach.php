@@ -402,7 +402,8 @@ new Chart(
               ],
               datasets: [{
                 label: 'Metas (%)',
-                data: [<?=$saude?>, <?=$relacionamento?>, <?=$trabalho?>, <?=$dinheiro?>, <?=$outro?>],  
+                data: [<?=number_format($saude, 2, '.', '')?>, <?=number_format($relacionamento, 2, '.', '')?>, <?=number_format($trabalho, 2, '.', '')?>, <?=number_format($dinheiro, 2, '.', '')?>,
+                 <?=number_format($outro, 2, '.', '')?>],  
                 
                 backgroundColor: [
                   '#6495ED',
@@ -442,7 +443,7 @@ new Chart(
               ],
               datasets: [{
                 label: 'Metas',
-                data: [<?=$y?>, <?=$x?>], ///trazer os dados de conclusão das anotações, numero 6 falta é o falta concluir  
+                data: [<?=number_format($y, 2, '.', '')?>, <?=number_format($x, 2, '.', '')?>], ///trazer os dados de conclusão das anotações, numero 6 falta é o falta concluir  
                 backgroundColor: [
                   '#2f2a28',
                   '#b6a9a9',

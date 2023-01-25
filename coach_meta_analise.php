@@ -330,6 +330,8 @@ while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
   }
 }
 
+$total_XY_porce=$x+$y;
+$x_percent=($x*100)/$total_XY_porce;
 ?>
 <!doctype html>
 <html>
@@ -478,6 +480,8 @@ dialog::backdrop{
     <!--Container Main start-->
     <div>
         <p>Analise do <b>andamento das metas</b> do aluno(a)</b><h2><?php echo "<b> <big>$nome</big></b>";?></h2></p>
+<br><br>
+        <p><b>Porcentagem</b> de conclusão aluno(a)</b><h2><?php echo "<b> <big>$nome</big></b>";?>: <?php echo number_format($x_percent, 2, '.', ''); ?>%</h2></p>
 <br><br>
      <div class="table-wrapper">
       <div style="display: flex; justify-content: space-evenly;">
