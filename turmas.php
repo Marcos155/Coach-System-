@@ -3,7 +3,6 @@ session_start();
 include_once('config.php');
 
 //cadastro
-
 if ((!isset($_SESSION['email']) == true) and (!isset($_SESSION['senha']) == true)) {
   unset($_SESSION['email']);
   unset($_SESSION['senha']);
@@ -20,29 +19,20 @@ if (!empty($_GET['search'])) {
 } else {
   $sql = "SELECT * FROM cadastro WHERE cod>1 ORDER BY cod DESC";
 }
-
-/*$result2 = $conexao_regis->query($sql);*/
 $result2 = $conexao_forms15->query($sql);
 
-
-if (isset($_POST['submit'])) {
-
-  include_once('config.php');
-
-  $nome = $_POST['username'];
-  $sobrenome = $_POST['sobrenome'];
-  $email = $_POST['email'];
-  $cidade = $_POST['cidade'];
-  $estado = $_POST['estado'];
-  $telefone = $_POST['phone'];
-  $sexo = $_POST['sexo'];
-  $cpf = $_POST['cpf'];
-  $cod_turma = $_POST['cod_turma'];
-  $nome_turma = $_POST['nome_turma'];
-
-  $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo,cpf,cod_turma,nome_turma) 
-VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$cpf','$cod_turma','$nome_turma')");
+if(isset($_POST['lancar'])){
+  $nome_turma=$_POST['nome_turma'];
+  $sql_turma="INSERT INTO turmas(nome_turma) VALUES ('$nome_turma')";
+  $result_turma=$conexao_forms15->query($sql_turma);
 }
+
+
+$sql_nome="SELECT nome_turma FROM turmas ORDER BY cod_turma DESC";
+$result3=$conexao_forms15->query($sql_nome);
+
+
+
 ?>
 <!doctype html>
 <html>
@@ -208,6 +198,32 @@ dialog::backdrop{
         ?>
               </tbody>
             </table>
+            <br><br>
+            <div>
+              <form action="turmas.php" method="post" name="forms">
+                <h4>Nome da nova turma</h4>
+                <input type="text" name="nome_turma" id="nome_turma" maxlength="90">       
+                <button type="submit" name="lancar" id="lancar">
+                  Lançar
+                </button>
+              </form>
+            </div>
+            <div>
+
+            
+            <h1>nome da turma</h1>
+            <select>
+            <?php
+            while($user_data = mysqli_fetch_assoc($result3)) {  
+              echo "<option>".$user_data['nome_turma']."</option>";
+            }
+            ?>
+            </select>
+            
+
+                 
+            </div>
+            <br><br><br>
           </div>
 </div>
         
