@@ -152,6 +152,14 @@ dialog::backdrop{
     }
     #formulario{
       text-align:center;
+      border:2px solid #000;
+      padding:20px 0;
+      height: 260px;
+    background: #fff;
+    max-width: 410px;
+    border-radius: 7px;
+    transition: height 0.2s ease;
+    box-shadow: 2px 2px #000;
     }
   </style>
 </head>
@@ -243,11 +251,10 @@ dialog::backdrop{
         ?>
               </tbody>
             </table>
-            <br><br><br>
       </div>
-
+      <br><br><br>
         <div id="formulario">
-          <h4>Alocar Alunos</h4>
+          <h4><b>Alocar Alunos</b></h4><br>
           <form action="turmas_save.php" method="post">
             <label for="">Turma</label>
             <select id="nome_turmas" name="nome_turma"list="nome_turmas" >
@@ -255,25 +262,25 @@ dialog::backdrop{
                 while ($nomesDasTurmas = mysqli_fetch_assoc($result3)) {
                 echo "<option>" . $nomesDasTurmas['nome_turma'] . "</option>";};
               ?>
-            </select>
+            </select><br><br>
             <label for="">Aluno</label>
             <select id="nome_alunos"  name="nome_aluno"list="nome_alunos">
               <?php
                 while ($nomesDosAlunos = mysqli_fetch_assoc($result3_aluno)) {
                 echo "<option>" . $nomesDosAlunos['nome']. "</option>";};
               ?>
-            </select>
-           <button type="submit" name="alocar">Alocar Aluno</button>
+            </select><br><br>
+           <button type="submit" name="alocar" class='btn btn-sm btn-dark' >Alocar Aluno</button>
           </form>
         </div>
           <br><br><br>
         <div id="formulario">
-          <h4>Criar Turmas</h4>
+          <h4><b>Criar Turmas</b></h4><br>
           <form action="turmas.php" method="post">
             <input type="text" placeholder="Nome da turma" name="criar_turma" maxlength="11" id="criar_turmas">
-            <button type="submit" name="lancar">Lançar Turma</button>
-            <br><br>
-            <label for="characters">Quantidade de caracteres: 11/ </label><span id="characters"></span><br>
+            <br>
+            <label for="characters">Quantidade de caracteres: 11/ </label><span id="characters"></span><br><br>
+            <button type="submit" name="lancar" class='btn btn-sm btn-dark' >Lançar Turma</button>
           </form>
         </div>
         <br><br><br>
