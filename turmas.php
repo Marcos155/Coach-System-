@@ -28,6 +28,26 @@ if(isset($_POST['lancar'])){
 }
 $sql_nome="SELECT nome_turma FROM turmas ORDER BY cod_turma DESC";
 $result3=$conexao_forms15->query($sql_nome);
+
+$sql_turmas="SELECT*FROM turmas";
+$consulta_turmas=$conexao_forms15->query($sql_turmas);
+
+$sql_turmas2="SELECT*FROM cadastro";
+$consulta_turmas2=$conexao_forms15->query($sql_turmas2);
+
+$sql_qtd_turmas="SELECT COUNT(cod_turma) as 'qtd_turmas' FROM turmas;";
+              $resultado4=$conexao_forms15->query($sql_qtd_turmas);
+              
+              while($user_data = mysqli_fetch_assoc($resultado4)) { 
+                $qtd_turmas=$user_data['qtd_turmas'];
+              }
+
+              $sql_qtd_pessoas="SELECT COUNT(cod) as 'qtd_pessoas' FROM cadastro;";
+              $resultado3=$conexao_forms15->query($sql_qtd_pessoas);
+              while($user_data = mysqli_fetch_assoc($resultado3)) { 
+                $qtd_pessoas=$user_data['qtd_pessoas'];
+              }
+              
 ?>
 <!doctype html>
 <html>
@@ -103,6 +123,27 @@ dialog::backdrop{
     }
     #titulo_dialog{
       font-weight:bold;
+    }
+    .button_turmas{
+      background:#000;
+      color:#fff;
+      border-radius:3px;
+      border:none;
+    }
+    .button_turmas:hover{
+      background-color: #f01e1e;
+    color: rgb(247, 247, 247);
+    transition: all 0.3s;
+    border: none;
+    }
+    #forms{
+      text-align:center;
+    }
+    #Inputnome_turma{
+      border-radius:4px;
+    }
+    #nome_turma{
+      text-align:center;
     }
   </style>
 </head>
@@ -194,103 +235,88 @@ dialog::backdrop{
         ?>
               </tbody>
             </table>
-            <br><br>
-            <!--
-            <div>
-              <form action="turmas.php" method="post" name="forms">
-                <h4>Nome da nova turma</h4>
-                <input type="text" name="nome_turma" id="nome_turma" maxlength="90">       
-                <button type="submit" name="lancar" id="lancar">
-                  Lançar
-                </button>
-              </form>
-            </div>
-
-            <div>
-            <h1>nome da turma</h1>
-            <select>
-            <?php
-           /* while($user_data = mysqli_fetch_assoc($result3)) {  
-              echo "<option>".$user_data['nome_turma']."</option>";
-            }*/
-            ?>
-            </select> 
-            </div>-->
             <br><br><br>
           </div>
             <h3><b>Turmas</b></h3>
+            <p>Turmas Existentes: <b><?php echo $qtd_turmas?></b></p>
           <div>
           <table class="table">
             <thead class="thead-light">
                <tr>
-                <th scope="col">Cógigo-Turma</th>
+                <th scope="col">Código-Turma</th>
                 <th scope="col">Turma</th>
-                <th scope="col">Nº Alunos</th>
+                <th scope="col"></th>
+                <th scope='col'></th>
                </tr>
               </thead>
               <tbody>
               <?php
-              while($user_data = mysqli_fetch_assoc($result2)){
+              while($user_data2 = mysqli_fetch_assoc($consulta_turmas)){
                   echo "<tr>";
-                  echo "<td>" . $user_data['cod_turma'] . "</td>";
-                  echo "<td>" . $user_data['nome_turma'] . "</td>";
-                  echo "<td>" . $user_data['nome'] . "</td>";
+                  echo "<td>" . $user_data2['cod_turma'] . "</td>";
+                  echo "<td>" . $user_data2['nome_turma'] . "</td>";
+                  while($user_data3 = mysqli_fetch_assoc($consulta_turmas2)){
+                  if($user_data3['nome_turma']!=''){
+                  echo "<td><select>";};
+                  while($user_data3 = mysqli_fetch_assoc($consulta_turmas2)){
+                    
+                        echo "
+                            <option>".$user_data3['nome']."</option>";
+                    
+                  };
+                  echo "</select></td>";
+                };
+                  echo "<td><button>Alocar</button></td>";
                   echo "</tr>";
               };
               ?>
+
             </tbody>
             </table>
             <br><br>
           </div>
-          <div>
-            <button id='abrir_dialogTurma' class="btn" style="background:#000; color:#fff">Lançar turma</button>           
-            <dialog id='dialog_Turma'>
-              <h2 id='titulo_dialog'>Lançar Turma</h2><br>
-              <h4>Nome da Turma:</h4>
-              <form action="turmas.php" method="post" name="forms">
-              <input type='text' value='' name="nome_turma" id="nome_turma" maxlength="90">
-              <button type="submit" name="lancar" id="lancar">Criar Turma</button>
-              </form><br><br>
-              <a href='turmas.php'><button id='fechar_dialogTurma'>Cancelar</button></a>
-            </dialog>
-          </div>
           <br><br><br>
-          <h3><b>Alocar Alunos</b></h3>
           <div>
-          <table class="table">
-            <thead class="thead-light">
-               <tr>
-                <th scope="col">Turmas</th>
-                <th scope="col">Aluno</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
-                <th scope="col">Email</th>
-                <th scope="col">Alocar</th>
-                </tr>
-              </thead>
-              <tbody>
-              <?php
-              while($user_data = mysqli_fetch_assoc($result2)){
-                    echo "<tr>";
-                    echo "<form action='turmas_save.php' method='post'>";
-                    echo "<td>" . $user_data['cod_turma'] . "</td>";
-                    echo "<td><option name='nome_turma'>".$user_data['nome_turma']."</option></td>";
-                    echo "<td>" . $user_data['cod'] . "</td>";
-                    echo "<td>" . $user_data['nome'] . "</td>";
-                    echo "<td>" . $user_data['sobrenome'] . "</td>";
-                    echo "<td>" . $user_data['email'] . "</td>";
-                    echo "<td>
-                      <input type='hidden' name=cod value='$cod'>
-                      <button type='submit' name='adicionar' id='adicionar'>Adicionar</button>
-                          </td>";
-                    echo "</forms>";
+          <h3><b>Alocar Alunos</b></h3>
+            <table class='table'>
+                  <thead class='thead-light'>
+                    <tr>
+                      <th scope='col'>Turma Atual</th>
+                      <th scope='col'>Aluno</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+            <?php
+              
+              for ($x = 1; $x <= $qtd_turmas; $x++) {
+                $sql_a_turma="SELECT nome_turma FROM turmas WHERE cod_turma=$x;";
+                $resultado1=$conexao_forms15->query($sql_a_turma);
+                while($user_data = mysqli_fetch_assoc($resultado1)) { 
+                  $nome_da_turma=$user_data['nome_turma'];
+                }
+                    for ($y = 1; $y <= $qtd_pessoas; $y++){
+                      $sql_pessoas="SELECT nome, sobrenome, nome_turma FROM cadastro WHERE cod = $y;";
+                      $resultado2=$conexao_forms15->query($sql_pessoas);
+                      while($user_data = mysqli_fetch_assoc($resultado2)) { 
+                        $nome_da_turma_pessoa=$user_data['nome_turma'];
+                        $nome_da_pessoa=$user_data['nome']." ".$user_data['sobrenome'];
+                      }
+                      if ($nome_da_turma === $nome_da_turma_pessoa){
+                        echo "<tr>";
+
+                    echo "<td>" . $nome_da_turma_pessoa. "</td>";
+                    echo "<td>".$nome_da_pessoa."</td>";
+                   
                     echo "</tr>";
-              };
+                      }
+                    };
+                    echo'
+                  </tbody>
+                </table>';
+  
+              }
               ?>
-              </tbody>
-            </table>
-            <br><br>
-          </div>
+              </div><br><br><br>
 
 </div>
         
@@ -299,17 +325,6 @@ dialog::backdrop{
     <!--Container Main end-->
 
     <script>
-        /* dialog turma */
-        const buttonTurma = document.querySelector("#abrir_dialogTurma");
-      const modalTurma = document.querySelector("#dialog_Turma");
-      const buttonCloseTurma = document.querySelector("dialog #fechar_dialogTurma");
-      buttonTurma.onclick=function(){
-        modalTurma.showModal();
-      };
-      buttonCloseTurma.onclick=function(){
-        modalTurma.closeModal();
-      };
-
       /* saida */
       function confirmaSair(){
     var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
