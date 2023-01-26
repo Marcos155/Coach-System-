@@ -6,6 +6,7 @@
       $nova_turma=$_POST['nome_turma'];
       $consulta_turma="UPDATE cadastro SET nome_turma=$nome_turma WHERE cod=$cod";
       $resultado=$conexao_forms15->query($consulta_turma);
-      header('Location:turmas.php');
+      
     }
-  }
+  }header('Location:turmas.php');
+?>

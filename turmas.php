@@ -237,89 +237,43 @@ dialog::backdrop{
             </table>
             <br><br><br>
           </div>
-            <h3><b>Turmas</b></h3>
-            <p>Turmas Existentes: <b><?php echo $qtd_turmas?></b></p>
-          <div>
-          <table class="table">
-            <thead class="thead-light">
-               <tr>
-                <th scope="col">Código-Turma</th>
-                <th scope="col">Turma</th>
-                <th scope="col"></th>
-                <th scope='col'></th>
-               </tr>
-              </thead>
-              <tbody>
+         
               <?php
-              while($user_data2 = mysqli_fetch_assoc($consulta_turmas)){
-                  echo "<tr>";
-                  echo "<td>" . $user_data2['cod_turma'] . "</td>";
-                  echo "<td>" . $user_data2['nome_turma'] . "</td>";
-                  while($user_data3 = mysqli_fetch_assoc($consulta_turmas2)){
-                  if($user_data3['nome_turma']!=''){
-                  echo "<td><select>";};
-                  while($user_data3 = mysqli_fetch_assoc($consulta_turmas2)){
-                    
-                        echo "
-                            <option>".$user_data3['nome']."</option>";
-                    
-                  };
-                  echo "</select></td>";
-                };
-                  echo "<td><button>Alocar</button></td>";
-                  echo "</tr>";
-              };
-              ?>
-
-            </tbody>
-            </table>
-            <br><br>
-          </div>
-          <br><br><br>
-          <div>
-          <h3><b>Alocar Alunos</b></h3>
-            <table class='table'>
-                  <thead class='thead-light'>
-                    <tr>
-                      <th scope='col'>Turma Atual</th>
-                      <th scope='col'>Aluno</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-            <?php
-              
-              for ($x = 1; $x <= $qtd_turmas; $x++) {
-                $sql_a_turma="SELECT nome_turma FROM turmas WHERE cod_turma=$x;";
-                $resultado1=$conexao_forms15->query($sql_a_turma);
-                while($user_data = mysqli_fetch_assoc($resultado1)) { 
-                  $nome_da_turma=$user_data['nome_turma'];
+                for ($p = 1; $p <= $qtd_turmas; $p++){
+                  $sql_para_turmas="SELECT nome_turma FROM turmas WHERE cod_turma = $p;";
+                  $resultado_de_turmas=$conexao_forms15->query($sql_para_turmas);
+                  while($user_data = mysqli_fetch_assoc($resultado_de_turmas)) { 
+                    $nome_da_turma=$user_data['nome_turma'];
+                  }
                 }
-                    for ($y = 1; $y <= $qtd_pessoas; $y++){
-                      $sql_pessoas="SELECT nome, sobrenome, nome_turma FROM cadastro WHERE cod = $y;";
-                      $resultado2=$conexao_forms15->query($sql_pessoas);
-                      while($user_data = mysqli_fetch_assoc($resultado2)) { 
-                        $nome_da_turma_pessoa=$user_data['nome_turma'];
-                        $nome_da_pessoa=$user_data['nome']." ".$user_data['sobrenome'];
-                      }
-                      if ($nome_da_turma === $nome_da_turma_pessoa){
-                        echo "<tr>";
-
-                    echo "<td>" . $nome_da_turma_pessoa. "</td>";
-                    echo "<td>".$nome_da_pessoa."</td>";
-                   
-                    echo "</tr>";
-                      }
-                    };
-                    echo'
-                  </tbody>
-                </table>';
-  
-              }
               ?>
-              </div><br><br><br>
 
-</div>
-        
+        <div id="formulario">
+          <form action="turmas_save.php" method="post">
+            
+          
+            <label for="">Aluno</label>
+            <input type="text"  name="estado"  list="nomes_alunos" maxlength="15" id="nome_aluno" required>
+            <datalist >
+            <?php
+                for ($k = 1; $k <= $qtd_pessoas; $k++){
+                  $sql_para_pessoas="SELECT nome, sobrenome FROM cadastro WHERE cod = $k;";
+                  $resultado_de_pessoas=$conexao_forms15->query($sql_para_pessoas);
+                  
+                  while($user_data = mysqli_fetch_assoc($resultado_de_pessoas)) { 
+                    $nome_da_pessoa=$user_data['nome']." ".$user_data['sobrenome'];
+                  }
+                 
+              echo "<option>".$nome_da_pessoa."</option>";
+           
+                }
+              ?>
+             </datalist>
+           
+            
+            <button type="submit">Alocar Aluno</button>
+          </form>
+        </div>
     </div>
 
     <!--Container Main end-->
