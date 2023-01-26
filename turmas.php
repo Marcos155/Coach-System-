@@ -150,11 +150,12 @@ dialog::backdrop{
     #nome_turma{
       text-align:center;
     }
-    #formulario{
+    .formulario{
       text-align:center;
       border:2px solid #000;
       padding:20px 0;
       height: 260px;
+      margin: 2%;
     background: #fff;
     max-width: 410px;
     border-radius: 7px;
@@ -253,7 +254,8 @@ dialog::backdrop{
             </table>
       </div>
       <br><br><br>
-        <div id="formulario">
+      <div class="row justify-content-md-center">
+        <div class="col-5 formulario">
           <h4><b>Alocar Alunos</b></h4><br>
           <form action="turmas_save.php" method="post">
             <label for="">Turma</label>
@@ -273,31 +275,33 @@ dialog::backdrop{
            <button type="submit" name="alocar" class='btn btn-sm btn-dark' >Alocar Aluno</button>
           </form>
         </div>
-          <br><br><br>
-        <div id="formulario">
+
+        <br><br><br>
+
+        <div class="col-5 formulario">
           <h4><b>Criar Turmas</b></h4><br>
           <form action="turmas.php" method="post">
-            <input type="text" placeholder="Nome da turma" name="criar_turma" maxlength="11" id="criar_turmas">
+            <input type="text" placeholder="Nome da turma" name="criar_turma" maxlength="11" id="criar_turmas" required>
             <br>
             <label for="characters">Quantidade de caracteres: 11/ </label><span id="characters"></span><br><br>
             <button type="submit" name="lancar" class='btn btn-sm btn-dark' >Lançar Turma</button>
           </form>
         </div>
         <br><br><br>
-        <div>
 
-        </div>
+       </div>
+        <br><br><br>
         <div>
         <h5><b>Quantidade de turmas:<?php echo " ".$qtd_turmas ?></b></h5>
-        <table class="table">
+        <table class="table table-sm">
             <thead class="thead-light">
-               <tr>
-                <th scope="row">Código Turma</th>
+              <tr>
+                <th scope="col">Código Turma</th>
                 <th scope="col">Turma</th>
                 <th scope="col">Deletar Turma</th>
                </tr>
-              </thead>
-              <tbody>
+            </thead>
+            <tbody>
               <?php
                 while ($user_data3 = mysqli_fetch_assoc($turmas_cadastradas)) {
                   echo "<tr>";

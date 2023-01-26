@@ -1,0 +1,331 @@
+ <section class="list cores1" style="background:#60b2ea8f;">
+            <header>Objetivos: 12 meses (Saúde)</header>
+            <article class="card" id='abrir_dialogSaude'>
+              <ul>
+                <li>
+                  <?php echo "$metaSaude1"; ?>
+                  <input type="checkbox" <?php echo ($feitoSaude1 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaSaude2"; ?>
+                  <input type="checkbox" <?php echo ($feitoSaude2 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaSaude3"; ?>
+                  <input type="checkbox" <?php echo ($feitoSaude3 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaSaude4"; ?>
+                  <input type="checkbox" <?php echo ($feitoSaude4 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaSaude5"; ?>
+                  <input type="checkbox" <?php echo ($feitoSaude5 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+              </ul>
+              <dialog id="dialog_saude">
+                <form action="" method="post">
+                  <h2 id='titulo_dialog'>Metas sobre Saúde</h2><br>
+                  <ul>
+                    <li>
+                      <?php echo "$metaSaude1"; ?>
+                      <input type="checkbox" <?php echo ($feitoSaude1 == 'on') ? 'checked' : '' ?> name="feito1" disabled>
+                    </li>
+                    <br>
+                    <li>
+                      <?php echo "$metaSaude2"; ?>
+                      <input type="checkbox" <?php echo ($feitoSaude2 == 'on') ? 'checked' : '' ?> name="feito2" disabled>
+                    </li>
+                    <br>
+                    <li>
+                      <?php echo "$metaSaude3"; ?>
+                      <input type="checkbox" <?php echo ($feitoSaude3 == 'on') ? 'checked' : '' ?> name="feito3" disabled>
+                    </li>
+                    <br>
+                    <li>
+                      <?php echo "$metaSaude4"; ?>
+                      <input type="checkbox" <?php echo ($feitoSaude4 == 'on') ? 'checked' : '' ?> name="feito4" disabled>
+                    </li>
+                    <br>
+                    <li>
+                      <?php echo "$metaSaude5"; ?>
+                      <input type="checkbox" <?php echo ($feitoSaude5 == 'on') ? 'checked' : '' ?> name="feito5" disabled>
+                    </li>
+                  </ul>
+                  <br><br>
+                  <input type="submit" class="btn" class="enviar_forms" value="Ok" name="submit_Saude" id='fechar_dialogSaude'>
+                </form>
+              </dialog>
+            </article>
+          </section>
+
+          <!-- relacionamento -->
+          <section class="list cores2" style="background:#9966ff73;">
+            <header>Objetivos: 12 meses (Relacionamentos)</header>
+            <article class="card" id='abrir_dialogRelacionamento'>
+              <ul>
+                <li>
+                  <?php echo "$metaRelacionamento1"; ?>
+                  <input type="checkbox" <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaRelacionamento2"; ?>
+                  <input type="checkbox" <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaRelacionamento3"; ?>
+                  <input type="checkbox" <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaRelacionamento4"; ?>
+                  <input type="checkbox" <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaRelacionamento5"; ?>
+                  <input type="checkbox" <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+              </ul>
+              <dialog id="dialog_relacionamento">
+                <h2 id='titulo_dialog'>Metas sobre Relacionamento</h2><br>
+                <ul>
+                  <li>
+                    <form action="" method="post">
+                      <?php echo "$metaRelacionamento1"; ?>
+                      <input type="checkbox" <?php echo ($feitoRelacionamento1 == 'on') ? 'checked' : '' ?> name="feito1" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaRelacionamento2"; ?>
+                    <input type="checkbox" <?php echo ($feitoRelacionamento2 == 'on') ? 'checked' : '' ?> name="feito2" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaRelacionamento3"; ?>
+                    <input type="checkbox" <?php echo ($feitoRelacionamento3 == 'on') ? 'checked' : '' ?> name="feito3" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaRelacionamento4"; ?>
+                    <input type="checkbox" <?php echo ($feitoRelacionamento4 == 'on') ? 'checked' : '' ?> name="feito4" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaRelacionamento5"; ?>
+                    <input type="checkbox" <?php echo ($feitoRelacionamento5 == 'on') ? 'checked' : '' ?> name="feito5" disabled>
+                  </li>
+                </ul>
+                <br><br>
+                <input type="submit" class="btn" class="enviar_forms" value="Ok" name="submit_relacionamento" id='fechar_dialogRelacionamento'>
+                </form>
+              </dialog>
+            </article>
+          </section>
+
+          <!-- Trabalho -->
+          <section class="list cores4 " style="background:#4bc0c06e">
+            <header>Objetivos: 12 meses (Trabalho)</header>
+            <article class="card" id='abrir_dialogTrabalho'>
+              <ul>
+                <li>
+                  <?php echo "$metaTrabalho1"; ?>
+                  <input type="checkbox" <?php echo ($feitoTrabalho1 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaTrabalho2"; ?>
+                  <input type="checkbox" <?php echo ($feitoTrabalho2 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaTrabalho3"; ?>
+                  <input type="checkbox" <?php echo ($feitoTrabalho3 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaTrabalho4"; ?>
+                  <input type="checkbox" <?php echo ($feitoTrabalho4 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaTrabalho5"; ?>
+                  <input type="checkbox" <?php echo ($feitoTrabalho5 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+              </ul>
+              <dialog id="dialog_trabalho">
+                <h2 id='titulo_dialog'>Metas sobre Trabalho</h2><br>
+                <ul>
+                  <li>
+                    <form action="" method="post">
+                      <?php echo "$metaTrabalho1"; ?>
+                      <input type="checkbox" <?php echo ($feitoTrabalho1 == 'on') ? 'checked' : '' ?> name="feito1" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaTrabalho2"; ?>
+                    <input type="checkbox" <?php echo ($feitoTrabalho2 == 'on') ? 'checked' : '' ?> name="feito2" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaTrabalho3"; ?>
+                    <input type="checkbox" <?php echo ($feitoTrabalho3 == 'on') ? 'checked' : '' ?> name="feito3" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaTrabalho4"; ?>
+                    <input type="checkbox" <?php echo ($feitoTrabalho4 == 'on') ? 'checked' : '' ?> name="feito4" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaTrabalho5"; ?>
+                    <input type="checkbox" <?php echo ($feitoTrabalho5 == 'on') ? 'checked' : '' ?> name="feito5" disabled>
+                  </li>
+                </ul>
+                <br><br>
+                <input type="submit" class="btn" class="enviar_forms" value="Ok" name="submit_Trabalho" id='fechar_dialogTrabalho'>
+                </form>
+              </dialog>
+            </article>
+          </section>
+
+          <!-- Dinheiro -->
+          <section class="list cores3" style="background:#ff9f4078">
+            <header>Objetivos: 12 meses (Dinheiro)</header>
+            <article class="card" id='abrir_dialogDinheiro'>
+              <ul>
+                <li>
+                  <?php echo "$metaDinheiro1"; ?>
+                  <input type="checkbox" <?php echo ($feitoDinheiro1 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaDinheiro2"; ?>
+                  <input type="checkbox" <?php echo ($feitoDinheiro2 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaDinheiro3"; ?>
+                  <input type="checkbox" <?php echo ($feitoDinheiro3 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaDinheiro4"; ?>
+                  <input type="checkbox" <?php echo ($feitoDinheiro4 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaDinheiro5"; ?>
+                  <input type="checkbox" <?php echo ($feitoDinheiro5 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+              </ul>
+              <dialog id="dialog_dinheiro">
+                <h2 id='titulo_dialog'>Metas sobre Dinheiro</h2><br>
+                <ul>
+                  <li>
+                    <form action="" method="post">
+                      <?php echo "$metaDinheiro1"; ?>
+                      <input type="checkbox" <?php echo ($feitoDinheiro1 == 'on') ? 'checked' : '' ?> name="feito1" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaDinheiro2"; ?>
+                    <input type="checkbox" <?php echo ($feitoDinheiro2 == 'on') ? 'checked' : '' ?> name="feito2" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaDinheiro3"; ?>
+                    <input type="checkbox" <?php echo ($feitoDinheiro3 == 'on') ? 'checked' : '' ?> name="feito3" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaDinheiro4"; ?>
+                    <input type="checkbox" <?php echo ($feitoDinheiro4 == 'on') ? 'checked' : '' ?> name="feito4" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaDinheiro5"; ?>
+                    <input type="checkbox" <?php echo ($feitoDinheiro5 == 'on') ? 'checked' : '' ?> name="feito5" disabled>
+                  </li>
+                </ul>
+                <br><br>
+                <input type="submit" class="btn" class="enviar_forms" value="Ok" name="submit_Dinheiro" id='fechar_dialogDinheiro'>
+                </form>
+              </dialog>
+            </article>
+          </section>
+
+          <!-- Outro -->
+          <section class="list cores5" style="background:#fa807275;">
+            <header>Objetivos: 12 meses (Demais objetivos)</header>
+            <article class="card" id='abrir_dialogOutro'>
+              <ul>
+                <li>
+                  <?php echo "$metaOutro1"; ?>
+                  <input type="checkbox" <?php echo ($feitoOutro1 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaOutro2"; ?>
+                  <input type="checkbox" <?php echo ($feitoOutro2 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaOutro3"; ?>
+                  <input type="checkbox" <?php echo ($feitoOutro3 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaOutro4"; ?>
+                  <input type="checkbox" <?php echo ($feitoOutro4 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+                <br>
+                <li>
+                  <?php echo "$metaOutro5"; ?>
+                  <input type="checkbox" <?php echo ($feitoOutro5 == 'on') ? 'checked' : '' ?> disabled>
+                </li>
+              </ul>
+              <dialog id="dialog_outro">
+                <h2 id='titulo_dialog'>Metas sobre Outro</h2><br>
+                <ul>
+                  <li>
+                    <form action="" method="post">
+                      <?php echo "$metaOutro1"; ?>
+                      <input type="checkbox" <?php echo ($feitoOutro1 == 'on') ? 'checked' : '' ?> name="feito1" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaOutro2"; ?>
+                    <input type="checkbox" <?php echo ($feitoOutro2 == 'on') ? 'checked' : '' ?> name="feito2" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaOutro3"; ?>
+                    <input type="checkbox" <?php echo ($feitoOutro3 == 'on') ? 'checked' : '' ?> name="feito3" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaOutro4"; ?>
+                    <input type="checkbox" <?php echo ($feitoOutro4 == 'on') ? 'checked' : '' ?> name="feito4" disabled>
+                  </li>
+                  <br>
+                  <li>
+                    <?php echo "$metaOutro5"; ?>
+                    <input type="checkbox" <?php echo ($feitoOutro5 == 'on') ? 'checked' : '' ?> name="feito5" disabled>
+                  </li>
+                </ul>
+                <br><br>
+                <input type="submit" class="btn" class="enviar_forms" value="Ok" name="submit_Outro" id='fechar_dialogOutro'>
+                </form>
+              </dialog>
+            </article>
+          </section>
+
+        </div>
+      </div>

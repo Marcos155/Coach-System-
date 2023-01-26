@@ -373,11 +373,6 @@ $y=($y*100)/$total_XY_porce;
 <br><br>
       <div style="justify-content: space-evenly; display: flex;">
       
-        <div style="width: 30vw; display: inline-block">
-          <h2>% de conclusão turmas</h2>
-          <canvas id="turmas" width="400" height="400"></canvas>
-        </div>
-      
         <div style="width: 30vw; display: inline-block;">
           <h2>% de conclusão alunos</h2>
           <canvas id="metas-todas" width="400" height="400"></canvas>
