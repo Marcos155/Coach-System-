@@ -40,6 +40,11 @@ if (isset($_POST['submit'])) {
   $result = mysqli_query($conexao_regis, "INSERT INTO cadastro(nome,sobrenome,email,cidade,estado,telefone,sexo,cpf) 
 VALUES ('$nome','$sobrenome','$email','$cidade','$estado','$telefone','$sexo','$cpf')");
 }
+$sql_qtd_pessoas="SELECT COUNT(cod) as 'qtd_pessoas' FROM cadastro;";
+              $resultado3=$conexao_forms15->query($sql_qtd_pessoas);
+              while($user_data = mysqli_fetch_assoc($resultado3)) { 
+                $qtd_pessoas=$user_data['qtd_pessoas'];
+              }
 ?>
 <!doctype html>
 <html>
@@ -179,6 +184,7 @@ dialog::backdrop{
           </div>
           <br>
           <br>
+          <h5><b>Quantidade de Alunos:<?php echo " ".$qtd_pessoas-1 ?></b></h5>
           <div class="table-wrapper">
             <table class="table">
             <thead class="thead-light">
@@ -199,7 +205,7 @@ dialog::backdrop{
               <?php
         while ($user_data = mysqli_fetch_assoc($result2)) {
           echo "<tr>";
-          echo "<td>" . $user_data['cod'] . "</td>";
+          echo "<td id='codigo'>".$user_data['cod']."</td>";
           echo "<td>" . $user_data['nome'] . "</td>";
           echo "<td>" . $user_data['sobrenome'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
@@ -209,7 +215,7 @@ dialog::backdrop{
           echo "<td>" . $user_data['cidade'] . "</td>";
           echo "<td>" .$user_data['estado'] . "</td>";
           echo "<td>
-          <a class='btn btn-sm btn-dark'  id='abrir_dialogDelete'
+          <a class='btn btn-sm btn-dark' href='delete.php?cod=$user_data[cod]'
           placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
             <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
@@ -217,38 +223,16 @@ dialog::backdrop{
           </svg>
           </a>
         </td>";
-          echo "<tr>";
-          echo"            
-          <dialog id='dialog_Delete'>
-          <h2 id='titulo_dialog'>Confirma deletar cadastro?</h2><br>";
-          echo"
-          <h4>Aluno(a): ".$user_data['nome']." </h4><br><br>
-          <a href='sistema.php'><button id='fechar_dialogDelete'>Não</button></a>
-          <a href='delete.php?cod=$user_data[cod]'><button id='Sim_dialogDelete'>Sim</button></a>
-          </dialog>";
+          echo "</tr>";
         }
         ?>
               </tbody>
             </table>
           </div>
 </div>
-        
     </div>
-
     <!--Container Main end-->
-
     <script>
-      /* dialog de deleção */
-      const buttonDelete = document.querySelector("#abrir_dialogDelete");
-      const modalDelete = document.querySelector("#dialog_Delete");
-      const buttonCloseDelete = document.querySelector("dialog #fechar_dialogDelete");
-      buttonDelete.onclick=function(){
-        modalDelete.showModal();
-      };
-      buttonCloseDelete.onclick=function(){
-        modalDelete.closeModal();
-      };
-
       /* saida */
       function confirmaSair(){
     var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");

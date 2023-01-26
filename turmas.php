@@ -21,19 +21,24 @@ if (!empty($_GET['search'])) {
 }
 $result2 = $conexao_forms15->query($sql);
 
+/* options com nomes das turmas */
+$sql_nome_turmas="SELECT*FROM turmas";
+$result3=$conexao_forms15->query($sql_nome_turmas);
+
+/* options com nomes dos alunos */
+$sql_nome_alunos="SELECT*FROM cadastro WHERE cod>1 ORDER BY cod DESC";
+$result3_aluno=$conexao_forms15->query($sql_nome_alunos);
+
+/* lançar turmas */
 if(isset($_POST['lancar'])){
-  $nome_turma=$_POST['nome_turma'];
-  $sql_turma="INSERT INTO turmas(nome_turma) VALUES ('$nome_turma')";
+  $criar_turma=$_POST['criar_turma'];
+  $sql_turma="INSERT INTO turmas(nome_turma) VALUES ('$criar_turma')";
   $result_turma=$conexao_forms15->query($sql_turma);
 }
-$sql_nome="SELECT nome_turma FROM turmas ORDER BY cod_turma DESC";
-$result3=$conexao_forms15->query($sql_nome);
 
-$sql_turmas="SELECT*FROM turmas";
-$consulta_turmas=$conexao_forms15->query($sql_turmas);
-
-$sql_turmas2="SELECT*FROM cadastro";
-$consulta_turmas2=$conexao_forms15->query($sql_turmas2);
+/* tabelas das turmas existentes */
+$turmas_existentes="SELECT*FROM turmas";
+$turmas_cadastradas=$conexao_forms15->query($turmas_existentes);
 
 $sql_qtd_turmas="SELECT COUNT(cod_turma) as 'qtd_turmas' FROM turmas;";
               $resultado4=$conexao_forms15->query($sql_qtd_turmas);
@@ -145,6 +150,9 @@ dialog::backdrop{
     #nome_turma{
       text-align:center;
     }
+    #formulario{
+      text-align:center;
+    }
   </style>
 </head>
 
@@ -236,49 +244,89 @@ dialog::backdrop{
               </tbody>
             </table>
             <br><br><br>
-          </div>
-         
-              <?php
-                for ($p = 1; $p <= $qtd_turmas; $p++){
-                  $sql_para_turmas="SELECT nome_turma FROM turmas WHERE cod_turma = $p;";
-                  $resultado_de_turmas=$conexao_forms15->query($sql_para_turmas);
-                  while($user_data = mysqli_fetch_assoc($resultado_de_turmas)) { 
-                    $nome_da_turma=$user_data['nome_turma'];
-                  }
-                }
-              ?>
+      </div>
 
         <div id="formulario">
+          <h4>Alocar Alunos</h4>
           <form action="turmas_save.php" method="post">
-            
-          
-            <label for="">Aluno</label>
-            <input type="text"  name="estado"  list="nomes_alunos" maxlength="15" id="nome_aluno" required>
-            <datalist >
-            <?php
-                for ($k = 1; $k <= $qtd_pessoas; $k++){
-                  $sql_para_pessoas="SELECT nome, sobrenome FROM cadastro WHERE cod = $k;";
-                  $resultado_de_pessoas=$conexao_forms15->query($sql_para_pessoas);
-                  
-                  while($user_data = mysqli_fetch_assoc($resultado_de_pessoas)) { 
-                    $nome_da_pessoa=$user_data['nome']." ".$user_data['sobrenome'];
-                  }
-                 
-              echo "<option>".$nome_da_pessoa."</option>";
-           
-                }
+            <label for="">Turma</label>
+            <select id="nome_turmas" name="nome_turma"list="nome_turmas" >
+              <?php
+                while ($nomesDasTurmas = mysqli_fetch_assoc($result3)) {
+                echo "<option>" . $nomesDasTurmas['nome_turma'] . "</option>";};
               ?>
-             </datalist>
-           
-            
-            <button type="submit">Alocar Aluno</button>
+            </select>
+            <label for="">Aluno</label>
+            <select id="nome_alunos"  name="nome_aluno"list="nome_alunos">
+              <?php
+                while ($nomesDosAlunos = mysqli_fetch_assoc($result3_aluno)) {
+                echo "<option>" . $nomesDosAlunos['nome']. "</option>";};
+              ?>
+            </select>
+           <button type="submit" name="alocar">Alocar Aluno</button>
           </form>
         </div>
-    </div>
+          <br><br><br>
+        <div id="formulario">
+          <h4>Criar Turmas</h4>
+          <form action="turmas.php" method="post">
+            <input type="text" placeholder="Nome da turma" name="criar_turma" maxlength="11" id="criar_turmas">
+            <button type="submit" name="lancar">Lançar Turma</button>
+            <br><br>
+            <label for="characters">Quantidade de caracteres: 11/ </label><span id="characters"></span><br>
+          </form>
+        </div>
+        <br><br><br>
+        <div>
+
+        </div>
+        <div>
+        <h5><b>Quantidade de turmas:<?php echo " ".$qtd_turmas ?></b></h5>
+        <table class="table">
+            <thead class="thead-light">
+               <tr>
+                <th scope="row">Código Turma</th>
+                <th scope="col">Turma</th>
+                <th scope="col">Deletar Turma</th>
+               </tr>
+              </thead>
+              <tbody>
+              <?php
+                while ($user_data3 = mysqli_fetch_assoc($turmas_cadastradas)) {
+                  echo "<tr>";
+                  echo "<td>" . $user_data3['cod_turma'] . "</td>";
+                  echo "<td>" . $user_data3['nome_turma'] . "</td>";
+                  echo "<td>
+                      <a class='btn btn-sm btn-dark' href='delete_turma.php?cod_turma=$user_data3[cod_turma]'
+                        placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
+                        <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
+                         <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
+                        </svg>
+                      </a>
+                  </td>";
+                  echo "</tr>";
+                    }
+                  ?>
+              </tbody>
+            </table>
+            </div><br><br><br>
+      </div>
 
     <!--Container Main end-->
 
     <script>
+      var desc = document.querySelector("#criar_turmas");
+      desc.addEventListener("keypress", function(e) {
+      var maxChars = 11;
+      inputLength = desc.value.length;
+      /* conta os caracteres */
+      document.getElementById('characters').innerText = inputLength
+      if(inputLength >= maxChars) {
+      e.preventDefault();
+      window.alert("André, você atingiu o máximo de caracteres permitidos!")
+      }  
+      });
       /* saida */
       function confirmaSair(){
     var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
