@@ -330,8 +330,13 @@ while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
   }
 }
 
-$total_XY_porce=$x+$y;
-$x_percent=($x*100)/$total_XY_porce;
+
+if($x>1){
+  $total_XY_porce=$x+$y;
+  $x_percent=($x*100)/$total_XY_porce;
+}else{
+  $x_percent=0;
+}
 ?>
 <!doctype html>
 <html>

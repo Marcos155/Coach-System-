@@ -196,38 +196,65 @@ dialog::backdrop{
             <br><br>
             
             <p>Meta 1 :</p>
-            <input id="meta1" value="<?php echo $meta1 ?>" placeholder="Meta 1 ainda não cadastrada">
+            <input id="meta1" value="<?php echo $meta1 ?>" placeholder="Meta 1 ainda não cadastrada" id='abrir_dialogMeta1'>
             <button type="submit" class="btn" id="exluir" onclick="eliminaMeta1 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
               <i class="fa fa-trash"></i>
             </button>
+            <dialog id="dialog_Meta1">
+              <?php echo $meta1 ?>
+              <br><br>
+              <a href=''>
+              <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Meta1" id='fechar_dialogMeta1'>
+              </a>
+            </dialog>
 
             <br><br>
             <p>Meta 2 :</p>
-            <input id="meta2" value="<?php echo $meta2 ?>" placeholder="Meta 2 ainda não cadastrada">
+            <input id="meta2" value="<?php echo $meta2 ?>" placeholder="Meta 2 ainda não cadastrada" id='abrir_dialogMeta2'>
             <button type="submit" class="btn" id="exluir" onclick="eliminaMeta2 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
               <i class="fa fa-trash"></i>
             </button>
+            <dialog id="dialog_Meta2">
+              <?php echo $meta2 ?>
+              <br><br>
+              <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Meta2" id='fechar_dialogMeta2'>
+            </dialog>
 
             <br><br>
             <p>Meta 3 :</p>
-            <input id="meta3" value="<?php echo $meta3 ?>" placeholder="Meta 3 ainda não cadastrada">
+            <input id="meta3" value="<?php echo $meta3 ?>" placeholder="Meta 3 ainda não cadastrada" id='abrir_dialogMeta3'>
             <button type="submit" class="btn" id="exluir" onclick="eliminaMeta3 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
               <i class="fa fa-trash"></i>
             </button>
+            <dialog id="dialog_Meta3">
+              <?php echo $meta3 ?>
+              <br><br>
+              <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Meta3" id='fechar_dialogMeta3'>
+            </dialog>
 
             <br><br>
             <p>Meta 4 :</p>
-            <input id="meta4" value="<?php echo $meta4 ?>" placeholder="Meta 4 ainda não cadastrada">
+            <input id="meta4" value="<?php echo $meta4 ?>" placeholder="Meta 4 ainda não cadastrada" id='abrir_dialogMeta4'>
             <button type="submit" class="btn" id="exluir" onclick="eliminaMeta4 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
               <i class="fa fa-trash"></i>
             </button>
+            <dialog id="dialog_Meta4">
+              <?php echo $meta4 ?>
+              <br><br>
+              <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Meta4" id='fechar_dialogMeta4'>
+            </dialog>
 
             <br><br>
             <p>Meta 5 :</p>
-            <input id="meta5" value="<?php echo $meta5 ?>" placeholder="Meta 5 ainda não cadastrada">
+            <input id="meta5" value="<?php echo $meta5 ?>" placeholder="Meta 5 ainda não cadastrada" id='abrir_dialogMeta5'>
             <button type="submit" class="btn" id="exluir" onclick="eliminaMeta5 ('meta')" name="deletar" data-toggle='tooltip' data-placement='right' title='Deletar meta'>
               <i class="fa fa-trash"></i>
             </button>
+            <dialog id="dialog_Meta5">
+              <?php echo $meta5 ?>
+              <br><br>
+              <input type="submit" class="btn" class="enviar_forms"  value="Ok" name="submit_Meta5" id='fechar_dialogMeta5'>
+            </dialog>
           
         </div>
             </form>
@@ -273,6 +300,58 @@ dialog::backdrop{
           ?>
           <br><br>
     </div>
+    <script>
+      /* meta1 */
+      const buttonMeta1 = document.querySelector("#abrir_dialogMeta1");
+      const modalMeta1 = document.querySelector("#dialog_Meta1");
+      const buttonCloseMeta1 = document.querySelector("dialog #fechar_dialogMeta1");
+      buttonMeta1.onclick=function(){
+        modalMeta1.showModal();
+      };
+      buttonCloseMeta1.onclick=function(){
+        modalMeta1.closeModal();
+      };
+      /* meta2 */
+      const buttonMeta2 = document.querySelector("#abrir_dialogMeta2");
+      const modalMeta2 = document.querySelector("#dialog_Meta2");
+      const buttonCloseMeta2 = document.querySelector("dialog #fechar_dialogMeta2");
+      buttonMeta2.onclick=function(){
+        modalMeta2.showModal();
+      };
+      buttonCloseMeta2.onclick=function(){
+        modalMeta2.closeModal();
+      };
+      /* meta3 */
+      const buttonMeta3 = document.querySelector("#abrir_dialogMeta3");
+      const modalMeta3 = document.querySelector("#dialog_Meta3");
+      const buttonCloseMeta3 = document.querySelector("dialog #fechar_dialogMeta3");
+      buttonMeta3.onclick=function(){
+        modalMeta3.showModal();
+      };
+      buttonCloseMeta3.onclick=function(){
+        modalMeta3.closeModal();
+      };
+      /* meta4 */
+      const buttonMeta4 = document.querySelector("#abrir_dialogMeta4");
+      const modalMeta4 = document.querySelector("#dialog_Meta4");
+      const buttonCloseMeta4 = document.querySelector("dialog #fechar_dialogMeta4");
+      buttonMeta4.onclick=function(){
+        modalMeta4.showModal();
+      };
+      buttonCloseMeta4.onclick=function(){
+        modalMeta4.closeModal();
+      };
+      /* meta5 */
+      const buttonMeta5 = document.querySelector("#abrir_dialogMeta5");
+      const modalMeta5 = document.querySelector("#dialog_Meta5");
+      const buttonCloseMeta5 = document.querySelector("dialog #fechar_dialogMeta5");
+      buttonMeta5.onclick=function(){
+        modalMeta5.showModal();
+      };
+      buttonCloseMeta5.onclick=function(){
+        modalMeta5.closeModal();
+      };
+    </script>
     <script>
       var desc = document.querySelector("#inputNovaTarefa");
       desc.addEventListener("keypress", function(e) {

@@ -412,13 +412,20 @@ while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
     $y++;
   }
 }
-$total_metas= $saude+$relacionamento+$trabalho+$dinheiro+$outro;
-$saude2=($saude*100)/$total_metas;
-$relacionamento2=($relacionamento*100)/$total_metas;
-$dinheiro2=($dinheiro*100)/$total_metas;
-$trabalho2=($trabalho*100)/$total_metas;
-$outro2=($outro*100)/$total_metas;
-
+if($x>1){
+  $total_metas= $saude+$relacionamento+$trabalho+$dinheiro+$outro;
+  $saude2=($saude*100)/$total_metas;
+  $relacionamento2=($relacionamento*100)/$total_metas;
+  $dinheiro2=($dinheiro*100)/$total_metas;
+  $trabalho2=($trabalho*100)/$total_metas;
+  $outro2=($outro*100)/$total_metas;
+}else{
+  $saude2=0;
+  $relacionamento2=0;
+  $dinheiro2=0;
+  $trabalho2=0;
+  $outro2=0;
+}
 ?>
 <!doctype html>
 <html>

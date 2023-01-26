@@ -26,13 +26,8 @@ if(isset($_POST['lancar'])){
   $sql_turma="INSERT INTO turmas(nome_turma) VALUES ('$nome_turma')";
   $result_turma=$conexao_forms15->query($sql_turma);
 }
-
-
 $sql_nome="SELECT nome_turma FROM turmas ORDER BY cod_turma DESC";
 $result3=$conexao_forms15->query($sql_nome);
-
-
-
 ?>
 <!doctype html>
 <html>
@@ -194,12 +189,13 @@ dialog::backdrop{
           echo "<td>" . $user_data['nome'] . "</td>";
           echo "<td>" . $user_data['sobrenome'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
-          echo "<tr>";
+          echo "</tr>";
         }
         ?>
               </tbody>
             </table>
             <br><br>
+            <!--
             <div>
               <form action="turmas.php" method="post" name="forms">
                 <h4>Nome da nova turma</h4>
@@ -209,23 +205,93 @@ dialog::backdrop{
                 </button>
               </form>
             </div>
-            <div>
 
-            
+            <div>
             <h1>nome da turma</h1>
             <select>
             <?php
-            while($user_data = mysqli_fetch_assoc($result3)) {  
+           /* while($user_data = mysqli_fetch_assoc($result3)) {  
               echo "<option>".$user_data['nome_turma']."</option>";
-            }
+            }*/
             ?>
-            </select>
-            
-
-                 
-            </div>
+            </select> 
+            </div>-->
             <br><br><br>
           </div>
+            <h3><b>Turmas</b></h3>
+          <div>
+          <table class="table">
+            <thead class="thead-light">
+               <tr>
+                <th scope="col">Cógigo-Turma</th>
+                <th scope="col">Turma</th>
+                <th scope="col">Nº Alunos</th>
+               </tr>
+              </thead>
+              <tbody>
+              <?php
+              while($user_data = mysqli_fetch_assoc($result2)){
+                  echo "<tr>";
+                  echo "<td>" . $user_data['cod_turma'] . "</td>";
+                  echo "<td>" . $user_data['nome_turma'] . "</td>";
+                  echo "<td>" . $user_data['nome'] . "</td>";
+                  echo "</tr>";
+              };
+              ?>
+            </tbody>
+            </table>
+            <br><br>
+          </div>
+          <div>
+            <button id='abrir_dialogTurma' class="btn" style="background:#000; color:#fff">Lançar turma</button>           
+            <dialog id='dialog_Turma'>
+              <h2 id='titulo_dialog'>Lançar Turma</h2><br>
+              <h4>Nome da Turma:</h4>
+              <form action="turmas.php" method="post" name="forms">
+              <input type='text' value='' name="nome_turma" id="nome_turma" maxlength="90">
+              <button type="submit" name="lancar" id="lancar">Criar Turma</button>
+              </form><br><br>
+              <a href='turmas.php'><button id='fechar_dialogTurma'>Cancelar</button></a>
+            </dialog>
+          </div>
+          <br><br><br>
+          <h3><b>Alocar Alunos</b></h3>
+          <div>
+          <table class="table">
+            <thead class="thead-light">
+               <tr>
+                <th scope="col">Turmas</th>
+                <th scope="col">Aluno</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sobrenome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Alocar</th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+              while($user_data = mysqli_fetch_assoc($result2)){
+                    echo "<tr>";
+                    echo "<form action='turmas_save.php' method='post'>";
+                    echo "<td>" . $user_data['cod_turma'] . "</td>";
+                    echo "<td><option name='nome_turma'>".$user_data['nome_turma']."</option></td>";
+                    echo "<td>" . $user_data['cod'] . "</td>";
+                    echo "<td>" . $user_data['nome'] . "</td>";
+                    echo "<td>" . $user_data['sobrenome'] . "</td>";
+                    echo "<td>" . $user_data['email'] . "</td>";
+                    echo "<td>
+                      <input type='hidden' name=cod value='$cod'>
+                      <button type='submit' name='adicionar' id='adicionar'>Adicionar</button>
+                          </td>";
+                    echo "</forms>";
+                    echo "</tr>";
+              };
+              ?>
+              </tbody>
+            </table>
+            <br><br>
+          </div>
+
 </div>
         
     </div>
@@ -233,6 +299,17 @@ dialog::backdrop{
     <!--Container Main end-->
 
     <script>
+        /* dialog turma */
+        const buttonTurma = document.querySelector("#abrir_dialogTurma");
+      const modalTurma = document.querySelector("#dialog_Turma");
+      const buttonCloseTurma = document.querySelector("dialog #fechar_dialogTurma");
+      buttonTurma.onclick=function(){
+        modalTurma.showModal();
+      };
+      buttonCloseTurma.onclick=function(){
+        modalTurma.closeModal();
+      };
+
       /* saida */
       function confirmaSair(){
     var confirma =confirm("André, tem certeza que deseja encerrar a sessão?");
@@ -303,7 +380,7 @@ searchData();
 }
 });
 function searchData() {
-window.location = 'sistema.php?search=' + search.value;
+window.location = 'turmas.php?search=' + search.value;
 };
 
 
