@@ -13,7 +13,7 @@
 
     /* cadastro */
     $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,cpf,cod_turma,nome_turma) 
-    VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf','10','Turma Geral')");
+    VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf',10,'Turma Geral')");
 
     /* metas */
     $result2= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(nome,sobrenome,email) 

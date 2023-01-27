@@ -500,6 +500,26 @@ if($x>1){
     ul {
       list-style:none;
       }
+      .cores1:hover {
+      background-color: #36a2eb !important;
+    }
+
+    .cores2:hover {
+      background-color: #9966ff !important;
+    }
+
+    .cores3:hover {
+      background-color: #4bc0c0 !important;
+    }
+
+    .cores4:hover {
+      background-color: #ff9f40 !important;
+    }
+
+    .cores5:hover {
+      background-color: #FA8072 !important;
+      /* transform: scale(1.1); */
+    }
   </style>
 </head>
 
@@ -526,7 +546,6 @@ if($x>1){
               
               echo "<a href='meta.php?cod=$user_data[cod]' class='nav_link active'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas</span></a>" ;
               
-              echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
             ?>
           </div>
         </div> <a href="#" class="nav_link"> <i class='bx bx-log-out nav_icon' onclick="confirmaSair()"></i> <span class="nav_name">Sair</span>
@@ -550,7 +569,7 @@ if($x>1){
         <!-- 12 meses -->
 
         <!-- saude -->
-        <section class="list" style="background:#6495ED;">
+        <section class="list cores1" style="background:#60b2ea8f;">
         <header>Objetivos: 12 meses (Saúde)</header>
           <article class="card" id='abrir_dialogSaude'>
           <ul>
@@ -619,7 +638,7 @@ if($x>1){
         </section>
 
         <!-- relacionamento -->
-        <section class="list" style="background:#DDA0DD;">
+        <section class="list cores2" style="background:#9966ff73;">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialogRelacionamento' >
             <ul>
@@ -689,7 +708,7 @@ if($x>1){
         </section>
 
          <!-- Trabalho -->
-         <section class="list" style="background:#43f160">
+         <section class="list cores3" style="background:#ff9f4078">
         <header>Objetivos: 12 meses (Trabalho)</header>
           <article class="card" id='abrir_dialogTrabalho'>
           <ul>
@@ -757,7 +776,7 @@ if($x>1){
         </section>
 
          <!-- Dinheiro -->
-         <section class="list" style="background:#FFD700">
+         <section class="list cores4" style="background:#4bc0c06e">
         <header>Objetivos: 12 meses (Dinheiro)</header>
           <article class="card" id='abrir_dialogDinheiro'>
           <ul>
@@ -825,7 +844,7 @@ if($x>1){
         </section>
 
          <!-- Outro -->
-         <section class="list" style="background:#FA8072;">
+         <section class="list cores5" style="background:#fa807275;">
         <header>Objetivos: 12 meses (Demais objetivos)</header>
           <article class="card" id='abrir_dialogOutro' >
           <ul>
@@ -895,16 +914,21 @@ if($x>1){
       </div>
     </div>
     <br><br><br>
-    <div style="width: 20vw; display: inline-block; margin-left: 35%;">
-          <h2 style="text-align: center;"><b>Conclusão por metas</b></h2 style="text-align: center;">
-          <canvas id="metas-todas" width="300" height="300"></canvas>
-        </div>
-      <div><br><br><br>
-      <div style="width: 20vw; display: inline-block; margin-left: 35%;">
-          <h2><b>% de conclusão</b></h2>
-          <canvas id="metas-percent" width="300" height="300"></canvas>
-        </div>
-      </div><br><br><br>
+    <h2 style="text-align: center;"><b>Conclusão por metas</b></h2 style="text-align: center;"> <br><br><br>
+
+      <div class="conteiner">
+        <div class="row" style="justify-content: space-evenly; display: flex;">
+
+          <div class="col-4 a">
+            <h2>Conclusão por metas</h2>
+            <canvas id="metas-todas"></canvas>
+          </div>
+
+          <div class="col-4 r">
+            <h2>% de conclusão</h2>
+            <canvas id="metas-percent"></canvas>
+          </div>
+        </div><br><br><br>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/style-trelo.js"></script>
       <script> 
@@ -920,21 +944,21 @@ new Chart(
                 data: [<?=$saude2?>, <?=$relacionamento2?>, <?=$trabalho2?>, <?=$dinheiro2?>, <?=$outro2?>],  
                 
                 backgroundColor: [
-                  '#6495ED',
-                  '#DDA0DD',
-                  '#7CFC00',
-                  '#FFD700',
-                  '	#FA8072',
+                  '#60b2ea8f',
+                  '#9966ff73',
+                  '#ff9f40',
+                  '#4bc0c06e',
+                  '#FA8072',
                 ],
                 hoverBackgroundColor: [
-                  '#4169E1',
-                  '#C71585',
-                  '#32CD32',
-                  '#FFA500',
-                  '	#B22222'
+                  '#36a2eb',
+                  '#9966ff',
+                  '#ff9f4078',
+                  '#4bc0c0',
+                  '#B22222'
                 ],
                 borderColor: [
-                  'black',
+                  '#8080807a',
                 ],
                 borderWidth: 1,
                 hoverBorderWidth: 5,
@@ -959,21 +983,21 @@ new Chart(
                 data: [<?=$saude?>, <?=$relacionamento?>, <?=$trabalho?>, <?=$dinheiro?>, <?=$outro?>],  
                 
                 backgroundColor: [
-                  '#6495ED',
-                  '#DDA0DD',
-                  '#7CFC00',
-                  '#FFD700',
-                  '	#FA8072',
+                  '#60b2ea8f',
+                  '#9966ff73',
+                  '#ff9f40',
+                  '#4bc0c06e',
+                  '#FA8072',
                 ],
                 hoverBackgroundColor: [
-                  '#4169E1',
-                  '#C71585',
-                  '#32CD32',
-                  '#FFA500',
-                  '	#B22222'
+                  '#36a2eb',
+                  '#9966ff',
+                  '#ff9f4078',
+                  '#4bc0c0',
+                  '#B22222'
                 ],
                 borderColor: [
-                  'black',
+                  '#8080807a',
                 ],
                 borderWidth: 1,
                 hoverBorderWidth: 5,

@@ -192,7 +192,7 @@ while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
     $y++;
   }
 }
-
+if($x>1){
 $total_metas= $saude+$relacionamento+$trabalho+$dinheiro+$outro;
 $saude=($saude*100)/$total_metas;
 $relacionamento=($relacionamento*100)/$total_metas;
@@ -203,6 +203,7 @@ $outro=($outro*100)/$total_metas;
 $total_XY_porce=$x+$y;
 $x=($x*100)/$total_XY_porce;
 $y=($y*100)/$total_XY_porce;
+}
 ?>
 <!doctype html>
 <html>
@@ -242,6 +243,16 @@ $y=($y*100)/$total_XY_porce;
     transition: all 0.3s;
     border: none;
 }
+@media (max-width: 600px) {
+      .r {
+        width: 50% !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .a {
+        width: 41% !important;
+      }
+    }
   </style>
 </head>
 
@@ -265,11 +276,6 @@ $y=($y*100)/$total_XY_porce;
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário-Alunos</span> </a>"; 
               
               echo "<a href='sistema_metas_coach.php' class='nav_link active'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Meta-Alunos</span></a>" ;
-
-              echo "<a href='turmas.php' class='nav_link'><svg xmlns='http://www.w3.org/2000/svg' width='1.3em' height='1.3em' viewBox='0 0 24 24'><path fill='currentColor' d='M22 9V7h-2v2h-2v2h2v2h2v-2h2V9zM8 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm4.51-8.95C13.43 5.11 14 6.49 14 8s-.57 2.89-1.49 3.95C14.47 11.7 16 10.04 16 8s-1.53-3.7-3.49-3.95zm4.02 9.78C17.42 14.66 18 15.7 18 17v3h2v-3c0-1.45-1.59-2.51-3.47-3.17z'/></svg>
-              <span class='nav_name'>Turmas</span></a>";
-              
-              echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
               echo "<a href='gerarQRCode.php' class='nav_link'> <svg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' preserveAspectRatio='xMidYMid meet' 
               viewBox='0 0 32 32'><path fill='currentColor' d='M5 5v8h2v2h2v-2h4V5H5zm8 8v2h2v2h-4v2H5v8h8v-8h6v-2h-2v-2h4v-2h2v2h2v-2h2V5h-8v8h-6zm12 2v2h2v-2h-2zm0 2h-2v2h2v-2zm0 2v2h2v-2h-2zm0 2h-2v-2h-2v2h-5v6h2v-4h4v2h2v-2h1v-2zm-3 4h-2v2h2v-2zm1-8v-2h-2v2h2zm-12 0v-2H9v2h2zm-4-2H5v2h2v-2zm8-10v4h-1v2h1v1h2V9h1V7h-1V5h-2zM7 7h4v4H7V7zm14 0h4v4h-4V7zM8 8v2h2V8H8zm14 0v2h2V8h-2zM7 21h4v4H7v-4zm1 1v2h2v-2H8zm17 3v2h2v-2h-2z'/></svg>
@@ -371,18 +377,32 @@ $y=($y*100)/$total_XY_porce;
         <p>Veja aqui os dados de desempenhos das turmas e alunos</p>
       </b>
 <br><br>
-      <div style="justify-content: space-evenly; display: flex;">
-      
-        <div style="width: 30vw; display: inline-block;">
-          <h2>% de conclusão alunos</h2>
-          <canvas id="metas-todas" width="400" height="400"></canvas>
+<div class="conteiner">
+        <div class="row" style="justify-content: space-evenly; display: flex;">
+
+          <div class="col-4 a">
+            <h2>% de conclusão geral</h2>
+            <canvas id="conclusao"></canvas>
+          </div>
+
+          <div class="col-4 r">
+            <h2>% de conclusão por metas</h2>
+            <canvas id="metas-todas"></canvas>
+          </div>
         </div>
-      </div><br><br><br>
-      
-      <h2 style="text-align: center;">% de conclusão das atividades</h2 style="text-align: center;">
-      <div style="width: 30vw; display: inline-block; margin-left: 35%;">
-        <canvas id="conclusao" width="300" height="300"></canvas>
-      </div><br><br><br>
+        <br><br><br>
+
+        <!-- <h2 style="text-align: center;">% de conclusão das atividades</h2> -->
+        <!-- <div class="row" style="justify-content: center;">
+          <div class="col-5 r">
+            <h2 style="text-align: center;">% de conclusão alunos</h2>
+            <canvas id="conclusao"></canvas>
+          </div>
+        </div> -->
+      </div>
+      <br><br><br>
+
+
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/style-trelo.js"></script>
       
@@ -401,21 +421,21 @@ new Chart(
                  <?=number_format($outro, 2, '.', '')?>],  
                 
                 backgroundColor: [
-                  '#6495ED',
-                  '#DDA0DD',
-                  '#7CFC00',
-                  '#FFD700',
-                  '	#FA8072',
+                  '#60b2ea8f',
+                '#9966ff73',
+                '#ff9f40',
+                '#4bc0c06e',
+                '#FA8072',
                 ],
                 hoverBackgroundColor: [
-                  '#4169E1',
-                  '#C71585',
-                  '#32CD32',
-                  '#FFA500',
-                  '	#B22222'
+                  '#36a2eb',
+                '#9966ff',
+                '#ff9f4078',
+                '#4bc0c0',
+                '#B22222'
                 ],
                 borderColor: [
-                  'black',
+                  '#8080807a',
                 ],
                 borderWidth: 1,
                 hoverBorderWidth: 5,
@@ -423,7 +443,7 @@ new Chart(
             },
             options: {
               scales: {
-                indexAxis: 'x'
+                indexAxis: 'y'
               }
             }
           });
@@ -440,15 +460,21 @@ new Chart(
                 label: 'Metas',
                 data: [<?=number_format($y, 2, '.', '')?>, <?=number_format($x, 2, '.', '')?>], ///trazer os dados de conclusão das anotações, numero 6 falta é o falta concluir  
                 backgroundColor: [
-                  '#2f2a28',
-                  '#b6a9a9',
+                  '#60b2ea8f',
+                '#9966ff73',
+                '#ff9f40',
+                '#4bc0c06e',
+                '#FA8072',
                 ],
                 hoverBackgroundColor: [
-                  '#ff4949',
-                  '#6bfb80'
+                  '#36a2eb',
+                '#9966ff',
+                '#ff9f4078',
+                '#4bc0c0',
+                '#B22222'
                 ],
                 borderColor: [
-                  'black',
+                  '#8080807a',
                 ],
                 borderWidth: 1,
                 hoverBorderWidth: 5,

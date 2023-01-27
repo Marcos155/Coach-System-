@@ -438,6 +438,37 @@ dialog::backdrop{
   ul {
       list-style:none;
       }
+      .cores1:hover {
+      background-color: #36a2eb !important;
+    }
+
+    .cores2:hover {
+      background-color: #9966ff !important;
+    }
+
+    .cores3:hover {
+      background-color: #4bc0c0 !important;
+    }
+
+    .cores4:hover {
+      background-color: #ff9f40 !important;
+    }
+
+    .cores5:hover {
+      background-color: #FA8072 !important;
+      /* transform: scale(1.1); */
+    }
+
+    @media (max-width: 600px) {
+      .r {
+        width: 50%;
+      }
+    }
+    @media (max-width: 600px) {
+      .a {
+        width: 41% !important;
+      }
+    }
   </style>
 </head>
 
@@ -461,12 +492,7 @@ dialog::backdrop{
               class='bx bx-message-square-detail nav_icon'></i> <span class='nav_name'>Formulário-Alunos</span> </a>"; 
               
               echo "<a href='sistema_metas_coach.php' class='nav_link active'> <i class='bx bxs-doughnut-chart'></i> <span class='nav_name'>Metas-Alunos</span></a>" ;
-
-              echo "<a href='turmas.php' class='nav_link'><svg xmlns='http://www.w3.org/2000/svg' width='1.3em' height='1.3em' viewBox='0 0 24 24'><path fill='currentColor' d='M22 9V7h-2v2h-2v2h2v2h2v-2h2V9zM8 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm4.51-8.95C13.43 5.11 14 6.49 14 8s-.57 2.89-1.49 3.95C14.47 11.7 16 10.04 16 8s-1.53-3.7-3.49-3.95zm4.02 9.78C17.42 14.66 18 15.7 18 17v3h2v-3c0-1.45-1.59-2.51-3.47-3.17z'/></svg>
-              <span class='nav_name'>Turmas</span></a>";
               
-              echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
-
               echo "<a href='gerarQRCode.php' class='nav_link'> <svg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' preserveAspectRatio='xMidYMid meet' 
               viewBox='0 0 32 32'><path fill='currentColor' d='M5 5v8h2v2h2v-2h4V5H5zm8 8v2h2v2h-4v2H5v8h8v-8h6v-2h-2v-2h4v-2h2v2h2v-2h2V5h-8v8h-6zm12 2v2h2v-2h-2zm0 2h-2v2h2v-2zm0 2v2h2v-2h-2zm0 2h-2v-2h-2v2h-5v6h2v-4h4v2h2v-2h1v-2zm-3 4h-2v2h2v-2zm1-8v-2h-2v2h2zm-12 0v-2H9v2h2zm-4-2H5v2h2v-2zm8-10v4h-1v2h1v1h2V9h1V7h-1V5h-2zM7 7h4v4H7V7zm14 0h4v4h-4V7zM8 8v2h2V8H8zm14 0v2h2V8h-2zM7 21h4v4H7v-4zm1 1v2h2v-2H8zm17 3v2h2v-2h-2z'/></svg>
                <span class='nav_name'>Gerar QR Code</span> </a>"; 
@@ -492,7 +518,7 @@ dialog::backdrop{
         <!-- 12 meses -->
 
         <!-- saude -->
-        <section class="list" style="background:#6495ED;">
+        <section class="list cores1" style="background:#60b2ea8f;">
         <header>Objetivos: 12 meses (Saúde)</header>
           <article class="card" id='abrir_dialogSaude'>
           <ul>
@@ -558,7 +584,7 @@ dialog::backdrop{
         </section>
 
         <!-- relacionamento -->
-        <section class="list" style="background:#DDA0DD;">
+        <section class="list cores2" style="background:#9966ff73;">
         <header>Objetivos: 12 meses (Relacionamentos)</header>
           <article class="card"  id='abrir_dialogRelacionamento' >
             <ul>
@@ -624,7 +650,7 @@ dialog::backdrop{
         </section>
 
          <!-- Trabalho -->
-         <section class="list" style="background:#43f160">
+         <section class="list cores4 " style="background:#ff9f4078">
         <header>Objetivos: 12 meses (Trabalho)</header>
           <article class="card" id='abrir_dialogTrabalho'>
           <ul>
@@ -690,7 +716,7 @@ dialog::backdrop{
         </section>
 
          <!-- Dinheiro -->
-         <section class="list" style="background:#FFD700">
+         <section class="list cores3" style="background:#4bc0c06e">
         <header>Objetivos: 12 meses (Dinheiro)</header>
           <article class="card" id='abrir_dialogDinheiro'>
           <ul>
@@ -756,7 +782,7 @@ dialog::backdrop{
         </section>
 
          <!-- Outro -->
-         <section class="list" style="background:#FA8072;">
+         <section class="list cores5" style="background:#fa807275;">
         <header>Objetivos: 12 meses (Demais objetivos)</header>
           <article class="card" id='abrir_dialogOutro' >
           <ul>
@@ -824,16 +850,23 @@ dialog::backdrop{
       </div>
     </div>
     <br><br><br>
-    <h2 style="text-align: center;"><b>Conclusão geral das metas</b></h2 style="text-align: center;">
-      <div style="width: 20vw; display: inline-block; margin-left: 35%;">
-        <canvas id="conclusao" width="300" height="300"></canvas>
-      </div><br><br><br>
+    <h2 style="text-align: center;"><b>Conclusão das metas <?php echo $nome ?></b></h2 style="text-align: center;"><br><br><br>
+    <div class="conteiner">
+        <div class="row" style="justify-content: space-evenly; display: flex;">
 
-      <div style="width: 20vw; display: inline-block; margin-left: 35%;">
-          <h2 style="text-align: center;"><b>Conclusão por metas</b></h2 style="text-align: center;">
-          <canvas id="metas-todas" width="300" height="300"></canvas>
+          <div class="col-4 a">
+            <h2>Conclusão de todas metas</h2>
+            <canvas id="conclusao"></canvas>
+          </div>
+
+          <div class="col-4 r">
+            <h2>Conclusão por metas</h2>
+            <canvas id="metas-todas"></canvas>
+          </div>
         </div>
-      </div><br><br><br>
+        <br><br><br>
+      </div>
+     <br><br><br>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/style-trelo.js"></script>
       <script> 
@@ -849,21 +882,21 @@ dialog::backdrop{
                 data: [<?=$saude?>, <?=$relacionamento?>, <?=$trabalho?>, <?=$dinheiro?>, <?=$outro?>],  
                 
                 backgroundColor: [
-                  '#6495ED',
-                  '#DDA0DD',
-                  '#7CFC00',
-                  '#FFD700',
-                  '	#FA8072',
+                  '#60b2ea8f',
+                  '#9966ff73',
+                  '#ff9f40',
+                  '#4bc0c06e',
+                  '#FA8072',
                 ],
                 hoverBackgroundColor: [
-                  '#4169E1',
-                  '#C71585',
-                  '#32CD32',
-                  '#FFA500',
-                  '	#B22222'
+                  '#36a2eb',
+                  '#9966ff',
+                  '#ff9f4078',
+                  '#4bc0c0',
+                  '#B22222'
                 ],
                 borderColor: [
-                  'black',
+                  '#8080807a',
                 ],
                 borderWidth: 1,
                 hoverBorderWidth: 5,
@@ -888,15 +921,15 @@ dialog::backdrop{
                 data: [<?=$y?>, <?=$x?>], ///trazer os dados de conclusão das anotações, numero 6  é o falta concluir  
                 
                 backgroundColor: [
-                  '#2f2a28',
-                  '#b6a9a9',
+                  '#001a7f82',
+                '#41b8d585',
                 ],
                 hoverBackgroundColor: [
-                  '#ff4949',
-                  '#6bfb80'
+                  '#001A7F',
+                '#41B8D5'
                 ],
                 borderColor: [
-                  'black',
+                  '#8080807a',
                 ],
                 borderWidth: 1,
                 hoverBorderWidth: 5,

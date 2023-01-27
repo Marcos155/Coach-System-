@@ -26,7 +26,7 @@ $sql_nome_turmas="SELECT*FROM turmas";
 $result3=$conexao_forms15->query($sql_nome_turmas);
 
 /* options com nomes dos alunos */
-$sql_nome_alunos="SELECT*FROM cadastro WHERE cod>1 ORDER BY cod DESC";
+$sql_nome_alunos="SELECT*FROM cadastro WHERE cod!=1";
 $result3_aluno=$conexao_forms15->query($sql_nome_alunos);
 
 /* lançar turmas */
@@ -34,6 +34,7 @@ if(isset($_POST['lancar'])){
   $criar_turma=$_POST['criar_turma'];
   $sql_turma="INSERT INTO turmas(nome_turma) VALUES ('$criar_turma')";
   $result_turma=$conexao_forms15->query($sql_turma);
+  header('Location:turmas.php');
 }
 
 /* tabelas das turmas existentes */
@@ -53,6 +54,22 @@ $sql_qtd_turmas="SELECT COUNT(cod_turma) as 'qtd_turmas' FROM turmas;";
                 $qtd_pessoas=$user_data['qtd_pessoas'];
               }
               
+              if(isset($_POST['alocar']))
+              {
+                $nova_turma=$_POST['nome_turma'];
+          
+                $cod_turmaBuscar="SELECT cod_turma FROM turmas WHERE nome_turma='$nova_turma' ";
+
+                $cod_turma=$conexao_forms15->query($cod_turmaBuscar);
+                $cod_turma2=mysqli_fetch_assoc($cod_turma);
+                
+                $nome_aluno=$_POST['nome_aluno'];
+                
+            
+                $resultado=mysqli_query($conexao_forms15,"UPDATE cadastro SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
+                   
+              }
+               
 ?>
 <!doctype html>
 <html>
@@ -189,7 +206,6 @@ dialog::backdrop{
               echo "<a href='turmas.php' class='nav_link active'><svg xmlns='http://www.w3.org/2000/svg' width='1.3em' height='1.3em' viewBox='0 0 24 24'><path fill='currentColor' d='M22 9V7h-2v2h-2v2h2v2h2v-2h2V9zM8 12c2.21 0 4-1.79 4-4s-1.79-4-4-4s-4 1.79-4 4s1.79 4 4 4zm0 1c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm4.51-8.95C13.43 5.11 14 6.49 14 8s-.57 2.89-1.49 3.95C14.47 11.7 16 10.04 16 8s-1.53-3.7-3.49-3.95zm4.02 9.78C17.42 14.66 18 15.7 18 17v3h2v-3c0-1.45-1.59-2.51-3.47-3.17z'/></svg>
               <span class='nav_name'>Turmas</span></a>"; 
               
-              echo "<a href='#' class='nav_link'> <i class='bx bx-chat'></i> <span class='nav_name'>Mensagem</span></a>";
 
               echo "<a href='gerarQRCode.php' class='nav_link'> <svg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' preserveAspectRatio='xMidYMid meet' 
               viewBox='0 0 32 32'><path fill='currentColor' d='M5 5v8h2v2h2v-2h4V5H5zm8 8v2h2v2h-4v2H5v8h8v-8h6v-2h-2v-2h4v-2h2v2h2v-2h2V5h-8v8h-6zm12 2v2h2v-2h-2zm0 2h-2v2h2v-2zm0 2v2h2v-2h-2zm0 2h-2v-2h-2v2h-5v6h2v-4h4v2h2v-2h1v-2zm-3 4h-2v2h2v-2zm1-8v-2h-2v2h2zm-12 0v-2H9v2h2zm-4-2H5v2h2v-2zm8-10v4h-1v2h1v1h2V9h1V7h-1V5h-2zM7 7h4v4H7V7zm14 0h4v4h-4V7zM8 8v2h2V8H8zm14 0v2h2V8h-2zM7 21h4v4H7v-4zm1 1v2h2v-2H8zm17 3v2h2v-2h-2z'/></svg>
@@ -257,15 +273,15 @@ dialog::backdrop{
       <div class="row justify-content-md-center">
         <div class="col-5 formulario">
           <h4><b>Alocar Alunos</b></h4><br>
-          <form action="turmas_save.php" method="post">
-            <label for="">Turma</label>
-            <select id="nome_turmas" name="nome_turma"list="nome_turmas" >
+          <form action="turmas.php" method="post">
+            <label >Turma</label>
+            <select id="nome_turmas" name="nome_turma" list="nome_turmas" >
               <?php
                 while ($nomesDasTurmas = mysqli_fetch_assoc($result3)) {
                 echo "<option>" . $nomesDasTurmas['nome_turma'] . "</option>";};
               ?>
             </select><br><br>
-            <label for="">Aluno</label>
+            <label>Aluno</label>
             <select id="nome_alunos"  name="nome_aluno"list="nome_alunos">
               <?php
                 while ($nomesDosAlunos = mysqli_fetch_assoc($result3_aluno)) {
@@ -281,9 +297,9 @@ dialog::backdrop{
         <div class="col-5 formulario">
           <h4><b>Criar Turmas</b></h4><br>
           <form action="turmas.php" method="post">
-            <input type="text" placeholder="Nome da turma" name="criar_turma" maxlength="11" id="criar_turmas" required>
+            <input type="text" placeholder="Nome da turma" name="criar_turma" maxlength="30" id="criar_turmas" required>
             <br>
-            <label for="characters">Quantidade de caracteres: 11/ </label><span id="characters"></span><br><br>
+            <label for="characters">Quantidade de caracteres: 30/ </label><span id="characters"></span><br><br>
             <button type="submit" name="lancar" class='btn btn-sm btn-dark' >Lançar Turma</button>
           </form>
         </div>
@@ -309,7 +325,7 @@ dialog::backdrop{
                   echo "<td>" . $user_data3['nome_turma'] . "</td>";
                   echo "<td>
                       <a class='btn btn-sm btn-dark' href='delete_turma.php?cod_turma=$user_data3[cod_turma]'
-                        placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar cadastro'>
+                        placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar Turma'>
                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
                         <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
                          <path fill-rule='evenodd' d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z'/>
@@ -329,7 +345,7 @@ dialog::backdrop{
     <script>
       var desc = document.querySelector("#criar_turmas");
       desc.addEventListener("keypress", function(e) {
-      var maxChars = 11;
+      var maxChars = 30;
       inputLength = desc.value.length;
       /* conta os caracteres */
       document.getElementById('characters').innerText = inputLength
