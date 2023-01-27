@@ -509,11 +509,11 @@ if($x>1){
     }
 
     .cores3:hover {
-      background-color: #4bc0c0 !important;
+      background-color: #ff9f40 !important;
     }
 
     .cores4:hover {
-      background-color: #ff9f40 !important;
+      background-color:   #4bc0c0!important;
     }
 
     .cores5:hover {
