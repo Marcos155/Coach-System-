@@ -29,6 +29,11 @@ $result3=$conexao_forms15->query($sql_nome_turmas);
 $sql_nome_alunos="SELECT*FROM cadastro WHERE cod!=1";
 $result3_aluno=$conexao_forms15->query($sql_nome_alunos);
 
+/* gambiarra para o código dos alunos */
+$sql_cod_turmas="SELECT cod_turma FROM turmas ";
+$result3_cod=$conexao_forms15->query($sql_cod_turmas);
+
+
 /* lançar turmas */
 if(isset($_POST['lancar'])){
   $criar_turma=$_POST['criar_turma'];
@@ -58,15 +63,12 @@ $sql_qtd_turmas="SELECT COUNT(cod_turma) as 'qtd_turmas' FROM turmas;";
               {
                 $nova_turma=$_POST['nome_turma'];
           
-                $cod_turmaBuscar="SELECT cod_turma FROM turmas WHERE nome_turma='$nova_turma' ";
-
-                $cod_turma=$conexao_forms15->query($cod_turmaBuscar);
-                $cod_turma2=mysqli_fetch_assoc($cod_turma);
+                $cod_turma=$_POST['cod_turma'];
                 
                 $nome_aluno=$_POST['nome_aluno'];
                 
             
-                $resultado=mysqli_query($conexao_forms15,"UPDATE cadastro SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
+                $resultado=mysqli_query($conexao_forms15,"UPDATE cadastro SET nome_turma='$nova_turma', cod_turma='$cod_turma' WHERE nome='$nome_aluno' ");
                    
               }
                
@@ -275,6 +277,12 @@ dialog::backdrop{
           <h4><b>Alocar Alunos</b></h4><br>
           <form action="turmas.php" method="post">
             <label >Turma</label>
+            <select id="cod_turmas" name="cod_turma" list="cod_turmas" >
+              <?php
+                while ($codDasTurmas = mysqli_fetch_assoc($result3_cod)) {
+                echo "<option>" . $codDasTurmas['cod_turma'] . "</option>";};
+              ?>
+            </select>
             <select id="nome_turmas" name="nome_turma" list="nome_turmas" >
               <?php
                 while ($nomesDasTurmas = mysqli_fetch_assoc($result3)) {
