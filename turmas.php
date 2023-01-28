@@ -47,30 +47,23 @@ $turmas_existentes="SELECT*FROM turmas";
 $turmas_cadastradas=$conexao_forms15->query($turmas_existentes);
 
 $sql_qtd_turmas="SELECT COUNT(cod_turma) as 'qtd_turmas' FROM turmas;";
-              $resultado4=$conexao_forms15->query($sql_qtd_turmas);
-              
-              while($user_data = mysqli_fetch_assoc($resultado4)) { 
-                $qtd_turmas=$user_data['qtd_turmas'];
-              }
+$resultado4=$conexao_forms15->query($sql_qtd_turmas);
 
-              $sql_qtd_pessoas="SELECT COUNT(cod) as 'qtd_pessoas' FROM cadastro;";
-              $resultado3=$conexao_forms15->query($sql_qtd_pessoas);
-              while($user_data = mysqli_fetch_assoc($resultado3)) { 
-                $qtd_pessoas=$user_data['qtd_pessoas'];
-              }
-              
-              if(isset($_POST['alocar']))
-              {
-                $nova_turma=$_POST['nome_turma'];
+while($user_data = mysqli_fetch_assoc($resultado4)) { 
+  $qtd_turmas=$user_data['qtd_turmas'];}
           
-                $cod_turma=$_POST['cod_turma'];
-                
-                $nome_aluno=$_POST['nome_aluno'];
-                
-            
-                $resultado=mysqli_query($conexao_forms15,"UPDATE cadastro SET nome_turma='$nova_turma', cod_turma='$cod_turma' WHERE nome='$nome_aluno' ");
-                   
-              }
+              
+if(isset($_POST['alocar'])){
+  $nova_turma=$_POST['nome_turma'];
+  $cod_turma=$_POST['cod_turma'];
+  $nome_aluno=$_POST['nome_aluno'];
+  $val_turmas="SELECT*FROM turmas WHERE cod_turma='$cod_turma' and nome_turma='$nova_turma' ";
+  $resultado_val_turmas=$conexao_forms15->query($val_turmas);
+
+  if(mysqli_num_rows($resultado_val_turmas)>0){
+    $resultado=mysqli_query($conexao_forms15,"UPDATE cadastro SET nome_turma='$nova_turma', cod_turma='$cod_turma' WHERE nome='$nome_aluno' ");
+    header('Location:turmas.php');}
+  }          
                
 ?>
 <!doctype html>
@@ -247,11 +240,10 @@ dialog::backdrop{
             <table class="table">
             <thead class="thead-light">
                <tr>
-                <th scope="row">Código Turma</th>
+                <th scope="row">Código-Turma</th>
                 <th scope="col">Turma</th>
+                <th scope="col">Código-Aluno</th>
                 <th scope="col">Aluno</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Sobrenome</th>
                 <th scope="col">Email</th>
                 </tr>
               </thead>
@@ -262,8 +254,7 @@ dialog::backdrop{
           echo "<td>" . $user_data['cod_turma'] . "</td>";
           echo "<td>" . $user_data['nome_turma'] . "</td>";
           echo "<td>" . $user_data['cod'] . "</td>";
-          echo "<td>" . $user_data['nome'] . "</td>";
-          echo "<td>" . $user_data['sobrenome'] . "</td>";
+          echo "<td>" . $user_data['nome'] ." ".$user_data['sobrenome'] ."</td>";
           echo "<td>" . $user_data['email'] . "</td>";
           echo "</tr>";
         }
@@ -323,6 +314,7 @@ dialog::backdrop{
                 <th scope="col">Código Turma</th>
                 <th scope="col">Turma</th>
                 <th scope="col">Deletar Turma</th>
+
                </tr>
             </thead>
             <tbody>
