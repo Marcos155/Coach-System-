@@ -152,7 +152,7 @@
       </div>
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">CPF</label>
-        <input type="tel" class="form-control" id="exampleFormControlTextarea1"  placeholder="CPF 000.000.000-00"
+        <input type="tel" class="form-control" id="cpf"  placeholder="CPF 000.000.000-00"
               name="cpf" value="<?php echo $cpf ?>" maxlength="11" oninput="mascara(this)" required>
       </div>
       <div class="mb-3">
@@ -330,6 +330,20 @@ function mascara(i){
   function validar(){
   var senha=forms.password.value;
   var confirmar_senha=forms.confirm_password.value;
+  var cpf=forms.cpf.value;
+  var phone=forms.phone.value;
+
+if(phone.length != 15 ){
+					alert('Número de telefone inválido!');
+					forms.phone.focus();
+          document.getElementById('tel').value='';
+					return false;}
+      
+  if(cpf.length != 14){
+					alert('Número de CPF inválido!');
+					forms.cpf.focus();
+          document.getElementById('cpf').value='';
+					return false;}
 
   if(senha.length <= 5){
 					alert('Preencha o campo senha com minimo 6 caracteres');

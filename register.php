@@ -11,6 +11,20 @@
     $tele= $_POST['phone'];
     $cpf= $_POST['cpf'];
 
+    $val_email="SELECT*FROM cadastro WHERE email='$email'";
+    $resultado_val_email=$conexao_forms15->query($val_email);
+
+    $val_nome="SELECT*FROM cadastro WHERE nome='$nome' and sobrenome='$sobrenome' ";
+    $resultado_val_nome=$conexao_forms15->query($val_nome);
+    
+    $val_cpf="SELECT*FROM cadastro WHERE cpf='$cpf'";
+    $resultado_val_cpf=$conexao_forms15->query($val_cpf);
+
+    $val_tele="SELECT*FROM cadastro WHERE telefone='$tele'";
+    $resultado_val_tele=$conexao_forms15->query($val_tele);
+
+    if(mysqli_num_rows($resultado_val_email)<=0 && mysqli_num_rows($resultado_val_cpf)<=0 && mysqli_num_rows($resultado_val_nome)<=0 && mysqli_num_rows($resultado_val_tele)<=0){
+
     /* cadastro */
     $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,cpf,cod_turma,nome_turma) 
     VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf',10,'Turma Geral')");
@@ -45,7 +59,9 @@
     
     
     /*header('Location:formulario.php');*/
-    header('Location:entrar.php');
+    header('Location:entrar.php');}else{
+      echo "<br><br><h2> Cadastro já existente! </h2><h4>Faça seu login aqui: <a href='entrar.php' style='color:#DC143C;'><b> ENTRAR</b></a></h4>";
+    }
   } 
  ?> 
 <!DOCTYPE html>
@@ -103,8 +119,8 @@
         <input type="text" placeholder="Nome" name="username" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="text" placeholder="Sobrenome" name="sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="email" placeholder="Email" name="email" required/>
-        <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" maxlength="15" minlength="15" id="tel" required>
-        <input type="tel" name="cpf" placeholder="CPF 000.000.000-00" minlength="11" id="cpf" maxlength="11" oninput="mascara(this)" required>
+        <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" maxlength="15"  id="tel" required>
+        <input type="tel" name="cpf" placeholder="CPF 000.000.000-00"  id="cpf" maxlength="14" oninput="mascara(this)" required>
    
         <table> 
         <tr><td><input type="password" placeholder="Senha" name="password"  id="senha" required/></td>
@@ -139,7 +155,7 @@
           <!--
         <button> Inscreva-se</button>
            -->
-          <input type="submit" value="inscrever-se" name="submit" id="enviar"
+          <input type="submit" value="Cadastrar" name="submit" id="enviar"
           onclick="return validar()" onclick="alert('cadastro realizado com sucesso!')">
         </div>
       </form>
@@ -214,7 +230,22 @@ function mascara(i){
   function validar(){
   var senha=forms.password.value;
   var confirmar_senha=forms.confirm_password.value;
+  var cpf=forms.cpf.value;
+  var phone=forms.phone.value;
 
+   
+  if(phone.length != 15 ){
+					alert('Número de telefone inválido!');
+					forms.phone.focus();
+          document.getElementById('tel').value='';
+					return false;}
+      
+  if(cpf.length != 14){
+					alert('Número de CPF inválido!');
+					forms.cpf.focus();
+          document.getElementById('cpf').value='';
+					return false;}
+          
   if(senha.length <= 5){
 					alert('Preencha o campo senha com minimo 6 caracteres');
 					forms.senha.focus();
@@ -266,7 +297,7 @@ function mascara(i){
   }
 
 
-  /* mensagem */
+  /* o CPF existe? */
 
   </script>
 </body>

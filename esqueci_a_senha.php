@@ -80,7 +80,7 @@ if(isset($_POST['submit'])){
   <div class="form-container sign-in-container">
     
 <?php
-      echo "<form action='esqueci_a_senha.php' method='POST' class='form' class='signin-form' >"
+      echo "<form action='esqueci_a_senha.php' method='POST' class='form' class='signin-form' name='forms'>"
 ?>
         <h1>Redefinir senha</h1>
         <br>
@@ -91,7 +91,7 @@ if(isset($_POST['submit'])){
         <input type="text" placeholder="Nome" name="nome" class="form-control" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <br>
         <div>
-          <input type="submit" value="Redefinir Senha" name="submit" id="enviar">
+          <input type="submit" value="Redefinir Senha" name="submit" id="enviar" onclick="validar()">
         </div>
       </form>
     </div>
@@ -115,6 +115,15 @@ if(isset($_POST['submit'])){
    if (v.length == 3 || v.length == 7) i.value += ".";
    if (v.length == 11) i.value += "-";
 }
+function validar(){
+  var cpf=forms.cpf.value; 
+  if(cpf.length != 14){
+					alert('Número de CPF inválido!');
+					forms.cpf.focus();
+          document.getElementById('cpf').value='';
+					return false;}
+  }
+
 </script>
 </body>
 </html>

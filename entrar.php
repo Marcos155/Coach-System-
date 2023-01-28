@@ -8,30 +8,7 @@
     $senha= $_POST['password'];
   }
 
-  /*if(isset($_POST['submit']))
-  {
-    
-    include_once('config.php');
 
-    $nome= $_POST['username'];
-    $nome= $_POST['sobrenome'];
-    $email= $_POST['email'];
-    $senha= $_POST['password'];
-    $tele= $_POST['phone'];
-    $sexo=$_POST['sexo'];
-
-    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,sexo) 
-    VALUES ('$nome','$sobrenome','$email','$senha','$tele','$sexo')");*/
-
-
-    /*$email_log=$_POST['email'];
-    $senha_log=$_POST['password'];
-    $result2= mysqli_query($conexao_login, "INSERT INTO tb_login(email,senha) 
-    VALUES ('$email_log','$senha_log')");*/
-
-    /*header('Location:entrar.php');
-
-  }*/
  ?> 
 <!DOCTYPE html>
 <html lang="en">

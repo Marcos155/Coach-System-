@@ -914,7 +914,7 @@ if($x>1){
       </div>
     </div>
     <br><br><br>
-    <h2 style="text-align: center;"><b>Conclusão por metas</b></h2 style="text-align: center;"> <br><br><br>
+    <h2 style="text-align: center;"><b>Conclusão das metas</b></h2 style="text-align: center;"> <br><br><br>
 
       <div class="conteiner">
         <div class="row" style="justify-content: space-evenly; display: flex;">
