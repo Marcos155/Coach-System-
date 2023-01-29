@@ -26,8 +26,8 @@
     if(mysqli_num_rows($resultado_val_email)<=0 && mysqli_num_rows($resultado_val_cpf)<=0 && mysqli_num_rows($resultado_val_nome)<=0 && mysqli_num_rows($resultado_val_tele)<=0){
 
     /* cadastro */
-    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,cpf,cod_turma,nome_turma) 
-    VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf',10,'Turma Geral')");
+    $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,cpf,nome_turma) 
+    VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf','Turma Geral')");
 
     /* metas */
     $result2= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(nome,sobrenome,email) 

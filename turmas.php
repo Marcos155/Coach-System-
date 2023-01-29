@@ -13,8 +13,7 @@ $logado = $_SESSION['email'];
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
-    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' or cpf LIKE '%$data%' or 
-    cod_turma LIKE '%$data%' or nome_turma LIKE '%$data%' ";
+    telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' or cpf LIKE '%$data%' or nome_turma LIKE '%$data%' or nome and sobrenome Like '%$data%' ";
 
 } else {
   $sql = "SELECT * FROM cadastro WHERE cod>1 ORDER BY cod DESC";
@@ -29,24 +28,22 @@ $result3=$conexao_forms15->query($sql_nome_turmas);
 $sql_nome_alunos="SELECT*FROM cadastro WHERE cod!=1";
 $result3_aluno=$conexao_forms15->query($sql_nome_alunos);
 
-/* gambiarra para o código dos alunos */
-$sql_cod_turmas="SELECT cod_turma FROM turmas ";
-$result3_cod=$conexao_forms15->query($sql_cod_turmas);
-
-
 /* lançar turmas */
 if(isset($_POST['lancar'])){
   $criar_turma=$_POST['criar_turma'];
+  $val_turma="SELECT*FROM turmas WHERE nome_turma='$criar_turma' ";
+  $resultado_val_turmas=$conexao_forms15->query($val_turma);
+  if(mysqli_num_rows($resultado_val_turmas)<=0 && $criar_turma!='Turma Geral'){
   $sql_turma="INSERT INTO turmas(nome_turma) VALUES ('$criar_turma')";
   $result_turma=$conexao_forms15->query($sql_turma);
-  header('Location:turmas.php');
+  header('Location:turmas.php');}
 }
 
 /* tabelas das turmas existentes */
 $turmas_existentes="SELECT*FROM turmas";
 $turmas_cadastradas=$conexao_forms15->query($turmas_existentes);
 
-$sql_qtd_turmas="SELECT COUNT(cod_turma) as 'qtd_turmas' FROM turmas;";
+$sql_qtd_turmas="SELECT COUNT(nome_turma) as 'qtd_turmas' FROM turmas;";
 $resultado4=$conexao_forms15->query($sql_qtd_turmas);
 
 while($user_data = mysqli_fetch_assoc($resultado4)) { 
@@ -55,14 +52,9 @@ while($user_data = mysqli_fetch_assoc($resultado4)) {
               
 if(isset($_POST['alocar'])){
   $nova_turma=$_POST['nome_turma'];
-  $cod_turma=$_POST['cod_turma'];
   $nome_aluno=$_POST['nome_aluno'];
-  $val_turmas="SELECT*FROM turmas WHERE cod_turma='$cod_turma' and nome_turma='$nova_turma' ";
-  $resultado_val_turmas=$conexao_forms15->query($val_turmas);
-
-  if(mysqli_num_rows($resultado_val_turmas)>0){
-    $resultado=mysqli_query($conexao_forms15,"UPDATE cadastro SET nome_turma='$nova_turma', cod_turma='$cod_turma' WHERE nome='$nome_aluno' ");
-    header('Location:turmas.php');}
+  $resultado=mysqli_query($conexao_forms15,"UPDATE cadastro SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
+  header('Location:turmas.php');
   }          
                
 ?>
@@ -174,6 +166,12 @@ dialog::backdrop{
     transition: height 0.2s ease;
     box-shadow: 2px 2px #000;
     }
+    #realocar{
+      color:#000;
+    }
+    #realocar:hover{
+      color: #f01e1e;
+    }
   </style>
 </head>
 
@@ -240,22 +238,30 @@ dialog::backdrop{
             <table class="table">
             <thead class="thead-light">
                <tr>
-                <th scope="row">Código-Turma</th>
                 <th scope="col">Turma</th>
                 <th scope="col">Código-Aluno</th>
-                <th scope="col">Aluno</th>
-                <th scope="col">Email</th>
+                <th scope="col">Nome-Aluno</th>
+                <th scope="col">Sobrenome-Aluno</th>
+                <?php 
+                if(mysqli_num_rows($result3)>0){
+                  echo"<th scope='col'>Realocar</th>";}
+                ?>
                 </tr>
               </thead>
               <tbody>
               <?php
         while ($user_data = mysqli_fetch_assoc($result2)) {
           echo "<tr>";
-          echo "<td>" . $user_data['cod_turma'] . "</td>";
           echo "<td>" . $user_data['nome_turma'] . "</td>";
           echo "<td>" . $user_data['cod'] . "</td>";
-          echo "<td>" . $user_data['nome'] ." ".$user_data['sobrenome'] ."</td>";
-          echo "<td>" . $user_data['email'] . "</td>";
+          echo "<td>" . $user_data['nome'] ."</td>";
+          echo "<td>" . $user_data['sobrenome'] . "</td>";
+          if(mysqli_num_rows($result3)>0){
+          echo "<td>
+                      <a href='turmas_realocar.php?nome_turma=$user_data[nome_turma]' id='realocar' data-toggle='tooltip' data-placement='right' title='Realocar Aluno'> 
+                      <svg xmlns='http://www.w3.org/2000/svg' width='1.5em' height='1.5em' viewBox='0 0 24 24'><path fill='currentColor' d='m19.775 22.575l-2.975-2.95q-.175.175-.35.275q-.175.1-.45.1H2q-.425 0-.712-.288Q1 19.425 1 19v-1.8q0-.85.438-1.563q.437-.712 1.162-1.087q1.55-.775 3.15-1.163Q7.35 13 9 13q.3 0 .613.012q.312.013.612.038L9.175 12H9q-1.65 0-2.825-1.175Q5 9.65 5 8v-.175L1.375 4.2Q1.1 3.925 1.1 3.5q0-.425.275-.725q.3-.275.725-.275t.725.275l18.375 18.4q.275.275.275.7q0 .425-.275.7q-.3.3-.712.3q-.413 0-.713-.3ZM16.65 13.15q1.275.15 2.4.512q1.125.363 2.1.888q.9.5 1.375 1.112Q23 16.275 23 17v2q0 .275-.112.462q-.113.188-.238.313L18.875 16q-.225-.825-.787-1.562q-.563-.738-1.438-1.288ZM3 18h12v-.175l-2.175-2.175q-.95-.325-1.912-.488Q9.95 15 9 15q-1.4 0-2.775.337q-1.375.338-2.725 1.013q-.225.125-.362.35q-.138.225-.138.5Zm11.05-6.825q.475-.7.712-1.5Q15 8.875 15 8q0-1.05-.363-2.025Q14.275 5 13.6 4.2q.35-.125.7-.163Q14.65 4 15 4q1.65 0 2.825 1.175Q19 6.35 19 8q0 1.65-1.237 2.825Q16.525 12 14.875 12Zm-1.45-1.45l-1.6-1.6V8q0-.825-.587-1.412Q9.825 6 9 6h-.125l-1.6-1.6q.4-.2.825-.3q.425-.1.9-.1q1.65 0 2.825 1.175Q13 6.35 13 8q0 .475-.1.9q-.1.425-.3.825ZM9 18h6H3h6Zm.95-10.95Z'/></svg>
+                      </a>
+                  </td>";};
           echo "</tr>";
         }
         ?>
@@ -267,27 +273,33 @@ dialog::backdrop{
         <div class="col-5 formulario">
           <h4><b>Alocar Alunos</b></h4><br>
           <form action="turmas.php" method="post">
-            <label >Turma</label>
-            <select id="cod_turmas" name="cod_turma" list="cod_turmas" >
-              <?php
-                while ($codDasTurmas = mysqli_fetch_assoc($result3_cod)) {
-                echo "<option>" . $codDasTurmas['cod_turma'] . "</option>";};
-              ?>
-            </select>
-            <select id="nome_turmas" name="nome_turma" list="nome_turmas" >
-              <?php
+            <label >Turma:</label>
+            <?php
+             if(mysqli_num_rows($result3)>0){
+             echo "<select id='nome_turmas' name='nome_turma' list='nome_turmas' >";
+            
                 while ($nomesDasTurmas = mysqli_fetch_assoc($result3)) {
-                echo "<option>" . $nomesDasTurmas['nome_turma'] . "</option>";};
+                echo "<option>" . $nomesDasTurmas['nome_turma'] . "</option>";};}else{
+                  echo "<b>Não há turmas cadastradas</b>";
+                }
               ?>
             </select><br><br>
-            <label>Aluno</label>
-            <select id="nome_alunos"  name="nome_aluno"list="nome_alunos">
-              <?php
+            <label>Aluno:</label>
+            <?php
+            if(mysqli_num_rows($result3_aluno)>0){
+              echo "<select id='nome_alunos'  name='nome_aluno'list='nome_alunos'>";
+            
                 while ($nomesDosAlunos = mysqli_fetch_assoc($result3_aluno)) {
-                echo "<option>" . $nomesDosAlunos['nome']. "</option>";};
+                echo "<option>" . $nomesDosAlunos['nome']. "</option>";};}else{
+                  echo "Não há alunos cadastrados";
+                }
               ?>
             </select><br><br>
-           <button type="submit" name="alocar" class='btn btn-sm btn-dark' >Alocar Aluno</button>
+            <?php
+            if(mysqli_num_rows($result3)>0){
+            echo "<button type='submit' name='alocar' class='btn btn-sm btn-dark' >Alocar Aluno</button>";
+            }
+           ?>
           </form>
         </div>
 
@@ -309,22 +321,22 @@ dialog::backdrop{
         <div>
         <h5><b>Quantidade de turmas:<?php echo " ".$qtd_turmas ?></b></h5>
         <table class="table table-sm">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Código Turma</th>
-                <th scope="col">Turma</th>
-                <th scope="col">Deletar Turma</th>
-
+          <?php
+            if(mysqli_num_rows($result3)>0){
+                echo" <thead class='thead-light'>
+                <tr>
+                  <th scope='col'>Turma</th>
+                  <th scope='col'>Deletar Turma</th>
                </tr>
-            </thead>
+            </thead>";}
+            ?>
             <tbody>
               <?php
                 while ($user_data3 = mysqli_fetch_assoc($turmas_cadastradas)) {
                   echo "<tr>";
-                  echo "<td>" . $user_data3['cod_turma'] . "</td>";
                   echo "<td>" . $user_data3['nome_turma'] . "</td>";
                   echo "<td>
-                      <a class='btn btn-sm btn-dark' href='delete_turma.php?cod_turma=$user_data3[cod_turma]'
+                      <a class='btn btn-sm btn-dark' href='delete_turma.php?nome_turma=$user_data3[nome_turma]'
                         placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar Turma'>
                         <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash' viewBox='0 0 16 16'>
                         <path d='M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z'/>
