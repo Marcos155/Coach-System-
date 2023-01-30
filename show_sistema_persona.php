@@ -98,6 +98,12 @@ $nome= $user_data['nome'];
         <p>esses foram os dados preenchidos em seu cadastro.</p>
       </b>
       <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Turma</label>
+        <?php
+        echo "<input type='text' class='form-control'  value=' $user_data[nome_turma]' id='turma'>";
+        ?>
+        </div>
+      <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Código</label>
         <?php
         echo "<input type='text' class='form-control'  value=' $user_data[cod]' id='cod'>";
@@ -211,6 +217,9 @@ $nome= $user_data['nome'];
       });
       const input = document.querySelector('#cod');
       input.disabled=true;
+
+      const input9 = document.querySelector('#turma');
+      input9.disabled=true;
       
     const input2 = document.querySelector('#email');
       input2.disabled=true;
