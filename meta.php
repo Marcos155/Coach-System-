@@ -919,15 +919,18 @@ if($x>1){
       <div class="conteiner">
         <div class="row" style="justify-content: space-evenly; display: flex;">
 
-          <div class="col-4 a">
+        <?php
+        if($x>0){
+         echo "<div class='col-4 a'>
             <h2>Conclusão por metas</h2>
-            <canvas id="metas-todas"></canvas>
-          </div>
+            <canvas id='metas-todas'></canvas>
+          </div>";
 
-          <div class="col-4 r">
+        echo "<div class='col-4 r'>
             <h2>% de conclusão</h2>
-            <canvas id="metas-percent"></canvas>
-          </div>
+            <canvas id='metas-percent'></canvas>
+          </div>";}
+          ?>
         </div><br><br><br>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="assets/js/style-trelo.js"></script>

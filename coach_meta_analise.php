@@ -521,6 +521,7 @@ dialog::backdrop{
         <!-- 12 meses -->
 
         <!-- saude -->
+
         <section class="list cores1" style="background:#60b2ea8f;">
         <header>Objetivos: 12 meses (Saúde)</header>
           <article class="card" id='abrir_dialogSaude'>
@@ -857,15 +858,21 @@ dialog::backdrop{
     <div class="conteiner">
         <div class="row" style="justify-content: space-evenly; display: flex;">
 
-          <div class="col-4 a">
+        <?php  
+        if($x>0){
+        echo "
+          <div class='col-4 a'>
             <h2>Conclusão de todas metas</h2>
-            <canvas id="conclusao"></canvas>
-          </div>
-
-          <div class="col-4 r">
+            <canvas id='conclusao'></canvas>
+          </div>";}
+          ?>
+          <?php 
+          if($x>0){
+          echo "<div class='col-4 r'>
             <h2>Conclusão por metas</h2>
-            <canvas id="metas-todas"></canvas>
-          </div>
+            <canvas id='metas-todas'></canvas>
+          </div>";}
+          ?>
         </div>
         <br><br><br>
       </div>
@@ -945,6 +952,7 @@ dialog::backdrop{
             }
           });
       </script>
+
   </div>
     <!--Container Main end-->
 

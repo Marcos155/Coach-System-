@@ -383,16 +383,20 @@ $y=($y*100)/$total_XY_porce;
 <div class="conteiner">
         <div class="row" style="justify-content: space-evenly; display: flex;">
 
-          <div class="col-4 a">
+        <?php
+        if($x>0){
+        echo "
+          <div class='col-4 a'>
             <h2>% de conclusão geral</h2>
-            <canvas id="conclusao"></canvas>
-          </div>
+            <canvas id='conclusao'></canvas>
+          </div>";
 
-          <div class="col-4 r">
+        echo " <div class='col-4 r'>
             <h2>% de conclusão por metas</h2>
-            <canvas id="metas-todas"></canvas>
+            <canvas id='metas-todas'></canvas>
           </div>
-        </div>
+        </div>";}
+        ?>
         <br><br><br>
 
         <!-- <h2 style="text-align: center;">% de conclusão das atividades</h2> -->
