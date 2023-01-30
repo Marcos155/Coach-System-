@@ -326,8 +326,8 @@ dialog::backdrop{
                 echo" <thead class='thead-light'>
                 <tr>
                   <th scope='col'>Turma</th>
-                  <th scope='col'>Deletar Turma</th>
                   <th scope='col'>Quantidade de alunos</th>
+                  <th scope='col'>Deletar turma</th>
                </tr>
             </thead>";}
             ?>
@@ -337,6 +337,11 @@ dialog::backdrop{
                   $turminhas = $user_data3['nome_turma'];
                   echo "<tr>";
                   echo "<td>" . $user_data3['nome_turma'] . "</td>";
+                  $sql_qtd_alunos_por_turma="SELECT COUNT(cod) as qtd_alunos_por_turma FROM cadastro WHERE nome_turma='$turminhas'";
+                  $result_alunos_por_turma=$conexao_forms15->query($sql_qtd_alunos_por_turma);
+                  while ($user_data4 = mysqli_fetch_assoc($result_alunos_por_turma)) {
+                    echo "<td>" . $user_data4['qtd_alunos_por_turma'] . "</td>";
+                  }
                   echo "<td>
                       <a class='btn btn-sm btn-dark' href='delete_turma.php?nome_turma=$user_data3[nome_turma]'
                         placeholer='editar' class='btn btn-secondary' data-toggle='tooltip' data-placement='right' title='Deletar Turma'>
@@ -346,17 +351,13 @@ dialog::backdrop{
                         </svg>
                       </a>
                   </td>";
-                  $sql_qtd_alunos_por_turma="SELECT COUNT(cod) as qtd_alunos_por_turma FROM cadastro WHERE nome_turma='$turminhas'";
-                  $result_alunos_por_turma=$conexao_forms15->query($sql_qtd_alunos_por_turma);
-                  while ($user_data4 = mysqli_fetch_assoc($result_alunos_por_turma)) {
-                    echo "<td>" . $user_data4['qtd_alunos_por_turma'] . "</td>";
-                  }
                   echo "</tr>";
                     }
                   ?>
               </tbody>
             </table>
             </div><br><br><br>
+
       </div>
 
     <!--Container Main end-->

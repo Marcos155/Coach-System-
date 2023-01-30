@@ -23,6 +23,37 @@
     $val_tele="SELECT*FROM cadastro WHERE telefone='$tele'";
     $resultado_val_tele=$conexao_forms15->query($val_tele);
 
+
+    function validateCPF($cpf) {
+ 
+      // Extrai somente os números
+      $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
+       
+      // Verifica se foi informado todos os digitos corretamente
+      if (strlen($cpf) != 11) {
+          return false;
+      }
+  
+      // Verifica se foi informada uma sequência de digitos repetidos. Ex: 111.111.111-11
+      if (preg_match('/(\d)\1{10}/', $cpf)) {
+          return false;
+      }
+  
+      // Faz o calculo para validar o CPF
+      for ($t = 9; $t < 11; $t++) {
+          for ($d = 0, $c = 0; $c < $t; $c++) {
+              $d += $cpf[$c] * (($t + 1) - $c);
+          }
+          $d = ((10 * $d) % 11) % 10;
+          if ($cpf[$c] != $d) {
+              return false;
+          }
+      }
+      return true;
+  
+  }
+  if(validateCPF($cpf)){
+
     if(mysqli_num_rows($resultado_val_email)<=0 && mysqli_num_rows($resultado_val_cpf)<=0 && mysqli_num_rows($resultado_val_nome)<=0 && mysqli_num_rows($resultado_val_tele)<=0){
 
     /* cadastro */
@@ -61,6 +92,8 @@
     /*header('Location:formulario.php');*/
     header('Location:entrar.php');}else{
       echo "<br><br><h2> Cadastro já existente! </h2><h4>Faça seu login aqui: <a href='entrar.php' style='color:#DC143C;'><b> ENTRAR</b></a></h4>";
+    }}else{
+      echo  "<br><br><h2>  Número de CPF inválido!</h2>";
     }
   } 
  ?> 
@@ -156,7 +189,7 @@
         <button> Inscreva-se</button>
            -->
           <input type="submit" value="Cadastrar" name="submit" id="enviar"
-          onclick="return validar()" onclick="alert('cadastro realizado com sucesso!')">
+          onclick="return validar()">
         </div>
       </form>
     </div>
@@ -224,7 +257,6 @@ function mascara(i){
     signInButton.addEventListener('click', () => {
       container.classList.remove("right-panel-active");
     });
-
 /*repetir senha */
   function validar(){
   var senha=forms.password.value;
@@ -232,7 +264,6 @@ function mascara(i){
   var cpf=forms.cpf.value;
   var phone=forms.phone.value;
 
-   
   if(phone.length != 15 ){
 					alert('Número de telefone inválido!');
 					forms.phone.focus();
@@ -294,10 +325,6 @@ function mascara(i){
       eyesvg2.setAttribute("src","eyes2.png");
     }
   }
-
-
-  /* o CPF existe? */
-
   </script>
 </body>
 
