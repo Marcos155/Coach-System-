@@ -192,6 +192,7 @@ dialog::backdrop{
                 <th scope="row">Código</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Sobrenome</th>
+                <th scope="col">Nascimento</th>
                 <th scope="col">Email</th>
                 <th scope="col">CPF</th>
                 <th scope="col">Telefone</th>
@@ -209,6 +210,7 @@ dialog::backdrop{
           echo "<td id='codigo'>".$user_data['cod']."</td>";
           echo "<td>" . $user_data['nome'] . "</td>";
           echo "<td>" . $user_data['sobrenome'] . "</td>";
+          echo "<td>" . $user_data['data_nasc'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
           echo "<td>" . $user_data['cpf'] . "</td>";
           echo "<td>" . $user_data['telefone'] . "</td>";
