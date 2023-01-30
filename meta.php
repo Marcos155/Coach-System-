@@ -922,12 +922,12 @@ if($x>1){
         <?php
         if($x>0){
          echo "<div class='col-4 a'>
-            <h2>Conclusão por metas</h2>
+            <h2>Conclusão por meta</h2>
             <canvas id='metas-todas'></canvas>
           </div>";
 
         echo "<div class='col-4 r'>
-            <h2>% de conclusão</h2>
+            <h2>% de conclusão por meta</h2>
             <canvas id='metas-percent'></canvas>
           </div>";}
           ?>
@@ -944,7 +944,7 @@ new Chart(
               ],
               datasets: [{
                 label: 'Metas (%)',
-                data: [<?=$saude2?>, <?=$relacionamento2?>, <?=$trabalho2?>, <?=$dinheiro2?>, <?=$outro2?>],  
+                data: [<?=number_format($saude2, 2, '.', '')?>, <?=number_format($relacionamento2, 2, '.', '')?>, <?=number_format($trabalho2,2, '.', '')?>, <?=number_format($dinheiro2, 2, '.', '')?>, <?=number_format($outro2, 2, '.', '')?>],  
                 
                 backgroundColor: [
                   '#60b2ea8f',

@@ -243,8 +243,19 @@ while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
   if($x>1){
     $total_XY_porce=$x+$y;
     $x_percent=($x*100)/$total_XY_porce;
+    $total_metas= $saude+$relacionamento+$trabalho+$dinheiro+$outro;
+    $saude2=($saude*100)/$total_metas;
+    $relacionamento2=($relacionamento*100)/$total_metas;
+    $dinheiro2=($dinheiro*100)/$total_metas;
+    $trabalho2=($trabalho*100)/$total_metas;
+    $outro2=($outro*100)/$total_metas;
   }else{
     $x_percent=0;
+    $saude2=0;
+  $relacionamento2=0;
+  $dinheiro2=0;
+  $trabalho2=0;
+  $outro2=0;
   }
                
 ?>
@@ -567,7 +578,7 @@ dialog::backdrop{
            ?>
           </form><br><br>
          <?php if(mysqli_num_rows($result_percent)>0){
-           echo "<h4>Porcentagem de conclusão: <b>".$nome_turma."</b> <b> ".number_format($x_percent, 2, '.', '')."%</b></h4>";}
+           echo "<h4>Porcentagem de conclusão <b>".$nome_turma."</b>: <b> ".number_format($x_percent, 2, '.', '')."%</b></h4>";}
          ?>
             </div><br><br><br>
 
