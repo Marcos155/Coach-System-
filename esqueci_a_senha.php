@@ -17,14 +17,15 @@ if(isset($_POST['submit'])){
   $email=$_POST['email'];
   $cpf=$_POST['cpf'];
   $nome=$_POST['nome'];
+  $sobrenome=$_POST['sobrenome'];
 
-  $sql = "SELECT * FROM cadastro WHERE email = '$email' and cpf = '$cpf' and nome = '$nome' ";
+  $sql = "SELECT * FROM cadastro WHERE email = '$email' and cpf = '$cpf' and nome = '$nome' and sobrenome='$sobrenome' ";
   $result=$conexao_forms15->query($sql);
 
   if(mysqli_fetch_assoc($result))
   {
       $nova_senha= rand(100000,999999);
-      $sql_senha= "UPDATE cadastro SET senha='$nova_senha' WHERE email = '$email' and cpf = '$cpf' and nome = '$nome' ";
+      $sql_senha= "UPDATE cadastro SET senha='$nova_senha' WHERE email = '$email' and cpf = '$cpf' and nome = '$nome' and sobrenome='$sobrenome' ";
       $result_senha=$conexao_forms15->query($sql_senha);
       echo "<b><h1>Sua nova senha é: </h1></b><b><h3>$nova_senha</h3></b><h5><a href='entrar.php' target='_blank' rel='noopener noreferrer'>Entrar</a></h5>";
   } else
@@ -88,7 +89,9 @@ if(isset($_POST['submit'])){
         <br>
         <input type="tel" placeholder="CPF" name="cpf" class="form-control" id="cpf" maxlength="11" oninput="mascara(this)" required/>
         <br>
-        <input type="text" placeholder="Nome" name="nome" class="form-control" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
+        <input type="text" placeholder="Primeiro nome" name="nome" class="form-control" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
+        <br>
+        <input type="text" placeholder="Último nome" name="sobrenome" class="form-control" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <br>
         <div>
           <input type="submit" value="Redefinir Senha" name="submit" id="enviar" onclick="validar()">

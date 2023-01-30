@@ -154,15 +154,15 @@
         echo"<form action='save_edit_regis.php' method='post' name='forms'>";
       ?>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Nome</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Primeiro nome</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1"
         placeholder="Qual seu nome campeão(a)?" type="text" placeholder="Nome" name="username" value="<?php echo $nome ?>" 
         pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+"required>
       </div>
       <div class="mb-3">
-        <label for="exampleFormControlTextarea1" class="form-label">Sobrenome</label>
+        <label for="exampleFormControlTextarea1" class="form-label">Último nome</label>
         <input type="text" class="form-control" id="exampleFormControlTextarea1" 
-        placeholder="Seu sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
+        placeholder="Seu último nome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" 
               name="sobrenome" value="<?php echo $sobrenome ?>">
       </div>
       <div class="mb-3">
