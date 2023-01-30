@@ -28,6 +28,9 @@ $result3=$conexao_forms15->query($sql_nome_turmas);
 $sql_nome_alunos="SELECT*FROM cadastro WHERE cod!=1";
 $result3_aluno=$conexao_forms15->query($sql_nome_alunos);
 
+$sql_percent_turmas="SELECT*FROM turmas";
+$result_percent=$conexao_forms15->query($sql_percent_turmas);
+
 /* lançar turmas */
 if(isset($_POST['lancar'])){
   $criar_turma=$_POST['criar_turma'];
@@ -48,14 +51,201 @@ $resultado4=$conexao_forms15->query($sql_qtd_turmas);
 
 while($user_data = mysqli_fetch_assoc($resultado4)) { 
   $qtd_turmas=$user_data['qtd_turmas'];}
-          
-              
+                        
 if(isset($_POST['alocar'])){
   $nova_turma=$_POST['nome_turma'];
   $nome_aluno=$_POST['nome_aluno'];
+  $resultadoSaude=mysqli_query($conexao_forms15,"UPDATE meta_saude SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
+  $resultadoRelacionamento=mysqli_query($conexao_forms15,"UPDATE meta_relacionamento SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
+  $resultadoDinheiro=mysqli_query($conexao_forms15,"UPDATE meta_dinheiro SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
+  $resultadoOutro=mysqli_query($conexao_forms15,"UPDATE meta_outro SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
+  $resultadoTrabalho=mysqli_query($conexao_forms15,"UPDATE meta_trabalho SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
   $resultado=mysqli_query($conexao_forms15,"UPDATE cadastro SET nome_turma='$nova_turma' WHERE nome='$nome_aluno' ");
   header('Location:turmas.php');
-  }          
+  }     
+  
+
+    // gráficos (pizza)
+$x = 0;
+$y = 0;
+$saude = 0;
+$relacionamento = 0;
+$trabalho = 0;
+$dinheiro = 0;
+$outro = 0;
+if(mysqli_num_rows($result_percent)>0){
+$nome_turma=$_POST['percent_turma'];
+  if(isset($_POST['porcentagem'])){
+  
+//percorre o meta_saude
+
+$result_niveis_saude = "SELECT * FROM meta_saude WHERE nome_turma='$nome_turma'";
+$resultado_niveis_saude = mysqli_query($conexao_forms15, $result_niveis_saude);
+while($row_niveis_saude = mysqli_fetch_assoc($resultado_niveis_saude)){
+    if($row_niveis_saude['feito1'] == "on"){
+        $x++;
+        $saude++;
+        
+    }if($row_niveis_saude['feito2'] == "on"){
+        $x++;
+        $saude++;
+        
+    }if($row_niveis_saude['feito3'] == "on"){
+      $x++;
+      $saude++;
+      
+    }if($row_niveis_saude['feito4'] == "on"){
+      $x++;
+      $saude++;
+      
+    }if($row_niveis_saude['feito5'] == "on"){
+      $x++;
+      $saude++;
+    }if($row_niveis_saude['feito1'] == "" && $row_niveis_saude['meta1']!=""){
+      $y++;
+  }if($row_niveis_saude['feito2'] == "" && $row_niveis_saude['meta2']!=""){
+      $y++;
+  }if($row_niveis_saude['feito3'] == "" && $row_niveis_saude['meta3']!=""){
+    $y++;
+  }if($row_niveis_saude['feito4'] == "" && $row_niveis_saude['meta4']!=""){
+    $y++;
+  }if($row_niveis_saude['feito5'] == "" && $row_niveis_saude['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_relacionamento
+
+$result_niveis_relacionamento = "SELECT * FROM meta_relacionamento WHERE nome_turma='$nome_turma'";
+$resultado_niveis_relacionamento = mysqli_query($conexao_forms15, $result_niveis_relacionamento);
+while($row_niveis_relacionamento = mysqli_fetch_assoc($resultado_niveis_relacionamento)){
+    if($row_niveis_relacionamento['feito1'] == "on"){
+        $x++;
+        $relacionamento++;
+    }if($row_niveis_relacionamento['feito2'] == "on"){
+        $x++;
+        $relacionamento++;
+    }if($row_niveis_relacionamento['feito3'] == "on"){
+      $x++;
+      $relacionamento++;
+    }if($row_niveis_relacionamento['feito4'] == "on"){
+      $x++;
+      $relacionamento++;
+    }if($row_niveis_relacionamento['feito5'] == "on"){
+      $x++;
+      $relacionamento++;
+    }
+    if($row_niveis_relacionamento['feito1'] == "" && $row_niveis_relacionamento['meta1']!=""){
+      $y++;
+  }if($row_niveis_relacionamento['feito2'] == "" && $row_niveis_relacionamento['meta2']!=""){
+      $y++;
+  }if($row_niveis_relacionamento['feito3'] == "" && $row_niveis_relacionamento['meta3']!=""){
+    $y++;
+  }if($row_niveis_relacionamento['feito4'] == "" && $row_niveis_relacionamento['meta4']!=""){
+    $y++;
+  }if($row_niveis_relacionamento['feito5'] == "" && $row_niveis_relacionamento['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_trabalho
+$result_niveis_trabalho = "SELECT * FROM meta_trabalho WHERE nome_turma='$nome_turma'";
+$resultado_niveis_trabalho = mysqli_query($conexao_forms15, $result_niveis_trabalho);
+while($row_niveis_trabalho = mysqli_fetch_assoc($resultado_niveis_trabalho)){
+    if($row_niveis_trabalho['feito1'] == "on"){
+        $x++;
+        $trabalho++;
+    }if($row_niveis_trabalho['feito2'] == "on"){
+       $x++;
+       $trabalho++;
+    }if($row_niveis_trabalho['feito3'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito4'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito5'] == "on"){
+      $x++;
+      $trabalho++;
+    }if($row_niveis_trabalho['feito1'] == "" && $row_niveis_trabalho['meta1']!=""){
+      $y++;
+  }if($row_niveis_trabalho['feito2'] == "" && $row_niveis_trabalho['meta2']!=""){
+      $y++;
+  }if($row_niveis_trabalho['feito3'] == "" && $row_niveis_trabalho['meta3']!=""){
+    $y++;
+  }if($row_niveis_trabalho['feito4'] == "" && $row_niveis_trabalho['meta4']!=""){
+    $y++;
+  }if($row_niveis_trabalho['feito5'] == "" && $row_niveis_trabalho['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_dinheiro
+$result_niveis_dinheiro = "SELECT * FROM meta_dinheiro WHERE nome_turma='$nome_turma'";
+$resultado_niveis_dinheiro = mysqli_query($conexao_forms15, $result_niveis_dinheiro);
+while($row_niveis_dinheiro = mysqli_fetch_assoc($resultado_niveis_dinheiro)){
+    if($row_niveis_dinheiro['feito1'] == "on"){
+        $x++;
+        $dinheiro++;
+    }if($row_niveis_dinheiro['feito2'] == "on"){
+        $x++;
+        $dinheiro++;
+    }if($row_niveis_dinheiro['feito3'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito4'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito5'] == "on"){
+      $x++;
+      $dinheiro++;
+    }if($row_niveis_dinheiro['feito1'] == "" && $row_niveis_dinheiro['meta1']!=""){
+      $y++;
+  }if($row_niveis_dinheiro['feito2'] == "" && $row_niveis_dinheiro['meta2']!=""){
+      $y++;
+  }if($row_niveis_dinheiro['feito3'] == "" && $row_niveis_dinheiro['meta3']!=""){
+    $y++;
+  }if($row_niveis_dinheiro['feito4'] == "" && $row_niveis_dinheiro['meta4']!=""){
+    $y++;
+  }if($row_niveis_dinheiro['feito5'] == "" && $row_niveis_dinheiro['meta5']!=""){
+    $y++;
+  }
+}
+//percorre o meta_outro
+$result_niveis_outro = "SELECT * FROM meta_outro WHERE nome_turma='$nome_turma'";
+$resultado_niveis_outro = mysqli_query($conexao_forms15, $result_niveis_outro);
+while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
+    if($row_niveis_outro['feito1'] == "on"){
+        $x++;
+        $outro++;
+    }if($row_niveis_outro['feito2'] == "on"){
+        $x++;
+        $outro++;
+    }if($row_niveis_outro['feito3'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito4'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito5'] == "on"){
+      $x++;
+      $outro++;
+    }if($row_niveis_outro['feito1'] == "" && $row_niveis_outro['meta1']!=""){
+      $y++;
+  }if($row_niveis_outro['feito2'] == "" && $row_niveis_outro['meta2']!=""){
+      $y++;
+  }if($row_niveis_outro['feito3'] == "" && $row_niveis_outro['meta3']!=""){
+    $y++;
+  }if($row_niveis_outro['feito4'] == "" && $row_niveis_outro['meta4']!=""){
+    $y++;
+  }if($row_niveis_outro['feito5'] == "" && $row_niveis_outro['meta5']!=""){
+    $y++;
+  }
+}
+  } }
+  if($x>1){
+    $total_XY_porce=$x+$y;
+    $x_percent=($x*100)/$total_XY_porce;
+  }else{
+    $x_percent=0;
+  }
                
 ?>
 <!doctype html>
@@ -291,7 +481,7 @@ dialog::backdrop{
             
                 while ($nomesDosAlunos = mysqli_fetch_assoc($result3_aluno)) {
                 echo "<option>" . $nomesDosAlunos['nome']. "</option>";};}else{
-                  echo "Não há alunos cadastrados";
+                  echo "<b>Não há alunos cadastrados</b>";
                 }
               ?>
             </select><br><br>
@@ -357,6 +547,85 @@ dialog::backdrop{
               </tbody>
             </table>
             </div><br><br><br>
+            <div>
+              <h2><b>% de conclusaõ das metas por turma</b></h2><br><br>
+            <form action="turmas.php" method="post">
+            <label >Turma:</label>
+            <?php
+             if(mysqli_num_rows($result_percent)>0){
+             echo "<select id='percent_turmas' name='percent_turma' list='percent_turmas' >";
+            
+                while ($percentDasTurmas = mysqli_fetch_assoc($result_percent)) {
+                echo "<option>" . $percentDasTurmas['nome_turma'] . "</option>";};}else{
+                  echo "<b>Não há turmas cadastradas</b>";
+                }
+              ?>
+            </select><?php
+            if(mysqli_num_rows($result_percent)>0){
+            echo "<button type='submit' name='porcentagem'>%</button>";
+            }
+           ?>
+          </form><br><br>
+         <?php if(mysqli_num_rows($result_percent)>0){
+           echo "<h4>Porcentagem de conclusão: <b>".$nome_turma."</b> <b> ".number_format($x_percent, 2, '.', '')."%</b></h4>";}
+         ?>
+            </div><br><br><br>
+
+            <div class="conteiner">
+        <div class="row" style="justify-content: space-evenly; display: flex;">
+          <?php 
+          if($x>0){
+          echo "<div class='col-4 r'>
+            <h2>Conclusão por metas <b> $nome_turma </b></h2>
+            <canvas id='metas-todas'></canvas>
+          </div>";}
+          ?>
+        </div>
+        <br><br><br>
+      </div>
+     <br><br><br>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="assets/js/style-trelo.js"></script>
+      <script> 
+        new Chart(
+          document.getElementById('metas-todas'),
+          {
+            type: 'doughnut',
+            data: {
+              labels: ['Saúde','Relacionamento','Trabalho','Dinheiro','Outro',
+              ],
+              datasets: [{
+                label: 'Metas',
+                data: [<?=$saude?>, <?=$relacionamento?>, <?=$trabalho?>, <?=$dinheiro?>, <?=$outro?>],  
+                
+                backgroundColor: [
+                  '#60b2ea8f',
+                  '#9966ff73',
+                  '#ff9f40',
+                  '#4bc0c06e',
+                  '#FA8072',
+                ],
+                hoverBackgroundColor: [
+                  '#36a2eb',
+                  '#9966ff',
+                  '#ff9f4078',
+                  '#4bc0c0',
+                  '#B22222'
+                ],
+                borderColor: [
+                  '#8080807a',
+                ],
+                borderWidth: 1,
+                hoverBorderWidth: 5,
+              }]
+            },
+            options: {
+              scales: {
+                indexAxis: 'x'
+              }
+            }
+          });
+      </script>
 
       </div>
 

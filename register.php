@@ -61,16 +61,16 @@
     VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf','Turma Geral')");
 
     /* metas */
-    $result2= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(nome,sobrenome,email) 
-    VALUES ('$nome','$sobrenome','$email')");
-    $result3= mysqli_query($conexao_forms15, "INSERT INTO meta_saude(nome,sobrenome,email) 
-    VALUES ('$nome','$sobrenome','$email')");
-    $result4= mysqli_query($conexao_forms15, "INSERT INTO meta_trabalho(nome,sobrenome,email) 
-    VALUES ('$nome','$sobrenome','$email')");
-    $result5= mysqli_query($conexao_forms15, "INSERT INTO meta_dinheiro(nome,sobrenome,email) 
-    VALUES ('$nome','$sobrenome','$email')");
-    $result6= mysqli_query($conexao_forms15, "INSERT INTO meta_outro(nome,sobrenome,email) 
-    VALUES ('$nome','$sobrenome','$email')");
+    $result2= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(nome,sobrenome,email,nome_turma) 
+    VALUES ('$nome','$sobrenome','$email','Turma Geral')");
+    $result3= mysqli_query($conexao_forms15, "INSERT INTO meta_saude(nome,sobrenome,email,nome_turma) 
+    VALUES ('$nome','$sobrenome','$email','Turma Geral')");
+    $result4= mysqli_query($conexao_forms15, "INSERT INTO meta_trabalho(nome,sobrenome,email,nome_turma) 
+    VALUES ('$nome','$sobrenome','$email','Turma Geral')");
+    $result5= mysqli_query($conexao_forms15, "INSERT INTO meta_dinheiro(nome,sobrenome,email,nome_turma) 
+    VALUES ('$nome','$sobrenome','$email','Turma Geral')");
+    $result6= mysqli_query($conexao_forms15, "INSERT INTO meta_outro(nome,sobrenome,email,nome_turma) 
+    VALUES ('$nome','$sobrenome','$email','Turma Geral')");
 
     /* formulario 15 anos */
     $result7= mysqli_query($conexao_forms15, "INSERT INTO formulario_15_anos(nome,sobrenome,email) 
