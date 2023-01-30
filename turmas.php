@@ -327,12 +327,14 @@ dialog::backdrop{
                 <tr>
                   <th scope='col'>Turma</th>
                   <th scope='col'>Deletar Turma</th>
+                  <th scope='col'>Quantidade de alunos</th>
                </tr>
             </thead>";}
             ?>
             <tbody>
               <?php
                 while ($user_data3 = mysqli_fetch_assoc($turmas_cadastradas)) {
+                  $turminhas = $user_data3['nome_turma'];
                   echo "<tr>";
                   echo "<td>" . $user_data3['nome_turma'] . "</td>";
                   echo "<td>
@@ -344,6 +346,11 @@ dialog::backdrop{
                         </svg>
                       </a>
                   </td>";
+                  $sql_qtd_alunos_por_turma="SELECT COUNT(cod) as qtd_alunos_por_turma FROM cadastro WHERE nome_turma='$turminhas'";
+                  $result_alunos_por_turma=$conexao_forms15->query($sql_qtd_alunos_por_turma);
+                  while ($user_data4 = mysqli_fetch_assoc($result_alunos_por_turma)) {
+                    echo "<td>" . $user_data4['qtd_alunos_por_turma'] . "</td>";
+                  }
                   echo "</tr>";
                     }
                   ?>
