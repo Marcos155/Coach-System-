@@ -152,7 +152,7 @@
         <input type="text" placeholder="Nome" name="username" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="text" placeholder="Sobrenome" name="sobrenome" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ ]+" required/>
         <input type="email" placeholder="Email" name="email" required/>
-        <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[0-9]({2})[0-9]{5}-[0-9]{4}" maxlength="15"  id="tel" required>
+        <input type="tel" name="phone" placeholder="Telefone (99)99999-9999" pattern="[1-9]({2})[0-9]{5}-[0-9]{4}" maxlength="15"  id="tel"  required>
         <input type="tel" name="cpf" placeholder="CPF 000.000.000-00"  id="cpf" maxlength="14" oninput="mascara(this)" required>
    
         <table> 
@@ -264,7 +264,7 @@ function mascara(i){
   var cpf=forms.cpf.value;
   var phone=forms.phone.value;
 
-  if(phone.length != 15 ){
+  if(phone.length != 15){
 					alert('Número de telefone inválido!');
 					forms.phone.focus();
           document.getElementById('tel').value='';
