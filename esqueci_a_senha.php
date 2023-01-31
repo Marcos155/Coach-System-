@@ -25,7 +25,7 @@ if(isset($_POST['submit'])){
   if(mysqli_fetch_assoc($result))
   {
       $nova_senha= rand(100000,999999);
-      $sql_senha= "UPDATE cadastro SET senha='$nova_senha' WHERE email = '$email' and cpf = '$cpf' and nome = '$nome' and sobrenome='$sobrenome' ";
+      $sql_senha= "UPDATE cadastro SET senha=MD5('$nova_senha') WHERE email = '$email' and cpf = '$cpf' and nome = '$nome' and sobrenome='$sobrenome' ";
       $result_senha=$conexao_forms15->query($sql_senha);
       echo "<b><h1>Sua nova senha é: </h1></b><b><h3>$nova_senha</h3></b><h5><a href='entrar.php' target='_blank' rel='noopener noreferrer'>Entrar</a></h5>";
   } else
