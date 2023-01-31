@@ -5,9 +5,10 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
     // acessa
     include_once('config.php');
     $email = $_POST['email'];
-    $senha = $_POST['password'];
+    $senha = md5($_POST['password']);
+    
 
-    $sql = "SELECT * FROM cadastro WHERE email = '$email' and senha = '$senha'";
+    $sql = "SELECT * FROM cadastro WHERE email = '$email' and senha ='$senha'";
     $result=$conexao_forms15->query($sql);
 
     $sql_adm="SELECT cod FROM cadastro WHERE email = '$email' and senha = '$senha'";
@@ -32,7 +33,6 @@ if(isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password
         header('Location:show_sistema_persona.php');
     } 
 }
-   
 }
 else
 {

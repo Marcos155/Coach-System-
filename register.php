@@ -7,7 +7,7 @@
     $nome= $_POST['username'];
     $sobrenome= $_POST['sobrenome'];
     $email= $_POST['email'];
-    $senha=  $_POST['password'];
+    $senha= $_POST['password'];
     $tele= $_POST['phone'];
     $cpf= $_POST['cpf'];
 
@@ -58,7 +58,7 @@
 
     /* cadastro */
     $result= mysqli_query($conexao_forms15, "INSERT INTO cadastro(nome,sobrenome,email,senha,telefone,cpf,nome_turma) 
-    VALUES ('$nome','$sobrenome','$email','$senha','$tele','$cpf','Turma Geral')");
+    VALUES ('$nome','$sobrenome','$email', MD5('$senha'),'$tele','$cpf','Turma Geral')");
 
     /* metas */
     $result2= mysqli_query($conexao_forms15, "INSERT INTO meta_relacionamento(nome,sobrenome,email,nome_turma) 

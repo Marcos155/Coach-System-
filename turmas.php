@@ -74,9 +74,10 @@ $trabalho = 0;
 $dinheiro = 0;
 $outro = 0;
 if(mysqli_num_rows($result_percent)>0){
-$nome_turma=$_POST['percent_turma'];
+
+  $nome_turma='';
   if(isset($_POST['porcentagem'])){
-  
+    $nome_turma=$_POST['percent_turma'];
 //percorre o meta_saude
 
 $result_niveis_saude = "SELECT * FROM meta_saude WHERE nome_turma='$nome_turma'";

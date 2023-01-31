@@ -7,8 +7,6 @@
     $email= $_POST['email'];
     $senha= $_POST['password'];
   }
-
-
  ?> 
 <!DOCTYPE html>
 <html lang="en">
