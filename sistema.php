@@ -205,6 +205,7 @@ dialog::backdrop{
               <tbody>
               <?php
         while ($user_data = mysqli_fetch_assoc($result2)) {
+          $numerozin = preg_replace( '/[^0-9]/is', '', $user_data['telefone']);
           echo "<tr>";
           echo "<td>".$user_data['nome_turma']."</td>";
           echo "<td id='codigo'>".$user_data['cod']."</td>";
@@ -213,7 +214,7 @@ dialog::backdrop{
           echo "<td>" . $user_data['data_nasc'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
           echo "<td>" . $user_data['cpf'] . "</td>";
-          echo "<td><a style='color:#f01e1e;' target='_blank' href='https://wa.me/55".$user_data['telefone']."'>" . $user_data['telefone'] . "</a></td>";
+          echo "<td><a style='color:#f01e1e;' target='_blank' href='https://wa.me/55".$numerozin."'>".$user_data['telefone']."</a></td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
           echo "<td>" . $user_data['cidade'] . "</td>";
           echo "<td>" .$user_data['estado'] . "</td>";
