@@ -213,7 +213,7 @@ dialog::backdrop{
           echo "<td>" . $user_data['data_nasc'] . "</td>";
           echo "<td>" . $user_data['email'] . "</td>";
           echo "<td>" . $user_data['cpf'] . "</td>";
-          echo "<td><a style='color:#f01e1e;' target='_blank' href='https://wa.me/55'".$user_data['telefone'].">" . $user_data['telefone'] . "</a></td>";
+          echo "<td><a style='color:#f01e1e;' target='_blank' href='https://wa.me/55".$user_data['telefone']."'>" . $user_data['telefone'] . "</a></td>";
           echo "<td>" . $user_data['sexo'] . "</td>";
           echo "<td>" . $user_data['cidade'] . "</td>";
           echo "<td>" .$user_data['estado'] . "</td>";
