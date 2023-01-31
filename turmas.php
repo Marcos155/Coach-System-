@@ -270,6 +270,7 @@ while($row_niveis_outro = mysqli_fetch_assoc($resultado_niveis_outro)){
   <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
   <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
   <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <script defer src=https://kit.fontawesome.com/79b5047e4f.js crossorigin="anonymous"></script>
   <link rel="stylesheet" href="assets/css/nav.css">
   
   <style>
@@ -372,6 +373,73 @@ dialog::backdrop{
     }
     #realocar:hover{
       color: #f01e1e;
+    }
+    .form-select1 {
+    display: inline-block;
+    width: 50%;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    vertical-align: middle;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+   .form-select1 {
+    display: inline-block;
+    width: 50%;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    vertical-align: middle;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .form-select2 {
+    display: inline-block;
+    width: 20%;
+    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    vertical-align: middle;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  @media (max-width: 600px) {
+      .r {
+        width: 60% !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .a {
+        width: 41% !important;
+      }
     }
   </style>
 </head>
@@ -477,10 +545,10 @@ dialog::backdrop{
             <label >Turma:</label>
             <?php
              if(mysqli_num_rows($result3)>0){
-             echo "<select id='nome_turmas' name='nome_turma' list='nome_turmas' >";
+             echo "<select class='form-select1' aria-label='Default select example' id='nome_turmas' name='nome_turma' list='nome_turmas' >";
             
                 while ($nomesDasTurmas = mysqli_fetch_assoc($result3)) {
-                echo "<option>" . $nomesDasTurmas['nome_turma'] . "</option>";};}else{
+                echo "<option  >" . $nomesDasTurmas['nome_turma'] . "</option>";};}else{
                   echo "<b>Não há turmas cadastradas</b>";
                 }
               ?>
@@ -488,7 +556,7 @@ dialog::backdrop{
             <label>Aluno:</label>
             <?php
             if(mysqli_num_rows($result3_aluno)>0){
-              echo "<select id='nome_alunos'  name='nome_aluno'list='nome_alunos'>";
+              echo "<select class='form-select1' id='nome_alunos'  name='nome_aluno'list='nome_alunos'>";
             
                 while ($nomesDosAlunos = mysqli_fetch_assoc($result3_aluno)) {
                 echo "<option>" . $nomesDosAlunos['nome']. "</option>";};}else{
@@ -509,7 +577,7 @@ dialog::backdrop{
         <div class="col-5 formulario">
           <h4><b>Criar Turmas</b></h4><br>
           <form action="turmas.php" method="post">
-            <input type="text" placeholder="Nome da turma" name="criar_turma" maxlength="30" id="criar_turmas" required>
+            <input class="form-select1" type="text" placeholder="Nome da turma" name="criar_turma" maxlength="30" id="criar_turmas" required>
             <br>
             <label for="characters">Quantidade de caracteres: 30/ </label><span id="characters"></span><br><br>
             <button type="submit" name="lancar" class='btn btn-sm btn-dark' >Lançar Turma</button>
@@ -564,7 +632,7 @@ dialog::backdrop{
             <label >Turma:</label>
             <?php
              if(mysqli_num_rows($result_percent)>0){
-             echo "<select id='percent_turmas' name='percent_turma' list='percent_turmas' >";
+             echo "<select class='form-select2' id='percent_turmas' name='percent_turma' list='percent_turmas' >";
             
                 while ($percentDasTurmas = mysqli_fetch_assoc($result_percent)) {
                 echo "<option>" . $percentDasTurmas['nome_turma'] . "</option>";};}else{
@@ -578,7 +646,7 @@ dialog::backdrop{
            ?>
           </form><br><br>
          <?php if(mysqli_num_rows($result_percent)>0){
-           echo "<h4>Porcentagem de conclusão <b>".$nome_turma."</b>: <b> ".number_format($x_percent, 2, '.', '')."%</b></h4>";}
+           echo "<h4 style='text-align:center;'>Porcentagem de conclusão <b>".$nome_turma."</b>: <b> ".number_format($x_percent, 2, '.', '')."%</b></h4>";}
          ?>
             </div><br><br><br>
 
@@ -587,8 +655,12 @@ dialog::backdrop{
           <?php 
           if($x>0){
           echo "<div class='col-4 r'>
-            <h2>Conclusão por metas <b> $nome_turma </b></h2>
-            <canvas id='metas-todas'></canvas>
+            <h3 style='text-align:center;'>Conclusão por metas <b> $nome_turma </b></h3>
+            <canvas id='metas-todas'></canvas><br>
+            <div style='display: inline-flex;color: red;'>
+            <i class='fa-solid fa-lightbulb fa-xl'></i><p style='color: black; text-align:center'>Este gráfico serve para exibir quantas metas os alunos ja concluíram, 
+            separadas por categoria</p>
+            </div>
           </div>";}
           ?>
         </div>
@@ -610,25 +682,25 @@ dialog::backdrop{
                 data: [<?=$saude?>, <?=$relacionamento?>, <?=$trabalho?>, <?=$dinheiro?>, <?=$outro?>],  
                 
                 backgroundColor: [
-                  '#60b2ea8f',
-                  '#9966ff73',
-                  '#ff9f40',
-                  '#4bc0c06e',
-                  '#FA8072',
-                ],
-                hoverBackgroundColor: [
-                  '#36a2eb',
-                  '#9966ff',
-                  '#ff9f4078',
-                  '#4bc0c0',
-                  '#B22222'
-                ],
-                borderColor: [
-                  '#8080807a',
-                ],
-                borderWidth: 1,
-                hoverBorderWidth: 5,
-              }]
+                    '#00a8ff',
+                    '#9c88ff',
+                    '#fbc531',
+                    '#4cd137',
+                    '#487eb0',
+                  ],
+                  hoverBackgroundColor: [
+                    '#00a8ff',
+                    '#9c88ff',
+                    '#fbc531',
+                    '#4cd137',
+                    '#487eb0',
+                  ],
+                  borderColor: [
+                    '#fff',
+                  ],
+                  borderWidth: 1,
+                  hoverBorderWidth: 10,
+                }]
             },
             options: {
               scales: {
