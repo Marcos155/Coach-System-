@@ -244,7 +244,7 @@
             
             <table>
               <th>
-                <label for="exampleInputEmail1" class="form-label">Senha</label>
+                <label for="exampleInputEmail1" class="form-label">Alterar senha</label>
               </th>
               <th></th>
               <th>

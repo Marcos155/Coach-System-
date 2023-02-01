@@ -15,7 +15,6 @@ if (!empty($_GET['search'])) {
   $data = $_GET['search'];
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or email LIKE '%$data%' or 
     telefone LIKE '%$data%' or sexo LIKE '%$data%' or cidade LIKE '%$data%' or estado LIKE '%$data%' or sobrenome LIKE '%$data%' or cpf LIKE '%$data%' or nome_turma LIKE '%$data%' ";
-
 } else {
   $sql = "SELECT * FROM cadastro WHERE cod>1 ORDER BY cod DESC";
 }
@@ -77,6 +76,7 @@ $sql_qtd_pessoas="SELECT COUNT(cod) as 'qtd_pessoas' FROM cadastro;";
     body{
     /*background: linear-gradient(90deg,#f5f5f5 35%, rgb(202, 202, 202) 100%);*/
     background-image: linear-gradient(to right, #f5f5f5 35%,rgb(202, 202, 202));
+    background-attachment: fixed;
 }
 .btn:hover{
     background-color: #f01e1e;

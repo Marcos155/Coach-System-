@@ -27,7 +27,7 @@ $result2 = $conexao_forms15->query($sqlselect);
         $email= $_POST['email'];
         $senha= $_POST['password'];
 
-        $sqlupdate = "UPDATE cadastro SET email='$email',senha='$senha' WHERE cod='1' ";
+        $sqlupdate = "UPDATE cadastro SET email='$email',senha=MD5('$senha') WHERE cod='1' ";
         $result2 = $conexao_forms15->query($sqlupdate);
     }
 ?>
@@ -123,7 +123,7 @@ $result2 = $conexao_forms15->query($sqlselect);
          <input type="email"  placeholder="Email"  value="<?php echo $email ?>" name="email" required>             
          <br><br>
         <label for="exampleInputEmail1" class="form-label">Senha</label><br>
-         <input type="password" placeholder="Senha" name="password" id="senha"  value="<?php echo $senha ?>" required>
+         <input type="password" placeholder="Senha" name="password" id="senha"  value="" required>
          <img src="eyes.png" alt="" id="eyesvg" onclick=" mostrarOcultarSenha()" width="24px">   
        <br><br>
        <input type="submit" class="btn" class="enviar_forms"  value="Alterar" name="update" id="update" onclick="validar()">
