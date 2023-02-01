@@ -12,7 +12,11 @@ $logado = $_SESSION['email'];
 
 if (!empty($_GET['search'])) {
   $data = $_GET['search'];
+  if($data!=1){
   $sql = "SELECT * FROM cadastro WHERE cod LIKE '%$data%' or nome LIKE '%$data%' or sobrenome LIKE '%$data%' or nome_turma LIKE '%$data%' ";
+  }else{
+    $sql = "SELECT * FROM cadastro WHERE cod>1 ORDER BY cod DESC";
+  }
 
 } else {
   $sql = "SELECT * FROM cadastro WHERE cod>1 ORDER BY cod DESC";
