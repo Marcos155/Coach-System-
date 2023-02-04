@@ -905,7 +905,7 @@ if ($x > 1) {
           if ($x > 0) {
             echo "
           <div class='col-4 a'>
-            <h2 style='text-align:center'>>Conclusão de todas as metas</h2>
+            <h2 style='text-align:center'>Conclusão de todas as metas</h2>
             <canvas id='conclusao'></canvas><br>
             <div style='display: inline-flex;color: red;'>
             <i class='fa-solid fa-lightbulb fa-xl'></i><p style='color: black; text-align:center'>Este gráfico serve para exibir quantas metas o aluno concluiu, e 
@@ -917,7 +917,7 @@ if ($x > 1) {
           <?php
           if ($x > 0) {
             echo "<div class='col-4 r'>
-            <h2 style='text-align:center'>>Conclusão por metas</h2>
+            <h2 style='text-align:center'>Conclusão por metas</h2>
             <canvas id='metas-todas'></canvas><br>
             <div style='display: inline-flex;color: red;'>
             <i class='fa-solid fa-lightbulb fa-xl'></i>
